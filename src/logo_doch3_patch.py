@@ -14,7 +14,7 @@ f'<circle class="lu" cx="{OX-DG}" cy="{OY}" r="{DR}"/><circle class="lu" cx="{OX
 '<g transform="translate(150 0)"><path class="lx" d="M-12 2h24a3.4 3.4 0 0 1 3.4 3.8l-2.8 29.6a3.4 3.4 0 0 1-3.4 3H-4.6a3.4 3.4 0 0 1-3.4-3L-14.8 5.8A3.4 3.4 0 0 1-12 2z" transform="translate(0 0)"/>'
 '<circle class="lx" cx="0" cy="48" r="8.6"/>'
 f'<text class="ld" x="0" y="25" font-size="{T-2}" text-anchor="middle">D</text>'
-f'<text class="ls" x="18.4" y="25" font-size="{T}">eutsche</text>'
+f'<text class="ls" x="15.6" y="25" font-size="{T}">eutsche</text>'
 f'<text class="ls" x="{GX}" y="49" font-size="{T}">Grammatik</text></g>'
 '</svg></h1>')
 s=re.sub(r'<h1 class="logo".*?</h1>(?=<button class="markb on")',lambda m:svg,s,count=1,flags=re.S)
