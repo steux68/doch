@@ -10,6 +10,29 @@ if 'id="look-js"' not in s:
     k='<script id="upd-js">'
     assert s.count(k)==1
     s=s.replace(k,JS+k,1)
+
+# Satzbau-Spiel: gleiche Zeile oben, Buehne waechst mit, vier Knoepfe in einer Zeile
+if 'id="look2-css"' not in s:
+    css2='''<style id="look2-css">
+.app[data-mode="game"]:has(#ans) .stage{height:auto;min-height:84px;overflow:visible;padding:12px 0}
+.app[data-mode="game"]:has(#ans) .stage>*{zoom:1}
+.app[data-mode="game"]:has(#ans) .stage .en.big{font-size:1.15rem;font-weight:400;color:#222}
+.app[data-mode="game"] .stage .answer input{background:#fff;border:0;outline:1px dotted #9a9a96;outline-offset:-1px;border-radius:0;font-size:16px;box-shadow:none}
+.app[data-mode="game"] .stage .answer .mic{background:none;outline:1px dotted #9a9a96;outline-offset:-1px;box-shadow:none}
+.app[data-mode="game"] .stage .tip{font-size:12px;color:#888}
+.app[data-mode="game"]:has(#ans) .panel,.app[data-mode="game"].typ:has(#ans) .panel{grid-template-columns:repeat(4,1fr)}
+.app[data-mode="game"]:has(#ans) .panel .btns button{padding:12px 0;white-space:nowrap}
+.app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
+</style>
+'''
+    s=s.replace('</head>',css2+'</head>',1)
+if 'id="look2-js"' not in s:
+    js2='''<script id="look2-js">(function(){if(typeof sbGame!=="function")return;const base=sbGame;
+sbGame=function(){base.apply(this,arguments);try{const g=document.getElementById("gk"),L=sbList();if(g)g.innerHTML='Satzbau <b>'+String(gi%L.length+1).padStart(2,"0")+'</b> / '+String(L.length).padStart(2,"0");const e=document.getElementById("popE"),w=document.getElementById("popA");if(e)e.hidden=false;if(w)w.hidden=true;}catch(x){}};})();
+</script>
+'''
+    k='<script id="upd-js">'
+    s=s.replace(k,js2+k,1)
 if '--noversion' not in sys.argv:
     s=re.sub(r'(<meta name="app-version" content=")([^"]*)(")',lambda mm:mm.group(1)+'2026-11-02d'+mm.group(3),s,count=1)
 open('index.html','w',encoding='utf-8').write(s)

@@ -74,6 +74,17 @@
 .app[data-mode="game"] #panel .btns button.on{color:#e30613;font-weight:700;background:none}
 .app[data-mode="game"] #panel>.card+.btns{}
 </style>
+<style id="look2-css">
+.app[data-mode="game"]:has(#ans) .stage{height:auto;min-height:84px;overflow:visible;padding:12px 0}
+.app[data-mode="game"]:has(#ans) .stage>*{zoom:1}
+.app[data-mode="game"]:has(#ans) .stage .en.big{font-size:1.15rem;font-weight:400;color:#222}
+.app[data-mode="game"] .stage .answer input{background:#fff;border:0;outline:1px dotted #9a9a96;outline-offset:-1px;border-radius:0;font-size:16px;box-shadow:none}
+.app[data-mode="game"] .stage .answer .mic{background:none;outline:1px dotted #9a9a96;outline-offset:-1px;box-shadow:none}
+.app[data-mode="game"] .stage .tip{font-size:12px;color:#888}
+.app[data-mode="game"]:has(#ans) .panel,.app[data-mode="game"].typ:has(#ans) .panel{grid-template-columns:repeat(4,1fr)}
+.app[data-mode="game"]:has(#ans) .panel .btns button{padding:12px 0;white-space:nowrap}
+.app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
+</style>
 </head><body>
 <meta name="app-version" content="2026-11-02d"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
@@ -3230,6 +3241,9 @@ w.insertBefore(bar,w.firstChild);bar.insertBefore($("popA"),$("gk"));bar.appendC
 const two=n=>String(n).padStart(2,"0"),base=mcRender;
 function upd(){try{const n=(TOPICS.find(x=>x.t===T)||{}).n||"Test";$("gk").innerHTML=(T==="test"?"Test":n.split(" ")[0])+' <b>'+two(MC.i+1)+'</b> / '+two(MC.list.length);}catch(e){}}
 mcRender=function(){base.apply(this,arguments);upd();};})();
+</script>
+<script id="look2-js">(function(){if(typeof sbGame!=="function")return;const base=sbGame;
+sbGame=function(){base.apply(this,arguments);try{const g=document.getElementById("gk"),L=sbList();if(g)g.innerHTML='Satzbau <b>'+String(gi%L.length+1).padStart(2,"0")+'</b> / '+String(L.length).padStart(2,"0");const e=document.getElementById("popE"),w=document.getElementById("popA");if(e)e.hidden=false;if(w)w.hidden=true;}catch(x){}};})();
 </script>
 <script id="upd-js">/* Update-Prüfung: beim Öffnen und beim Zurückkehren in die App wird die Seite ohne Zwischenspeicher vom Server geholt; steht dort eine andere Version, lädt die App einmal neu */
 (function(){var cur=(document.querySelector('meta[name="app-version"]')||{}).content;if(!cur)return;
