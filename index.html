@@ -44,8 +44,38 @@
 .app[data-mode="game"] #panel .card.df #cardbody{padding-bottom:8px}
 .app[data-mode="game"] #panel .card.df .top{margin-top:auto}
 </style>
+<style id="look-css">
+/* leichter Test-Look nach den Pop-ups von dasein-design */
+.app[data-mode="game"] #gbar{display:flex;justify-content:center;align-items:center;gap:8px;height:46px;font-size:13.5px;color:#666;letter-spacing:.07em}
+.app[data-mode="game"] #gbar b{color:#e30613;font-weight:400}
+.app[data-mode="game"] #gbar .tlar{position:static;width:34px;height:34px;background:none!important;margin:0}
+.app[data-mode="game"] #gbar .tlar[hidden]{display:none!important}
+.app[data-mode="game"] .stagew{padding:0 10px}
+.app[data-mode="game"] .stage{background:#f6f6f6;outline:1px dotted #b8b8b8;outline-offset:-1px;gap:6px}
+.app[data-mode="game"] .stage>*,.app[data-mode="game"] .stage>.pict,.app[data-mode="game"] .stage>:not(.pict){padding-left:12px;padding-right:12px}
+.app[data-mode="game"] .stage .pict b{font-size:1.7rem;font-weight:400;color:#222}
+.app[data-mode="game"] .stage .pict b.gh{font-size:1.05rem;font-weight:400;letter-spacing:.02em}
+.app[data-mode="game"] .stage .pict b span,.app[data-mode="game"] .stage .pict b .aend{font-weight:700}
+.app[data-mode="game"] .stage .pict .case{font-size:.68rem;letter-spacing:.16em;background:none;padding:0;color:#e30613;font-weight:400}
+.app[data-mode="game"] .stage .pict span{font-size:.8rem}
+.app[data-mode="game"] .stage .nw{font-size:1.8rem;font-weight:400}
+.app[data-mode="game"] #panel{padding:0 10px}
+.app[data-mode="game"] #panel .card{padding:12px 0 0;background:#fff}
+.app[data-mode="game"] #panel .card.df #tx{font-size:18px;line-height:1.25;font-weight:700;text-transform:none;letter-spacing:0;color:#e30613;margin-top:2px}
+.app[data-mode="game"] #panel .opts{gap:8px;margin-top:12px;align-content:start}
+.app[data-mode="game"] #panel .opt{font-size:16px;font-weight:400;padding:11px 8px;background:#fff;box-shadow:none;outline:1px dotted #9a9a96;outline-offset:-1px}
+.app[data-mode="game"] #panel .opt.ok{background:var(--lime,#d4ff3a);outline:1px solid #7a9a00;font-weight:700}
+.app[data-mode="game"] #panel .opt.bad{background:#fbe3e1;outline:1px dotted #e30613;color:#e30613}
+.app[data-mode="game"] #panel #gt{font-size:13.5px;line-height:1.4;color:#222;margin-top:10px}
+.app[data-mode="game"] #panel .nf{font-size:12px;color:#888}
+.app[data-mode="game"] #panel .card.df .top{font-size:12px;color:#888;border-top:1px dotted #b8b8b8;padding-top:8px;letter-spacing:.03em}
+.app[data-mode="game"] #panel .card.df .top .lv{background:none;padding:0;color:#888}
+.app[data-mode="game"] #panel .btns button{background:none;font-size:12px;letter-spacing:.07em;color:#666;padding:12px 0;box-shadow:none}
+.app[data-mode="game"] #panel .btns button.on{color:#e30613;font-weight:700;background:none}
+.app[data-mode="game"] #panel>.card+.btns{}
+</style>
 </head><body>
-<meta name="app-version" content="2026-11-02c"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-02d"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3194,6 +3224,12 @@ function lock(){const st=$("stage"),cb=$("cardbody"),tx=$("tx"),gt=$("gt"),nf=$(
   if(d<=1)break;const nh=Math.max(Math.round(sh0*.7),hs-Math.ceil(d));if(nh>=hs)break;hs=nh;P("--sh",hs+"px");P("--sk",(hs/sh0).toFixed(3));}}
 mcRender=function(){base.apply(this,arguments);try{if(MC&&MC.lw!==innerWidth)lock();}catch(e){}};
 let rt=0;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{try{if(MC&&app.dataset.mode==="game"&&MC.lw!==innerWidth)lock();}catch(e){}},200);});})();
+</script>
+<script id="look-js">(function(){const $=id=>document.getElementById(id),w=$("stagew"),bar=document.createElement("div");bar.id="gbar";bar.innerHTML='<span id="gk"></span>';
+w.insertBefore(bar,w.firstChild);bar.insertBefore($("popA"),$("gk"));bar.appendChild($("popE"));
+const two=n=>String(n).padStart(2,"0"),base=mcRender;
+function upd(){try{const n=(TOPICS.find(x=>x.t===T)||{}).n||"Test";$("gk").innerHTML=(T==="test"?"Test":n.split(" ")[0])+' <b>'+two(MC.i+1)+'</b> / '+two(MC.list.length);}catch(e){}}
+mcRender=function(){base.apply(this,arguments);upd();};})();
 </script>
 <script id="upd-js">/* Update-Prüfung: beim Öffnen und beim Zurückkehren in die App wird die Seite ohne Zwischenspeicher vom Server geholt; steht dort eine andere Version, lädt die App einmal neu */
 (function(){var cur=(document.querySelector('meta[name="app-version"]')||{}).content;if(!cur)return;
