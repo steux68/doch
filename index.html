@@ -89,7 +89,7 @@
 .app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-02f"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-02g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3047,8 +3047,8 @@ function judge(inp,ans){const a=inp.trim().replace(/\s+/g," "),b=ans;if(!a)retur
   if(b.length>=4&&lev(a.toLowerCase(),b.toLowerCase())===1)return ["near","Ein Buchstabe stimmt nicht."];return ["no",""];}
 function markDiff(a,b){let i=0;while(i<a.length&&i<b.length&&a[i]===b[i])i++;let j=0;while(j<a.length-i&&j<b.length-i&&a[a.length-1-j]===b[b.length-1-j])j++;
   return esc(a.slice(0,i))+'<u>'+esc(a.slice(i,a.length-j)||"·")+'</u>'+esc(a.slice(a.length-j));}
-function mcTyped(){if(!MC||MC.done)return;const q=MC.list[MC.i],inp=$("ans").value,[r,why]=judge(inp,q.o[q.c]);MC.done=true;
-  const ok=r==="ok";if(ok)MC.score++;const p=MC.per[q.t]||(MC.per[q.t]=[0,0]);p[1]++;if(ok)p[0]++;noteResult(q,ok);
+function mcTyped(){if(!MC||MC.done)return;const q=MC.list[MC.i],inp=$("ans").value,[r,why]=judge(inp,q.o[q.c]);MC.done=true;(MC.hist||(MC.hist={}))[MC.i]={ty:inp};
+  const ok=r==="ok";if(!MC.rp){if(ok)MC.score++;const p=MC.per[q.t]||(MC.per[q.t]=[0,0]);p[1]++;if(ok)p[0]++;noteResult(q,ok);}
   {const g=$("gap");if(g)g.textContent=q.o[q.c];}{const u=document.querySelector(".uml");if(u)u.hidden=true;}$("ans").disabled=true;$("ans").classList.add(ok?"ok":r==="near"?"near":"bad");
   $("res").innerHTML=ok?"":r==="near"?'<p class="nr"><b>Fast richtig.</b> Du: '+markDiff(inp.trim(),q.o[q.c])+' · richtig: <b>'+esc(q.o[q.c])+'</b>. '+why+'</p>':'<p class="nr bad">Richtig: <b>'+esc(q.o[q.c])+'</b></p>';
   $("gt").textContent=(ok?"Richtig. ":"")+q.why;mcCount();(STAGE[q.t]||gStage)(q,true);$("bW").className="primary";if(MC.i===MC.list.length-1)$("bW").textContent="Ergebnis →";}
@@ -3067,7 +3067,7 @@ function mcRender(){if(!MC||MC.t!==T)mcStart(T);clearTimeout(MC.tm);const q=MC.l
   if(store.timer&&!typed){const el=$("tbi");el.style.width="100%";setTimeout(()=>{el.style.transition="width 15s linear";el.style.width="0%";},30);MC.tm=setTimeout(()=>mcAnswer(-1),15000);}}
 function mcAnswer(i){if(!MC||MC.done)return;MC.done=true;clearTimeout(MC.tm);const q=MC.list[MC.i];const tb=$("tbi");if(tb){tb.style.transition="none";tb.style.width=getComputedStyle(tb).width;}
   document.querySelectorAll(".opt").forEach((b,k)=>{if(k===q.c)b.classList.add("ok");else if(k===i)b.classList.add("bad");});
-  {const g=$("gap");if(g)g.textContent=q.o[q.c];}const ok=i===q.c;if(ok)MC.score++;const p=MC.per[q.t]||(MC.per[q.t]=[0,0]);p[1]++;if(ok)p[0]++;noteResult(q,ok);
+  {const g=$("gap");if(g)g.textContent=q.o[q.c];}const ok=i===q.c;(MC.hist||(MC.hist={}))[MC.i]={c:i};if(!MC.rp){if(ok)MC.score++;const p=MC.per[q.t]||(MC.per[q.t]=[0,0]);p[1]++;if(ok)p[0]++;noteResult(q,ok);}
   $("gt").textContent=(i<0?"Zeit ist um. ":ok?"Richtig. ":"Nicht ganz. ")+q.why;mcCount();if(baseOf(q)&&q.t!=="art")$("nf").innerHTML="Grundform: <b>"+esc(baseOf(q))+"</b>";
   (STAGE[q.t]||gStage)(q,true);$("bW").className="primary";if(MC.i===MC.list.length-1)$("bW").textContent="Ergebnis →";}
 function mcNext(){if(!MC.done){if($("ans")&&!$("ans").disabled){mcTyped();return;}mcAnswer(-1);return;}if(MC.i<MC.list.length-1){MC.i++;mcRender();return;}
@@ -3244,12 +3244,12 @@ w.insertBefore(bar,w.firstChild);bar.insertBefore($("popA"),$("gk"));bar.appendC
 /* Weiter / Zurück als Pfeil mit Wort unten (Steuart, 2 Nov): im Spiel und im Test liegen sie über der Fusszeile, in Daumenreichweite; die Pfeile oben bleiben nur als Zünder */
 {const nv=document.createElement("div");nv.id="gnav";nv.innerHTML='<button type="button" id="gnA" hidden>'+$("popA").innerHTML+'<span>Zurück</span></button><button type="button" id="gnE" hidden><span>Weiter</span>'+$("popE").innerHTML+'</button>';
  const pn=$("panel");pn.insertBefore(nv,pn.querySelector(".btns"));
- const mir=()=>{[["popA","gnA"],["popE","gnE"]].forEach(([s,d])=>{$(d).hidden=$(s).hidden;$(d).disabled=$(s).disabled;});};
- $("gnA").onclick=()=>$("popA").click();$("gnE").onclick=()=>$("popE").click();
- [$("popA"),$("popE")].forEach(b=>new MutationObserver(mir).observe(b,{attributes:true,attributeFilter:["hidden","disabled"]}));mir();}
+ const mir=()=>{[["popA","gnA"],["popE","gnE"]].forEach(([s,d])=>{$(d).hidden=$(s).hidden;$(d).disabled=$(s).disabled;});if(typeof MC!=="undefined"&&MC&&MC.i>0&&$("popA").hidden)$("gnA").hidden=false;};
+ $("gnA").onclick=()=>{if(!$("popA").hidden)$("popA").click();else if(MC&&MC.i>0){MC.i--;mcRender();}};$("gnE").onclick=()=>$("popE").click();
+ [$("popA"),$("popE")].forEach(b=>new MutationObserver(mir).observe(b,{attributes:true,attributeFilter:["hidden","disabled"]}));mir();window.gnMir=mir;}
 const two=n=>String(n).padStart(2,"0"),base=mcRender;
 function upd(){try{const n=(TOPICS.find(x=>x.t===T)||{}).n||"Test";$("gk").innerHTML=(T==="test"?"Test":n.split(" ")[0])+' <b>'+two(MC.i+1)+'</b> / '+two(MC.list.length);}catch(e){}}
-mcRender=function(){base.apply(this,arguments);upd();};})();
+mcRender=function(){base.apply(this,arguments);upd();try{const h=MC.hist&&MC.hist[MC.i];if(h){MC.rp=true;if(h.ty!==undefined){$("ans").value=h.ty;mcTyped();}else mcAnswer(h.c);MC.rp=false;}}catch(e){MC&&(MC.rp=false);}window.gnMir&&window.gnMir();};})();
 </script>
 <script id="look2-js">(function(){if(typeof sbGame!=="function")return;const base=sbGame;
 sbGame=function(){base.apply(this,arguments);try{const g=document.getElementById("gk"),L=sbList();if(g)g.innerHTML='Satzbau <b>'+String(gi%L.length+1).padStart(2,"0")+'</b> / '+String(L.length).padStart(2,"0");const e=document.getElementById("popE"),w=document.getElementById("popA");if(e)e.hidden=false;if(w)w.hidden=true;}catch(x){}};})();
