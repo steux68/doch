@@ -35,14 +35,14 @@
 .app[data-mode="game"] .stage>.pict{padding:0 48px}
 .app[data-mode="game"] .stage>:not(.pict){padding-right:48px;box-sizing:border-box}
 .app[data-mode="game"] .stage .noun .star{right:52px}
-.app[data-mode="game"] .panel,.app[data-mode="game"].typ .panel{flex:1 1 auto;height:auto;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr) auto auto;gap:6px}
+.app[data-mode="game"] .panel,.app[data-mode="game"].typ .panel{flex:1 1 auto;height:auto;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto minmax(0,1fr);align-content:start;gap:6px}
 .app[data-mode="game"] .panel>.card{grid-column:1/-1;min-height:0}
-.app[data-mode="game"] .panel>.btns{display:contents}
+.app[data-mode="game"] .panel>.btns{display:contents}.app[data-mode="game"] .panel>.btns>*{align-self:end}
 .app[data-mode="game"] .lg{min-height:var(--hl,0)}
 .app[data-mode="game"] #panel #tx{min-height:var(--hx,0)}
 .app[data-mode="game"] #panel .opts{min-height:var(--ho,0)}
 .app[data-mode="game"] #panel .card.df #cardbody{padding-bottom:8px}
-.app[data-mode="game"] #panel .card.df .top{margin-top:auto}
+.app[data-mode="game"] #panel .card.df .top{margin-top:10px}
 </style>
 <style id="look-css">
 /* leichter Test-Look nach den Pop-ups von dasein-design */
@@ -50,8 +50,8 @@
 .app[data-mode="game"] #gbar b{color:#e30613;font-weight:400}
 .app[data-mode="game"] #gbar .tlar{position:static;width:34px;height:34px;background:none!important;margin:0}
 .app[data-mode="game"] #gbar .tlar{display:none!important}
-#gnav{display:none}.app[data-mode="game"] #gnav{grid-row:2;grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;min-height:44px;padding:2px 0}
-#gnav button{display:flex;align-items:center;gap:4px;border:0!important;background:none!important;padding:0 2px;min-height:44px;font:inherit;font-size:15px;letter-spacing:.06em;color:#222;-webkit-tap-highlight-color:transparent}
+#gnav{display:none}.app[data-mode="game"] #gnav{grid-row:2;grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;min-height:40px;padding:0}
+#gnav button{display:flex;align-items:center;gap:4px;border:0!important;background:none!important;padding:0 2px;min-height:40px;font:inherit;font-size:15px;letter-spacing:.06em;color:#222;-webkit-tap-highlight-color:transparent}
 #gnav button[hidden]{visibility:hidden;display:flex}#gnav button:disabled{opacity:.28}#gnav button:active{color:#e30613}#gnav .ar{width:34px;height:34px}#gnav #gnE{margin-left:auto}
 .app[data-mode="game"] .stagew{padding:0 10px}
 .app[data-mode="game"] .stage{background:#f6f6f6;outline:1px dotted #b8b8b8;outline-offset:-1px;gap:6px}
@@ -89,7 +89,7 @@
 .app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-02g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-02h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3234,7 +3234,7 @@ function lock(){const st=$("stage"),cb=$("cardbody"),tx=$("tx"),gt=$("gt"),nf=$(
  [["--hx",hx],["--ho",ho],["--hl",hl]].forEach(a=>P(a[0],(Math.ceil(a[1]*100)/100)+"px"));P("--sh",hs+"px");P("--sk","1");
  /* Platz fuer die Erklaerung (hoechstens drei Zeilen) und Grundform: sonst wird der Inhalt der Buehne verkleinert */
  const need=Math.min(hg+hn,76),sh0=hs;
- for(let n=0;n<3;n++){const used=H(cb)+(top?H(top):0)+16,free=card.clientHeight-used+(sGt?0:0)-H(gt)-H(nf),d=need-free;
+ for(let n=0;n<3;n++){const used=H(cb)+(top?H(top):0)+16,avail=document.getElementById("panel").clientHeight-(document.getElementById("gnav")?H(document.getElementById("gnav")):0)-52,free=Math.max(card.clientHeight,avail)-used-H(gt)-H(nf),d=need-free;
   if(d<=1)break;const nh=Math.max(Math.round(sh0*.7),hs-Math.ceil(d));if(nh>=hs)break;hs=nh;P("--sh",hs+"px");P("--sk",(hs/sh0).toFixed(3));}}
 mcRender=function(){base.apply(this,arguments);try{if(MC&&MC.lw!==innerWidth)lock();}catch(e){}};
 let rt=0;addEventListener("resize",()=>{clearTimeout(rt);rt=setTimeout(()=>{try{if(MC&&app.dataset.mode==="game"&&MC.lw!==innerWidth)lock();}catch(e){}},200);});})();
