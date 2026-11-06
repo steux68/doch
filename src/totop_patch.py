@@ -12,7 +12,7 @@ CSS='''
 '''
 JS='''<button type="button" id="toTop" aria-label="nach oben"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15L12 8L19 15"/></svg></button><script id="totop-js">(function(){var b=document.getElementById('toTop'),h=document.getElementById('hscroll');if(!b||!h)return;
 function vis(){return h.offsetParent!==null&&h.getBoundingClientRect().height>0;}
-function upd(){b.classList.toggle('on',vis()&&h.scrollTop>260);}
+function upd(){var y=innerHeight-10;[].forEach.call(h.querySelectorAll('.hb'),function(x){var r=x.getBoundingClientRect();if(r.top>innerHeight*.5&&r.top<y)y=r.top;});b.style.bottom=Math.max(10,innerHeight-y+8)+'px';b.classList.toggle('on',vis()&&h.scrollTop>260);}
 b.onclick=function(){h.scrollTo({top:0,behavior:'smooth'});};h.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);setInterval(upd,500);upd();})();</script>'''
 i=s.rindex('</style>'); s=s[:i]+CSS+s[i:]
 s=s.rstrip('\n')+'\n'+JS+'\n'
