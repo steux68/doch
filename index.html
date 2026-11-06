@@ -89,7 +89,7 @@
 .app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
 </style>
 <!--type-scale--></head><body>
-<meta name="app-version" content="2026-11-06x"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-06y"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -553,6 +553,20 @@ body.introOn .hb[data-pc="4"]{--pc:#ece2f8;animation-delay:-2.8s}
 .hb.hl{background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left top/100% 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left bottom/100% 1px no-repeat,var(--hv) right top/1px 100% no-repeat,#fff}
 .hb.hr{background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left top/100% 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left bottom/100% 1px no-repeat,var(--hv) left top/1px 100% no-repeat,#fff}
 /* ---- Geschichte: rows striped grey / white like the downloads & links of dasein-design, with a small blue link button ---- */
+/* Redewendungen (6 Nov): grey/white rows, German first, English behind a small EN button */
+.rwlist{display:flex;flex-direction:column}
+.hp .rwi{padding:9px 10px 10px;background:#fff;font-size:16px;line-height:1.3}
+.hp .rwi:nth-child(odd){background:#f4f4f2}
+.hp .rwi .rwt{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.hp .rwi .rwp{font-weight:700;overflow-wrap:anywhere}
+.hp .rwi .rwl{flex:none;font-size:11px;font-weight:700;letter-spacing:.06em;color:#3a3c37}
+.hp .rwi .rwd{display:block;margin-top:2px;overflow-wrap:anywhere;hyphens:auto}
+.hp .rwi button.rwb{margin:6px 0 0;padding:1px 8px 2px;border:0;border-radius:0;font:inherit;font-size:12px;font-weight:700;letter-spacing:.04em;color:#1a5fd0;background:#dfe9fa;cursor:pointer}
+.hp .rwi button.rwb[aria-expanded="true"]{color:#fff;background:#1a5fd0}
+.hp .rwi .rwe{display:block;margin-top:6px;padding-top:6px;border-top:1px dotted #b9bbb4;font-size:15px;overflow-wrap:anywhere}
+.hp .rwi .rwe[hidden]{display:none}
+.hp .rwi .rwe i{display:block;margin-top:3px;font-style:italic}
+
 .hlist{display:flex;flex-direction:column}
 .hi{display:grid;grid-template-columns:5.4em minmax(0,1fr);gap:8px;align-items:baseline;padding:9px 10px 10px;background:#fff;font-size:16px;line-height:1.3}
 .hi:nth-child(odd){background:#f4f4f2}
@@ -2808,7 +2822,43 @@ function quotesHTML(){const secs=QUOTES.filter(x=>x.sec).map(x=>x.sec);let sec="
     items.push('<a class="qt'+(qi++%2?' alt':'')+'" href="'+x.u+'" target="_blank" rel="noopener"><span class="pic" aria-hidden="true"><i>'+x.pic+'</i>'+(x.w?'<img alt="" loading="lazy" data-w="'+x.w.join("|")+'">':'')+'</span><span class="qb"><b class="who">'+esc(x.who)+'</b><small>'+esc(x.when)+'</small><q>'+esc(x.q)+'</q><span class="qen">'+esc(x.en)+'</span></span></a>');});
   return '<div class="wchips qchips" id="qchips">'+["Alle"].concat(secs).map(f=>'<button data-f="'+esc(f)+'" aria-pressed="'+(QS.f===f)+'">'+esc(f==="Deutsch zu meinem Pferd"?"Pferd":f==="Zu kurz, zu lang, zu schwer"?"Zu schwer":f)+'</button>').join("")+'</div>'+
    '<div class="qlist">'+items.join("")+'</div>'+(hid?'<button class="mrow" id="qmore">'+PLUS+'<span class="cvt">mehr</span><b>Zitate</b><small>+'+hid+' weitere</small></button>':'')+'<p class="tline">Antippen öffnet das Zitat, dort steht der Link zur Quelle. Bilder: Wikipedia / Wikimedia Commons.</p>';}
-function renderQuotes(){$("p-quotes").innerHTML='<div class="tc df"><h3>Über die deutsche Sprache</h3>'+quotesHTML()+'</div>';loadPics($("p-quotes"));
+/* ---------- Redewendungen: [Stufe, Wendung, Erklärung auf Deutsch, English, Beispielsatz] (own wording, to be checked by a native speaker) ---------- */
+const RW=[
+ ["B1","auf dem Holzweg sein","sich irren; eine falsche Richtung verfolgen","to be barking up the wrong tree","Wenn du glaubst, das klappt ohne Übung, bist du auf dem Holzweg."],
+ ["B1","im Eimer sein","kaputt oder misslungen sein (umgangssprachlich)","to be ruined, down the drain (colloquial)","Der Urlaub ist im Eimer – mein Flug wurde gestrichen."],
+ ["B1","in der Klemme sitzen","in einer schwierigen Lage sein","to be in a tight spot","Ich sitze in der Klemme: Die Miete ist fällig, aber das Gehalt kommt erst nächste Woche."],
+ ["B1","auf Zack sein","aufmerksam sein und schnell reagieren","to be on the ball","Um acht Uhr morgens ist er schon richtig auf Zack."],
+ ["B1","am Ball bleiben","dranbleiben und nicht aufgeben","to keep at it","Bleib am Ball, dann schaffst du die Prüfung."],
+ ["B1","ein Herz und eine Seele sein","sich außerordentlich gut verstehen","to be inseparable, as thick as thieves","Die beiden Schwestern sind ein Herz und eine Seele."],
+ ["B1","auf einer Wellenlänge sein","ähnlich denken und sich gut verstehen","to be on the same wavelength","Mit meiner Chefin bin ich völlig auf einer Wellenlänge."],
+ ["B1","aus dem Häuschen sein","vor Freude oder Aufregung ganz aufgeregt sein","to be beside oneself with excitement","Die Kinder waren aus dem Häuschen, als der erste Schnee fiel."],
+ ["B1","im siebten Himmel sein","überglücklich sein","to be on cloud nine","Seit der Hochzeit ist sie im siebten Himmel."],
+ ["B1","mit den Nerven am Ende sein","psychisch völlig erschöpft sein","to be at the end of one’s tether","Nach drei Wochen Lärm auf der Baustelle bin ich mit den Nerven am Ende."],
+ ["B2","außer sich sein","vor Wut oder Aufregung die Beherrschung verlieren","to be beside oneself","Er war außer sich vor Zorn, als er die Rechnung sah."],
+ ["B2","in der Bredouille sein","in einer unangenehmen Lage sein","to be in a pickle","Ohne Ersatzteil sind wir ganz schön in der Bredouille."],
+ ["B2","mit seinem Latein am Ende sein","nicht mehr weiterwissen","to be at one’s wits’ end","Der Techniker war mit seinem Latein am Ende."],
+ ["B2","auf Kriegsfuß stehen","mit jemandem oder etwas Schwierigkeiten haben","to be at odds with, to be on bad terms","Mit der Rechtschreibung stehe ich auf Kriegsfuß."],
+ ["B2","mit jemandem im Reinen sein","keinen ungelösten Streit mit jemandem haben","to be at peace with someone","Nach dem Gespräch war ich mit ihm wieder im Reinen."],
+ ["B2","im Begriff sein, etwas zu tun","kurz davor sein, etwas zu tun","to be about to do something","Ich war gerade im Begriff zu gehen, da klingelte das Telefon."],
+ ["B2","im Gespräch sein","als Möglichkeit erwogen werden","to be under consideration","Ein neuer Standort ist im Gespräch."],
+ ["B2","auf der Kippe stehen","unsicher sein, ob etwas gut oder schlecht ausgeht","to hang in the balance","Das Projekt steht auf der Kippe."],
+ ["C1","außer Frage stehen","nicht bezweifelt werden können","to be beyond question","Dass wir handeln müssen, steht außer Frage."],
+ ["C1","zur Debatte stehen","gerade diskutiert oder entschieden werden","to be up for debate","Zur Debatte steht, ob die Frist verlängert wird."],
+ ["C1","Hand und Fuß haben","gut durchdacht und überzeugend sein (≈ stichhaltig)","to hold water, to be well thought out","Dein Vorschlag hat Hand und Fuß."],
+ ["C1","aus der Luft gegriffen sein","keine Grundlage haben (≈ haltlos)","to be pulled out of thin air","Die Zahlen in dem Bericht sind aus der Luft gegriffen."],
+ ["C1","ins Gewicht fallen","wichtig sein, Bedeutung haben (≈ ausschlaggebend)","to carry weight, to matter","Die Mehrkosten fallen kaum ins Gewicht."],
+ ["C1","einen Einwand erheben","etwas dagegen vorbringen","to raise an objection","Der Betriebsrat erhob Einwände gegen den Plan."],
+ ["C1","unter dem Strich","alles zusammengerechnet; im Ergebnis (≈ Fazit)","all things considered, the bottom line","Unter dem Strich bleibt wenig Gewinn."],
+ ["C1","etwas auf den Punkt bringen","kurz und treffend sagen","to get to the heart of the matter","Sie hat das Problem auf den Punkt gebracht."],
+ ["C1","den Nagel auf den Kopf treffen","genau das Richtige sagen (≈ treffend)","to hit the nail on the head","Mit dieser Analyse hast du den Nagel auf den Kopf getroffen."]
+];
+function rwHTML(){return '<div class="tc df"><h3>Redewendungen</h3><div class="rwlist">'+RW.map((r,i)=>
+  '<div class="rwi"><span class="rwt"><b class="rwp">'+esc(r[1])+'</b><span class="rwl">'+r[0]+'</span></span><span class="rwd">'+esc(r[2])+'</span>'+
+  '<button class="rwb" type="button" aria-expanded="false" aria-controls="rwe'+i+'">EN</button>'+
+  '<span class="rwe" id="rwe'+i+'" hidden>'+esc(r[3])+'<i>'+esc(r[4])+'</i></span></div>').join("")+'</div>'+
+  '<p class="tline">Stufe rechts: B1 bis C1. „EN“ zeigt Englisch und einen Beispielsatz. Erst die Wendung selbst benutzen, dann nachsehen.</p></div>';}
+function rwBind(root){root.querySelectorAll("button.rwb").forEach(b=>b.onclick=()=>{const e=document.getElementById(b.getAttribute("aria-controls")),o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",o?"false":"true");e.hidden=o;});}
+function renderQuotes(){$("p-quotes").innerHTML='<div class="tc df"><h3>Über die deutsche Sprache</h3>'+quotesHTML()+'</div>'+rwHTML();loadPics($("p-quotes"));rwBind($("p-quotes"));
   $("p-quotes").querySelectorAll("#qchips button").forEach(b=>b.onclick=()=>{QS.f=b.dataset.f;QS.all=false;renderQuotes();});
   const m=$("qmore");if(m)m.onclick=()=>{QS.all=true;renderQuotes();};}
 $("markb").onclick=toTitle;$("markL").onclick=toTitle;$("markb").setAttribute("aria-label","Zur Titelseite");document.querySelector("#home h1.logo").addEventListener("click",toTitle);document.querySelector("#home h1.logo").style.cursor="pointer";
