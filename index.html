@@ -89,7 +89,7 @@
 .app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
 </style>
 <!--type-scale--></head><body>
-<meta name="app-version" content="2026-11-06u"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-06v"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -861,6 +861,11 @@ body:has(footer.copy.ch) #toTop{display:none!important}
 .tests{border:0!important;background:var(--df) left top/100% 1px no-repeat,var(--dfv) left top/1px 100% no-repeat!important}
 .tests .tst{border:0!important;background:var(--df) left bottom/100% 1px no-repeat,var(--dfv) right top/1px 100% no-repeat,#f6f6f6!important}
 .tests .tst[data-l="mix"],.tests .tst:active{background:var(--df) left bottom/100% 1px no-repeat,var(--dfv) right top/1px 100% no-repeat,#cdff3e!important}
+
+/* flush-text */
+.hp .tc>h3,.hp .tc>.tline,.hp .tc>p,.hp .qsec,.hp .tlen{padding-left:0!important;padding-right:0!important}
+.hp .hi,.hp .hi:nth-child(odd){padding-left:0!important;padding-right:0!important}
+.qt .pic::after{display:block!important}
 </style>
 
 <div class="app"><i class="rule l"></i><i class="rule r"></i><i class="tk t"></i><i class="tk b"></i>
