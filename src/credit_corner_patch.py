@@ -25,7 +25,8 @@ function title(){return !n.querySelector('[aria-pressed="true"]');}
 function upd(){var on=h.offsetParent!==null&&h.getBoundingClientRect().height>0,nt=n.getBoundingClientRect().top,t=title(),
  end=h.scrollTop+h.clientHeight>=h.scrollHeight-6;
  f.style.setProperty('--cb',Math.max(60,innerHeight-nt+14)+'px');f.style.setProperty('--cbh',Math.max(30,innerHeight-nt+2)+'px');
- f.classList.toggle('cv',on&&t);f.classList.toggle('ch',on&&!t&&end);}
+ var last=n.lastElementChild&&n.lastElementChild.getAttribute('aria-pressed')==='true';document.body.classList.toggle('introOn',on&&t);
+ f.classList.toggle('cv',on&&t);f.classList.toggle('ch',on&&last&&end);}
 upd();h.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);setInterval(upd,400);
 /* Titelseite: nach oben wischen oder abwaerts scrollen oeffnet den ersten Bereich */
 var y0=null;function go(){if(title()&&n.children[0])n.children[0].click();}

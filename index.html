@@ -89,7 +89,7 @@
 .app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
 </style>
 <!--type-scale--></head><body>
-<meta name="app-version" content="2026-11-06n"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-06o"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -827,10 +827,11 @@ button.primary,.opt.ok,.w.v1,.w.v2,.w.mf,.nw .art.on,.lv,.trio .akk,.trio .dat,.
 #hnav{position:absolute!important;left:0;right:0;bottom:0;margin:0!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:0!important;background:#fff;z-index:15;
  border-top:1px dotted #b8b8b8}
 #hnav .hnb{height:25px;padding:0 10px!important;display:flex;align-items:center;justify-content:flex-start;text-align:left!important;font-size:12px!important;font-weight:700!important;color:#000!important;
- background:#f2f2f2!important;border-bottom:1px dotted #b8b8b8!important;box-sizing:border-box}
+ background:#f2f2f2;border-bottom:1px dotted #b8b8b8!important;box-sizing:border-box}
 #hnav .hnb:nth-child(odd){border-right:1px dotted #b8b8b8!important}
 #hnav .hnb[aria-pressed="true"]{background:#cdff3e!important}
-body.introOn #hnav .hnb:not([aria-pressed="true"]){animation:hbp 3.4s ease-in-out infinite}
+@keyframes hbp2{0%,100%{background-color:#f2f2f2}50%{background-color:var(--pc)}}
+body.introOn #hnav .hnb:not([aria-pressed="true"]){animation:hbp2 3.4s ease-in-out infinite}
 #hnav .hnb[data-pc="0"]{--pc:#fbe0e3}#hnav .hnb[data-pc="1"]{--pc:#e6f4c8;animation-delay:-.7s!important}
 #hnav .hnb[data-pc="2"]{--pc:#dfe9fb;animation-delay:-1.4s!important}#hnav .hnb[data-pc="3"]{--pc:#fdf0c2;animation-delay:-2.1s!important}
 #hnav .hnb[data-pc="4"]{--pc:#ece2f8;animation-delay:-2.8s!important}
@@ -850,6 +851,15 @@ footer.copy span{font-size:12px}footer.copy.ch span{font-size:11px}
 #hscroll::after{content:"";display:block;height:36px}
 #p-sets footer.copy{display:none!important}
 @media (max-height:700px){footer.copy{--cw:240px}footer.copy.cv img{display:none}}
+
+/* nav-fine */
+#hnav{border-top:0!important;background:#fff!important}
+#hnav .hnb{border:0!important;background-color:#f2f2f2;
+ background-image:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px)!important;
+ background-size:100% 1px,100% 1px!important;background-position:left top,left bottom!important;background-repeat:no-repeat!important}
+#hnav .hnb:nth-child(odd){background-image:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px)!important;
+ background-size:100% 1px,100% 1px,1px 100%!important;background-position:left top,left bottom,right top!important}
+#hnav .hnb[aria-pressed="true"]{background-color:#cdff3e!important}
 </style>
 
 <div class="app"><i class="rule l"></i><i class="rule r"></i><i class="tk t"></i><i class="tk b"></i>
@@ -3348,7 +3358,8 @@ function title(){return !n.querySelector('[aria-pressed="true"]');}
 function upd(){var on=h.offsetParent!==null&&h.getBoundingClientRect().height>0,nt=n.getBoundingClientRect().top,t=title(),
  end=h.scrollTop+h.clientHeight>=h.scrollHeight-6;
  f.style.setProperty('--cb',Math.max(60,innerHeight-nt+14)+'px');f.style.setProperty('--cbh',Math.max(30,innerHeight-nt+2)+'px');
- f.classList.toggle('cv',on&&t);f.classList.toggle('ch',on&&!t&&end);}
+ var last=n.lastElementChild&&n.lastElementChild.getAttribute('aria-pressed')==='true';document.body.classList.toggle('introOn',on&&t);
+ f.classList.toggle('cv',on&&t);f.classList.toggle('ch',on&&last&&end);}
 upd();h.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);setInterval(upd,400);
 /* Titelseite: nach oben wischen oder abwaerts scrollen oeffnet den ersten Bereich */
 var y0=null;function go(){if(title()&&n.children[0])n.children[0].click();}
