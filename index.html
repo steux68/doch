@@ -89,7 +89,7 @@
 .app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
 </style>
 <!--type-scale--></head><body>
-<meta name="app-version" content="2026-11-06m"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-06n"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -835,6 +835,21 @@ body.introOn #hnav .hnb:not([aria-pressed="true"]){animation:hbp 3.4s ease-in-ou
 #hnav .hnb[data-pc="2"]{--pc:#dfe9fb;animation-delay:-1.4s!important}#hnav .hnb[data-pc="3"]{--pc:#fdf0c2;animation-delay:-2.1s!important}
 #hnav .hnb[data-pc="4"]{--pc:#ece2f8;animation-delay:-2.8s!important}
 @media (prefers-reduced-motion:reduce){body.introOn #hnav .hnb{animation:none!important}}
+
+/* credit-corner */
+#home:not([hidden]) ~ footer.copy{display:flex!important}
+#topic:not([hidden]) ~ footer.copy{display:none!important}
+footer.copy{position:fixed;left:auto;top:auto;right:14px;bottom:var(--cb,150px);width:var(--cw,270px);height:24px;z-index:46;border:0;padding:0;margin:0;gap:8px;
+ background:none;justify-content:center;align-items:center;white-space:nowrap;transform-origin:100% 100%;transform:translateY(calc(var(--cw,270px) * -1)) rotate(-90deg);opacity:0;pointer-events:none;
+ transition:transform .65s cubic-bezier(.4,.1,.2,1),bottom .65s cubic-bezier(.4,.1,.2,1),width .65s,right .65s,opacity .35s}
+footer.copy.cv{opacity:1}
+footer.copy.ch{opacity:1;right:10px;width:calc(100vw - 20px);bottom:var(--cbh,60px);transform:translateY(0) rotate(0);box-sizing:border-box;height:28px;padding-top:2px;gap:6px;
+ border-top:1px dotted #b8b8b8;background:#fff}
+footer.copy img{height:20px}footer.copy.ch img{height:13px}
+footer.copy span{font-size:12px}footer.copy.ch span{font-size:11px}
+#hscroll::after{content:"";display:block;height:36px}
+#p-sets footer.copy{display:none!important}
+@media (max-height:700px){footer.copy{--cw:240px}footer.copy.cv img{display:none}}
 </style>
 
 <div class="app"><i class="rule l"></i><i class="rule r"></i><i class="tk t"></i><i class="tk b"></i>
@@ -3328,3 +3343,16 @@ function vis(){return h.offsetParent!==null&&h.getBoundingClientRect().height>0;
 function upd(){b.classList.toggle('on',vis()&&h.scrollTop>260);}
 b.onclick=function(){h.scrollTo({top:0,behavior:'smooth'});};h.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);setInterval(upd,500);upd();})();</script>
 <script id="nav-bottom-js">(function(){var n=document.getElementById("hnav");if(!n)return;[].forEach.call(n.children,function(b,k){b.setAttribute("data-pc",k%5);});})();</script>
+<script id="credit-corner-js">(function(){var f=document.querySelector('#home ~ footer.copy'),h=document.getElementById('hscroll'),n=document.getElementById('hnav');if(!f||!h||!n)return;
+function title(){return !n.querySelector('[aria-pressed="true"]');}
+function upd(){var on=h.offsetParent!==null&&h.getBoundingClientRect().height>0,nt=n.getBoundingClientRect().top,t=title(),
+ end=h.scrollTop+h.clientHeight>=h.scrollHeight-6;
+ f.style.setProperty('--cb',Math.max(60,innerHeight-nt+14)+'px');f.style.setProperty('--cbh',Math.max(30,innerHeight-nt+2)+'px');
+ f.classList.toggle('cv',on&&t);f.classList.toggle('ch',on&&!t&&end);}
+upd();h.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);setInterval(upd,400);
+/* Titelseite: nach oben wischen oder abwaerts scrollen oeffnet den ersten Bereich */
+var y0=null;function go(){if(title()&&n.children[0])n.children[0].click();}
+document.addEventListener('touchstart',function(e){y0=title()&&h.contains(e.target)?e.touches[0].clientY:null;},{passive:true});
+document.addEventListener('touchmove',function(e){if(y0!==null&&y0-e.touches[0].clientY>36){y0=null;go();}},{passive:true});
+document.addEventListener('wheel',function(e){if(e.deltaY>20&&h.offsetParent!==null)go();},{passive:true});
+})();</script>
