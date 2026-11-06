@@ -110,7 +110,7 @@ assert oldc in s
 s = s.replace(oldc, "((ROWS-1-(i>>1))+(i%2?0:(i+1<SECS.length?1:0)))*HB", 1)
 
 # 5. CSS: background, origin note, link button, pin colours
-s = s.replace("#p-home,#p-links,#p-hist{background:#f4f4f2}", "#p-home,#p-links,#p-rede,#p-hist{background:#f4f4f2}", 1)
+# #p-rede stays white like Zitate: the theme chips (grey) then show as boxes with white gaps (6 Nov, Steuart)
 s = s.replace(".hp .rwi .rwe i{display:block;margin-top:3px;font-style:italic}",
   ".hp .rwi .rwe i{display:block;margin-top:3px;font-style:italic}\n.hp .rwi .rwo{display:block;margin-top:6px;padding-top:6px;border-top:1px dotted #b9bbb4;font-size:14px;color:#3a3c37}\n.hp .rwi a.wk{display:inline-block;padding:1px 8px 2px;font-size:12px;font-weight:700;letter-spacing:.04em;color:#1a5fd0;background:#dfe9fa;text-decoration:none;vertical-align:1px}\n.hp .rwlist+.qsec{margin-top:14px}", 1)
 s = s.replace(".tp .pin:nth-of-type(6){--c1:#3a3c37;--c2:#ffd400}", ".tp .pin:nth-of-type(6){--c1:#3a3c37;--c2:#ffd400}.tp .pin:nth-of-type(7){--c1:#ffd400;--c2:#e30613}", 1)
