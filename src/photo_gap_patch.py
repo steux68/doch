@@ -8,7 +8,7 @@ CSS='''
 .qt,.hp .qt.alt{padding:8px 0!important;min-height:0!important}
 .qt .pic{margin:0!important}
 .qt .qb{padding:0 8px 0 0!important}
-.qt b.who{line-height:1.1;display:block;margin-top:-3px}
+.qt b.who{line-height:1.1;display:block;margin-top:-1px}
 '''
 i=s.rindex('</style>'); s=s[:i]+CSS+s[i:]
 s=re.sub(r'(<meta name="app-version" content=")([^"]*)(")',lambda m:m.group(1)+'2026-11-06x'+m.group(3),s,count=1)
