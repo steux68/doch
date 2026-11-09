@@ -88,8 +88,9 @@
 .app[data-mode="game"]:has(#ans) .panel .btns button{padding:12px 0;white-space:nowrap}
 .app[data-mode="game"] #panel .btns button.primary{color:#e30613;font-weight:700}
 </style>
-<!--type-scale--></head><body>
-<meta name="app-version" content="2026-11-07a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
+</head><body>
+<meta name="app-version" content="2026-11-09a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3413,7 +3414,7 @@ b.onclick=function(){h.scrollTo({top:0,behavior:'smooth'});};h.addEventListener(
 function upd(){var on=h.offsetParent!==null&&h.getBoundingClientRect().height>0,t=h.scrollTop<h.clientHeight*.2,end=h.scrollTop+h.clientHeight>=h.scrollHeight-6&&h.scrollTop>h.clientHeight*.5,m=innerHeight*.5,b=innerHeight;
  [].forEach.call(h.querySelectorAll('.hb'),function(x){var r=x.getBoundingClientRect();if(r.top>m&&r.top<b)b=r.top;});
  f.style.setProperty('--cb',Math.max(60,innerHeight-b+14)+'px');f.style.setProperty('--cbh','10px');
- f.classList.toggle('cv',on&&t);var cg=document.getElementById('cogb');if(cg){cg.style.setProperty('--cogb',(Math.max(60,innerHeight-b+14)+f.offsetWidth+10)+'px');cg.classList.toggle('cv',on&&t);}f.classList.toggle('ch',on&&!t&&end);}
+ f.classList.toggle('cv',on&&t);var cg=document.getElementById('cogb');if(cg){var bb=0;[].forEach.call(f.children,function(c){var r=c.getBoundingClientRect();if(r.width>0&&r.height>0&&r.bottom>bb)bb=r.bottom;});cg.style.setProperty('--cogb',Math.max(10,innerHeight-(bb||innerHeight-Math.max(60,innerHeight-b+14)))+'px');cg.classList.toggle('cv',on&&t);}f.classList.toggle('ch',on&&!t&&end);}
 upd();h.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);setInterval(upd,400);
 })();</script>
 <script id="ticks-js">(function(){var q=function(s){return document.querySelector(s)};
