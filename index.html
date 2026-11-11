@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-11a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-11b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3433,4 +3433,10 @@ function place(){var t=q('.tk.t'),b=q('.tk.b'),m=q('.tk.m');if(!t||!b)return;
  set(m,innerHeight/2-5.5,11);
  var bl=null;bars.forEach(function(x){var l=x.getBoundingClientRect().left;if(bl===null||l<bl)bl=l;});if(bl!==null)document.documentElement.style.setProperty('--tw',Math.max(4,Math.round(bl-8))+'px');if(last){var rh=Math.round(last.getBoundingClientRect().height),bt=hs&&vis(hs)&&!last.classList.contains('pbar')?hs.getBoundingClientRect().bottom:innerHeight-(parseFloat(getComputedStyle(last).bottom)||0);set(b,bt-11,11);}else set(b,null);}
 place();addEventListener('resize',place);setInterval(place,600);
-})();</script>
+})();</script><script id="hit-areas">/* UI audit C3 (11 Nov): small buttons get an invisible tap area of about 44 px; the look stays the same */
+(function(){var st=document.createElement('style');st.textContent='.hitx{position:relative}.hitx::after{content:"";position:absolute;left:-6px;right:-6px;top:50%;height:var(--hh,44px);transform:translateY(-50%)}';document.head.appendChild(st);
+function mark(){document.querySelectorAll('button,[role=button],summary').forEach(function(e){if(e.classList.contains('hitx')||e.classList.contains('hb'))return;var r=e.getBoundingClientRect();if(!r.height||r.height>=40||r.width>200)return;var a=getComputedStyle(e,'::after');if(a.content!=='none'&&a.content!=='normal')return;if(getComputedStyle(e).position==='static')e.style.position='relative';e.style.setProperty('--hh',Math.min(44,Math.round(r.height)+14)+'px');e.classList.add('hitx');});}
+var t;function later(){clearTimeout(t);t=setTimeout(mark,300);}
+addEventListener('load',later);new MutationObserver(later).observe(document.documentElement,{childList:true,subtree:true});})();
+</script>
+
