@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-13b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-13c"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -2850,7 +2850,7 @@ function rwRow(r,i){const has=!!r[6];
 function rwHTML(){const items=[];
   RWT.forEach(([k,n])=>{if(RS.f!=="Alle"&&RS.f!==k)return;if(RS.f==="Alle")items.push('<h4 class="qsec">'+esc(n)+'</h4>');
     items.push('<div class="rwlist">'+RW.map((r,i)=>r[0]===k?rwRow(r,i):"").join("")+'</div>');});
-  return '<div class="tc df"><h3>Redewendungen</h3><div class="wchips qchips" id="rchips">'+[["Alle","Alle"]].concat(RWT).map(([k,n])=>'<button data-f="'+k+'" aria-pressed="'+(RS.f===k)+'">'+esc(k==="Alle"?"Alle":n.split(" ")[0])+'</button>').join("")+'</div>'+items.join("")+
+  return '<div class="tc df"><h3>Redewendungen</h3><div class="wchips qchips" id="rchips">'+[["Alle","Alle"]].concat(RWT).map(([k,n])=>'<button data-f="'+k+'" aria-pressed="'+(RS.f===k)+'">'+esc(k==="Alle"?"Alle":n.split(" ")[0])+'</button>').join("")+'</div><div class="qbw"><div class="qbs" tabindex="0" role="region" aria-label="Redewendungen">'+items.join("")+'</div><div class="qsl" aria-hidden="true"><i></i></div></div>'+
    '<p class="tline">Stufe rechts: B1 bis C1. „EN“ zeigt Englisch und einen Beispielsatz. Eine Herkunft steht nur da, wo ich sie in Duden, DWDS oder Wikipedia gefunden habe. Erst die Wendung selbst benutzen, dann nachsehen.</p></div>';}
 function renderRede(){const P=$("p-rede");P.innerHTML=rwHTML();
   P.querySelectorAll("#rchips button").forEach(b=>b.onclick=()=>{RS.f=b.dataset.f;P.dataset.more="";renderRede();});
@@ -3395,9 +3395,9 @@ tb.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[
 .tlbody dl.qd{margin:6px 0 0;padding-top:8px;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:12px;line-height:1.35;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left top/100% 1px no-repeat}
 .tlbody dl.qd dt{color:#8a8a86}.tlbody dl.qd dd{margin:0;color:#222}
 </style>
-<script id="qbox-js">(function(){var root=document.getElementById("p-quotes");if(!root||!window.qSlider)return;
+<script id="qbox-js">(function(){if(!window.qSlider)return;["p-quotes","p-rede"].forEach(function(id){var root=document.getElementById(id);if(!root)return;
 function setup(){var sc=root.querySelector(".qbs"),sl=root.querySelector(".qbw>.qsl");if(!sc||!sl||sc._q)return;sc._q=1;window.qSlider(sc,sl);}
-new MutationObserver(setup).observe(root,{childList:true});setup();})();</script>
+new MutationObserver(setup).observe(root,{childList:true});setup();});})();</script>
 <script id="spiel-js">/* Spiel: misst pro Runde alle Hoehen vorab und reserviert sie, damit nichts springt */
 (function(){const $=id=>document.getElementById(id),app=document.querySelector(".app");
 if(typeof mcRender!=="function"||!app)return;
