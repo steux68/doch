@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-13d"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-13g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -175,6 +175,16 @@ h1.logo b{font-weight:700}
 #gt{margin:0;font-size:16px;color:var(--muted);line-height:1.4}
 .btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:none}
 mark{background:none;font-weight:700;color:inherit;border-bottom:2px solid currentColor;padding:0 1px}
+/* Satz korrigieren (13 Nov): kompakte Zeilen, Lösung per Antippen */
+.kzk details{padding:6px 0;background:var(--df) left bottom/100% 1px no-repeat}
+.kzk summary{cursor:pointer;list-style:none;font-size:16px;line-height:1.35}
+.kzk summary::-webkit-details-marker{display:none}
+.kzk summary s{color:var(--akk);text-decoration-thickness:2px}
+.kzk summary:after{content:"  ▸";color:var(--muted);font-size:13px}
+.kzk details[open] summary:after{content:"  ▾"}
+.kzk .lsg{margin:4px 0 2px;font-size:15px}
+.kzk .lsg small{display:block;color:var(--muted);font-size:14px}
+
 mark.d{color:var(--dat)} mark.a{color:var(--akk)}
 .copy{flex:none;display:flex;align-items:center;justify-content:center;gap:8px;height:22px;padding-top:5px;box-sizing:border-box;margin:0;background:var(--df) left top/100% 1px no-repeat}
 .copy img{height:15px;width:auto;display:block}
@@ -1154,6 +1164,13 @@ const TH_PREP=`
 <p class="tline">Position verbs are strong (lag, stand, saß). Placing verbs are regular (legte, stellte, setzte).</p>
 <p class="memo">Österreich: liegen, stehen, sitzen take <b>sein</b> in the Perfekt: Ich <b>bin</b> lange gesessen. In Germany: Ich habe lange gesessen.</p></div>
 
+<div class="tc df kzk wp"><h3>Satz korrigieren <small>A2–B1</small></h3>
+<details><summary>Ich lege das Buch <s>auf dem</s> Tisch.</summary><p class="lsg">Ich lege das Buch auf <mark class="a">den</mark> Tisch.<small>Wohin? Bewegung → Akkusativ.</small></p></details>
+<details><summary>Das Bild hängt <s>an die</s> Wand.</summary><p class="lsg">Das Bild hängt an <mark class="d">der</mark> Wand.<small>Wo? Es hängt schon dort → Dativ.</small></p></details>
+<details><summary>Er setzt sich <s>auf dem</s> Stuhl.</summary><p class="lsg">Er setzt sich auf <mark class="a">den</mark> Stuhl.<small>Wohin? setzen = Bewegung → Akkusativ.</small></p></details>
+<details><summary>Die Vase steht <s>auf das</s> Regal.</summary><p class="lsg">Die Vase steht auf <mark class="d">dem</mark> Regal.<small>Wo? stehen = Position → Dativ.</small></p></details>
+<p class="tline">Erst fragen: Wo? oder Wohin? Dann den Artikel wählen.</p></div>
+
 <div class="tc df"><h3>Wo · Wohin · Woher <small>B1–B2</small></h3><div class="www">
 <span></span><span class="h">Wohin?</span><span class="h">Wo?</span><span class="h">Woher?</span>
 <span class="k">Räume, Länder mit Artikel</span><span>in den Park<br>in die Schweiz</span><span>im Park<br>in der Schweiz</span><span>aus dem Park<br>aus der Schweiz</span>
@@ -1356,6 +1373,12 @@ const TH_ART=`
 <div><span>-er</span><span>People and tools are der (der Lehrer, der Bohrer), but <b>das</b> Fenster, <b>das</b> Zimmer, <b>die</b> Mauer.</span></div>
 <div><span>-e</span><span>der Junge, der Name, das Auge, das Ende.</span></div>
 <div><span>Mädchen</span><span>das Mädchen: -chen beats the meaning.</span></div></div></div>
+<div class="tc df kzk rest"><h3>Satz korrigieren <small>A1–B1</small></h3>
+<details><summary><s>Das</s> Wohnung ist hell.</summary><p class="lsg"><b>Die</b> Wohnung ist hell.<small>-ung → immer die.</small></p></details>
+<details><summary><s>Die</s> Mädchen ist neun Jahre alt.</summary><p class="lsg"><b>Das</b> Mädchen ist neun Jahre alt.<small>-chen → immer das, auch bei Mädchen.</small></p></details>
+<details><summary><s>Der</s> Fenster ist offen.</summary><p class="lsg"><b>Das</b> Fenster ist offen.<small>-er-Falle: das Fenster, das Zimmer.</small></p></details>
+<details><summary><s>Der</s> Haustür ist offen.</summary><p class="lsg"><b>Die</b> Haustür ist offen.<small>Das letzte Wort entscheidet: die Tür → die Haustür.</small></p></details>
+<p class="tline">Nomen immer mit Artikel lernen, als ein Wort.</p></div>
 <div class="tc df"><h3>Komposita</h3><p class="memo">The last part decides: das Haus + die Tür = <b>die</b> Haustür.</p><p class="tline">der Stall + das Tor = das Stalltor · das Büro + der Stuhl = der Bürostuhl</p></div>`;
 const TH_PRON=`
 <div class="tc df"><h3>Alle Formen</h3><div class="ptab"><span class="h">Nom.</span><span class="h a">Akk.</span><span class="h d">Dat.</span>`+PRON.map(([n,a,d])=>'<span>'+n+'</span><span class="a">'+a+'</span><span class="d">'+d+'</span>').join("")+`</div><p class="tline">Only <b>uns</b> and <b>euch</b> are the same in both cases. <b>sie</b> (she) has Dativ <b>ihr</b>; <b>sie</b> (they) has <b>ihnen</b>.</p></div>
@@ -1664,6 +1687,12 @@ GT.konn={name:"Konnektoren",badge:"Konnektor",tip:"Ask first: does the connector
 <div><span>Position 0</span><span><b>und, aber, oder, denn, sondern, doch</b> · Merkhilfe ADUSO</span></div>
 <div><span>Verb am Ende</span><span><b>weil, dass, ob, wenn, als, obwohl, damit, bevor, nachdem, während, seit, bis, sobald</b> and W-words in indirect questions</span></div>
 <div><span>Vorfeld</span><span><b>deshalb, deswegen, darum, trotzdem, dann, danach, außerdem, sonst, also</b></span></div></div></div>
+<div class="tc df kzk rest"><h3>Satz korrigieren <small>B1</small></h3>
+<details><summary>Ich lerne Deutsch, weil <s>ich wohne in Wien</s>.</summary><p class="lsg">Ich lerne Deutsch, weil ich in Wien <b>wohne</b>.<small>Nach weil geht das Verb ans Ende.</small></p></details>
+<details><summary>Ich weiß, dass <s>er kommt heute</s>.</summary><p class="lsg">Ich weiß, dass er heute <b>kommt</b>.<small>Nach dass steht das Verb am Ende.</small></p></details>
+<details><summary>Weil es regnet, <s>wir bleiben zu Hause</s>.</summary><p class="lsg">Weil es regnet, <b>bleiben wir</b> zu Hause.<small>Nebensatz zuerst: Nach dem Komma folgt sofort das Verb.</small></p></details>
+<details><summary>Ich rufe dich an, wenn <s>ich habe Zeit</s>.</summary><p class="lsg">Ich rufe dich an, wenn ich Zeit <b>habe</b>.<small>wenn ist ein Nebensatz-Konnektor: Verb am Ende.</small></p></details>
+<p class="tline">Erst fragen: Ist es ein Nebensatz? Dann steht das Verb am Ende.</p></div>
 <div class="tc df"><h3>Paare, die man verwechselt</h3><div class="rows">
 <div><span>weil / denn</span><span>same meaning: weil → verb at the end, denn → normal order</span></div>
 <div><span>deshalb / trotzdem</span><span>deshalb = result, trotzdem = against expectation</span></div>
@@ -1856,6 +1885,12 @@ GT.vprep={name:"Verben mit Präpositionen",badge:"Präposition",tip:"Learn verb,
 <div><span>Person</span><span>Auf wen wartest du? Ich warte auf ihn.</span></div>
 <div><span>Satz</span><span>Ich freue mich darauf, dich zu sehen. · Ich warte darauf, dass du kommst.</span></div>
 <div><span>-r-</span><span>before a vowel: darauf, daran, darüber, worum (but: damit, dafür, davon, wofür)</span></div></div></div>
+<div class="tc df kzk vp"><h3>Satz korrigieren <small>A2–B2</small></h3>
+<details><summary>Ich warte <s>für</s> den Bus.</summary><p class="lsg">Ich warte <b>auf</b> den Bus.<small>warten auf: Verb und Präposition gehören fest zusammen.</small></p></details>
+<details><summary><s>Wofür</s> wartest du? Auf meinen Freund.</summary><p class="lsg"><b>Auf wen</b> wartest du? Auf meinen Freund.<small>Bei Personen bleibt die Präposition: auf wen, nicht wo-.</small></p></details>
+<details><summary>Ich denke <s>über</s> dich.</summary><p class="lsg">Ich denke <b>an</b> dich.<small>denken an. (nachdenken über ist ein anderes Verb.)</small></p></details>
+<details><summary>Ich interessiere mich <s>an</s> Architektur.</summary><p class="lsg">Ich interessiere mich <b>für</b> Architektur.<small>sich interessieren für: die Präposition ist nicht übersetzbar, lerne sie mit dem Verb.</small></p></details>
+<p class="tline">Verb und Präposition immer als Block lernen.</p></div>
 <div class="tc df"><h3>Gleiches Verb, andere Bedeutung</h3><div class="rows">
 <div><span>sich freuen</span><span>auf (coming) · über (already here)</span></div>
 <div><span>sprechen</span><span>mit (with someone) · über (about something)</span></div>
@@ -2278,6 +2313,12 @@ GT.tekamolo={name:"TEKAMOLO",badge:"Te · Ka · Mo · Lo",tip:"Ask four question
 <div><span class="k">Pronomen zuerst</span><span>Ich schenke <b>ihr</b> einen Ring.<br>Ich schenke <b>ihn</b> meiner Mutter.</span></div>
 <div><span class="k">zwei Pronomen: Akk – Dat</span><span>Ich gebe <b>es dir</b>.</span></div>
 <div><span class="k">zwei Nomen: Dat – Akk</span><span>Ich schenke <b>meiner Mutter einen Ring</b>.</span></div></div></div>
+<div class="tc df kzk rest"><h3>Satz korrigieren <small>B1</small></h3>
+<details><summary>Ich gebe <s>das Buch ihr</s>.</summary><p class="lsg">Ich gebe <b>ihr das Buch</b>.<small>Pronomen zuerst.</small></p></details>
+<details><summary>Ich gebe <s>dir es</s>.</summary><p class="lsg">Ich gebe <b>es dir</b>.<small>Zwei Pronomen: erst Akkusativ, dann Dativ.</small></p></details>
+<details><summary>Ich fahre <s>nach Wien morgen mit dem Zug</s>.</summary><p class="lsg">Ich fahre <b>morgen mit dem Zug nach Wien</b>.<small>Normalfall: Te – Ka – Mo – Lo.</small></p></details>
+<details><summary>Ich schenke <s>einen Ring meiner Mutter</s>.</summary><p class="lsg">Ich schenke <b>meiner Mutter einen Ring</b>.<small>Zwei Nomen: erst Dativ, dann Akkusativ.</small></p></details>
+<p class="tline">TEKAMOLO ist der sichere Normalfall, kein Gesetz.</p></div>
 <div class="tc df"><h3>Wann gilt es nicht? <small>B1</small></h3>
 <div class="nt" style="--nc:8.4em minmax(0,1fr)"><div class="hd"><span>Fall</span><span>Beispiel</span></div>
 <div><span class="g">Betonung</span><span>Nach Wien fahre ich <b>mit dem Zug</b>. The part you stress moves back or to the front.</span></div>
