@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-11b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-13a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3333,6 +3333,13 @@ $("popE").onclick=()=>{const w=$("bW");if(w)w.click();};
 new MutationObserver(sync).observe(r,{childList:true,subtree:true,attributes:true});
 new MutationObserver(sync).observe($("stage"),{attributes:true,childList:true});sync();})();
 </script>
+<style id="qpic-css">
+.tlbody .qtop{display:flex;gap:12px;align-items:flex-start;margin:0 0 10px}
+.tlbody .qtop h4{margin:0;flex:1;min-width:0}
+.qpic{flex:none;width:96px;height:120px;position:relative;display:grid;place-items:center;font-size:20px;font-weight:700;background:var(--pale);overflow:hidden;box-sizing:border-box;outline:1px dotted #b8b8b8;outline-offset:-1px}
+.qpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;opacity:0;filter:grayscale(1)}
+.qpic.has img{opacity:1}.qpic.has i{visibility:hidden}.qpic i{font-style:normal}
+</style>
 <script id="qpop-js">/* Zitate: Antippen oeffnet ein Popup im Look von Geschichte */
 (function(){const $=id=>document.getElementById(id),QO={i:0,open:false},sec0=$("p-quotes");if(!sec0)return;
 const E=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -3344,7 +3351,9 @@ const items=()=>Array.prototype.slice.call(document.querySelectorAll("#p-quotes 
 function show(i){const L=items(),n=L.length;if(!n)return;i=(i%n+n)%n;QO.i=i;const a=L[i],g=(sel)=>{const x=a.querySelector(sel);return x?x.textContent:"";};
  let sec="",el=a.previousElementSibling;while(el){if(el.classList.contains("qsec")){sec=el.textContent;break;}el=el.previousElementSibling;}
  if(!sec){const c=document.querySelector('#qchips button[aria-pressed="true"]');if(c&&c.dataset.f!=="Alle")sec=c.dataset.f;}
- $("qb").innerHTML='<h4>'+E(g(".who"))+'</h4><p class="qq">„'+E(g("q"))+'“</p><p class="qen2">'+E(g(".qen"))+'</p><p class="tline"><a class="wk" href="'+E(a.href)+'" target="_blank" rel="noopener" aria-label="Quelle öffnen: '+E(g(".who"))+'">Quelle ↗</a></p><p class="gs">'+E([sec,g("small")].filter(Boolean).join(" · "))+'</p>';
+ const im=a.querySelector("img[data-w]"),wimg=im?im.dataset.w:"";
+ $("qb").innerHTML='<div class="qtop"><span class="qpic" aria-hidden="true"><i>'+E(g(".pic i"))+'</i>'+(wimg?'<img alt="" data-w="'+E(wimg)+'">':'')+'</span><h4>'+E(g(".who"))+'</h4></div><p class="qq">„'+E(g("q"))+'“</p><p class="qen2">'+E(g(".qen"))+'</p><p class="tline"><a class="wk" href="'+E(a.href)+'" target="_blank" rel="noopener" aria-label="Quelle öffnen: '+E(g(".who"))+'">Quelle ↗</a></p><p class="gs">'+E([sec,g("small")].filter(Boolean).join(" · "))+'</p>';
+ if(typeof loadPics==="function")loadPics($("qb"));
  $("qc").textContent=(i+1)+" / "+n;$("qb").scrollTop=0;}
 function open(i){if(!QO.open){QO.open=true;navPush("qt");p.hidden=false;}show(i);}
 function close(){QO.open=false;p.hidden=true;}
