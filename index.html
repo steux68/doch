@@ -3373,13 +3373,13 @@ tb.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[
 </script>
 <style id="qbox-css">
 .qbw{position:relative}
-.qbs{height:min(372px,58svh);padding-right:6px;overflow-y:auto;scrollbar-width:none;overscroll-behavior-y:auto}
+.qbs{height:min(372px,58svh);overflow-y:auto;scrollbar-width:none;overscroll-behavior-y:auto}
 .qbs::-webkit-scrollbar{display:none}
 .qbs:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .qsl{position:absolute;top:0;bottom:0;width:14px;touch-action:none;cursor:pointer;z-index:3}
 .qsl::before{content:"";position:absolute;left:6px;top:0;bottom:0;width:1px;background:repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px)}
 .qsl i{position:absolute;left:4px;top:0;width:5px;min-height:28px;background:var(--red)}
-.qbw>.qsl{right:0}
+.qbw>.qsl{right:0;width:10px}.qbw>.qsl::before{left:7px}.qbw>.qsl i{left:5px}
 .qv2 .qvc{grid-column:2;display:flex;align-items:center;gap:10px}
 .qv2 .qvc .count{font-size:14px;color:#555;letter-spacing:.06em;font-variant-numeric:tabular-nums}.qv2 .qvc .count b{color:var(--red);font-weight:400}
 .qv2 .qva{border:0;background:none;padding:6px;margin:-6px 0;display:flex;min-height:0;-webkit-tap-highlight-color:transparent}
