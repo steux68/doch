@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-13j"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-13k"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3246,7 +3246,7 @@ function mcCount(){const q=MC.list[MC.i];$("ct").innerHTML=(q&&q.lv?'<span class
 function mcRender(){if(!MC||MC.t!==T)mcStart(T);clearTimeout(MC.tm);const q=MC.list[MC.i];MC.done=false;const typed=canType(q);document.querySelector(".app").classList.toggle("typ",!!typed);
   if(q.t==="prep")prLegend(false);else $("lg").innerHTML=LG[q.t]||(GT[q.t]&&GT[q.t].lg)||"";
   (STAGE[q.t]||gStage)(q,false);$("bd").textContent=(BADGE[q.t]||(q=>GT[q.t].badge))(q);mcCount();
-  $("cardbody").innerHTML='<p id="tx">'+esc(q.s).replace("___",'<span class="gap" id="gap">&nbsp;</span>').replace(/\[(.+?)\]/,'<mark class="fm">$1</mark>')+'</p>'+(typed?'<div class="answer typ"><input id="ans" type="text" lang="de" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="Was gehört in die Lücke?" aria-label="Deine Antwort"><button class="primary" id="chk">Prüfen</button></div><div id="res"></div>':'<div class="opts'+(q.o.some(w=>w.length>12)?" long":q.o.length===3?" three":"")+'">'+q.o.map((w,i)=>'<button class="opt" id="o'+i+'" data-i="'+i+'">'+esc(w)+'</button>').join("")+'</div>')+(store.timer&&!typed?'<div class="tbar"><i id="tbi"></i></div>':'')+'<p id="gt"></p><p class="nf" id="nf">'+(store.arthelp&&baseOf(q)&&q.t!=="art"?'Grundform: <b>'+esc(baseOf(q))+'</b>':'')+'</p>';
+  $("cardbody").innerHTML='<p id="tx">'+esc(q.s).replace("___",'<span class="gap" id="gap">&nbsp;</span>').replace(/\[(.+?)\]/,'<mark class="fm">$1</mark>')+'</p>'+(typed?'<div class="answer typ"><input id="ans" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" type="text" lang="de" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="Was fehlt?" aria-label="Deine Antwort"><button class="primary" id="chk">Prüfen</button></div><div id="res"></div>':'<div class="opts'+(q.o.some(w=>w.length>12)?" long":q.o.length===3?" three":"")+'">'+q.o.map((w,i)=>'<button class="opt" id="o'+i+'" data-i="'+i+'">'+esc(w)+'</button>').join("")+'</div>')+(store.timer&&!typed?'<div class="tbar"><i id="tbi"></i></div>':'')+'<p id="gt"></p><p class="nf" id="nf">'+(store.arthelp&&baseOf(q)&&q.t!=="art"?'Grundform: <b>'+esc(baseOf(q))+'</b>':'')+'</p>';
   document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>mcAnswer(+b.dataset.i));
   if(typed){const a=$("ans");$("chk").onclick=mcTyped;a.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();MC.done?mcNext():mcTyped();}};
     document.querySelectorAll(".uml button").forEach(b=>b.onclick=()=>{if(a.disabled)return;const p=a.selectionStart??a.value.length;a.value=a.value.slice(0,p)+b.dataset.c+a.value.slice(a.selectionEnd??p);a.focus();a.setSelectionRange(p+1,p+1);});
@@ -3286,7 +3286,7 @@ let rec=null;
 function sbCur(){const L=sbList();return L[gi%L.length];}
 function sbList(){return byLevel(SB.map(x=>Object.assign({lv:x.lvl},x)));}
 function sbGame(){sbLegend();const L=sbList();const it=sbCur();
-  $("stage").innerHTML='<p class="en big">'+esc(it.en)+'</p><div class="answer"><input id="ans" type="text" lang="de" autocomplete="off" autocorrect="off" autocapitalize="sentences" spellcheck="false" enterkeyhint="done" placeholder="Auf Deutsch …" aria-label="Deine Antwort"><button class="mic" id="mic" aria-label="Sprechen">'+MIC+'</button></div><p class="tip" id="tip">Sprechen: ins Feld tippen und das Mikrofon der Tastatur nutzen.</p><div id="res"></div>';
+  $("stage").innerHTML='<p class="en big">'+esc(it.en)+'</p><div class="answer"><input id="ans" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" type="text" lang="de" autocomplete="off" autocorrect="off" autocapitalize="sentences" spellcheck="false" enterkeyhint="done" placeholder="Auf Deutsch …" aria-label="Deine Antwort"><button class="mic" id="mic" aria-label="Sprechen">'+MIC+'</button></div><p class="tip" id="tip">Sprechen: ins Feld tippen und das Mikrofon der Tastatur nutzen.</p><div id="res"></div>';
   $("stage").onclick=null;
   $("bd").textContent=it.lvl;$("ct").innerHTML='<span class="lv">'+it.lvl+'</span> '+(gi%L.length+1)+" / "+L.length+" · "+SB.filter(x=>store["sb"+x.id]==="ok").length+" richtig";
   $("cardbody").innerHTML='<p id="tx">'+esc(it.topic)+'</p><p id="gt">Sag oder schreib den Satz auf Deutsch.</p>';
@@ -3436,6 +3436,32 @@ tb.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[
 .qvw>.qsl{right:6px}
 .tlbody dl.qd{margin:6px 0 0;padding-top:8px;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:12px;line-height:1.35;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left top/100% 1px no-repeat}
 .tlbody dl.qd dt{color:#8a8a86}.tlbody dl.qd dd{margin:0;color:#222}
+
+/* spiel-kompakt */
+.titlebar .spacer{text-align:right;font-size:12px;color:#666;font-variant-numeric:tabular-nums;white-space:nowrap;width:auto;min-width:70px}
+.app[data-mode="game"] #gbar{display:none}
+.app[data-mode="game"] #stagew,.app[data-mode="game"] #panel{background:#f3f3f1;margin:0 10px;padding-left:12px;padding-right:12px}
+.app[data-mode="game"] #stagew{padding-top:8px}
+.app[data-mode="game"] #panel{margin-top:-8px;padding-bottom:6px;position:relative;flex:0 0 auto!important}
+.app[data-mode="game"] .stage{background-color:transparent!important;height:min(var(--sh,150px),120px);min-height:64px}
+.app[data-mode="game"] #panel .card{background:transparent;position:relative}
+.app[data-mode="game"] #panel .card.df .top{position:absolute;left:0;top:0;margin:0;padding:0;border:0;background:none;font-size:11px}
+.app[data-mode="game"] #panel .card.df .top .count{display:none}
+.app[data-mode="game"] #panel .card.df #tx{padding:14px 40px 0;text-align:center}
+.app[data-mode="game"] #gnav{position:absolute;grid-area:auto;left:12px;right:12px;top:4px;min-height:0;pointer-events:none;z-index:2}
+.app[data-mode="game"] #gnav button{pointer-events:auto;min-height:0}
+.app[data-mode="game"] #gnav button span{display:none}
+.app[data-mode="game"] #gnav .ar{width:30px;height:30px}
+.app[data-mode="game"] #panel>.card{margin-top:0}
+.app[data-mode="game"] #panel #tx,.app[data-mode="game"] #panel .opts{min-height:0}
+.app.kbo{min-height:0!important;height:var(--vvh,100%)!important;padding-block:2px 2px}
+.app.kbo .seg,.app.kbo #lg,.app.kbo #panel .btns,.app.kbo #tabar,.app.kbo .abar{display:none!important}
+.app.kbo:not(:has(.stage #ans)) #stagew{display:none}
+.app.kbo .stage{height:auto!important;min-height:0!important;padding:4px 0!important}
+.app.kbo:not(:has(.stage #ans)) #panel{margin-top:0}
+.app.kbo #panel .card.df #tx{min-height:0!important}
+.app.kbo .titlebar{height:34px}
+.app.kbo #panel .card.df #gt{font-size:13px;margin-top:6px}
 </style>
 <script id="qbox-js">(function(){if(!window.qSlider)return;["p-quotes","p-rede"].forEach(function(id){var root=document.getElementById(id);if(!root)return;
 function setup(){var sc=root.querySelector(".qbs"),sl=root.querySelector(".qbw>.qsl");if(!sc||!sl||sc._q)return;sc._q=1;window.qSlider(sc,sl);}
@@ -3536,4 +3562,16 @@ function mark(){document.querySelectorAll('button,[role=button],summary').forEac
 var t;function later(){clearTimeout(t);t=setTimeout(mark,300);}
 addEventListener('load',later);new MutationObserver(later).observe(document.documentElement,{childList:true,subtree:true});})();
 </script>
+<script id="kompakt-js">(function(){
+const app=document.querySelector(".app"),vv=window.visualViewport,ct=document.getElementById("ct"),sp=document.querySelector(".titlebar .spacer");
+function cnt(){if(!sp)return;if(app.dataset.mode!=="game"||!ct){sp.textContent="";return;}const lv=ct.querySelector(".lv"),r=ct.textContent.replace(lv?lv.textContent:"","").replace(/\s*richtig/,"").trim();sp.textContent=(lv?lv.textContent+" · ":"")+r+" ✓";}
+if(ct){new MutationObserver(cnt).observe(ct,{childList:true,characterData:true,subtree:true});}
+new MutationObserver(cnt).observe(app,{attributes:true,attributeFilter:["data-mode"]});cnt();
+function kb(){const a=document.activeElement,typing=a&&(a.tagName==="INPUT"||a.tagName==="TEXTAREA")&&!a.disabled&&app.dataset.mode==="game";
+ const h=vv?vv.height:innerHeight,open=!!typing&&h<innerHeight*.8;
+ document.documentElement.style.setProperty("--vvh",Math.round(h)+"px");app.classList.toggle("kbo",open);if(open)scrollTo(0,0);}
+if(vv)vv.addEventListener("resize",kb);
+addEventListener("focusin",()=>setTimeout(kb,350));addEventListener("focusout",()=>setTimeout(kb,350));
+})();</script>
+
 
