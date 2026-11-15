@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-15a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-15b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -111,9 +111,9 @@ body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:var(-
 /* guide lines + ticks */
 .rule{position:absolute;top:0;bottom:0;width:1px;pointer-events:none;background:repeating-linear-gradient(to bottom,var(--line) 0 4px,transparent 4px 7px)}
 .rule.l{left:8px}.rule.r{right:8px}
-.tk{position:absolute;left:8px;right:8px;height:8px;pointer-events:none;--t:repeating-linear-gradient(to right,var(--dot) 0 4px,transparent 4px 6px);
+.tk{position:absolute;left:8px;right:8px;height:8px;pointer-events:none;--t:repeating-linear-gradient(to right,var(--dot) 0 4px,transparent 4px 7px);
  background:var(--t) left top/10px 1px no-repeat,var(--t) left bottom/10px 1px no-repeat,var(--t) right top/10px 1px no-repeat,var(--t) right bottom/10px 1px no-repeat}
-.tk.t{top:52px}.tk.b{bottom:30px}
+.tk.t{top:51px}.tk.b{bottom:30px}
 /* dotted frame */
 .df{position:relative}
 .df::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--df) left top/100% 1px no-repeat,var(--df) left bottom/100% 1px no-repeat,var(--dfv) left top/1px 100% no-repeat,var(--dfv) right top/1px 100% no-repeat}
@@ -407,7 +407,7 @@ text.alt{stroke:none;font-family:var(--body);font-size:12px;font-weight:700}text
 .pas{display:flex;flex-direction:column;gap:4px;width:100%}
 .parr{text-align:center;color:var(--muted);font-size:1.2rem;line-height:1.2}.parr small{font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .tlz{position:relative;width:100%;max-width:380px;margin:0 auto;padding-left:24px;display:flex;flex-direction:column}
-.tlax{position:absolute;left:8px;top:10px;bottom:10px;width:1px;background:repeating-linear-gradient(to bottom,var(--ink) 0 4px,transparent 4px 6px)}
+.tlax{position:absolute;left:8px;top:10px;bottom:10px;width:1px;background:repeating-linear-gradient(to bottom,var(--ink) 0 4px,transparent 4px 7px)}
 .tlc{position:relative;display:grid;grid-template-columns:8.6em minmax(0,1fr);gap:0 10px;padding:6px 0;background:var(--df) left bottom/100% 1px no-repeat}
 .tlc::before{content:"";position:absolute;left:-20px;top:15px;width:12px;height:1px;background:var(--ink)}
 .tlc b{font-size:1rem}.tlc span{font-size:1rem}.tlc small{grid-column:2;font-size:12px;color:var(--muted)}
@@ -488,10 +488,7 @@ body.introOn .hb[data-pc="4"]{--pc:#ece2f8;animation-delay:-2.8s}body.introOn .h
    dotted = separates items in a list (rows, bars); no boxes round content; headings are small red capitals; a choice is shown by a fill, not a line */
 .hp .tc{padding:0 0 18px;background:none}.hp .df::after{display:none}
 .hp .tc h3{margin:8px 0 4px;padding:0;background:none;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}.hp .tc h3 small{display:none}
-.home .titlebar{position:relative;background:none}.home .titlebar::after{content:"";position:absolute;left:-10px;right:-10px;bottom:0;border-bottom:1px solid transparent;transition:border-color .15s;background-image:repeating-linear-gradient(to right,var(--line) 0 4px,transparent 4px 7px);background-position:left bottom;background-size:100% 1px;background-repeat:no-repeat;background-origin:border-box}
-#home:has(.hbody.tstk) .titlebar::after{border-color:transparent;background-image:none}
-/* 15 Nov: bars stacked at the top: only the bars' own dotted lines show; no dashed header line or frame ticks under them */
-.app:has(#home:not([hidden]) .hbody.tstk) .tk.t{visibility:hidden}
+.home .titlebar{position:relative;background:none}.home .titlebar::after{content:"";position:absolute;left:-10px;right:-10px;bottom:0;border-bottom:1px solid transparent;transition:border-color .15s;background-image:repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 7px);background-position:left bottom;background-size:100% 1px;background-repeat:no-repeat;background-origin:border-box}
 #home .hbody{margin-top:-8px}
 .app:has(#home:not([hidden])) .tk.t{display:none}
 .grh .no::after,.tt::after{display:none}.grp .grh .no{background:transparent}.grp.open .grh .no{background:var(--ink)}
@@ -873,7 +870,7 @@ footer.copy span{font-size:12px}footer.copy.ch span{font-size:12px}
 .app:has(#home:not([hidden])) .tk.t{display:block!important}
 
 /* ticks-short */
-.tk{background:repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 6px) left top/var(--tw,7px) 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 6px) left bottom/var(--tw,7px) 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 6px) right top/var(--tw,7px) 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 6px) right bottom/var(--tw,7px) 1px no-repeat!important}
+.tk{background:repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 7px) left top/var(--tw,7px) 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 7px) left bottom/var(--tw,7px) 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 7px) right top/var(--tw,7px) 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 7px) right bottom/var(--tw,7px) 1px no-repeat!important}
 
 /* hist-quotes */
 .tests{gap:0!important;background:none!important;border:0!important;border-top:1px solid transparent!important;border-left:1px solid transparent!important;margin-top:6px;background-image:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px)!important;background-position:left top,left top!important;background-size:100% 1px,1px 100%!important;background-repeat:no-repeat!important;background-origin:border-box!important}
@@ -3098,7 +3095,7 @@ const isUp=b=>{const r=b.getBoundingClientRect(),R=SC.getBoundingClientRect();re
 let BARS_PC=0;function curBar(){if(!BARS_PC){BARS_PC=1;BARS.forEach((b,k)=>b.setAttribute("data-pc",k%6));}let c=-1;BARS.forEach((b,k)=>{if(isUp(b))c=k;});const top0=SC.getBoundingClientRect().top;BARS.forEach((b,k)=>b.classList.toggle("on",k===c||(isUp(b)&&b.getBoundingClientRect().top>top0+parseFloat(b.style.top)+2)));HBODY.classList.toggle("inpg",c>=0);document.body.classList.toggle("introOn",c<0&&(!SC||SC.scrollTop<60));}
 /* white backing behind both stacks, so no page shows through the empty half of a row */
 function backs(){const R=SC.getBoundingClientRect();let tb=R.top,bt=R.bottom;
-  BARS.forEach(b=>{const r=b.getBoundingClientRect(),t=parseFloat(b.style.top),bo=parseFloat(b.style.bottom);if(r.top<=R.top+t+.5)tb=Math.max(tb,r.bottom);if(r.bottom>=R.bottom-bo-.5)bt=Math.min(bt,r.top);});
+  BARS.forEach(b=>{const r=b.getBoundingClientRect(),t=parseFloat(b.style.top),bo=parseFloat(b.style.bottom);const st=r.top<=R.top+t+.5;b.classList.toggle('stt',st);if(st)tb=Math.max(tb,r.bottom);if(r.bottom>=R.bottom-bo-.5)bt=Math.min(bt,r.top);});
   $("sbt").style.top="0px";$("sbt").style.height=Math.max(0,tb-R.top)+"px";$("sbb").style.top=(bt-R.top)+"px";$("sbb").style.height=Math.max(0,R.bottom-bt)+"px";
   HBODY.classList.toggle("tstk",tb>R.top+1);HBODY.classList.toggle("bstk",bt<R.bottom-1);}
 /* the last page can always scroll up into place */
@@ -3606,6 +3603,10 @@ tb.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[
 .app[data-mode="game"] #tabar{position:fixed;left:0;right:0;bottom:6px;z-index:61}
 .app.kbo[data-mode="game"] #gqpop{top:40px}
 .app.kbo[data-mode="game"]::after{top:34px}
+/* linie-ticks */
+.hb.stt.hl{background:var(--bl) left bottom/100% 1px no-repeat,var(--hv) right top/1px 100% no-repeat,#fff}
+.hb.stt.hr{background:var(--bl) left bottom/100% 1px no-repeat,var(--hv) left top/1px 100% no-repeat,#fff}
+.tk{--t:repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 7px)}
 </style>
 <script id="qbox-js">(function(){if(!window.qSlider)return;["p-quotes","p-rede"].forEach(function(id){var root=document.getElementById(id);if(!root)return;
 function setup(){var sc=root.querySelector(".qbs"),sl=root.querySelector(".qbw>.qsl");if(!sc||!sl||sc._q)return;sc._q=1;window.qSlider(sc,sl);}
@@ -3696,7 +3697,7 @@ function place(){var t=q('.tk.t'),b=q('.tk.b'),m=q('.tk.m');if(!t||!b)return;
  if(tbs.length)hl=tbs[0].getBoundingClientRect().bottom;else{var hd=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--head'));hl=isNaN(hd)?null:hd;}
  var bars=[].filter.call(document.querySelectorAll('.hb,.pbar'),vis),last=bars[bars.length-1],hs=document.getElementById('hscroll');
  function set(e,top,h){if(top===null){e.style.removeProperty('top');e.style.removeProperty('height');e.style.removeProperty('bottom');return;}e.style.setProperty('top',Math.round(top-off(e))+'px','important');e.style.setProperty('bottom','auto','important');e.style.setProperty('height',h+'px','important');e.style.setProperty('display','block','important');}
- if(hl!==null)set(t,hl,11);
+ if(hl!==null)set(t,hl-(tbs.length?1:0),11);
  set(m,innerHeight/2-5.5,11);
  var bl=null;bars.forEach(function(x){var l=x.getBoundingClientRect().left;if(bl===null||l<bl)bl=l;});if(bl!==null)document.documentElement.style.setProperty('--tw',Math.max(4,Math.round(bl-8))+'px');if(last){var rh=Math.round(last.getBoundingClientRect().height),bt=hs&&vis(hs)&&!last.classList.contains('pbar')?hs.getBoundingClientRect().bottom:innerHeight-(parseFloat(getComputedStyle(last).bottom)||0);set(b,bt-11,11);}else set(b,null);}
 place();addEventListener('resize',place);setInterval(place,600);
