@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-13v"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-15a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -489,7 +489,9 @@ body.introOn .hb[data-pc="4"]{--pc:#ece2f8;animation-delay:-2.8s}body.introOn .h
 .hp .tc{padding:0 0 18px;background:none}.hp .df::after{display:none}
 .hp .tc h3{margin:8px 0 4px;padding:0;background:none;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}.hp .tc h3 small{display:none}
 .home .titlebar{position:relative;background:none}.home .titlebar::after{content:"";position:absolute;left:-10px;right:-10px;bottom:0;border-bottom:1px solid transparent;transition:border-color .15s;background-image:repeating-linear-gradient(to right,var(--line) 0 4px,transparent 4px 7px);background-position:left bottom;background-size:100% 1px;background-repeat:no-repeat;background-origin:border-box}
-#home:has(.hbody.tstk) .titlebar::after{border-color:transparent}
+#home:has(.hbody.tstk) .titlebar::after{border-color:transparent;background-image:none}
+/* 15 Nov: bars stacked at the top: only the bars' own dotted lines show; no dashed header line or frame ticks under them */
+.app:has(#home:not([hidden]) .hbody.tstk) .tk.t{visibility:hidden}
 #home .hbody{margin-top:-8px}
 .app:has(#home:not([hidden])) .tk.t{display:none}
 .grh .no::after,.tt::after{display:none}.grp .grh .no{background:transparent}.grp.open .grh .no{background:var(--ink)}
