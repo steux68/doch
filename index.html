@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-15g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-15h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -2208,6 +2208,78 @@ const TH_LINKS=`
 <div class="rows links">`+["cefr","profile","goethea1","goetheb1"].map(lk).join("")+`</div><p class="tline">The levels are defined by the Council of Europe for all languages. Profile deutsch maps them to German grammar and vocabulary. Levels in this app are a guide.</p></div>
 <div class="tc df"><h3>Prüfungen</h3><div class="rows links">`+["goethe","osd","telc"].map(lk).join("")+`</div></div>
 <div class="tc df"><h3>Beispielsätze</h3><div class="rows links">`+["tatoeba"].map(lk).join("")+`</div><p class="tline">Free sentence collections vary in quality. Check them against Duden or DWDS (see Wörterbücher).</p></div>`;
+/* verben-faelle */
+GT.vkas={name:"Verben & Fälle",badge:"Verb",tip:"Learn the case together with the verb: helfen + Dativ, brauchen + Akkusativ.",src:["duden","grammis","lingolia"],
+ lg:'<span class="lgc akk">Akk</span><span class="lgc dat">Dat</span><span class="lgc nom">Nom</span><span class="lgc gen">Gen</span>',
+ cards:[
+ {b:"Akkusativ",st:ruleSt("Most verbs: + Akkusativ",["Ich sehe den Hengst.","Wir brauchen einen Plan.","Sie besucht ihre Tante.","Er kauft das Buch."]),tx:"Direct object: Wen oder was?",gt:"sehen, brauchen, besuchen, kaufen, haben, machen, lesen, suchen, finden …"},
+ {b:"Dativ",st:ruleSt("helfen · danken · gehören · gefallen",["Ich helfe dem Nachbarn.","Das Pferd gehört mir.","Der Entwurf gefällt der Kundin.","Wir danken Ihnen."]),tx:"A small group takes only the Dativ",gt:"Also: antworten, folgen, passen, schmecken, fehlen, zuhören, glauben (a person), begegnen."},
+ {b:"Dat + Akk",st:ruleSt("geben · zeigen · schenken · schicken",["Ich gebe dem Bauherrn den Plan.","Sie zeigt mir das Zimmer.","Er schenkt seiner Mutter einen Ring.","Wir schicken Ihnen die Rechnung."]),tx:"Two objects: person Dativ, thing Akkusativ",gt:"Also: bringen, erklären, empfehlen, leihen, schreiben, sagen. Two nouns: Dativ first. Two pronouns: Akkusativ first."},
+ {b:"Nominativ",st:ruleSt("sein · werden · bleiben",["Er ist Architekt.","Sie wird Ärztin.","Das bleibt ein Geheimnis."]),tx:"The noun after these verbs stays Nominativ",gt:"There is no object here. The noun says the same as the subject. Also: heißen, scheinen."},
+ {b:"Fallen",st:ruleSt("Same meaning, different case",["helfen + Dativ, but unterstützen + Akkusativ","folgen + Dativ, but begleiten + Akkusativ","antworten + Dativ, but fragen + Akkusativ"]),tx:"Check each new verb in a dictionary",gt:"Ich helfe ihm, but Ich unterstütze ihn. English does not show the difference, so learn the case with the verb."},
+ {b:"Reflexiv",st:ruleSt("mich or mir?",["Ich wasche mich. (Akkusativ)","Ich wasche mir die Hände. (Dativ)","Ich kaufe mir ein Buch. (Dativ)"]),tx:"With another object, mich becomes mir",gt:"If the sentence already has an Akkusativ object, the reflexive pronoun is Dativ."},
+ {b:"Genitiv",st:ruleSt("bedürfen · gedenken",["Das bedarf einer Erklärung.","Wir gedenken der Opfer."]),tx:"Very few verbs, formal (C1)",gt:"Rare in everyday speech. You will meet them in speeches, laws and written reports."}],
+ q:[
+ {s:"Ich helfe ___ Nachbarn.",o:["dem","den","der"],why:"helfen + Dativ: dem Nachbarn.",lv:"A2"},
+ {s:"Wir besuchen ___ Großeltern.",o:["die","den","der"],why:"besuchen + Akkusativ: die Großeltern.",lv:"A1"},
+ {s:"Das Pferd gehört ___.",o:["mir","mich","ich"],why:"gehören + Dativ: mir.",lv:"A2"},
+ {s:"Der Entwurf gefällt ___ Kundin.",o:["der","die","den"],why:"gefallen + Dativ; feminine → der Kundin.",lv:"A2"},
+ {s:"Ich brauche ___ neuen Plan.",o:["einen","einem","ein"],why:"brauchen + Akkusativ; masculine → einen.",lv:"A1"},
+ {s:"Kannst du ___ bitte helfen? (ich)",o:["mir","mich","ich"],why:"helfen + Dativ: mir.",lv:"A2"},
+ {s:"Ich danke ___ für die Einladung. (Sie)",o:["Ihnen","Sie","Ihr"],why:"danken + Dativ: Ihnen.",lv:"A2"},
+ {s:"Er schenkt ___ Mutter einen Ring.",o:["seiner","seine","seinem"],why:"schenken: the person is Dativ; feminine → seiner.",lv:"A2"},
+ {s:"Sie zeigt ___ das Zimmer. (wir)",o:["uns","wir","unser"],why:"zeigen: the person is Dativ: uns.",lv:"A2"},
+ {s:"Ich frage ___ Lehrer.",o:["den","dem","der"],why:"fragen + Akkusativ: den Lehrer.",lv:"A2"},
+ {s:"Ich antworte ___ Lehrerin.",o:["der","die","den"],why:"antworten + Dativ; feminine → der Lehrerin.",lv:"B1"},
+ {s:"Wir folgen ___ Weg.",o:["dem","den","der"],why:"folgen + Dativ: dem Weg.",lv:"B1"},
+ {s:"Ich unterstütze ___ Kollegen.",o:["den","dem","der"],why:"unterstützen + Akkusativ: den Kollegen.",lv:"B1"},
+ {s:"Das Kleid passt ___ sehr gut. (sie)",o:["ihr","sie","ihrer"],why:"passen + Dativ: ihr.",lv:"B1"},
+ {s:"Das Essen schmeckt ___ nicht. (er)",o:["ihm","ihn","er"],why:"schmecken + Dativ: ihm.",lv:"A2"},
+ {s:"Mir fehlt ___ Stift.",o:["ein","einen","einem"],why:"fehlen + Dativ for the person; the missing thing is the subject, so Nominativ: ein Stift.",lv:"B1"},
+ {s:"Ich wasche ___ die Hände. (ich)",o:["mir","mich","ich"],why:"Another Akkusativ object (die Hände) is present, so the pronoun is Dativ: mir.",lv:"B1"},
+ {s:"Ich wasche ___. (ich)",o:["mich","mir","ich"],why:"No other object: the pronoun is Akkusativ: mich.",lv:"B1"},
+ {s:"Er ist ___ Architekt.",o:["ein","einen","einem"],why:"After sein the noun stays Nominativ: ein Architekt.",lv:"A2"},
+ {s:"Ich glaube ___ nicht. (er)",o:["ihm","ihn","er"],why:"glauben + Dativ when you believe a person: ihm.",lv:"B1"},
+ {s:"Der Lehrer erklärt ___ Schülern die Regel.",o:["den","die","dem"],why:"erklären: the person is Dativ; plural → den Schülern.",lv:"B1"},
+ {s:"Ich leihe ___ mein Fahrrad. (du)",o:["dir","dich","du"],why:"leihen: the person is Dativ: dir.",lv:"B1"},
+ {s:"Wir gedenken ___ Opfer.",o:["der","die","den"],why:"gedenken + Genitiv (C1); plural → der.",lv:"C1"},
+ {s:"Das Projekt bedarf ___ Genehmigung.",o:["einer","eine","einem"],why:"bedürfen + Genitiv (C1); feminine → einer.",lv:"C1"}],
+ th:`<div class="tc df"><h3>Welcher Fall?</h3><div class="rows"><div><span>Wen oder was?</span><span>Akkusativ: Ich sehe den Plan.</span></div><div><span>Wem?</span><span>Dativ: Ich helfe dem Nachbarn.</span></div><div><span>Wer oder was?</span><span>Nominativ: Der Plan ist neu.</span></div></div><p class="tline">Ask the question after the verb. The answer tells you the case.</p></div><div class="tc df"><h3>Nur Dativ</h3><div class="rows"><div><span>helfen</span><span>Ich helfe dir.</span></div><div><span>danken</span><span>Wir danken Ihnen.</span></div><div><span>gehören</span><span>Das gehört mir.</span></div><div><span>gefallen</span><span>Es gefällt ihr.</span></div><div><span>antworten</span><span>Er antwortet dem Chef.</span></div><div><span>folgen</span><span>Sie folgt dem Weg.</span></div></div><p class="tline">Also: passen, schmecken, fehlen, zuhören, begegnen.</p></div><div class="tc df"><h3>Zwei Objekte</h3><div class="rows"><div><span>Person</span><span>Dativ: Ich gebe dem Kind</span></div><div><span>Sache</span><span>Akkusativ: einen Apfel.</span></div></div><p class="tline">geben, zeigen, schenken, schicken, bringen, erklären, empfehlen, leihen.</p></div>`};
+GT.pfall={name:"Präpositionen & Fall",badge:"Präposition",tip:"Sort prepositions into groups: always Akkusativ, always Dativ, two-way, Genitiv.",src:["duden","grammis","lingolia"],
+ lg:'<span class="lgc akk">Akk</span><span class="lgc dat">Dat</span><span class="lgc gen">Gen</span>',
+ cards:[
+ {b:"Akkusativ",st:ruleSt("bis · durch · entlang · für · gegen · ohne · um",["durch den Park","für meinen Bruder","gegen die Wand","ohne einen Plan"]),tx:"Always Akkusativ",gt:"entlang usually follows its noun: den Fluss entlang. um + Akkusativ: um den See."},
+ {b:"Dativ",st:ruleSt("aus · außer · bei · gegenüber · mit · nach · seit · von · zu",["aus dem Haus","mit meinem Kollegen","seit einem Jahr","zu der Besprechung"]),tx:"Always Dativ",gt:"gegenüber can follow a pronoun: mir gegenüber. nach is used for cities and countries: nach Wien."},
+ {b:"Wechsel",st:ruleSt("an · auf · hinter · in · neben · über · unter · vor · zwischen",["Wo? → Dativ: im Stall","Wohin? → Akkusativ: in den Stall"]),tx:"Nine two-way prepositions",gt:"Position (Wo?) takes the Dativ, movement (Wohin?) takes the Akkusativ. Practise in Wo oder wohin?"},
+ {b:"Kurzform",st:ruleSt("am · im · zum · zur · vom · beim · ins · ans",["am Montag (an dem)","zum Arzt (zu dem)","zur Schule (zu der)","ins Kino (in das)"]),tx:"Short forms with the article",gt:"Use the long form to stress the article: Ich gehe zu dem Arzt, den du empfohlen hast."},
+ {b:"Genitiv",st:ruleSt("wegen · trotz · während · statt",["wegen des Regens","trotz der Kälte","während der Sitzung"]),tx:"Written and formal: Genitiv",gt:"See the Genitiv topic for the full list."},
+ {b:"Merken",st:ruleSt("Learn them inside sentences",["Ich fahre mit dem Zug zu meiner Tante.","Ich gehe ohne meinen Schirm durch den Regen."]),tx:"One short sentence beats a list",gt:"Say the sentence aloud and change the noun: mit dem Bus, mit der Bahn, mit dem Auto."}],
+ q:[
+ {s:"Wir gehen durch ___ Park.",o:["den","dem","der"],why:"durch + Akkusativ; masculine → den.",lv:"A1"},
+ {s:"Das Geschenk ist für ___ Mutter.",o:["meine","meiner","meinen"],why:"für + Akkusativ; feminine stays meine.",lv:"A1"},
+ {s:"Er fährt ohne ___ Auto.",o:["sein","seinem","seines"],why:"ohne + Akkusativ; neuter stays sein.",lv:"A2"},
+ {s:"Wir spielen gegen ___ Mannschaft aus Graz.",o:["die","der","den"],why:"gegen + Akkusativ; feminine stays die.",lv:"A2"},
+ {s:"Sie läuft um ___ See.",o:["den","dem","der"],why:"um + Akkusativ; masculine → den.",lv:"A2"},
+ {s:"Sie kommt aus ___ Schule.",o:["der","die","dem"],why:"aus + Dativ; feminine → der.",lv:"A1"},
+ {s:"Ich wohne bei ___ Eltern.",o:["meinen","meine","meinem"],why:"bei + Dativ; plural → meinen.",lv:"A2"},
+ {s:"Ich fahre mit ___ Zug.",o:["dem","den","der"],why:"mit + Dativ; masculine → dem.",lv:"A1"},
+ {s:"Nach ___ Arbeit gehe ich heim.",o:["der","die","dem"],why:"nach + Dativ; feminine → der.",lv:"A1"},
+ {s:"Seit ___ Woche bin ich krank.",o:["einer","eine","einem"],why:"seit + Dativ; feminine → einer.",lv:"A2"},
+ {s:"Das ist ein Brief von ___ Kollegen.",o:["einem","einen","einer"],why:"von + Dativ; masculine → einem.",lv:"A2"},
+ {s:"Wir gehen zu ___ Besprechung.",o:["der","die","dem"],why:"zu + Dativ; feminine → der.",lv:"A2"},
+ {s:"Außer ___ Hund ist niemand zu Hause.",o:["dem","den","der"],why:"außer + Dativ; masculine → dem.",lv:"B1"},
+ {s:"Das Hotel liegt gegenüber ___ Bahnhof.",o:["dem","den","der"],why:"gegenüber + Dativ; masculine → dem.",lv:"B1"},
+ {s:"Ich gehe ___ Arzt.",o:["zum","zu den","zur"],why:"zu + dem = zum (masculine).",lv:"A1"},
+ {s:"Wir treffen uns ___ Bahnhof.",o:["am","im","zum"],why:"an + dem = am: at the station.",lv:"A1"},
+ {s:"Ich gehe ___ Kino.",o:["ins","im","zum"],why:"in + das = ins (movement, Akkusativ).",lv:"A1"},
+ {s:"Wir fahren ___ Schule.",o:["zur","zum","im"],why:"zu + der = zur (feminine).",lv:"A1"},
+ {s:"Ohne ___ Hilfe schaffe ich das nicht. (du)",o:["deine","deiner","deinen"],why:"ohne + Akkusativ; feminine stays deine.",lv:"A2"},
+ {s:"Für ___ ist das Geschenk? (wer)",o:["wen","wem","wer"],why:"für + Akkusativ: wen?",lv:"A2"},
+ {s:"Mit ___ fährst du? (wer)",o:["wem","wen","wer"],why:"mit + Dativ: wem?",lv:"A2"},
+ {s:"Er arbeitet bei ___ Firma.",o:["einer","eine","einem"],why:"bei + Dativ; feminine → einer.",lv:"A2"},
+ {s:"Wir sind gegen ___ Idee.",o:["die","der","den"],why:"gegen + Akkusativ; feminine stays die.",lv:"A2"},
+ {s:"Aus ___ Fenster sieht man den Hof.",o:["dem","das","den"],why:"aus + Dativ; neuter → dem.",lv:"A2"}],
+ th:`<div class="tc df"><h3>Nur Akkusativ</h3><div class="rows"><div><span>bis</span><span>bis morgen · bis Wien</span></div><div><span>durch</span><span>durch den Park</span></div><div><span>entlang</span><span>den Fluss entlang</span></div><div><span>für</span><span>für meinen Bruder</span></div><div><span>gegen</span><span>gegen die Wand</span></div><div><span>ohne</span><span>ohne einen Plan</span></div><div><span>um</span><span>um den See</span></div></div><p class="tline">These seven never change their case.</p></div><div class="tc df"><h3>Nur Dativ</h3><div class="rows"><div><span>aus</span><span>aus dem Haus</span></div><div><span>außer</span><span>außer dem Hund</span></div><div><span>bei</span><span>bei meinen Eltern</span></div><div><span>gegenüber</span><span>dem Bahnhof gegenüber</span></div><div><span>mit</span><span>mit dem Zug</span></div><div><span>nach</span><span>nach der Arbeit</span></div><div><span>seit</span><span>seit einer Woche</span></div><div><span>von</span><span>von einem Kollegen</span></div><div><span>zu</span><span>zu der Besprechung</span></div></div><p class="tline">These nine never change their case.</p></div><div class="tc df"><h3>Wechsel & Genitiv</h3><div class="rows"><div><span>an auf hinter in neben über unter vor zwischen</span><span>Wo? Dativ · Wohin? Akkusativ</span></div><div><span>wegen trotz während statt</span><span>Genitiv: wegen des Regens</span></div></div><p class="tline">See Wo oder wohin? and Genitiv for practice.</p></div>`};
 /* ---------- topics + home ---------- */
 GT.neg={name:"Verneinung",badge:"nicht · kein",tip:"First ask: is it a noun with ein or no article? Then kein. Everything else: nicht.",src:["grammis","lingolia","dwds"],
  lg:'<span><b class="wt ng lgk">nicht</b> Verneinung</span><span><b class="wt v lgk">Verb</b> Satzklammer</span>',
@@ -2352,6 +2424,8 @@ const TOPICS=[
  {t:"praes",n:"Präsens & Trennbare Verben",tag:"ich rufe … an",ds:"Endungen, Vokalwechsel, trennbare Verben · A1–B2"},
  {t:"perf",n:"Zeitformen",tag:"Perfekt",ds:"haben oder sein, Partizip II, Präteritum · A2–C1"},
  {t:"vprep",n:"Verben mit Präpositionen",tag:"warten auf",ds:"feste Präposition, darauf, woran · A2–B2"},
+ {t:"vkas",n:"Verben & Fälle",tag:"helfen + Dativ",ds:"welcher Fall nach welchem Verb, zwei Objekte, mich oder mir · A1–C1"},
+ {t:"pfall",n:"Präpositionen & Fall",tag:"mit + Dativ",ds:"immer Akkusativ, immer Dativ, Kurzformen · A1–B2"},
  {t:"rel",n:"Relativsätze",tag:"der · dem · dessen",ds:"Genus vom Nomen, Fall vom Satz · B1–B2"},
  {t:"modal",n:"Modalverben",tag:"kann · muss · soll",ds:"Formen, Perfekt, Vermutung, Behauptung · A1–C1"},
  {t:"zuinf",n:"zu + Infinitiv",tag:"um … zu",ds:"zu oder nicht, um / ohne / statt, haben / sein zu · A2–C1"},
@@ -2369,9 +2443,9 @@ const TNAME={prep:"Präpositionen",art:"Artikel",pron:"Pronomen",gen:"Genitiv",f
 function score(t){if(t==="links"||t==="write"||t==="lueck")return null;if(t==="satz"){const n=SB.filter(x=>store["sb"+x.id]==="ok").length;return n?n/SB.length:null;}const b=(store.best||{})[t];return b==null?null:b;}
 const GROUPS=[
  {n:"Satz",t:["satz","tekamolo","neg","konn","rel","zuinf"],soon:"Nebensätze"},
- {n:"Nomen & Fälle",t:["art","fall","gen"],soon:"Plural · n-Deklination"},
+ {n:"Nomen & Fälle",t:["art","fall","vkas","gen"],soon:"Plural · n-Deklination"},
  {n:"Adjektiv",t:["adj"],soon:"Vergleichen"},
- {n:"Präpositionen",t:["prep","vprep"],soon:"Zeitangaben"},
+ {n:"Präpositionen",t:["prep","pfall","vprep"],soon:"Zeitangaben"},
  {n:"Verb",t:["praes","modal","perf","pass","k2","k1"],soon:"Reflexiv"},
  {n:"Stil · C1",t:["nvv","nom"],soon:"Partikeln"}];
 const tInfo=t=>TOPICS.find(x=>x.t===t);
@@ -3766,7 +3840,7 @@ setInterval(sync,120);})();</script>
 <script id="aufgabe2-js">(function(){
 var AUX=/^(sind|bin|ist|habe|hat|haben|hatte|hatten|werde|wurde|wird|war|waren|wären|hätte|hätten)$/;
 function lab(q){var a=String(q.o[q.c]||""),k=q.t,sx=q.s||"",hasInf=/\(\w+\)\s*$/.test(sx);
-if(k==="vprep"||k==="prep")return "Präposition";
+if(k==="vprep"||k==="prep")return "Präposition";if(k==="pfall")return "Präposition oder Artikel";if(k==="vkas")return "Artikel oder Pronomen im richtigen Fall";
 if(k==="art")return "Artikel";
 if(k==="rel")return "Relativpronomen";
 if(k==="praes"){if(/^(an|auf|aus|ein|ab|um|zu|vor|mit|nach)$/.test(a))return "Vorsilbe des trennbaren Verbs";return "Verb in der richtigen Form";}
