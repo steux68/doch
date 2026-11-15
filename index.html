@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-13p"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-13q"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3547,6 +3547,26 @@ tb.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[
 .app[data-mode="game"] #gqpop{background:rgba(255,255,255,.94)!important}
 .app[data-mode="game"] #panel #task{font-size:13px;line-height:1.3;color:#777;text-align:center;margin:-4px 0 8px;letter-spacing:.02em}
 .app[data-mode="game"] #panel #task b{font-weight:400;color:#222}
+
+/* text-popup */
+.app[data-mode="theo"] .tc:has(#llv),.app[data-mode="theo"] .tc:has(#ltx),.app[data-mode="theo"] .tc:has(#wlv),.app[data-mode="theo"] .tc:has(#wtx){background:rgba(255,255,255,.94);border:1px dotted #b9b9b5;margin:8px 10px;padding:12px 12px 10px}
+.app[data-mode="theo"] .tc:has(#llv)>h3,.app[data-mode="theo"] .tc:has(#ltx)>h3,.app[data-mode="theo"] .tc:has(#wlv)>h3,.app[data-mode="theo"] .tc:has(#wtx)>h3{font-size:14px!important;font-weight:400!important;letter-spacing:.06em!important;text-transform:none!important;color:#555!important;text-align:center;margin:0 0 10px!important}
+.app[data-mode="theo"] #llv button,.app[data-mode="theo"] #wlv button{background:#fff;border:1px dotted #b9b9b5;color:#555;font-weight:400;padding:4px 12px}
+.app[data-mode="theo"] #llv button[aria-pressed="true"],.app[data-mode="theo"] #wlv button[aria-pressed="true"]{background:#fff3a8!important;border:1px dotted #b9a64a;color:#222;font-weight:400!important}
+.app[data-mode="theo"] #ltask,.app[data-mode="theo"] #wtask{border:1px dotted #999;background:#fff!important;background-image:none!important;font-size:15px}
+.app[data-mode="theo"] #wtx{border:1px dotted #999;background:#fff!important;background-image:none!important;min-height:220px}
+.app[data-mode="theo"]  .lg.fld{border-bottom:1px dotted #555;background:#fff!important;background-image:none!important}
+.app[data-mode="theo"]  .lg.ok{background:#eef8e8!important;color:#3a7a1f}
+.app[data-mode="theo"]  .lg.bad{background:#fdeeee!important;color:#b3262f}
+.app[data-mode="theo"]  .lg.near{background:#fff8d0!important}
+.app[data-mode="theo"]  .lbtn button.primary,.app[data-mode="theo"]  .wrow button.primary{background:#fff3a8!important;border:1px dotted #b9a64a;font-weight:400}
+.app[data-mode="theo"]  .tline,.app[data-mode="theo"]  .wprompt{font-size:14px;color:#666}
+.app.kbt{min-height:0!important;height:var(--vvh,100%)!important;overflow:hidden}
+.app.kbt .tc:has(#wlv),.app.kbt .tc:has(#llv){display:none}
+.app.kbt #wtx{min-height:0!important;height:calc(var(--vvh,400px) - 235px)}
+.app.kbt .tc:has(#ltx){max-height:calc(var(--vvh,400px) - 70px);overflow:auto}
+.app.kbt .titlebar{height:34px}
+.app.kbt #tabar,.app.kbt .abar,.app.kbt .tline{display:none!important}
 </style>
 <script id="qbox-js">(function(){if(!window.qSlider)return;["p-quotes","p-rede"].forEach(function(id){var root=document.getElementById(id);if(!root)return;
 function setup(){var sc=root.querySelector(".qbs"),sl=root.querySelector(".qbw>.qsl");if(!sc||!sl||sc._q)return;sc._q=1;window.qSlider(sc,sl);}
@@ -3684,6 +3704,11 @@ if(k==="nom"){if(/^(Wegen|Trotz|Während|Bei)$/.test(a))return "Präposition";if
 if(k==="nvv")return /^[A-ZÄÖÜ]/.test(a)?"Nomen":"Verb in der richtigen Form";
 return "fehlendes Wort";}
 setInterval(function(){var a=document.getElementById("ans");if(!a)return;var w=a.closest(".answer")||a.parentNode,t=document.getElementById("task"),q;try{q=MC.list[MC.i];}catch(e){}var txt="fehlendes Wort";try{if(q)txt=lab(q);}catch(e){}var h="Ergänze: <b>"+txt+"</b>";if(!t){t=document.createElement("div");t.id="task";w.parentNode.insertBefore(t,w);}if(t.innerHTML!==h)t.innerHTML=h;},150);})();</script>
+<script id="textkb-js">(function(){var app=document.querySelector(".app"),vv=window.visualViewport;
+function kt(){var a=document.activeElement,ok=a&&(a.id==="wtx"||(a.classList&&a.classList.contains("lg")))&&app.dataset.mode==="theo";
+var h=vv?vv.height:innerHeight,open=!!ok&&h<innerHeight*.8;document.documentElement.style.setProperty("--vvh",Math.round(h)+"px");app.classList.toggle("kbt",open);if(open){scrollTo(0,0);if(a.scrollIntoView)a.scrollIntoView({block:"center"});}}
+if(vv)vv.addEventListener("resize",kt);addEventListener("focusin",function(){setTimeout(kt,350)});addEventListener("focusout",function(){setTimeout(kt,350)});})();</script>
+
 
 
 
