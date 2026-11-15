@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-15b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-15c"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -922,7 +922,6 @@ body:has(footer.copy.ch) #toTop{display:none!important}
     <div class="sets" id="sets" hidden>
       <div class="timer"><span>Timer im Spiel</span><button id="tmr" aria-pressed="false">aus</button></div>
       <div class="timer"><span>Artikel-Hilfe <small class="n">Grundform vor der Antwort zeigen</small></span><button id="ahp" aria-pressed="false">aus</button></div>
-      <div class="timer"><span>Neueste Version <small class="n">App neu laden, Lernstand bleibt</small></span><button id="updbtn">laden</button></div>
     </div>
     <div class="hbody" id="hbody">
     <div class="hscroll" id="hscroll">
@@ -966,10 +965,10 @@ body:has(footer.copy.ch) #toTop{display:none!important}
   </section>
 
   <div class="pop" id="setpop" hidden role="dialog" aria-modal="true" aria-labelledby="setpt">
-    <div class="pbar"><b id="setpt">Einstellungen</b><button id="setx" aria-label="Schließen">×</button></div>
+    <div class="pbar"><b id="setpt">Info &amp; Einstellungen</b><button id="setx" aria-label="Schließen">×</button></div>
     <div class="pbody" id="setb"></div>
   </div>
-  <button class="cogb" id="cogb" type="button" aria-label="Einstellungen"><svg viewBox="-12 -12 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M-1.9-9.2h3.8l.6 2.5 1.6.7 2.2-1.4 2.7 2.7-1.4 2.2.7 1.6 2.5.6v3.8l-2.5.6-.7 1.6 1.4 2.2-2.7 2.7-2.2-1.4-1.6.7-.6 2.5h-3.8l-.6-2.5-1.6-.7-2.2 1.4-2.7-2.7 1.4-2.2-.7-1.6-2.5-.6v-3.8l2.5-.6.7-1.6-1.4-2.2 2.7-2.7 2.2 1.4 1.6-.7z"/><circle r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Einstellungen</span></button>
+  <button class="cogb" id="cogb" type="button" aria-label="Info und Einstellungen"><svg viewBox="-12 -12 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M-1.9-9.2h3.8l.6 2.5 1.6.7 2.2-1.4 2.7 2.7-1.4 2.2.7 1.6 2.5.6v3.8l-2.5.6-.7 1.6 1.4 2.2-2.7 2.7-2.2-1.4-1.6.7-.6 2.5h-3.8l-.6-2.5-1.6-.7-2.2 1.4-2.7-2.7 1.4-2.2-.7-1.6-2.5-.6v-3.8l2.5-.6.7-1.6-1.4-2.2 2.7-2.7 2.2 1.4 1.6-.7z"/><circle r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Einstellungen</span></button>
   <div class="pop" id="pop" hidden role="dialog" aria-modal="true" aria-labelledby="pt">
     <div class="pbar"><b id="pt"></b><button id="px" aria-label="Schließen">×</button></div>
     <div class="pbody" id="pb"></div>
@@ -3071,7 +3070,7 @@ const TLEN=()=>[15,30,45].includes(store.tlen)?store.tlen:15;
 function renderTest(){const n={};const all=[].concat(PQ,PRON_Q,GEN_Q,FALL_Q,ADJ_Q,...Object.keys(GT).map(k=>GT[k].q));all.forEach(q=>{n[q.lv]=(n[q.lv]||0)+1;});
   $("p-test").innerHTML='<div class="tc"><h3>Tests</h3><p class="tline">Fragen aus allen Themen, wie in der Prüfung. Ein Stufentest mischt etwa: die Hälfte schwer (Fragen der Stufe), ein Fünftel mittel (eine Stufe darunter), der Rest leicht (noch tiefer).</p>'+
    '<div class="tlen"><span>Länge</span>'+[15,30,45].map(k=>'<button data-n="'+k+'" aria-pressed="'+(TLEN()===k)+'">'+k+'</button>').join("")+'<span>Fragen</span></div>'+
-   '<div class="tests">'+[["mix","Gemischt","alle Stufen"]].concat(LVLS.slice(0,5).map(l=>[l,l,(n[l]||0)+" Fragen"])).map(([k,a,b])=>'<button class="tst" data-l="'+k+'"><b>'+a+'</b><small>'+b+'</small></button>').join("")+'<button class="tst wide" id="goLueck"><b>Lückentext</b><small>ganze Texte · A1–C1 · mit Korrektur</small></button><button class="tst wide" id="goWrite"><b>Text prüfen</b><small>Schreiben A1–C1 · mit LanguageTool</small></button>'+'<button class="tst wide" id="goSet"><b class="setb"><svg viewBox="-12 -12 24 24" width="24" height="24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M-1.9-9.2h3.8l.6 2.5 1.6.7 2.2-1.4 2.7 2.7-1.4 2.2.7 1.6 2.5.6v3.8l-2.5.6-.7 1.6 1.4 2.2-2.7 2.7-2.2-1.4-1.6.7-.6 2.5h-3.8l-.6-2.5-1.6-.7-2.2 1.4-2.7-2.7 1.4-2.2-.7-1.6-2.5-.6v-3.8l2.5-.6.7-1.6-1.4-2.2 2.7-2.7 2.2 1.4 1.6-.7z"/><circle r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Einstellungen</b><small>Timer · Artikel-Hilfe · neueste Version</small></button></div></div>';
+   '<div class="tests">'+[["mix","Gemischt","alle Stufen"]].concat(LVLS.slice(0,5).map(l=>[l,l,(n[l]||0)+" Fragen"])).map(([k,a,b])=>'<button class="tst" data-l="'+k+'"><b>'+a+'</b><small>'+b+'</small></button>').join("")+'<button class="tst wide" id="goLueck"><b>Lückentext</b><small>ganze Texte · A1–C1 · mit Korrektur</small></button><button class="tst wide" id="goWrite"><b>Text prüfen</b><small>Schreiben A1–C1 · mit LanguageTool</small></button>'+'<button class="tst wide" id="goSet"><b class="setb"><svg viewBox="-12 -12 24 24" width="24" height="24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M-1.9-9.2h3.8l.6 2.5 1.6.7 2.2-1.4 2.7 2.7-1.4 2.2.7 1.6 2.5.6v3.8l-2.5.6-.7 1.6 1.4 2.2-2.7 2.7-2.2-1.4-1.6.7-.6 2.5h-3.8l-.6-2.5-1.6-.7-2.2 1.4-2.7-2.7 1.4-2.2-.7-1.6-2.5-.6v-3.8l2.5-.6.7-1.6-1.4-2.2 2.7-2.7 2.2 1.4 1.6-.7z"/><circle r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Info &amp; Einstellungen</b><small>Anleitung · Timer · neueste Version</small></button></div></div>';
   $("p-test").querySelectorAll(".tlen button").forEach(x=>x.onclick=()=>{store.tlen=+x.dataset.n;save();renderTest();});
   $("goWrite").onclick=()=>openTopic("write");$("goSet").onclick=()=>{const c=$("cogb");if(c)c.click();};$("goLueck").onclick=()=>openTopic("lueck");
   $("p-test").querySelectorAll(".tst[data-l]").forEach(x=>x.onclick=()=>{TESTLV=x.dataset.l==="mix"?"all":x.dataset.l;openTopic("test");});}
@@ -3079,11 +3078,17 @@ $("p-links").innerHTML=TH_LINKS;
 renderQuotes();renderRede();
 $("p-hist").innerHTML=HIST;loadPics($("p-hist"));
 tlBind();requestAnimationFrame(()=>requestAnimationFrame(tlFit));
-(()=>{const st=$("sets"),B=$("setb");st.hidden=false;B.appendChild(st);
+(()=>{const st=$("sets"),B=$("setb");st.hidden=false;
+  const ih=document.createElement("div");ih.innerHTML='<p class="ih first">Info &amp; Anleitung</p><p class="tline"><b>Als App auf den Startbildschirm</b><br><b>iPhone (Safari):</b> Teilen-Symbol → „Zum Home-Bildschirm“<br><b>Android (Chrome):</b> Menü ⋮ → „Zum Startbildschirm hinzufügen“</p><p class="ih">So lernst du</p><p class="tline"><b>Grammatik:</b> Thema antippen. <b>Lernen</b> zeigt die Regel Karte für Karte, <b>Spiel</b> stellt Fragen mit Punkten und Serie, <b>Theorie</b> fasst alles zusammen.<br><b>Tests:</b> Fragen aus allen Themen, wahlweise für eine Stufe (A1–C1) oder gemischt. Dazu <b>Lückentext</b> und <b>Text prüfen</b> (mit LanguageTool).<br><b>Ergänzen:</b> im Spiel selbst tippen statt wählen, mit „Ergänzen: an“.<br><b>Hilfsmittel:</b> Wörterbücher, Zitate, Redewendungen und Geschichte der deutschen Sprache.</p><p class="ih">Einstellungen</p>';
+  B.appendChild(ih);B.appendChild(st);
   const nt=document.createElement("p");nt.className="tline";nt.textContent="Bilder: Wikipedia / Wikimedia Commons, freie Lizenzen, Quelle jeweils verlinkt. Alle Links öffnen in einem neuen Fenster.";B.appendChild(nt);
+  const lg=document.querySelector("footer.copy img"),cr=document.createElement("div");
+  cr.innerHTML='<div class="ucr"><div class="bx">'+(lg?'<img src="'+lg.getAttribute("src")+'" alt="steux">':'steux')+'</div><span>App, Gestaltung und Inhalte © Steuart JM HARRISON (steux)</span></div><div class="utl"><button type="button" id="updbtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg>update</button><button type="button" id="homebtn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/></svg>home</button></div><p class="tline" style="margin-top:0">update lädt die neueste Version, der Lernstand bleibt.</p>';
+  B.appendChild(cr);
+  $("homebtn").onclick=function(){location.replace(location.pathname);};
   const im=document.createElement("p");im.className="tline";im.innerHTML="<b>Impressum:</b> Medieninhaber, Herausgeber und Verantwortlicher: Steuart JM Harrison, Wien. Privates, nicht kommerzielles Lernangebot ohne Werbung. Keine Cookies; Lernstand und Einstellungen bleiben auf dem Gerät. Bilder werden direkt von Wikipedia / Wikimedia Commons geladen, dabei sieht Wikimedia die IP-Adresse. Beim Prüfen eines Textes wird er an LanguageTool gesendet (siehe dort).";B.appendChild(im);
   const vm=document.querySelector('meta[name="app-version"]');if(vm){const v=document.createElement("p");v.className="tline";v.textContent="Version "+vm.content;B.appendChild(v);}
-  const f=document.querySelector("footer.copy");if(f){const c=f.cloneNode(true);c.classList.add("inpop");B.appendChild(c);}
+  
   function open(){if($("setpop").hidden){navPush("sets");$("setpop").hidden=false;$("setb").scrollTop=0;}}
   function close(){$("setpop").hidden=true;}
   $("cogb").onclick=open;
@@ -3607,6 +3612,17 @@ tb.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[
 .hb.stt.hl{background:var(--bl) left bottom/100% 1px no-repeat,var(--hv) right top/1px 100% no-repeat,#fff}
 .hb.stt.hr{background:var(--bl) left bottom/100% 1px no-repeat,var(--hv) left top/1px 100% no-repeat,#fff}
 .tk{--t:repeating-linear-gradient(to right,#b8b8b8 0 4px,transparent 4px 7px)}
+/* info-credit */
+.ih{margin:16px 0 4px!important;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.ih.first{margin-top:2px!important}
+#setb .tline b{color:var(--fg)}
+.utl{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0 4px}
+.utl button{display:flex;align-items:center;justify-content:center;gap:6px;height:36px;padding:0 10px;font:inherit;font-size:14px;color:#222;cursor:pointer;border:1px solid transparent;border-radius:0;background-color:#fff!important;background-image:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px)!important;background-position:left top,left bottom,left top,right top!important;background-size:100% 1px,100% 1px,1px 100%,1px 100%!important;background-repeat:no-repeat!important;background-origin:border-box!important}
+.utl button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.utl button:active{background-color:#f4f4f4!important}
+.ucr{display:flex;flex-direction:column;align-items:center;gap:4px;margin:14px auto 0;max-width:200px;font-size:12px;color:#777;text-align:center;line-height:1.2}
+.ucr .bx{width:100%;height:46px;display:grid;place-items:center;padding:3px 6px;border:1px solid transparent;box-sizing:border-box;background-color:#fff!important;background-image:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px),repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px)!important;background-position:left top,left bottom,left top,right top!important;background-size:100% 1px,100% 1px,1px 100%,1px 100%!important;background-repeat:no-repeat!important;background-origin:border-box!important}
+.ucr .bx img{max-height:38px;max-width:100%;display:block}
 </style>
 <script id="qbox-js">(function(){if(!window.qSlider)return;["p-quotes","p-rede"].forEach(function(id){var root=document.getElementById(id);if(!root)return;
 function setup(){var sc=root.querySelector(".qbs"),sl=root.querySelector(".qbw>.qsl");if(!sc||!sl||sc._q)return;sc._q=1;window.qSlider(sc,sl);}
