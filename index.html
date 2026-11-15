@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-15f"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-15g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -1342,7 +1342,10 @@ const GEN_CARDS=[
  {b:"-es",st:ruleSt("des Hauses · des Platzes",["des Tisches","des Kreuzes","des Fußes"]),tx:"-es after s, ß, x, z, sch",gt:"Otherwise -s is normal: des Plans, des Entwurfs."},
  {b:"n-Dekl.",st:ruleSt("des Kollegen · des Architekten",["der Kunde → des Kunden","der Nachbar → des Nachbarn","der Name → des Namens"]),tx:"Weak nouns take -(e)n, no -s",gt:"der Kollege, der Architekt, der Kunde, der Nachbar. Special case: des Namens."},
  {b:"Besitz",st:ruleSt("die Fassade des Gebäudes",["das Büro des Architekten","das Ende des Films","Annas Pferd"]),tx:"Genitiv shows whose it is",gt:"Names take -s with no apostrophe: Annas Pferd."},
- {b:"Präp.",st:ruleSt("wegen · trotz · während · statt",["wegen des Regens","trotz der Kälte","während der Sitzung","innerhalb einer Woche"]),tx:"Prepositions with Genitiv",gt:"Also: aufgrund, außerhalb, innerhalb, anstatt."},
+ /* gen-praep */
+ {b:"Präp. A",st:ruleSt("wegen · trotz · während · statt",["wegen des Regens","trotz der Kälte","während der Sitzung","statt eines Plans"]),tx:"The four common ones: use the Genitiv",gt:"Also anstatt (= statt). In speech you often hear wegen + Dativ, but write the Genitiv."},
+ {b:"Präp. B",st:ruleSt("innerhalb · außerhalb · oberhalb · unterhalb",["innerhalb einer Woche","außerhalb der Stadt","oberhalb des Dorfes","unterhalb der Brücke"]),tx:"Place and time, slightly formal",gt:"All four end in -halb. After them comes the Genitiv: außerhalb der Stadt."},
+ {b:"Präp. C",st:ruleSt("aufgrund · infolge · angesichts · hinsichtlich",["aufgrund des Wetters","infolge eines Unfalls","angesichts der Lage","hinsichtlich des Preises"]),tx:"Reason and official language (B2–C1)",gt:"Typical in letters, news and contracts. Also: bezüglich, anlässlich, zugunsten."},
  {b:"Sprache",st:ruleSt("von + Dativ",["das Auto von meinem Kollegen","wegen dem Regen (gesprochen)"]),tx:"In speech, Dativ often replaces it",gt:"Use the Genitiv in exams and in writing."},
  {b:"C1",st:ruleSt("bedürfen · gedenken",["Das bedarf einer Erklärung.","Wir gedenken der Opfer."]),tx:"A few verbs take Genitiv",gt:"Formal register. Useful at C1."}
 ];
@@ -1358,7 +1361,19 @@ const GEN_Q=[
  {s:"Der Name ___ Kollegen ist mir entfallen.",lv:"B2",o:["des","dem","den"],why:"Genitiv; Kollege is a weak noun: des Kollegen.",h:"der Kollege",r:"des Kollegen"},
  {s:"Aufgrund ___ Wetters fällt das Turnier aus.",lv:"B2",o:["des","dem","das"],why:"aufgrund + Genitiv.",h:"das Wetter",r:"des Wetters"},
  {s:"Die Höhe ___ Hauses beträgt zwölf Meter.",lv:"B1",o:["des","dem","der"],why:"Neuter Genitiv: des Hauses (-es after s).",h:"das Haus",r:"des Hauses"},
- {s:"Das bedarf ___ Erklärung.",lv:"C1",o:["einer","eine","einem"],why:"bedürfen + Genitiv (C1).",h:"eine Erklärung",r:"einer Erklärung"}
+ {s:"Das bedarf ___ Erklärung.",lv:"C1",o:["einer","eine","einem"],why:"bedürfen + Genitiv (C1).",h:"eine Erklärung",r:"einer Erklärung"},
+ {s:"Statt ___ Kaffees nehme ich einen Tee.",lv:"B1",o:["des","dem","den"],why:"statt + Genitiv; masculine → des Kaffees.",h:"der Kaffee",r:"des Kaffees"},
+ {s:"Trotz ___ Verspätung sind wir pünktlich.",lv:"B1",o:["der","die","dem"],why:"trotz + Genitiv; feminine → der.",h:"die Verspätung",r:"der Verspätung"},
+ {s:"Während ___ Pause ruft sie an.",lv:"B1",o:["der","die","dem"],why:"während + Genitiv; feminine → der.",h:"die Pause",r:"der Pause"},
+ {s:"Außerhalb ___ Stadt gibt es einen See.",lv:"B2",o:["der","die","dem"],why:"außerhalb + Genitiv; feminine → der.",h:"die Stadt",r:"der Stadt"},
+ {s:"Oberhalb ___ Dorfes steht eine Kapelle.",lv:"B2",o:["des","dem","das"],why:"oberhalb + Genitiv; neuter → des Dorfes.",h:"das Dorf",r:"des Dorfes"},
+ {s:"Unterhalb ___ Brücke fließt der Fluss langsam.",lv:"B2",o:["der","die","dem"],why:"unterhalb + Genitiv; feminine → der.",h:"die Brücke",r:"der Brücke"},
+ {s:"Innerhalb ___ Monats muss die Rechnung bezahlt werden.",lv:"B2",o:["des","dem","den"],why:"innerhalb + Genitiv; masculine → des Monats.",h:"der Monat",r:"des Monats"},
+ {s:"Aufgrund ___ Unfalls blieb die Straße gesperrt.",lv:"C1",o:["des","dem","den"],why:"aufgrund + Genitiv; masculine → des Unfalls.",h:"der Unfall",r:"des Unfalls"},
+ {s:"Angesichts ___ Lage müssen wir sofort handeln.",lv:"C1",o:["der","die","dem"],why:"angesichts + Genitiv; feminine → der.",h:"die Lage",r:"der Lage"},
+ {s:"Infolge ___ Sturms fiel der Strom aus.",lv:"C1",o:["des","dem","den"],why:"infolge + Genitiv; masculine → des Sturms.",h:"der Sturm",r:"des Sturms"},
+ {s:"Bezüglich ___ Anfrage melden wir uns morgen.",lv:"C1",o:["Ihrer","Ihre","Ihrem"],why:"bezüglich + Genitiv; feminine → Ihrer.",h:"Ihre Anfrage",r:"Ihrer Anfrage"},
+ {s:"Hinsichtlich ___ Preises sind wir flexibel.",lv:"C1",o:["des","dem","den"],why:"hinsichtlich + Genitiv; masculine → des Preises.",h:"der Preis",r:"des Preises"}
 ];
 /* ---------- Theorie: Artikel, Pronomen, Genitiv ---------- */
 const pcs=(cls,list)=>'<div class="pcs">'+list.map(w=>'<span class="pc'+(cls?" "+cls:"")+'">'+chipA(w)+'</span>').join("")+'</div>';
