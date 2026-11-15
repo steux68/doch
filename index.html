@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-15i"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -2280,6 +2280,81 @@ GT.pfall={name:"Präpositionen & Fall",badge:"Präposition",tip:"Sort prepositio
  {s:"Wir sind gegen ___ Idee.",o:["die","der","den"],why:"gegen + Akkusativ; feminine stays die.",lv:"A2"},
  {s:"Aus ___ Fenster sieht man den Hof.",o:["dem","das","den"],why:"aus + Dativ; neuter → dem.",lv:"A2"}],
  th:`<div class="tc df"><h3>Nur Akkusativ</h3><div class="rows"><div><span>bis</span><span>bis morgen · bis Wien</span></div><div><span>durch</span><span>durch den Park</span></div><div><span>entlang</span><span>den Fluss entlang</span></div><div><span>für</span><span>für meinen Bruder</span></div><div><span>gegen</span><span>gegen die Wand</span></div><div><span>ohne</span><span>ohne einen Plan</span></div><div><span>um</span><span>um den See</span></div></div><p class="tline">These seven never change their case.</p></div><div class="tc df"><h3>Nur Dativ</h3><div class="rows"><div><span>aus</span><span>aus dem Haus</span></div><div><span>außer</span><span>außer dem Hund</span></div><div><span>bei</span><span>bei meinen Eltern</span></div><div><span>gegenüber</span><span>dem Bahnhof gegenüber</span></div><div><span>mit</span><span>mit dem Zug</span></div><div><span>nach</span><span>nach der Arbeit</span></div><div><span>seit</span><span>seit einer Woche</span></div><div><span>von</span><span>von einem Kollegen</span></div><div><span>zu</span><span>zu der Besprechung</span></div></div><p class="tline">These nine never change their case.</p></div><div class="tc df"><h3>Wechsel & Genitiv</h3><div class="rows"><div><span>an auf hinter in neben über unter vor zwischen</span><span>Wo? Dativ · Wohin? Akkusativ</span></div><div><span>wegen trotz während statt</span><span>Genitiv: wegen des Regens</span></div></div><p class="tline">See Wo oder wohin? and Genitiv for practice.</p></div>`};
+/* refl-nebs */
+GT.refl={name:"Reflexiv",badge:"Reflexiv",tip:"Ask: is there already an Akkusativ object? Then the pronoun is Dativ (mir, dir).",src:["duden","grammis","lingolia"],
+ lg:'<span class="lgc akk">Akk</span><span class="lgc dat">Dat</span>',
+ cards:[
+ {b:"Formen",st:ruleSt("Das Reflexivpronomen",["ich → mich","du → dich","er, sie, es, man → sich","wir → uns","ihr → euch","sie, Sie → sich"]),tx:"Only the third person has its own form: sich",gt:"The other persons look like the normal Akkusativ pronouns. The pronoun points back to the subject: Ich wasche mich."},
+ {b:"Echt",st:ruleSt("Always reflexive",["Ich beeile mich.","Wir erholen uns im Urlaub.","Sie bedankt sich bei dir.","Er weigert sich zu gehen."]),tx:"These verbs need sich",gt:"Also: sich verabschieden, sich entschließen, sich befinden, sich ereignen, sich irren. Learn the verb together with sich."},
+ {b:"Unecht",st:ruleSt("Both ways",["Ich wasche das Auto. / Ich wasche mich.","Er ärgert den Hund. / Er ärgert sich.","Sie zieht das Kind an. / Sie zieht sich an."]),tx:"The verb also works with another object",gt:"Without sich the action goes to someone else. With sich it points back to the subject."},
+ {b:"mich · mir",st:ruleSt("Akkusativ or Dativ?",["Ich wasche mich.","Ich wasche mir die Hände.","Ich kaufe mir ein Buch.","Du merkst dir die Nummer."]),tx:"Dativ only when there is another Akkusativ object",gt:"Only ich and du differ: mich / mir, dich / dir. In the third person sich is both: Sie kauft sich ein Buch."},
+ {b:"Präposition",st:ruleSt("sich + Präposition",["Ich freue mich auf den Urlaub. (kommt noch)","Ich freue mich über das Geschenk. (ist da)","Wir interessieren uns für Musik.","Sie kümmert sich um die Kinder.","Er erinnert sich an den Tag."]),tx:"The preposition belongs to the verb",gt:"Also: sich ärgern über, sich verlassen auf, sich entscheiden für, sich bewerben um. All of these take the Akkusativ."},
+ {b:"Stellung",st:ruleSt("Where does sich go?",["Ich freue mich.","Heute freue ich mich.","Ich glaube, dass er sich freut.","Ich glaube, dass sich der Chef freut.","Beeil dich! Setzen Sie sich!"]),tx:"Right behind the verb, or behind a pronoun subject",gt:"After a pronoun subject: er sich. Before a noun subject: sich der Chef is usual. In the imperative it stands behind the verb."},
+ {b:"Besonders",st:ruleSt("Two special uses",["Wir sehen uns morgen. (einander)","Sie lieben sich. (einander)","Das lässt sich lösen. (kann gelöst werden)","Das Buch verkauft sich gut."]),tx:"Each other, and a passive meaning",gt:"sich + lassen + Infinitiv says that something is possible. With uns, euch, sich the pronoun can also mean each other."}],
+ q:[
+ {s:"Ich dusche ___ jeden Morgen.",o:["mich","mir","sich"],why:"No other object: Akkusativ, mich.",lv:"A1"},
+ {s:"Wir treffen ___ um acht Uhr.",o:["uns","wir","unser"],why:"sich treffen: reflexive pronoun wir → uns.",lv:"A2"},
+ {s:"Sie beeilt ___.",o:["sich","sie","ihr"],why:"sich beeilen: third person → sich.",lv:"A2"},
+ {s:"Ich freue ___ auf das Wochenende.",o:["mich","mir","sich"],why:"sich freuen + Akkusativ: mich.",lv:"A2"},
+ {s:"Sie setzt ___ auf den Stuhl.",o:["sich","ihr","sie"],why:"sich setzen: third person → sich.",lv:"A2"},
+ {s:"Beeil ___, wir sind spät dran!",o:["dich","dir","sich"],why:"Imperative du: Beeil dich!",lv:"A2"},
+ {s:"Ich kaufe ___ ein neues Handy.",o:["mir","mich","sich"],why:"The Handy is the Akkusativ object, so the pronoun is Dativ: mir.",lv:"A2"},
+ {s:"Ich putze ___ die Zähne.",o:["mir","mich","sich"],why:"die Zähne is the Akkusativ object, so the pronoun is Dativ: mir.",lv:"A2"},
+ {s:"Hast du ___ die Hände gewaschen?",o:["dir","dich","sich"],why:"Another Akkusativ object is present: Dativ, dir.",lv:"B1"},
+ {s:"Setzen Sie ___ bitte.",o:["sich","Sie","Ihnen"],why:"Imperative with Sie: Setzen Sie sich.",lv:"B1"},
+ {s:"Er ärgert ___ über den Lärm.",o:["sich","ihn","ihm"],why:"sich ärgern über: third person → sich.",lv:"B1"},
+ {s:"Wir interessieren uns ___ Architektur.",o:["für","an","über"],why:"sich interessieren für + Akkusativ.",lv:"B1"},
+ {s:"Ich erinnere ___ an meine Kindheit.",o:["mich","mir","sich"],why:"sich erinnern an + Akkusativ: mich.",lv:"B1"},
+ {s:"Ich freue mich ___ deinen Besuch nächste Woche.",o:["auf","über","an"],why:"Something in the future: sich freuen auf.",lv:"B1"},
+ {s:"Ich freue mich ___ dein Geschenk von gestern.",o:["über","auf","für"],why:"Something that is already here: sich freuen über.",lv:"B1"},
+ {s:"Wer kümmert sich ___ die Kinder?",o:["um","für","auf"],why:"sich kümmern um + Akkusativ.",lv:"B1"},
+ {s:"Die Schüler bereiten ___ auf die Prüfung vor.",o:["sich","sie","ihnen"],why:"sich vorbereiten auf: third person plural → sich.",lv:"B1"},
+ {s:"Wir haben ___ lange nicht gesehen.",o:["uns","wir","unser"],why:"Each other: wir → uns.",lv:"B1"},
+ {s:"Das muss ich ___ noch überlegen.",o:["mir","mich","sich"],why:"sich (Dativ) etwas überlegen: ich → mir.",lv:"B2"},
+ {s:"Ich kann ___ das gar nicht vorstellen.",o:["mir","mich","sich"],why:"sich (Dativ) etwas vorstellen: ich → mir.",lv:"B2"},
+ {s:"Sie nahm ___ vor, früher aufzustehen.",o:["sich","ihr","sie"],why:"sich (Dativ) etwas vornehmen: third person → sich.",lv:"B2"},
+ {s:"Es handelt ___ hier um einen Irrtum.",o:["sich","es","ihn"],why:"es handelt sich um + Akkusativ: a fixed phrase.",lv:"B2"},
+ {s:"Das Problem lässt ___ leicht lösen.",o:["sich","es","ihm"],why:"sich lassen + Infinitiv = it can be done.",lv:"C1"},
+ {s:"Das Buch verkauft ___ sehr gut.",o:["sich","es","ihm"],why:"Reflexive with a passive meaning: it sells well.",lv:"C1"}],
+ th:`<div class="tc df"><h3>Die Formen</h3><div class="rows"><div><span>ich</span><span>mich · mir</span></div><div><span>du</span><span>dich · dir</span></div><div><span>er, sie, es, man</span><span>sich</span></div><div><span>wir</span><span>uns</span></div><div><span>ihr</span><span>euch</span></div><div><span>sie, Sie</span><span>sich</span></div></div><p class="tline">Only ich and du change between Akkusativ and Dativ.</p></div><div class="tc df"><h3>Akkusativ oder Dativ</h3><div class="rows"><div><span>kein anderes Objekt</span><span>Akkusativ: Ich wasche mich.</span></div><div><span>noch ein Akkusativ</span><span>Dativ: Ich wasche mir die Hände.</span></div></div><p class="tline">Also Dativ: sich etwas merken, vorstellen, überlegen, vornehmen.</p></div><div class="tc df"><h3>Mit Präposition</h3><div class="rows"><div><span>sich freuen</span><span>auf (kommt) · über (ist da)</span></div><div><span>sich interessieren</span><span>für</span></div><div><span>sich kümmern</span><span>um</span></div><div><span>sich erinnern</span><span>an</span></div><div><span>sich ärgern</span><span>über</span></div><div><span>sich verlassen</span><span>auf</span></div></div><p class="tline">All take the Akkusativ. Learn the preposition with the verb.</p></div>`};
+GT.nebs={name:"Nebensätze",badge:"Nebensatz",tip:"Choose the conjunction by meaning, then send the conjugated verb to the very end.",src:["duden","grammis","lingolia"],
+ lg:'<span><b class="wt k lgk">weil</b> Konjunktion</span><span><b class="wt v lgk">Verb</b> am Ende</span>',
+ cards:[
+ {b:"Verb am Ende",st:D("Ich weiß,|dass~k|er|morgen|kommt~v|.~p","1-4a:Verb ans Ende"),tx:"Nebensatz: the conjugated verb goes last",gt:"A comma always separates the Nebensatz from the main clause. The conjunction (dass, weil, ob, wenn …) opens it."},
+ {b:"Mehrteilig",st:ruleSt("The conjugated verb is last",["…, dass er morgen kommen kann.","…, weil ich gestern gearbeitet habe.","…, dass das Haus gebaut wird.","…, ob sie gekommen ist."]),tx:"Infinitive or participle first, then the conjugated verb",gt:"This holds for modal verbs, Perfekt, Passiv and Futur alike. The verb that carries the person and tense is always the last word."},
+ {b:"dass · ob · W-Frage",st:ruleSt("Indirect speech and questions",["Ich glaube, dass er recht hat.","Ich weiß nicht, ob er kommt.","Sie fragt, wann der Zug fährt.","Er will wissen, wo ich wohne."]),tx:"dass = statement · ob = yes/no · W-word = question word",gt:"A question word becomes the conjunction. The verb goes to the end: Wann fährt der Zug? → Sie fragt, wann der Zug fährt."},
+ {b:"Zeit",st:ruleSt("Time",["Als ich ein Kind war, …","Wenn ich Zeit habe, …","Bevor ich gehe, rufe ich an.","Nachdem ich gegessen hatte, ging ich los.","Sobald du kommst, fangen wir an.","Seit ich in Wien wohne, …","Bis du kommst, warte ich."]),tx:"als · wenn · bevor · nachdem · sobald · seit · bis · während",gt:"nachdem: the action in the Nebensatz happens first, so it uses the earlier tense (Plusquamperfekt or Perfekt)."},
+ {b:"Grund · Gegensatz",st:ruleSt("Reason and contrast",["Ich bleibe, weil ich krank bin.","Da es regnet, bleiben wir zu Hause.","Obwohl es regnet, gehen wir spazieren.","Er arbeitet, während sie schläft."]),tx:"weil · da · obwohl · während",gt:"weil gives the reason, obwohl names something that does not stop the action. da usually stands at the start of the sentence."},
+ {b:"Zweck · Folge · Mittel",st:ruleSt("Purpose, result, means",["Ich lerne, damit ich die Prüfung bestehe.","Es war so kalt, dass wir froren.","Er spart Geld, indem er selbst kocht.","Sie ging, ohne dass er etwas sagen konnte."]),tx:"damit · so … dass · indem · ohne dass",gt:"damit says what for. indem says how. ohne dass says that something did not happen at the same time."},
+ {b:"Bedingung",st:ruleSt("Condition",["Wenn du willst, komme ich mit.","Falls du Fragen hast, melde dich.","Sofern es möglich ist, helfen wir.","Wenn ich das gewusst hätte, wäre ich nicht gekommen."]),tx:"wenn · falls · sofern",gt:"falls and sofern are a little more formal. With a Konjunktiv II condition the sentence is unreal: Wenn ich das gewusst hätte …"},
+ {b:"Nebensatz zuerst",st:D("Weil~k|er|krank|ist~v|,~p|bleibt~v|er~s|zu Hause|.~p","0-3a:Ende;3-5b:Verb, Verb@g"),tx:"Komma, then the verb of the main clause",gt:"The Nebensatz fills the first place. So the main clause begins with its verb: Weil er krank ist, bleibt er zu Hause."},
+ {b:"Modal im Perfekt",st:ruleSt("hat before the double infinitive",["…, weil er hat arbeiten müssen.","…, dass sie nicht hat kommen können.","…, wenn ich das hätte machen können."]),tx:"Perfekt or Konjunktiv II with a modal verb (C1)",gt:"The conjugated verb (hat, hätte) stands before the two infinitives. Spoken regional variants differ. For exams use this standard order."}],
+ q:[
+ {s:"Ich bleibe zu Hause, ___ ich krank bin.",o:["weil","denn","deshalb"],why:"The verb bin is at the end, so the conjunction is weil.",lv:"A2"},
+ {s:"Ich glaube, dass ___.",o:["er recht hat","hat er recht","er hat recht"],why:"After dass the conjugated verb goes last.",lv:"A2"},
+ {s:"Ich möchte wissen, ___ du Hunger hast. (Frage: Hast du Hunger?)",o:["ob","dass","wann"],why:"A yes/no question becomes a Nebensatz with ob.",lv:"A2"},
+ {s:"___ ich ein Kind war, wohnten wir in Linz.",o:["Als","Wenn","Wann"],why:"One event in the past: als.",lv:"A2"},
+ {s:"___ ich Zeit habe, rufe ich dich an.",o:["Wenn","Als","Weil"],why:"Present or future: wenn.",lv:"A2"},
+ {s:"Weil es regnet, ___ zu Hause.",o:["bleiben wir","wir bleiben","wir bleiben nicht"],why:"After a Nebensatz at the start, the main verb comes first: bleiben wir.",lv:"A2"},
+ {s:"Ich lerne Deutsch, ___ ich in Wien arbeiten kann.",o:["damit","um","dass"],why:"damit + Nebensatz gives the purpose when there is a subject: ich … kann.",lv:"B1"},
+ {s:"Es ist so laut, ___ ich nicht schlafen kann.",o:["dass","damit","weil"],why:"so … dass gives the result.",lv:"B1"},
+ {s:"___ es regnet, gehen wir spazieren.",o:["Obwohl","Weil","Damit"],why:"The rain does not stop us: obwohl.",lv:"B1"},
+ {s:"Ich bin müde, ___ ich schlecht geschlafen habe.",o:["weil","obwohl","damit"],why:"Bad sleep is the reason: weil.",lv:"B1"},
+ {s:"Nachdem ich gegessen ___, ging ich spazieren.",o:["hatte","habe","war"],why:"nachdem + Plusquamperfekt before the Präteritum: gegessen hatte.",lv:"B1"},
+ {s:"Er ruft an, ___ er nach Hause kommt.",o:["sobald","damit","obwohl"],why:"As soon as: sobald.",lv:"B1"},
+ {s:"Ich weiß, dass er gestern nicht ___.",o:["gekommen ist","ist gekommen","gekommen hat"],why:"Participle first, then the conjugated verb. kommen forms the Perfekt with sein.",lv:"B1"},
+ {s:"Ich glaube, dass er morgen ___.",o:["kommen kann","kann kommen","kann kommen können"],why:"Infinitive first, then the conjugated modal verb.",lv:"B1"},
+ {s:"Falls du Fragen ___, melde dich bitte.",o:["hast","hat","habe"],why:"The verb stands at the end and agrees with du: hast.",lv:"B1"},
+ {s:"Seit ich in Wien ___, besuche ich oft Museen.",o:["wohne","wohnt","wohnen"],why:"The verb is last and agrees with ich: wohne.",lv:"B1"},
+ {s:"Ich hoffe, dass das Haus bald ___.",o:["gebaut wird","wird gebaut","gebaut werden"],why:"Participle first, then the conjugated werden: gebaut wird.",lv:"B2"},
+ {s:"Er spart Geld, ___ er selbst kocht.",o:["indem","damit","obwohl"],why:"indem says how: by cooking himself.",lv:"B2"},
+ {s:"Sie ging, ___ er etwas sagen konnte.",o:["ohne dass","damit","indem"],why:"ohne dass: she left and he could not say anything.",lv:"B2"},
+ {s:"Sie wollte wissen, ___ er die Wahrheit gesagt hat. (Hat er sie gesagt?)",o:["ob","dass","wenn"],why:"A yes/no question becomes a Nebensatz with ob.",lv:"B2"},
+ {s:"Er ist nicht gekommen, weil er ___.",o:["hat arbeiten müssen","arbeiten müssen hat","hat müssen arbeiten"],why:"Perfekt with a modal: hat comes before the double infinitive.",lv:"C1"},
+ {s:"Ich wüsste es, wenn ich das ___.",o:["hätte machen können","machen können hätte","hätte können machen"],why:"Konjunktiv II with a modal: hätte before the double infinitive.",lv:"C1"},
+ {s:"Wenn ich das gewusst ___, wäre ich nicht gekommen.",o:["hätte","habe","würde"],why:"An unreal past condition: Wenn ich das gewusst hätte.",lv:"C1"},
+ {s:"Nachdem sie angekommen ___, rief sie ihre Mutter an.",o:["war","hatte","wurde"],why:"ankommen forms the Perfekt with sein: war angekommen.",lv:"B2"}],
+ th:`<div class="tc df"><h3>Das Verb am Ende</h3><div class="rows"><div><span>einfach</span><span>…, dass er kommt.</span></div><div><span>mit Modalverb</span><span>…, dass er kommen kann.</span></div><div><span>Perfekt</span><span>…, dass er gekommen ist.</span></div><div><span>Passiv</span><span>…, dass es gebaut wird.</span></div></div><p class="tline">The conjugated verb is always the last word of the Nebensatz.</p></div><div class="tc df"><h3>Konjunktionen nach Art</h3><div class="rows"><div><span>Zeit</span><span>als · wenn · bevor · nachdem · sobald · seit · bis · während</span></div><div><span>Grund</span><span>weil · da</span></div><div><span>Gegensatz</span><span>obwohl · während</span></div><div><span>Zweck</span><span>damit</span></div><div><span>Folge</span><span>so … dass</span></div><div><span>Mittel</span><span>indem</span></div><div><span>Bedingung</span><span>wenn · falls · sofern</span></div><div><span>Inhalt</span><span>dass · ob · W-Wort</span></div></div><p class="tline">Choose the conjunction by meaning first, then send the verb to the end.</p></div><div class="tc df"><h3>Nebensatz zuerst</h3><div class="rows"><div><span>Nebensatz</span><span>Weil er krank ist,</span></div><div><span>Hauptsatz</span><span>bleibt er zu Hause.</span></div></div><p class="tline">Komma, then the verb: the Nebensatz fills the first place.</p></div>`};
 /* ---------- topics + home ---------- */
 GT.neg={name:"Verneinung",badge:"nicht · kein",tip:"First ask: is it a noun with ein or no article? Then kein. Everything else: nicht.",src:["grammis","lingolia","dwds"],
  lg:'<span><b class="wt ng lgk">nicht</b> Verneinung</span><span><b class="wt v lgk">Verb</b> Satzklammer</span>',
@@ -2429,9 +2504,11 @@ const TOPICS=[
  {t:"rel",n:"Relativsätze",tag:"der · dem · dessen",ds:"Genus vom Nomen, Fall vom Satz · B1–B2"},
  {t:"modal",n:"Modalverben",tag:"kann · muss · soll",ds:"Formen, Perfekt, Vermutung, Behauptung · A1–C1"},
  {t:"zuinf",n:"zu + Infinitiv",tag:"um … zu",ds:"zu oder nicht, um / ohne / statt, haben / sein zu · A2–C1"},
+ {t:"nebs",n:"Nebensätze",tag:"weil · dass · obwohl",ds:"Verb am Ende, Konjunktionen nach Art, Nebensatz zuerst · A2–C1"},
  {t:"pass",n:"Passiv",tag:"wird … gebaut",ds:"alle Zeiten, Zustand, Ersatzformen · B1–C1"},
  {t:"k2",n:"Konjunktiv II",tag:"wäre · hätte · würde",ds:"irreal, höflich, Wunsch, Vergangenheit · A2–C1"},
  {t:"k1",n:"Konjunktiv I",tag:"er sei · er habe",ds:"Indirekte Rede, Berichte · B2–C1"},
+ {t:"refl",n:"Reflexiv",tag:"ich freue mich",ds:"mich oder mir, sich + Präposition, Stellung · A1–C1"},
  {t:"nvv",n:"Nomen-Verb-Verbindungen",tag:"in Frage stellen",ds:"formelles Deutsch für Briefe & Vorträge · B1–C1"},
  {t:"nom",n:"Nominalstil & Partizipien",tag:"die geplante Brücke",ds:"Partizipialattribute, Nominalisierung · B2–C1"},
  {t:"lueck",n:"Lückentext",tag:"ganze Texte",ds:"Ganze Texte mit Lücken, A1–C1, mit Korrektur"},
@@ -2442,11 +2519,11 @@ const TOPICS=[
 const TNAME={prep:"Präpositionen",art:"Artikel",pron:"Pronomen",gen:"Genitiv",fall:"Fälle",adj:"Adjektive"};
 function score(t){if(t==="links"||t==="write"||t==="lueck")return null;if(t==="satz"){const n=SB.filter(x=>store["sb"+x.id]==="ok").length;return n?n/SB.length:null;}const b=(store.best||{})[t];return b==null?null:b;}
 const GROUPS=[
- {n:"Satz",t:["satz","tekamolo","neg","konn","rel","zuinf"],soon:"Nebensätze"},
+ {n:"Satz",t:["satz","tekamolo","neg","konn","nebs","rel","zuinf"]},
  {n:"Nomen & Fälle",t:["art","fall","vkas","gen"],soon:"Plural · n-Deklination"},
  {n:"Adjektiv",t:["adj"],soon:"Vergleichen"},
  {n:"Präpositionen",t:["prep","pfall","vprep"],soon:"Zeitangaben"},
- {n:"Verb",t:["praes","modal","perf","pass","k2","k1"],soon:"Reflexiv"},
+ {n:"Verb",t:["praes","refl","modal","perf","pass","k2","k1"],soon:"Präteritum · Futur"},
  {n:"Stil · C1",t:["nvv","nom"],soon:"Partikeln"}];
 const tInfo=t=>TOPICS.find(x=>x.t===t);
 function tRange(t){const m=(tInfo(t).ds||"").match(/([ABC][12])(?:–([ABC][12]))?\s*$/);return m?[m[1],m[2]||m[1]]:["A1","C1"];}
@@ -3845,7 +3922,7 @@ setInterval(sync,120);})();</script>
 var AUX=/^(sind|bin|ist|habe|hat|haben|hatte|hatten|werde|wurde|wird|war|waren|wären|hätte|hätten)$/;
 function lab(q){var a=String(q.o[q.c]||""),k=q.t,sx=q.s||"",hasInf=/\(\w+\)\s*$/.test(sx);
 if(k==="vprep"||k==="prep")return "Präposition";if(k==="pfall")return "Präposition oder Artikel";if(k==="vkas")return "Artikel oder Pronomen im richtigen Fall";
-if(k==="art")return "Artikel";
+if(k==="art")return "Artikel";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
 if(k==="rel")return "Relativpronomen";
 if(k==="praes"){if(/^(an|auf|aus|ein|ab|um|zu|vor|mit|nach)$/.test(a))return "Vorsilbe des trennbaren Verbs";return "Verb in der richtigen Form";}
 if(k==="modal")return "Modalverb in der richtigen Form";
