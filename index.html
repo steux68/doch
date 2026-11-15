@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-13s"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-13t"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3580,6 +3580,19 @@ tb.addEventListener("touchend",e=>{if(x0==null)return;const dx=e.changedTouches[
 .app[data-mode="game"] #panel .card.df .top{flex-direction:column!important;justify-content:flex-start!important;gap:0!important;height:54px!important;padding-top:7px!important;left:52px!important;right:52px!important;white-space:normal!important;text-overflow:clip!important}
 .app[data-mode="game"] #panel #pcn{order:-1;margin:0!important;font-size:14px!important;line-height:22px}
 .app[data-mode="game"] #panel #bd{font-size:11px!important;letter-spacing:.04em!important;line-height:15px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#777}
+
+/* popup-fest */
+.app[data-mode="game"] #gqpop{height:420px;box-sizing:border-box;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;background:rgba(255,255,255,.9)!important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.app[data-mode="game"] #gqpop::-webkit-scrollbar{display:none}
+.app[data-mode="game"] #panel .btns{position:absolute;left:12px;right:12px;bottom:8px;margin:0;z-index:1}
+.app[data-mode="game"] #panel #btns1{right:auto}
+.app[data-mode="game"] #panel #btns2{left:auto}
+.app[data-mode="game"] #gqpop{padding-bottom:36px!important}
+.app.kbo #gqpop{height:min(300px,calc(var(--vvh,400px) - 72px))}
+.tlpop .tlcard{height:min(100%,640px);background:rgba(255,255,255,.93);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.tlpop .tlcard.qv2{height:min(100%,calc(27svh + 285px))}
+.qv2 .qvimg{width:min(calc(100% - 24px),27svh)}
+.tlpop{background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
 </style>
 <script id="qbox-js">(function(){if(!window.qSlider)return;["p-quotes","p-rede"].forEach(function(id){var root=document.getElementById(id);if(!root)return;
 function setup(){var sc=root.querySelector(".qbs"),sl=root.querySelector(".qbw>.qsl");if(!sc||!sl||sc._q)return;sc._q=1;window.qSlider(sc,sl);}
