@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-16r"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16s"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3101,7 +3101,7 @@ function renderHome(){renderBars();
 /* ---------- Sehen: Zeiten und Fälle ---------- */
 const SVP="#e6dccb",SVN="#e4f7a0",SVF="#d3dff2";
 const SVG_=x=>'<span class="g">'+x+'</span>',SVY_=x=>'<span class="y">'+x+'</span>';
-const SV={tab:"t",sel:{t:[0,0],k:[0,0]},cur:{t:3,k:0},kp:"s",at:0,aw:"der",pp:{g:"W",w:"an"},rl:{g:"W",i:0,wo:0}};
+const SV={tab:"t",sel:{t:[0,0],k:[0,0]},cur:{t:3,k:0},kp:"s",at:0,aw:"der",pp:{g:"W",w:"an"},rl:{g:"W",i:0,wo:0,n:0}};
 const SVT=[
 {n:"Plusquamperfekt",f:"hatte / war + Partizip II",u:"Before another past event.",s:"nachdem, bevor, schon, vorher",a:"Nebensatz: gelernt hatte."},
 {n:"Präteritum",f:"Stamm + -te (or Ablaut)",u:"Written past, narration.",s:"damals, als, einst",a:"Spoken: mostly sein, haben, Modalverben."},
@@ -3199,6 +3199,19 @@ W:{n:"Wechsel",c:"linear-gradient(90deg,#f4dcd8 50%,#d3def0 50%)",l:["an","auf",
 G:{n:"Genitiv",c:"#f5efcf",l:["anstatt","außerhalb","diesseits","innerhalb","jenseits","oberhalb","trotz","unterhalb","während","wegen"],
  s:{anstatt:["{Anstatt} [des Autos] nehme ich das Rad."],"außerhalb":["Er wohnt {außerhalb} [der Stadt]."],diesseits:["{Diesseits} [des Flusses] liegt das Dorf."],innerhalb:["{Innerhalb} [einer Woche] ist es fertig."],jenseits:["{Jenseits} [der Grenze] beginnt Ungarn."],oberhalb:["{Oberhalb} [des Dorfes] steht eine Kirche."],trotz:["{Trotz} [des Regens] gehen wir spazieren."],unterhalb:["{Unterhalb} [der Brücke] liegt ein Café."],"während":["{Während} [des Films] schläft er ein."],wegen:["{Wegen} [des Wetters] bleiben wir zu Hause."]},
  i:[["Merke","Formal and written: needs the Genitiv"],["Trick","Speech: wegen dem Wetter (DAT)"],["Achtung","masc. / neut. noun takes -(e)s"]]}};
+
+/* Wechsel-Roller: pro Präposition Rahmensatz (Wo?/Wohin?) und vier Nomen m / f / n / Plural */
+const SVWN={
+an:["Das Bild hängt {an} [NP].","Ich hänge das Bild {an} [NP].",["Schrank","Wand","Fenster","Wände"]],
+auf:["Das Buch liegt {auf} [NP].","Ich lege das Buch {auf} [NP].",["Tisch","Bank","Sofa","Stühle"]],
+hinter:["Das Auto steht {hinter} [NP].","Ich fahre das Auto {hinter} [NP].",["Baum","Garage","Haus","Bäume"]],
+in:["Ich bin {in} [NP].","Ich gehe {in} [NP].",["Garten","Küche","Zimmer","Räume"]],
+neben:["Die Lampe steht {neben} [NP].","Ich stelle die Lampe {neben} [NP].",["Schrank","Tür","Sofa","Stühle"]],
+"über":["Die Lampe hängt {über} [NP].","Ich hänge die Lampe {über} [NP].",["Tisch","Couch","Bett","Tische"]],
+unter:["Die Katze liegt {unter} [NP].","Die Katze kriecht {unter} [NP].",["Tisch","Bank","Bett","Stühle"]],
+vor:["Der Wagen steht {vor} [NP].","Ich stelle den Wagen {vor} [NP].",["Baum","Tür","Haus","Bäume"]],
+zwischen:["Der Stuhl steht {zwischen} [NP] und der Tür.","Ich stelle den Stuhl {zwischen} [NP] und die Tür.",["Tisch","Wand","Sofa","Tische"]]};
+function svWS(w,wo,n){const d=SVWN[w];let no=d[2][n];if(!wo&&n===3&&!/[ns]$/.test(no))no+="n";return d[wo?1:0].replace("[NP]","["+SVW[n][wo?1:2]+" "+no+"]");}
 function svSub(){return '<div class="svg" style="--n:4;margin-top:4px">'+[["s","Sätze"],["a","Artikel"],["p","Präp."],["r","Roller"]].map(x=>'<span role="button" tabindex="0" class="svb svo fr'+(SV.kp===x[0]?' on':'')+'" data-kp="'+x[0]+'">'+x[1]+'</span>').join('')+'</div>';}
 function svFmt(t){return t.replace(/\{([^}]+)\}/g,(m,a)=>SVG_(a)).replace(/\[([^\]]+)\]/g,(m,a)=>SVY_(a));}
 function svInfoH(t,fill,rows){return '<div class="svb svti" style="background:'+fill+'">'+esc(t)+'</div>'+rows.map(r=>'<div class="svr"><span>'+r[0]+'</span><span>'+esc(r[1])+'</span></div>').join('');}
@@ -3226,7 +3239,7 @@ function svPrepH(){const chip=(k,w)=>'<span role="button" tabindex="0" class="sv
   return h+'</div><div class="svg" style="--n:1;margin-top:8px"><span class="svb svbn" style="background:'+SVQ.G.c+'">Genitiv</span></div><div class="svg" style="--n:4;margin-top:3px">'+SVQ.G.l.map(w=>chip("G",w)).join('')+'</div><div class="svx" id="svx"></div>';}
 function svRollH(){const R=SV.rl,q=SVQ[R.g];
   let h='<div class="svg" style="--n:4">'+[["A","AKK"],["D","DAT"],["W","Wechsel"],["G","GEN"]].map(x=>'<span role="button" tabindex="0" class="svb svo fr'+(R.g===x[0]?' on':'')+'" data-rg="'+x[0]+'"'+(R.g===x[0]?' style="background:'+SVQ[x[0]].c+'"':'')+'>'+x[1]+'</span>').join('')+'</div>';
-  h+=R.g==="W"?'<div class="svg" id="svrw" style="--n:2;margin-top:3px">'+["Wo? · Dativ","Wohin? · Akkusativ"].map((x,i)=>'<span role="button" tabindex="0" class="svb svo fr'+(R.wo===i?' on':'')+'" data-rw="'+i+'"'+(R.wo===i?' style="background:'+(i?"#f4dcd8":"#d3def0")+'"':'')+'>'+x+'</span>').join('')+'</div>'
+  h+=R.g==="W"?'<div class="svg" id="svrw" style="--n:2;margin-top:3px">'+["Wo? · Dativ","Wohin? · Akkusativ"].map((x,i)=>'<span role="button" tabindex="0" class="svb svo fr'+(R.wo===i?' on':'')+'" data-rw="'+i+'"'+(R.wo===i?' style="background:'+(i?"#f4dcd8":"#d3def0")+'"':'')+'>'+x+'</span>').join('')+'</div><div class="svg" id="svrn" style="--n:4;margin-top:3px">'+["der","die","das","Plural"].map((x,i)=>'<span role="button" tabindex="0" class="svb svo fr'+(R.n===i?' on':'')+'" data-rn="'+i+'">'+x+'</span>').join('')+'</div>'
     :'<div class="svg" style="--n:1;margin-top:3px"><span class="svb svbn" style="background:'+q.c+'">immer '+q.n+'</span></div>';
   h+='<div class="svg" id="svc" style="--n:5;margin-top:8px">'+q.l.map((w,i)=>'<span role="button" tabindex="0" class="svb svk fr svw" data-i="'+i+'">'+w+'</span>').join('')+'</div>';
   return h+'<div class="svt" id="svt"></div><div class="svi" id="svi"></div>';}
@@ -3244,7 +3257,7 @@ function renderSehenX(){const th=$("theo"),kp=SV.kp;
     fill();pg=b=>{if(b.dataset.w&&b.dataset.g){SV.pp={g:b.dataset.g,w:b.dataset.w};fill();return true;}return false;};}
   if(kp==="r"){const R=SV.rl,q=SVQ[R.g],L=q.l,trk=$("svt"),chips=$("svc"),info=$("svi");if(R.i>=L.length)R.i=0;
     const cw=()=>{const c=trk.querySelector(".svcol");return c?c.offsetWidth:1;};
-    const sent=w=>svFmt(R.g==="W"?q.s[w][R.wo]:q.s[w][0]);
+    const sent=w=>R.g==="W"?svFmt(svWS(w,R.wo,R.n)):svFmt(q.s[w][0]);
     const marks=i=>{R.i=i;trk.querySelectorAll(".svcol").forEach((c,k)=>c.classList.toggle("on",k===i));
       const fill=R.g==="W"?(R.wo?"#f4dcd8":"#d3def0"):q.c,cn=R.g==="W"?(R.wo?"Akkusativ":"Dativ"):q.n;
       chips.querySelectorAll(".svk").forEach(c=>{const on=+c.dataset.i===i;c.classList.toggle("on",on);c.style.background=on?fill:"";});
@@ -3255,6 +3268,7 @@ function renderSehenX(){const th=$("theo"),kp=SV.kp;
     trk.addEventListener("scroll",()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const i=Math.max(0,Math.min(L.length-1,Math.round(trk.scrollLeft/cw())));if(i!==R.i)marks(i);});});
     pg=b=>{if(b.dataset.rg){R.g=b.dataset.rg;R.i=0;renderSehenX();return true;}
       if(b.dataset.rw!==undefined){R.wo=+b.dataset.rw;root.querySelectorAll("[data-rw]").forEach(x=>{const on=+x.dataset.rw===R.wo;x.classList.toggle("on",on);x.style.background=on?(+x.dataset.rw?"#f4dcd8":"#d3def0"):"";});cols();go(R.i,false);return true;}
+      if(b.dataset.rn!==undefined){R.n=+b.dataset.rn;root.querySelectorAll("[data-rn]").forEach(x=>x.classList.toggle("on",+x.dataset.rn===R.n));cols();go(R.i,false);return true;}
       if(b.dataset.i!==undefined){const i=+b.dataset.i;marks(i);go(i,true);return true;}return false;};
     requestAnimationFrame(()=>requestAnimationFrame(()=>go(R.i,false)));}
   root.addEventListener("click",e=>{const b=e.target.closest("[role=button]");if(!b||!root.contains(b))return;
