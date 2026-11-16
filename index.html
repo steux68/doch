@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-16l"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16m"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -278,15 +278,34 @@ svg.room{width:100%;height:100%;max-height:100%;display:block}
 .opt.bad{background:var(--bg);color:var(--red);box-shadow:inset 0 0 0 1.5px var(--red);text-decoration:line-through}
 .gap{display:inline-block;min-width:2.4em;border-bottom:2px solid var(--fg);text-align:center}
 /* Theorie */
-.tpx .tpvb{display:flex;gap:6px}.tpx .tpvb button{flex:1;padding:7px 4px;border:1px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-size:15px}
-.tpx .tpvb button[aria-pressed="true"]{background:var(--pale);color:var(--fg);font-weight:700;border-color:var(--ink)}
-.tpx .tpsn{min-height:70px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:21px;line-height:1.3}
-.tpx .tpsn span{padding:1px 7px}.tpx .tpsn .t{color:var(--muted)}.tpx .tpsn .v{background:var(--lime);font-weight:700}.tpx .tpsn .e{background:var(--yellow);font-weight:700}
-.tpx input[type=range]{width:100%;margin:4px 0 0;accent-color:var(--red);height:28px}
-.tpx .tptk{margin:2px 0 10px;display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}.tpx .tptk b{font-weight:400;width:16.6%;text-align:center}.tpx .tptk b.on{color:var(--fg);font-weight:700}
-.tpx .tph{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}.tpx .tph b{font-size:1.25rem}.tpx .tph small{font-size:13px;color:var(--muted)}
-.tpx .tpinf>div{display:flex;gap:10px;padding:4px 0;font-size:16px;line-height:1.35;border-top:1px solid transparent;background:var(--df) left top/100% 1px no-repeat}
-.tpx .tpinf>div span:first-child{width:70px;flex:none;color:var(--muted)}
+.rgc{width:100%;box-sizing:border-box;position:relative;background:#fff;box-shadow:0 2px 18px rgba(0,0,0,.14);padding:10px 12px 10px;display:flex;flex-direction:column;gap:8px;color:var(--fg);text-align:left}
+.rgc::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--df) left top/100% 1px no-repeat,var(--df) left bottom/100% 1px no-repeat,var(--dfv) left top/1px 100% no-repeat,var(--dfv) right top/1px 100% no-repeat}
+.rgc button{font:inherit;cursor:pointer;background:transparent;border:0;color:inherit;padding:0}
+.rgt{display:flex;justify-content:center;align-items:center;height:30px;margin-top:-4px}
+.rgo2{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.rgn{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rgo{display:inline-flex}.rgo button{padding:4px 9px;font-size:14px;color:var(--muted);border:1px solid var(--line);margin-left:-1px}
+.rgo button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+.rgbd{display:flex;margin:0 38px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.rgbd span{padding:3px 0;text-align:center;border-left:1px solid #fff}
+.rgrow{display:flex;align-items:flex-start;gap:4px}
+.rga{flex:none;width:34px;height:44px;font-size:26px;line-height:1;color:var(--ink)}
+.rgdots{flex:1;display:flex;position:relative}
+.rgdots::before{content:"";position:absolute;left:8%;right:8%;top:11px;height:2px;background:var(--ink)}
+.rgdot{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--muted);min-width:0}
+.rgdot i{width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid var(--ink);box-sizing:border-box}
+.rgdot[aria-pressed="true"]{color:var(--fg);font-weight:700}.rgdot[aria-pressed="true"] i{background:var(--red);border-color:var(--red);transform:scale(1.25)}
+.rgs{background:var(--pale);padding:12px 8px;touch-action:pan-y;user-select:none;min-height:3.2em;display:flex;align-items:center}
+.rgsn{width:100%;white-space:nowrap;overflow:hidden;line-height:1.5;font-size:22px}
+.stagew:has(.rgc){flex:0 0 auto}
+.stage:has(.rgc){overflow-y:auto;justify-content:flex-start}
+.rgsn.wr{white-space:normal}
+.rgsn span{padding:1px 3px}.rgsn span.p{padding:1px 0}.rgsn .t{color:var(--muted)}.rgsn .v{background:var(--lime);font-weight:700}.rgsn .e{background:var(--yellow);font-weight:700}
+.rgsn .n0{background:var(--mnom);font-weight:700}.rgsn .n1{background:var(--makk2);font-weight:700}.rgsn .n2{background:var(--mdat);font-weight:700}.rgsn .n3{background:var(--mgen);font-weight:700}
+.rgh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}.rgh b{font-size:1.25rem}.rgh small{font-size:13px;color:var(--muted)}
+.rgi>div{display:flex;gap:10px;padding:4px 0;font-size:15px;line-height:1.35;background:var(--df) left top/100% 1px no-repeat}
+.rgi>div>span:first-child{width:78px;flex:none;color:var(--muted)}
+.rgi>div.on{font-weight:700;background-color:var(--pale)}
 .theo{flex:1 1 auto;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:2px 1px 6px}
 .tc{padding:12px 12px 14px;display:flex;flex-direction:column;gap:8px;background:var(--bg)}
 .tc h3{margin:0;font-size:1.2rem;line-height:1.2;display:flex;align-items:baseline;gap:8px;padding-bottom:6px;background:var(--df) left bottom/100% 1px no-repeat}
@@ -1814,27 +1833,69 @@ GT.praes={name:"Präsens & Trennbare Verben",badge:"Präsens",tip:"du and er cha
 <div><span>seit</span><span>Ich wohne seit 2005 in Wien. = I have lived …</span></div>
 <div><span>immer</span><span>Wasser kocht bei 100 Grad.</span></div></div></div>`};
 
-function tpxHTML(){
-return '<div class="tc df"><h3>Regler: Zeitformen <small>schiebe von früher nach später</small></h3><div class="tpx"><div class="tpvb"><button type="button" data-v="0" aria-pressed="true">lernen</button><button type="button" data-v="1" aria-pressed="false">gehen</button></div><div class="tpsn"></div><input type="range" min="0" max="5" step="1" value="3" aria-label="Zeitform wählen"><div class="tptk"><b>Plusq.</b><b>Prät.</b><b>Perf.</b><b class="on">Präs.</b><b>Fut I</b><b>Fut II</b></div><div class="tph"><b></b><small></small></div><div class="tpinf"></div><p class="tline">Gelb: der Rest des Verbs am Satzende. Grün: das Verb an Position 2.</p></div></div>';}
 (function(){
-var N=["Plusquamperfekt","Präteritum","Perfekt","Präsens","Futur I","Futur II"],ST=["Vorvergangenheit","Vergangenheit","Vergangenheit","Gegenwart","Zukunft","Zukunft"];
-var S=[[[["Davor","t"],["hatte","v"],["ich","t"],["gelernt","e"]],[["Davor","t"],["war","v"],["ich","t"],["gegangen","e"]]],
-[[["Damals","t"],["lernte","v"],["ich","t"]],[["Damals","t"],["ging","v"],["ich","t"]]],
-[[["Gestern","t"],["habe","v"],["ich","t"],["gelernt","e"]],[["Gestern","t"],["bin","v"],["ich","t"],["gegangen","e"]]],
-[[["Jetzt","t"],["lerne","v"],["ich","t"]],[["Jetzt","t"],["gehe","v"],["ich","t"]]],
-[[["Morgen","t"],["werde","v"],["ich","t"],["lernen","e"]],[["Morgen","t"],["werde","v"],["ich","t"],["gehen","e"]]],
-[[["Bis Montag","t"],["werde","v"],["ich","t"],["gelernt haben","e"]],[["Bis Montag","t"],["werde","v"],["ich","t"],["gegangen sein","e"]]]];
-var I=[["hatte / war + Partizip II","Before another past event","nachdem, bevor, bereits"],["Stem + -te, or a new vowel","Stories, reports; war, hatte, konnte","damals, früher, 1995"],["habe / bin + Partizip II","Spoken past, letters, emails","gestern, schon, gerade"],["Stem + ending","Now, always, planned future","jetzt, heute, immer"],["werde + Infinitiv","Plans, forecasts, a guess about now","bald, wohl"],["werde + Partizip II + haben / sein","Finished by a future time; a guess about the past","bis morgen, sicher"]];
-var L=["Bildung","Gebrauch","Signale"];
-function draw(r){var i=+r.querySelector("input").value,v=+r.dataset.v||0;
-r.querySelector(".tpsn").innerHTML=S[i][v].map(function(p){return '<span class="'+p[1]+'">'+p[0]+'</span>'}).join("");
-r.querySelector(".tph b").textContent=N[i];r.querySelector(".tph small").textContent=ST[i];
-r.querySelectorAll(".tptk b").forEach(function(b,k){b.className=k==i?"on":""});
-r.querySelector(".tpinf").innerHTML=I[i].map(function(t,j){return '<div><span>'+L[j]+'</span><span>'+t+'</span></div>'}).join("");}
-function all(){document.querySelectorAll(".tpx").forEach(function(r){if(!r.dataset.d){r.dataset.d=1;draw(r)}});}
-document.addEventListener("input",function(e){var r=e.target.closest&&e.target.closest(".tpx");if(r)draw(r)});
-document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".tpx [data-v]");if(!b)return;var r=b.closest(".tpx");r.dataset.v=b.dataset.v;r.querySelectorAll("[data-v]").forEach(function(x){x.setAttribute("aria-pressed",x===b)});draw(r)});
+var TL=["#e3d8c8","#d3def0","#eaffae","#fffbd6"];
+var D={
+t:{n:"Zeitformen",o1:["lernen","gehen"],ab:["Plusq.","Prät.","Perf.","Präs.","Fut I","Fut II"],i0:3,
+ bands:[["Vergangenheit",3,"#e3d8c8"],["Jetzt",1,"#eaffae"],["Zukunft",2,"#d3def0"]],
+ nm:["Plusquamperfekt","Präteritum","Perfekt","Präsens","Futur I","Futur II"],
+ st:["Vorvergangenheit","Vergangenheit","Vergangenheit","Gegenwart","Zukunft","Zukunft"],
+ S:[
+ [[[["Davor","t"],["hatte","v"],["ich","t"],["gelernt","e"]],[["Nachdem ich","t"],["gelernt","e"],["hatte","v"],[", ","t"],["ging","v"],["ich spazieren.","t"]]],
+  [[["Davor","t"],["war","v"],["ich","t"],["gegangen","e"]],[["Nachdem sie","t"],["gegangen","e"],["war","v"],[", ","t"],["war","v"],["es still.","t"]]]],
+ [[[["Damals","t"],["lernte","v"],["ich","t"]],[["Als ich jung","t"],["war","v"],[", ","t"],["lernte","v"],["ich jeden Abend.","t"]]],
+  [[["Damals","t"],["ging","v"],["ich","t"]],[["Als es dunkel","t"],["wurde","v"],[", ","t"],["ging","v"],["ich nach Hause.","t"]]]],
+ [[[["Gestern","t"],["habe","v"],["ich","t"],["gelernt","e"]],[["Obwohl ich müde","t"],["war","v"],[", ","t"],["habe","v"],["ich gestern lange","t"],["gelernt","e"],[".","t"]]],
+  [[["Gestern","t"],["bin","v"],["ich","t"],["gegangen","e"]],[["Weil es","t"],["regnete","v"],[", ","t"],["bin","v"],["ich früh nach Hause","t"],["gegangen","e"],[".","t"]]]],
+ [[[["Jetzt","t"],["lerne","v"],["ich","t"]],[["Weil morgen die Prüfung","t"],["ist","v"],[", ","t"],["lerne","v"],["ich jetzt.","t"]]],
+  [[["Jetzt","t"],["gehe","v"],["ich","t"]],[["Wenn es","t"],["regnet","v"],[", ","t"],["gehe","v"],["ich nicht spazieren.","t"]]]],
+ [[[["Morgen","t"],["werde","v"],["ich","t"],["lernen","e"]],[["Wenn ich Zeit","t"],["habe","v"],[", ","t"],["werde","v"],["ich morgen","t"],["lernen","e"],[".","t"]]],
+  [[["Morgen","t"],["werde","v"],["ich","t"],["gehen","e"]],[["Wenn du","t"],["willst","v"],[", ","t"],["werde","v"],["ich mit dir","t"],["gehen","e"],[".","t"]]]],
+ [[[["Bis Montag","t"],["werde","v"],["ich","t"],["gelernt haben","e"]],[["Bis die Prüfung","t"],["beginnt","v"],[", ","t"],["werde","v"],["ich alles","t"],["gelernt haben","e"],[".","t"]]],
+  [[["Bis Montag","t"],["werde","v"],["ich","t"],["gegangen sein","e"]],[["Bis du","t"],["ankommst","v"],[", ","t"],["werde","v"],["ich schon","t"],["gegangen sein","e"],[".","t"]]]]],
+ I:[["hatte / war + Partizip II","Before another past event","nachdem, bevor, bereits"],["Stem + -te, or a new vowel","Stories, reports; war, hatte, konnte","damals, früher, als"],["habe / bin + Partizip II","Spoken past, letters, emails","gestern, schon, gerade"],["Stem + ending","Now, always, planned future","jetzt, heute, immer"],["werde + Infinitiv","Plans, forecasts, a guess about now","bald, wohl"],["werde + Partizip II + haben / sein","Finished by a future time; a guess about the past","bis morgen, sicher"]],
+ L:["Bildung","Gebrauch","Signale"],leg:"Grün: konjugiertes Verb · Gelb: Rest des Verbs"},
+k:{n:"Fälle",o1:["der Mann","die Frau","das Kind","die Kinder","der Student"],ab:["Nom","Akk","Dat","Gen"],i0:1,
+ bands:[["Wer?",1,"#e6e6e3"],["Wen?",1,"#f4dcd8"],["Wem?",1,"#d3def0"],["Wessen?",1,"#f5efcf"]],
+ nm:["Nominativ","Akkusativ","Dativ","Genitiv"],st:["Wer oder was?","Wen oder was?","Wem?","Wessen?"],
+ F:[["der Mann","den Mann","dem Mann","des Mannes"],["die Frau","die Frau","der Frau","der Frau"],["das Kind","das Kind","dem Kind","des Kindes"],["die Kinder","die Kinder","den Kindern","der Kinder"],["der Student","den Studenten","dem Studenten","des Studenten"]],
+ I:["Subject: who does it. Also after sein.","Direct object: sehen, finden, kaufen. Also after für, durch, ohne.","Indirect object: helfen, danken, gehören. Also after mit, bei, nach.","Belonging: das Auto des Mannes. Also after wegen, trotz, während."],
+ leg:"Der Artikel (und das Nomen) ändert sich mit dem Fall."}};
+function cap(x){return x.charAt(0).toUpperCase()+x.slice(1)}
+function parts(k,i,v,l){
+ if(k==="t")return D.t.S[i][v][l];
+ var f=D.k.F[v][i],pl=v==3;
+ if(!l){if(i==0)return [[cap(f),"n0"],[pl?"kommen.":"kommt.","t"]];if(i==1)return [["Ich sehe","t"],[f,"n1"],[".","t"]];if(i==2)return [["Ich helfe","t"],[f,"n2"],[".","t"]];return [["Das ist das Auto","t"],[f,"n3"],[".","t"]];}
+ if(i==0)return [["Ich weiß, dass","t"],[f,"n0"],[pl?"kommen.":"kommt.","t"]];
+ if(i==1)return [["Ich weiß, dass er","t"],[f,"n1"],["sieht.","t"]];
+ if(i==2)return [["Ich weiß, dass er","t"],[f,"n2"],["hilft.","t"]];
+ return [["Ich weiß, dass das Auto","t"],[f,"n3"],["kaputt ist.","t"]];}
+function fit(el){el.classList.remove("wr");el.style.fontSize="22px";var fs=22;while(el.scrollWidth>el.clientWidth+1&&fs>14){fs--;el.style.fontSize=fs+"px"}if(el.scrollWidth>el.clientWidth+1)el.classList.add("wr");}
+window.tpxHTML=function(k){k=k||"t";var d=D[k];
+ var o1=d.o1.map(function(x,j){return '<button type="button" data-o="v'+j+'" aria-pressed="'+(j==0)+'">'+x+'</button>'}).join("");
+ var bd=d.bands.map(function(b){return '<span style="flex:'+b[1]+';background:'+b[2]+'">'+b[0]+'</span>'}).join("");
+ var dots=d.ab.map(function(a,j){return '<button type="button" class="rgdot" data-s="='+j+'" aria-pressed="false" aria-label="'+d.nm[j]+'"><i></i>'+a+'</button>'}).join("");
+ return '<div class="rgc" data-k="'+k+'" data-i="'+d.i0+'" data-v="0" data-l="0"><div class="rgt"><span class="rgn">'+d.n+'</span></div><div class="rgo2"><span class="rgo">'+o1+'</span><span class="rgo"><button type="button" data-o="l0" aria-pressed="true">kurz</button><button type="button" data-o="l1" aria-pressed="false">+ Nebensatz</button></span></div>'
+ +'<div class="rgbd">'+bd+'</div><div class="rgrow"><button type="button" class="rga" data-s="-1" aria-label="zurück">‹</button><div class="rgdots">'+dots+'</div><button type="button" class="rga" data-s="1" aria-label="weiter">›</button></div>'
+ +'<div class="rgs"><div class="rgsn"></div></div><div class="rgh"><b></b><small></small></div><div class="rgi"></div></div>';};
+function draw(r){var k=r.dataset.k,d=D[k],i=+r.dataset.i,v=+r.dataset.v,l=+r.dataset.l;
+ var sn=r.querySelector(".rgsn");sn.innerHTML=parts(k,i,v,l).map(function(x){return '<span class="'+x[1]+(/^[,.]\s*$/.test(x[0])?' p':'')+'">'+x[0].trim()+'</span>'}).join(" ").replace(/ <span class="t p">/g,'<span class="t p">');
+ r.querySelectorAll(".rgdot").forEach(function(b,j){b.setAttribute("aria-pressed",j==i)});
+ r.querySelectorAll("[data-o]").forEach(function(b){var o=b.dataset.o;b.setAttribute("aria-pressed",o===("v"+v)||o===("l"+l))});
+ r.querySelector(".rgh b").textContent=d.nm[i];r.querySelector(".rgh small").textContent=d.st[i];
+ r.querySelector(".rgi").innerHTML=k==="t"?d.I[i].map(function(t,j){return '<div><span>'+d.L[j]+'</span><span>'+t+'</span></div>'}).join(""):d.nm.map(function(n,j){return '<div'+(j==i?' class="on"':'')+'><span>'+n+'</span><span>'+d.F[v][j]+'</span></div>'}).join("")+'<div><span></span><span style="color:var(--muted);font-weight:400">'+d.I[i]+'</span></div>';
+ fit(sn);}
+function step(r,x){var d=D[r.dataset.k],n=d.nm.length,i=+r.dataset.i;if(x[0]==="=")i=+x.slice(1);else i=Math.max(0,Math.min(n-1,i+ +x));r.dataset.i=i;draw(r);}
+function all(){document.querySelectorAll(".rgc").forEach(function(r){if(!r.dataset.d){r.dataset.d=1;draw(r)}});}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".rgc button");if(!b)return;var r=b.closest(".rgc");
+ if(b.dataset.s!==undefined)step(r,b.dataset.s);else if(b.dataset.o){var o=b.dataset.o;r.dataset[o[0]]=o.slice(1);draw(r);}});
+var X0=null;
+document.addEventListener("touchstart",function(e){var s=e.target.closest&&e.target.closest(".rgs");X0=s?e.touches[0].clientX:null;},{passive:true});
+document.addEventListener("touchend",function(e){if(X0===null)return;var s=e.target.closest&&e.target.closest(".rgc");var dx=e.changedTouches[0].clientX-X0;X0=null;if(s&&Math.abs(dx)>40)step(s,dx<0?"1":"-1");},{passive:true});
+document.addEventListener("keydown",function(e){var r=document.querySelector(".rgc");if(!r||!(e.key==="ArrowLeft"||e.key==="ArrowRight")||document.activeElement.closest(".rgc")===null)return;step(r,e.key==="ArrowRight"?"1":"-1");});
+window.tpxCard=function(k){return {b:"Regler",st:tpxHTML(k),tx:"",gt:"",say:""};};
 new MutationObserver(all).observe(document.documentElement,{childList:true,subtree:true});
+window.addEventListener("resize",function(){document.querySelectorAll(".rgsn").forEach(fit)});
 })();
 GT.perf={name:"Zeitformen",badge:"Zeitform",tip:"Movement from A to B or a change of state → sein. Everything else → haben.",src:["dudenk","dg20","dw"],
  lg:'<span><b class="wt v lgk">habe</b> … <b class="wt v lgk">gemacht</b> Satzklammer</span>',
@@ -1864,7 +1925,7 @@ GT.perf={name:"Zeitformen",badge:"Zeitform",tip:"Movement from A to B or a chang
  {s:"Wann ___ der Unfall passiert? (passieren)",o:["ist","hat","wird"],why:"passieren takes sein.",lv:"B1"},
  {s:"Ich bin lange im Café ___. (sitzen)",o:["gesessen","gesitzt","gesitzen"],why:"sitzen → gesessen. In Austria with sein, in Germany usually with haben.",lv:"B1"},
  {s:"Bis Freitag ___ ich den Bericht geschrieben haben. (werden)",o:["werde","wurde","habe"],why:"Futur II: werden + Partizip + haben.",lv:"C1"}],
- th:`${tpxHTML()}<div class="tc df"><h3>Sechs Zeitformen</h3>${TLZ}</div>
+ th:`${tpxHTML('t')}<div class="tc df"><h3>Sechs Zeitformen</h3>${TLZ}</div>
 <div class="tc df"><h3>haben oder sein?</h3><div class="rows">
 <div><span>sein</span><span>movement from A to B: gehen, fahren, fliegen, kommen, reiten (nach Hause)</span></div>
 <div><span>sein</span><span>change of state: aufstehen, einschlafen, wachsen, sterben, werden</span></div>
@@ -2614,7 +2675,7 @@ GT.praet={name:"Präteritum & Futur",badge:"Zeitform",tip:"Regular: stem + -te. 
  {s:"Was machst du? – Ich ___ gerade.",o:["koche","bin kochen","werde kochen"],why:"The Präsens with gerade. No continuous form.",lv:"A2"},
  {s:"Er schläft ___. (still)",o:["noch","gerade","bald"],why:"noch = still, as before.",lv:"A2"},
  {s:"Sie ___ immer noch am Telefon.",o:["ist","wird","hat"],why:"sein + am Telefon, with immer noch for emphasis.",lv:"B1"}],
- th:`${tpxHTML()}<div class="tc df"><h3>Endungen</h3><div class="rows"><div><span>ich</span><span>– oder -te</span></div><div><span>du</span><span>-st oder -test</span></div><div><span>er, sie, es</span><span>– oder -te</span></div><div><span>wir</span><span>-en oder -ten</span></div><div><span>ihr</span><span>-t oder -tet</span></div><div><span>sie, Sie</span><span>-en oder -ten</span></div></div><p class="tline">Strong verbs: no ending in ich and er. Regular verbs: -te before the ending.</p></div><div class="tc df"><h3>Wichtige Verben</h3><div class="rows"><div><span>sein</span><span>war</span></div><div><span>haben</span><span>hatte</span></div><div><span>werden</span><span>wurde</span></div><div><span>können</span><span>konnte</span></div><div><span>müssen</span><span>musste</span></div><div><span>wissen</span><span>wusste</span></div><div><span>denken</span><span>dachte</span></div><div><span>bringen</span><span>brachte</span></div></div><p class="tline">Lerne drei Formen: Infinitiv, Präteritum, Partizip II.</p></div><div class="tc df"><h3>Futur</h3><div class="rows"><div><span>Futur I</span><span>werde + Infinitiv</span></div><div><span>Vermutung</span><span>Er wird wohl krank sein.</span></div><div><span>Befehl</span><span>Du wirst jetzt aufräumen!</span></div><div><span>Futur II</span><span>Er wird schon angekommen sein.</span></div></div><p class="tline">Im Alltag reicht oft das Präsens mit Zeitangabe.</p></div><div class="tc df"><h3>Zeitachse</h3><div class="rows"><div><span>Plusquamperfekt</span><span>Ich hatte gelernt.</span></div><div><span>Präteritum</span><span>Ich lernte.</span></div><div><span>Perfekt</span><span>Ich habe gelernt.</span></div><div><span>Präsens</span><span>Ich lerne.</span></div><div><span>Futur I</span><span>Ich werde lernen.</span></div><div><span>Futur II</span><span>Ich werde gelernt haben.</span></div></div><p class="tline">Von früher nach später, von oben nach unten.</p></div>`};
+ th:`${tpxHTML('t')}<div class="tc df"><h3>Endungen</h3><div class="rows"><div><span>ich</span><span>– oder -te</span></div><div><span>du</span><span>-st oder -test</span></div><div><span>er, sie, es</span><span>– oder -te</span></div><div><span>wir</span><span>-en oder -ten</span></div><div><span>ihr</span><span>-t oder -tet</span></div><div><span>sie, Sie</span><span>-en oder -ten</span></div></div><p class="tline">Strong verbs: no ending in ich and er. Regular verbs: -te before the ending.</p></div><div class="tc df"><h3>Wichtige Verben</h3><div class="rows"><div><span>sein</span><span>war</span></div><div><span>haben</span><span>hatte</span></div><div><span>werden</span><span>wurde</span></div><div><span>können</span><span>konnte</span></div><div><span>müssen</span><span>musste</span></div><div><span>wissen</span><span>wusste</span></div><div><span>denken</span><span>dachte</span></div><div><span>bringen</span><span>brachte</span></div></div><p class="tline">Lerne drei Formen: Infinitiv, Präteritum, Partizip II.</p></div><div class="tc df"><h3>Futur</h3><div class="rows"><div><span>Futur I</span><span>werde + Infinitiv</span></div><div><span>Vermutung</span><span>Er wird wohl krank sein.</span></div><div><span>Befehl</span><span>Du wirst jetzt aufräumen!</span></div><div><span>Futur II</span><span>Er wird schon angekommen sein.</span></div></div><p class="tline">Im Alltag reicht oft das Präsens mit Zeitangabe.</p></div><div class="tc df"><h3>Zeitachse</h3><div class="rows"><div><span>Plusquamperfekt</span><span>Ich hatte gelernt.</span></div><div><span>Präteritum</span><span>Ich lernte.</span></div><div><span>Perfekt</span><span>Ich habe gelernt.</span></div><div><span>Präsens</span><span>Ich lerne.</span></div><div><span>Futur I</span><span>Ich werde lernen.</span></div><div><span>Futur II</span><span>Ich werde gelernt haben.</span></div></div><p class="tline">Von früher nach später, von oben nach unten.</p></div>`};
 /* plural */
 GT.plural={name:"Plural & n-Deklination",badge:"Nomen",tip:"Learn the plural with the noun. Feminine mostly -(e)n. A small group of masculine nouns takes -n.",src:["duden","grammis","lingolia"],
  lg:'<span><b class="wt k lgk">-en</b> Plural</span><span><b class="wt v lgk">den Studenten</b> n-Deklination</span>',
@@ -3167,6 +3228,7 @@ WHY.zuinf=["zi nemanne","Althochdeutsch, um 800","Why does German need zu?","Old
 const whyCard=([sq,sx,tx,gt])=>({b:"Warum?",st:'<div class="story"><span class="sk">Warum?</span><p class="sq">'+sq+'</p><p class="sx">'+sx+'</p><p class="sb">'+gt+'</p></div>',tx,gt:"Weiter → zu den Regeln.",say:sq+". "+gt});
 Object.keys(WHY).forEach(k=>{const c=whyCard(WHY[k]);if(GT[k])GT[k].cards.unshift(c);else({art:ART_CARDS,fall:FALL_CARDS,gen:GEN_CARDS,adj:ADJ_CARDS})[k].unshift(c);});
 Object.keys(GT).forEach(k=>{SRC[k]=GT[k].src;TH[k]=()=>GT[k].th+srcCard(k);});
+GT.perf.cards.unshift(tpxCard('t'));GT.praet.cards.unshift(tpxCard('t'));FALL_CARDS.unshift(tpxCard('k'));
 const LG={fall:'<span class="lgc nom">Nom</span><span class="lgc akk">Akk</span><span class="lgc dat">Dat</span><span class="lgc gen">Gen</span>',adj:'<span><b class="lgx">-e/-er/-es</b> Merkzellen</span><span><b class="lgx en">-en</b> überall sonst</span>',art:'<span><b>der</b> · <b>die</b> · <b>das</b></span>',pron:'<span><i class="sw" style="background:var(--grey)"></i>Nominativ</span><span style="color:var(--akk)"><i class="sw" style="box-shadow:inset 0 0 0 2px var(--akk)"></i>Akkusativ</span><span style="color:var(--dat)"><i class="sw" style="box-shadow:inset 0 0 0 2px var(--dat)"></i>Dativ</span>',gen:'<span><i class="sw" style="background:var(--cream);box-shadow:inset 0 0 0 1px var(--line)"></i>Genitiv: des · der</span>'};
 function render(){clearTimeout(MC&&MC.tm);
   if(mode==="theo"){if(T==="write"){renderWrite();$("theo").scrollTop=0;return;}if(T==="lueck"){renderLueck();$("theo").scrollTop=0;return;}theoGallery();$("theo").scrollTop=0;return;}
