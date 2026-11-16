@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-16g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -2613,6 +2613,45 @@ GT.plural={name:"Plural & n-Deklination",badge:"Nomen",tip:"Learn the plural wit
  {s:"Er hörte den Schlag seines ___.",o:["Herzens","Herz","Herzes"],why:"Das Herz: Genitiv des Herzens.",lv:"C1"},
  {s:"Diesen ___ konnte er nicht fassen. (Gedanke)",o:["Gedanken","Gedanke","Gedankes"],why:"Akkusativ of Gedanke: den Gedanken.",lv:"C1"}],
  th:`<div class="tc df"><h3>Endungen</h3><div class="rows"><div><span>-e / -¨e</span><span>Hund → Hunde, Stuhl → Stühle</span></div><div><span>-er / -¨er</span><span>Kind → Kinder, Haus → Häuser</span></div><div><span>-(e)n</span><span>Frau → Frauen, Lampe → Lampen</span></div><div><span>-s</span><span>Auto → Autos, Hotel → Hotels</span></div><div><span>ohne</span><span>Lehrer, Zimmer, Mädchen</span></div></div><p class="tline">Lerne den Plural immer mit dem Nomen.</p></div><div class="tc df"><h3>n-Deklination</h3><div class="rows"><div><span>Nom</span><span>der Student</span></div><div><span>Akk</span><span>den Studenten</span></div><div><span>Dat</span><span>dem Studenten</span></div><div><span>Gen</span><span>des Studenten</span></div><div><span>Plural</span><span>die Studenten</span></div></div><p class="tline">Nur maskulin. Besonders: des Namens, des Herzens.</p></div><div class="tc df"><h3>Genus-Tipps</h3><div class="rows"><div><span>-ung, -heit, -keit</span><span>→ -en</span></div><div><span>-schaft, -ion, -ität</span><span>→ -en</span></div><div><span>-in</span><span>→ -innen</span></div><div><span>-um (lat.)</span><span>→ -en: Museum → Museen</span></div><div><span>Kompositum</span><span>der letzte Teil zählt</span></div></div><p class="tline">Weiblich meist -(e)n.</p></div>`};
+/* komp */
+GT.komp={name:"Komparation",badge:"Adjektiv",tip:"Add -er, then am + -sten. Als after the Komparativ, wie after so.",src:["duden","grammis","lingolia"],
+ lg:'<span><b class="wt k lgk">-er</b> Komparativ</span><span><b class="wt v lgk">am -sten</b> Superlativ</span>',
+ cards:[
+ {b:"Drei Stufen",st:ruleSt("Positiv · Komparativ · Superlativ",["schnell – schneller – am schnellsten","klein – kleiner – am kleinsten","teuer – teurer – am teuersten","dunkel – dunkler – am dunkelsten","bunt – bunter – am buntesten","heiß – heißer – am heißesten"]),tx:"Add -er, then am + -(e)sten",gt:"Comparative = stem + -er. Superlative = am + stem + -sten. After -t, -d, -s, -ß, -z or -sch the Superlativ takes -esten: am buntesten, am heißesten. With -el and -er the e often drops: dunkler, teurer."},
+ {b:"Umlaut",st:ruleSt("Many short adjectives",["alt – älter – am ältesten","jung – jünger – am jüngsten","kalt – kälter – am kältesten","warm – wärmer – am wärmsten","lang – länger – am längsten","stark – stärker – am stärksten","groß – größer – am größten"]),tx:"a, o, u often become ä, ö, ü",gt:"Many one-syllable adjectives take an umlaut, but not all: klar – klarer, bunt – bunter, froh – froher. Note groß: am größten, without an extra e."},
+ {b:"Unregelmäßig",st:ruleSt("Learn these by heart",["gut – besser – am besten","viel – mehr – am meisten","gern – lieber – am liebsten","hoch – höher – am höchsten","nah – näher – am nächsten","wenig – weniger – am wenigsten"]),tx:"A few common words change completely",gt:"The c of hoch disappears before an ending: ein hoher Berg, but höher and am höchsten. Gern is an adverb: Ich trinke gern Tee. Ich trinke lieber Kaffee."},
+ {b:"so … wie · als",st:ruleSt("Equal or different",["Er ist so groß wie ich.","Er ist größer als ich.","Er ist nicht so groß wie ich.","Es ist genauso teuer wie vorher.","Das Haus ist doppelt so groß wie das alte."]),tx:"Same → so … wie. Different → Komparativ + als",gt:"Use wie with so or genauso and the basic form. Use als after a Komparativ. Komparativ + wie is spoken and not correct in standard German."},
+ {b:"je … desto",st:ruleSt("The more … the more …",["Je länger ich lerne, desto besser verstehe ich.","Je früher du kommst, desto mehr Zeit haben wir.","Je älter, desto klüger."]),tx:"Two Komparative, two clauses",gt:"The je-part is a Nebensatz, so the verb stands last. In the second part desto (or umso) + Komparativ comes first and the verb is second."},
+ {b:"am -sten oder der -ste",st:ruleSt("Two Superlativ forms",["Anna läuft am schnellsten.","Anna ist am schnellsten.","Anna ist die schnellste Läuferin.","Das ist der höchste Berg.","Das ist das beste Essen."]),tx:"No noun → am. With a noun → article + -ste",gt:"Use am + -sten with verbs and in the predicate, when no noun follows. Before a noun use the adjective with the article and an ending: der höchste Berg."},
+ {b:"Endungen",st:ruleSt("Endings still apply",["ein größeres Haus","der schnellere Zug","mit besseren Noten","ein teureres Auto","mehr Zeit","weniger Geld"]),tx:"A Komparativ before a noun takes an ending",gt:"Put the normal adjective ending after -er: ein größeres Haus. The words mehr and weniger never take an ending: mehr Zeit, weniger Geld."},
+ {b:"immer + Komparativ",st:ruleSt("Getting more and more",["Es wird immer kälter.","Er spricht immer besser.","Die Tage werden immer länger.","Das Leben wird immer teurer."]),tx:"immer + Komparativ = more and more",gt:"It describes a change over time. It is common with werden."},
+ {b:"Elativ",st:ruleSt("Very, without comparing",["Das ist höchst interessant.","Sie ist äußerst höflich.","Ich bin bestens informiert.","Wir danken Ihnen aufs Herzlichste."]),tx:"A Superlativ form that only means very",gt:"The Elativ does not compare with others. It is typical for written and formal German and shows polite emphasis."}],
+ q:[
+ {s:"Mein Bruder ist ___ als ich. (alt)",o:["älter","alter","ältere"],why:"alt → älter, with an umlaut.",lv:"A2"},
+ {s:"Der Zug ist ___ als der Bus. (schnell)",o:["schneller","schnellere","schnell"],why:"Komparativ: schneller. No ending in the predicate.",lv:"A2"},
+ {s:"Ich bin so groß ___ mein Vater.",o:["wie","als","denn"],why:"Equal comparison: so … wie.",lv:"A2"},
+ {s:"Mein Vater ist größer ___ ich.",o:["als","wie","so"],why:"After a Komparativ use als.",lv:"A2"},
+ {s:"Das Wetter ist heute ___ als gestern. (gut)",o:["besser","gutter","besten"],why:"gut – besser – am besten.",lv:"A2"},
+ {s:"Im Sommer ist es ___ als im Winter. (warm)",o:["wärmer","warmer","wärmere"],why:"warm → wärmer, with an umlaut.",lv:"A2"},
+ {s:"Ich trinke ___ Tee als Kaffee. (gern)",o:["lieber","gerner","liebe"],why:"gern – lieber – am liebsten.",lv:"A2"},
+ {s:"Das ist der ___ Film des Jahres. (gut)",o:["beste","besste","bester"],why:"gut → beste, with the ending -e after der.",lv:"A2"},
+ {s:"Sie hat ___ Geld als ich. (viel)",o:["mehr","vieler","mehrer"],why:"viel – mehr – am meisten. mehr takes no ending.",lv:"A2"},
+ {s:"Welcher Berg ist ___? (hoch)",o:["am höchsten","am hochsten","höchste"],why:"hoch – höher – am höchsten.",lv:"B1"},
+ {s:"Je mehr ich übe, ___ besser spreche ich.",o:["desto","als","wie"],why:"je … desto + Komparativ.",lv:"B1"},
+ {s:"Das Auto ist ___ als das Fahrrad. (teuer)",o:["teurer","teuerer","teuer"],why:"teuer → teurer. The e before r drops.",lv:"B1"},
+ {s:"Dieser Raum ist ___ als der andere. (dunkel)",o:["dunkler","dunkeler","dunklerer"],why:"dunkel → dunkler. The e before l drops.",lv:"B1"},
+ {s:"Das ist der ___ Tag des Jahres. (kurz)",o:["kürzeste","kurzeste","kürzte"],why:"kurz → kürzer → der kürzeste.",lv:"B1"},
+ {s:"Er hat ein ___ Auto als ich. (groß)",o:["größeres","größer","größte"],why:"Komparativ before a noun: ein größeres Auto.",lv:"B1"},
+ {s:"Von allen Läufern läuft Anna ___. (schnell)",o:["am schnellsten","schnellste","der schnellste"],why:"After a verb with no noun: am + -sten.",lv:"B1"},
+ {s:"Im Winter wird es ___ kälter.",o:["immer","mehr","desto"],why:"immer + Komparativ: more and more.",lv:"B1"},
+ {s:"Komm bitte so ___ wie möglich. (schnell)",o:["schnell","schneller","am schnellsten"],why:"so … wie takes the basic form: so schnell wie möglich.",lv:"B2"},
+ {s:"Das Haus ist doppelt so ___ wie das alte. (groß)",o:["groß","größer","größte"],why:"doppelt so groß wie: basic form after so.",lv:"B2"},
+ {s:"Das war das ___ Essen, das ich je hatte. (gut)",o:["beste","bessere","gute"],why:"Superlativ with je: das beste Essen.",lv:"B2"},
+ {s:"Er wohnt im ___ Haus der Stadt. (hoch)",o:["höchsten","hochsten","höheren"],why:"hoch – höher – am höchsten. Dativ after im: im höchsten Haus.",lv:"B2"},
+ {s:"Das ist ___ unwahrscheinlich.",o:["höchst","höchste","am höchsten"],why:"höchst = extremely. This is an Elativ.",lv:"B2"},
+ {s:"Ich bin über alles ___ informiert.",o:["bestens","beste","am besten"],why:"bestens is an Elativ: very well.",lv:"C1"},
+ {s:"Wir danken Ihnen aufs ___.",o:["Herzlichste","Herzlichen","Herzlicher"],why:"aufs Herzlichste is a formal Elativ.",lv:"C1"}],
+ th:`<div class="tc df"><h3>Stufen</h3><div class="rows"><div><span>schnell</span><span>schneller · am schnellsten</span></div><div><span>alt</span><span>älter · am ältesten</span></div><div><span>groß</span><span>größer · am größten</span></div><div><span>gut</span><span>besser · am besten</span></div><div><span>viel</span><span>mehr · am meisten</span></div><div><span>gern</span><span>lieber · am liebsten</span></div><div><span>hoch</span><span>höher · am höchsten</span></div><div><span>nah</span><span>näher · am nächsten</span></div></div><p class="tline">Unregelmäßig: gut, viel, gern, hoch, nah.</p></div><div class="tc df"><h3>Vergleichen</h3><div class="rows"><div><span>gleich</span><span>so groß wie</span></div><div><span>ungleich</span><span>größer als</span></div><div><span>je … desto</span><span>Je mehr, desto besser</span></div><div><span>immer</span><span>immer kälter</span></div><div><span>doppelt</span><span>doppelt so groß wie</span></div></div><p class="tline">Nach dem Komparativ steht als, nicht wie.</p></div><div class="tc df"><h3>Superlativ</h3><div class="rows"><div><span>ohne Nomen</span><span>am schnellsten</span></div><div><span>mit Nomen</span><span>der schnellste Läufer</span></div><div><span>Elativ</span><span>höchst interessant</span></div><div><span>Elativ</span><span>bestens informiert</span></div></div><p class="tline">Elativ: sehr, ohne Vergleich.</p></div>`};
 /* ---------- topics + home ---------- */
 GT.neg={name:"Verneinung",badge:"nicht · kein",tip:"First ask: is it a noun with ein or no article? Then kein. Everything else: nicht.",src:["grammis","lingolia","dwds"],
  lg:'<span><b class="wt ng lgk">nicht</b> Verneinung</span><span><b class="wt v lgk">Verb</b> Satzklammer</span>',
@@ -2753,6 +2792,7 @@ const TOPICS=[
  {t:"prep",n:"Wo oder wohin?",tag:"Präp",ds:"Präpositionen mit Dativ & Akkusativ · A1–C1"},
  {t:"gen",n:"Genitiv",tag:"des · der",ds:"Formen, Präpositionen, Besitz · B1–C1"},
  {t:"adj",n:"Adjektivendungen",tag:"-e · -en · -er",ds:"der neue Plan · ein neuer Plan · neue Pläne · A2–C1"},
+ {t:"komp",n:"Komparation",tag:"schnell · schneller · am schnellsten",ds:"Steigerung, Umlaut, unregelmäßig, so … wie, als, je … desto, Elativ · A2–C1"},
  {t:"konn",n:"Konnektoren",tag:"weil · denn · deshalb",ds:"Wohin geht das Verb? · A2–B2"},
  {t:"praes",n:"Präsens & Trennbare Verben",tag:"ich rufe … an",ds:"Endungen, Vokalwechsel, trennbare Verben · A1–B2"},
  {t:"perf",n:"Zeitformen",tag:"Perfekt",ds:"haben oder sein, Partizip II, Präteritum · A2–C1"},
@@ -2786,7 +2826,7 @@ function score(t){if(t==="links"||t==="write"||t==="lueck")return null;if(t==="s
 const GROUPS=[
  {n:"Satz",t:["satz","tekamolo","neg","konn","nebs","rel","zuinf"]},
  {n:"Nomen & Fälle",t:["art","fall","vkas","plural","gen"]},
- {n:"Adjektiv",t:["adj"],soon:"Vergleichen"},
+ {n:"Adjektiv",t:["adj","komp"]},
  {n:"Präpositionen",t:["prep","pfall","vprep"],soon:"Zeitangaben"},
  {n:"Verb",t:["praes","refl","modal","perf","praet","pass","k2","k1"]},
  {n:"Stil · C1",t:["nvv","nom"],soon:"Partikeln"},
@@ -4188,7 +4228,7 @@ setInterval(sync,120);})();</script>
 var AUX=/^(sind|bin|ist|habe|hat|haben|hatte|hatten|werde|wurde|wird|war|waren|wären|hätte|hätten)$/;
 function lab(q){var a=String(q.o[q.c]||""),k=q.t,sx=q.s||"",hasInf=/\(\w+\)\s*$/.test(sx);
 if(k==="vprep"||k==="prep")return "Präposition";if(k==="pfall")return "Präposition oder Artikel";if(k==="vkas")return "Artikel oder Pronomen im richtigen Fall";
-if(k==="art")return "Artikel";if(k==="plural")return "Pluralform oder Artikel";if(k==="praet")return "Verbform im Präteritum oder Futur";if(k==="lang")return "Artikel oder Fuge";if(k==="oest")return "Österreichisches Wort";if(k==="wortb")return "Endung, Vorsilbe oder Artikel";if(k==="zungen")return "Welches Wort?";if(k==="fehler")return "Wo steckt der Fehler? Tippe die falsche Stelle.";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
+if(k==="art")return "Artikel";if(k==="plural")return "Pluralform oder Artikel";if(k==="komp")return "Steigerungsform oder Vergleichswort";if(k==="praet")return "Verbform im Präteritum oder Futur";if(k==="lang")return "Artikel oder Fuge";if(k==="oest")return "Österreichisches Wort";if(k==="wortb")return "Endung, Vorsilbe oder Artikel";if(k==="zungen")return "Welches Wort?";if(k==="fehler")return "Wo steckt der Fehler? Tippe die falsche Stelle.";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
 if(k==="rel")return "Relativpronomen";
 if(k==="praes"){if(/^(an|auf|aus|ein|ab|um|zu|vor|mit|nach)$/.test(a))return "Vorsilbe des trennbaren Verbs";return "Verb in der richtigen Form";}
 if(k==="modal")return "Modalverb in der richtigen Form";
