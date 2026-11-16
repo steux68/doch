@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-16c"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16d"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -2500,6 +2500,43 @@ GT.fehler={name:"Fehlerjagd",badge:"Fehler: tippe die falsche Stelle",tip:"Check
  {s:"Er bestand darauf, dass das Treffen wird stattfinden.",o:["wird stattfinden","Er bestand darauf","dass das Treffen"],why:"In the Nebensatz the finite verb is last: dass das Treffen stattfinden wird.",lv:"C1"},
  {s:"Ich hätte das früher gewusst, wenn du mir hättest gesagt.",o:["hättest gesagt","Ich hätte das früher gewusst","wenn du mir"],why:"The finite verb goes last: wenn du es mir gesagt hättest.",lv:"C1"}],
  th:`<div class="tc df"><h3>Wo suchst du?</h3><div class="rows"><div><span>Verb</span><span>Position 2, oder am Ende im Nebensatz</span></div><div><span>Fall</span><span>mit + Dativ, für + Akkusativ, helfen + Dativ</span></div><div><span>Artikel</span><span>der, die, das und die Endung</span></div><div><span>Hilfsverb</span><span>sein oder haben im Perfekt</span></div></div><p class="tline">Check these four first. One of them is almost always the mistake.</p></div>`};
+/* lang */
+GT.lang={name:"Lange Wörter",badge:"Kompositum",tip:"Read from the back: the last noun gives the meaning and the article.",src:["duden","grammis","lingolia"],
+ lg:'<span><b class="wt k lgk">·</b> Teile</span>',
+ cards:[
+ {b:"Von hinten",st:ruleSt("Read from the back",["Rechts·schutz·versicherungs·gesellschaft","= eine Gesellschaft","für Versicherungen","für den Rechtsschutz"]),tx:"The last part is the head",gt:"A long compound is a chain. The last noun says what it is, and everything in front describes it. The head also gives the article: die Gesellschaft."},
+ {b:"Teile finden",st:ruleSt("Cut it into small words",["Kraft·fahr·zeug·haftpflicht·versicherung","Mindest·haltbarkeits·datum","Lebens·abschnitts·gefährte","Arbeits·unfähigkeits·bescheinigung","Streich·holz·schächtel·chen"]),tx:"Find the small words first",gt:"Look for words you know. Then check what is left over: that is a joint letter or an ending."},
+ {b:"Fuge -s",st:ruleSt("The joint -s",["Geschwindigkeit·s·begrenzung","Mindesthaltbarkeit·s·datum","Lebens·abschnitt","Wohnung·s·bau","Arbeit·s·zeit"]),tx:"After -ung, -heit, -keit, -ion, -ität, -schaft",gt:"The joint -s is very common. It is almost always there after these endings. Otherwise it is part of the word and you learn it with the word."},
+ {b:"Keine Fuge",st:ruleSt("No joint letter",["Brand·schutz·bestimmung","Bau·genehmigung","Einkommen·steuer·erklärung","Personal·ausweis"]),tx:"Many compounds have no joint",gt:"Duden writes Einkommensteuer. You will also see Einkommenssteuer, but the standard form has no extra s."},
+ {b:"Artikel",st:ruleSt("The head gives the article",["die Gesellschaft → die Versicherungsgesellschaft","das Datum → das Mindesthaltbarkeitsdatum","der Ausweis → der Personalausweis","das Gericht → das Bundesverfassungsgericht","-chen → das Streichholzschächtelchen"]),tx:"Always take the article from the last noun",gt:"Even with 40 letters, only the last part matters. A diminutive ending -chen or -lein makes the word neuter."},
+ {b:"Drei Buchstaben",st:ruleSt("Three letters in a row",["Schiff·fahrt → Schifffahrt","Still·leben → Stillleben","Brenn·nessel → Brennnessel","Bett·tuch → Betttuch"]),tx:"Since the 1996 reform you keep all three",gt:"When a word ends and the next one starts with the same letter, you write both. A hyphen is allowed for easier reading: Schiff-Fahrt."},
+ {b:"Bindestrich",st:ruleSt("Hyphen for readability",["Kfz-Haftpflichtversicherung","E-Mail-Adresse","24-Stunden-Dienst","Kraftfahrzeug-Haftpflichtversicherung"]),tx:"A hyphen helps with abbreviations, numbers and very long words",gt:"Use it when a word would be hard to read or contains an abbreviation or a number."}],
+ q:[
+ {s:"___ Versicherungsgesellschaft",o:["die","der","das"],why:"The last noun decides: die Gesellschaft.",lv:"A2"},
+ {s:"___ Mindesthaltbarkeitsdatum",o:["das","der","die"],why:"The last noun decides: das Datum.",lv:"A2"},
+ {s:"___ Personalausweis",o:["der","die","das"],why:"The last noun decides: der Ausweis.",lv:"A2"},
+ {s:"___ Einkommensteuererklärung",o:["die","der","das"],why:"The last noun decides: die Erklärung.",lv:"A2"},
+ {s:"___ Bundesverfassungsgericht",o:["das","der","die"],why:"The last noun decides: das Gericht.",lv:"B1"},
+ {s:"___ Streichholzschächtelchen",o:["das","die","der"],why:"-chen makes the word neuter: das Schächtelchen.",lv:"B1"},
+ {s:"___ Geschwindigkeitsbegrenzung",o:["die","der","das"],why:"The last noun decides: die Begrenzung.",lv:"B1"},
+ {s:"___ Lebensabschnittsgefährte",o:["der","die","das"],why:"The last noun decides: der Gefährte.",lv:"B1"},
+ {s:"Geschwindigkeit___begrenzung",o:["s","n","en"],why:"After -keit and -heit the joint is -s. Geschwindigkeit ends in -keit.",lv:"B1"},
+ {s:"Mindesthaltbarkeit___datum",o:["s","n","en"],why:"After -keit the joint is -s: Mindesthaltbarkeitsdatum.",lv:"B1"},
+ {s:"Brand___schutz",o:["(nichts)","s","n"],why:"No joint letter: Brandschutz.",lv:"B1"},
+ {s:"Einkommen___steuer",o:["(nichts)","s","n"],why:"Duden: Einkommensteuer, without a joint.",lv:"B2"},
+ {s:"Lebens___abschnitt",o:["s","n","e"],why:"Lebensabschnitt has a joint -s.",lv:"B1"},
+ {s:"Wohnung___bau",o:["s","n","en"],why:"After -ung the joint is -s: Wohnungsbau.",lv:"B1"},
+ {s:"Arbeit___unfähigkeit",o:["s","n","(nichts)"],why:"Arbeitsunfähigkeit has a joint -s.",lv:"B2"},
+ {s:"Rechtsschutzversicherungsgesellschaft besteht aus ___ Nomen.",o:["vier","drei","sechs"],why:"Recht, Schutz, Versicherung, Gesellschaft: four nouns.",lv:"B2"},
+ {s:"Kraftfahrzeug besteht aus ___ Wörtern.",o:["drei","zwei","vier"],why:"Kraft, fahr(en), Zeug: three words.",lv:"B2"},
+ {s:"Still + Leben = ___",o:["Stillleben","Stilleben","Stillebben"],why:"Since the 1996 reform you keep all three l.",lv:"B2"},
+ {s:"Schiff + Fahrt = ___",o:["Schifffahrt","Schiffahrt","Schifahrt"],why:"Three f are kept: Schifffahrt.",lv:"B2"},
+ {s:"Brenn + Nessel = ___",o:["Brennnessel","Brennessel","Brenessel"],why:"Three n are kept: Brennnessel.",lv:"B2"},
+ {s:"Ein Streichholzschächtelchen ist eine kleine ___.",o:["Schachtel","Streichholz","Holz"],why:"The last noun is the head: it is a small box.",lv:"A2"},
+ {s:"Ein Fußballschuh ist ein ___.",o:["Schuh","Ball","Fuß"],why:"The last noun is the head: Schuh.",lv:"A2"},
+ {s:"Eine Kinderzimmertür ist eine ___.",o:["Tür","Zimmer","Kinder"],why:"The last noun is the head: Tür.",lv:"A2"},
+ {s:"Man schreibt auch: Kfz___Haftpflichtversicherung.",o:["-","/","."],why:"A hyphen makes long words easier to read.",lv:"B2"}],
+ th:`<div class="tc df"><h3>Lesen</h3><div class="rows"><div><span>1</span><span>Den letzten Teil finden: das ist der Kern</span></div><div><span>2</span><span>Die kleinen Wörter davor suchen</span></div><div><span>3</span><span>Fuge oder Endung erkennen</span></div></div><p class="tline">Von hinten nach vorne.</p></div><div class="tc df"><h3>Fuge</h3><div class="rows"><div><span>-s</span><span>nach -ung, -heit, -keit, -ion, -ität</span></div><div><span>(nichts)</span><span>Brandschutz, Baugenehmigung, Einkommensteuer</span></div><div><span>3 Buchstaben</span><span>Schifffahrt, Stillleben, Brennnessel</span></div></div><p class="tline">Ein Bindestrich darf bei sehr langen Wörtern helfen.</p></div><div class="tc df"><h3>Artikel</h3><div class="rows"><div><span>der, die, das</span><span>vom letzten Nomen</span></div><div><span>-chen, -lein</span><span>immer das</span></div></div><p class="tline">Auch bei 40 Buchstaben zählt nur der Schluss.</p></div>`};
 /* ---------- topics + home ---------- */
 GT.neg={name:"Verneinung",badge:"nicht · kein",tip:"First ask: is it a noun with ein or no article? Then kein. Everything else: nicht.",src:["grammis","lingolia","dwds"],
  lg:'<span><b class="wt ng lgk">nicht</b> Verneinung</span><span><b class="wt v lgk">Verb</b> Satzklammer</span>',
@@ -2655,6 +2692,7 @@ const TOPICS=[
  {t:"k1",n:"Konjunktiv I",tag:"er sei · er habe",ds:"Indirekte Rede, Berichte · B2–C1"},
  {t:"oest",n:"Österreichisch",tag:"Paradeiser · Sackerl",ds:"Wörter und kleine Unterschiede, Amt und Bau · A2–B2"},
  {t:"wortb",n:"Wortbildung",tag:"-ung · -bar · ver-",ds:"Komposita, Endungen, Vorsilben, Artikel erkennen · A2–C1"},
+ {t:"lang",n:"Lange Wörter",tag:"Mindesthaltbarkeitsdatum",ds:"Komposita von hinten lesen, Artikel, Fugen, Bindestrich · A2–C1"},
  {t:"zungen",n:"Zungenbrecher",tag:"Fischers Fritz",ds:"Laute üben mit Anhören · A2–B2"},
  {t:"fehler",n:"Fehlerjagd",tag:"Wo ist der Fehler?",ds:"die falsche Stelle im Satz finden · A2–C1"},
  {t:"refl",n:"Reflexiv",tag:"ich freue mich",ds:"mich oder mir, sich + Präposition, Stellung · A1–C1"},
@@ -2674,7 +2712,7 @@ const GROUPS=[
  {n:"Präpositionen",t:["prep","pfall","vprep"],soon:"Zeitangaben"},
  {n:"Verb",t:["praes","refl","modal","perf","pass","k2","k1"],soon:"Präteritum · Futur"},
  {n:"Stil · C1",t:["nvv","nom"],soon:"Partikeln"},
- {n:"Wortschatz & Spaß",t:["oest","wortb","zungen","fehler"]}];
+ {n:"Wortschatz & Spaß",t:["oest","wortb","lang","zungen","fehler"]}];
 const tInfo=t=>TOPICS.find(x=>x.t===t);
 function tRange(t){const m=(tInfo(t).ds||"").match(/([ABC][12])(?:–([ABC][12]))?\s*$/);return m?[m[1],m[2]||m[1]]:["A1","C1"];}
 function inLevel(t){const L=store.level;if(!L||L==="all")return true;const [a,b]=tRange(t),i=LVLS.indexOf(L);return i>=LVLS.indexOf(a)&&i<=LVLS.indexOf(b);}
@@ -4072,7 +4110,7 @@ setInterval(sync,120);})();</script>
 var AUX=/^(sind|bin|ist|habe|hat|haben|hatte|hatten|werde|wurde|wird|war|waren|wären|hätte|hätten)$/;
 function lab(q){var a=String(q.o[q.c]||""),k=q.t,sx=q.s||"",hasInf=/\(\w+\)\s*$/.test(sx);
 if(k==="vprep"||k==="prep")return "Präposition";if(k==="pfall")return "Präposition oder Artikel";if(k==="vkas")return "Artikel oder Pronomen im richtigen Fall";
-if(k==="art")return "Artikel";if(k==="oest")return "Österreichisches Wort";if(k==="wortb")return "Endung, Vorsilbe oder Artikel";if(k==="zungen")return "Welches Wort?";if(k==="fehler")return "Wo steckt der Fehler? Tippe die falsche Stelle.";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
+if(k==="art")return "Artikel";if(k==="lang")return "Artikel oder Fuge";if(k==="oest")return "Österreichisches Wort";if(k==="wortb")return "Endung, Vorsilbe oder Artikel";if(k==="zungen")return "Welches Wort?";if(k==="fehler")return "Wo steckt der Fehler? Tippe die falsche Stelle.";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
 if(k==="rel")return "Relativpronomen";
 if(k==="praes"){if(/^(an|auf|aus|ein|ab|um|zu|vor|mit|nach)$/.test(a))return "Vorsilbe des trennbaren Verbs";return "Verb in der richtigen Form";}
 if(k==="modal")return "Modalverb in der richtigen Form";
