@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-16x"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16y"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3166,7 +3166,10 @@ function renderSehen(){if(SV.tab==="k"&&SV.kp&&SV.kp!=="s")return renderSehenX()
     root.querySelectorAll(".svar").forEach(a=>{const k=i+(+a.dataset.st);if(k<0||k>=cfg.chips.length)a.setAttribute("data-off","");else a.removeAttribute("data-off");});
     const nb=$("svnb");if(nb){const pl=t=>String(t).replace(/<[^>]*>/g,"");const one=(k,cls,ar)=>k<0||k>=cfg.chips.length?'<span></span>':'<span role="button" tabindex="0" class="'+cls+'" data-i="'+k+'"><span class="nr">'+esc(cfg.chips[k])+'</span><span class="nt">'+esc(pl(cfg.sent(k,sel)))+'</span></span>';nb.innerHTML=one(i-1,"nv",-1)+one(i+1,"nn",1);}
     const x=cfg.info(i);info.innerHTML='<div class="svb svti" style="background:'+cfg.fills[i]+'">'+esc(cfg.title(i))+'</div><div class="svr"><span>Bildung</span><span>'+esc(x.f)+'</span></div><div class="svr"><span>Gebrauch</span><span>'+esc(x.u)+'</span></div><div class="svr"><span>Signale</span><span>'+esc(x.s)+'</span></div><div class="svr"><span>Achtung</span><span>'+esc(x.a)+'</span></div>';line();};
-  const cols=()=>{trk.innerHTML='<div class="svp"></div>'+cfg.chips.map((c,i)=>'<div class="svcol"><p class="svs">'+cfg.sent(i,sel)+'</p></div>').join('')+'<div class="svp"></div>';marks(cur);};
+  const setNb=()=>{const nb=$("svnb");if(!nb||!nb.isConnected)return;const pr=document.createElement("div");pr.className="svnb";pr.style.cssText="position:absolute;left:0;right:0;top:0;visibility:hidden;min-height:0;margin:0";pr.innerHTML='<span class="nv" style="display:block;padding:2px 0"></span><span class="nn" style="display:block;padding:2px 0"></span>';root.appendChild(pr);
+    let mx=44;const pl=t=>String(t).replace(/<[^>]*>/g,"");cfg.chips.forEach((c,k)=>{[0,1].forEach(j=>{pr.children[j].innerHTML='<span class="nr">'+esc(c)+'</span><span class="nt">'+esc(pl(cfg.sent(k,sel)))+'</span>';mx=Math.max(mx,pr.children[j].offsetHeight);});});
+    root.removeChild(pr);nb.style.minHeight=Math.ceil(mx)+"px";};
+  const cols=()=>{trk.innerHTML='<div class="svp"></div>'+cfg.chips.map((c,i)=>'<div class="svcol"><p class="svs">'+cfg.sent(i,sel)+'</p></div>').join('')+'<div class="svp"></div>';marks(cur);setNb();};
   const go=(i,sm)=>trk.scrollTo({left:i*cw(),behavior:sm?"smooth":"auto"});
   cols();
   let raf=0;trk.addEventListener("scroll",()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const i=Math.max(0,Math.min(cfg.chips.length-1,Math.round(trk.scrollLeft/cw())));if(i!==cur)marks(i);});});
@@ -3176,7 +3179,7 @@ function renderSehen(){if(SV.tab==="k"&&SV.kp&&SV.kp!=="s")return renderSehenX()
     if(b.classList.contains("svk")||b.closest("#svnb")){const i=+b.dataset.i;marks(i);go(i,true);return;}
     if(b.dataset.r!==undefined){sel[+b.dataset.r]=+b.dataset.o;root.querySelectorAll('.svo[data-r="'+b.dataset.r+'"]').forEach(x=>x.classList.toggle("on",x===b));cols();go(cur,false);}});
   root.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.getAttribute("role")==="button"){e.preventDefault();e.target.click();}});
-  window.addEventListener("resize",line);
+  window.addEventListener("resize",()=>{line();setNb();});
   requestAnimationFrame(()=>requestAnimationFrame(()=>{go(cur,false);line();}));}
 
 /* ---------- Sehen · Fälle: Artikel, Präpositionen, Roller ---------- */
