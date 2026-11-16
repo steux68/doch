@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-16s"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16t"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -602,7 +602,7 @@ body.introOn .hb[data-pc="4"]{--pc:#ece2f8;animation-delay:-2.8s}body.introOn .h
 .svr{display:flex;gap:10px;height:28px;align-items:center;box-sizing:border-box;padding:0 2px;white-space:nowrap;overflow:hidden;font-size:12px;color:var(--muted);background:var(--df) left bottom/100% 1px no-repeat}
 .svr:first-of-type{background:var(--df) left top/100% 1px no-repeat,var(--df) left bottom/100% 1px no-repeat}
 .svr span:first-child{flex:0 0 66px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
-.svh{margin:10px 0 0;text-align:center;font-size:11px;color:#999}
+.svnb{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:2px 4px 16px;min-height:44px}.svnb [role=button]{display:block;color:#a3a3a0;cursor:pointer;padding:2px 0}.svnb .nr{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#e30613;opacity:.55;font-weight:700}.svnb .nt{display:block;font-size:14px;line-height:1.35;margin-top:2px}.svnb .nn{text-align:right}.svh{margin:10px 0 0;text-align:center;font-size:11px;color:#999}
 .svln{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .sag{position:relative;display:grid;grid-template-columns:40px repeat(4,minmax(0,1fr));grid-template-rows:26px repeat(4,46px);margin:0 4px 6px}
 .sag::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--df) left top/100% 1px no-repeat,var(--df) left bottom/100% 1px no-repeat,var(--dfv) left top/1px 100% no-repeat,var(--dfv) right top/1px 100% no-repeat}
@@ -3154,7 +3154,7 @@ function renderSehen(){if(SV.tab==="k"&&SV.kp&&SV.kp!=="s")return renderSehenX()
   cfg.rows.forEach((r,ri)=>{h+='<div class="svg" style="--n:'+cfg.N+'"><span class="svb svl" style="grid-column:span '+cfg.L+'">'+r.l+'</span>'+r.o.map((o,oi)=>'<span role="button" tabindex="0" class="svb svo fr'+(sel[ri]===oi?' on':'')+'" data-r="'+ri+'" data-o="'+oi+'" style="grid-column:span '+o[1]+'">'+o[0]+'</span>').join('')+'</div>';});
   h+='<div class="svg svbd" style="--n:'+cfg.N+'">'+cfg.bands.map(b=>'<span class="svb" style="grid-column:span '+b[1]+';background:'+b[2]+'">'+b[0]+'</span>').join('')+'</div>';
   h+='<div class="svg" id="svc" style="--n:'+cfg.N+'">'+cfg.chips.map((c,i)=>'<span role="button" tabindex="0" class="svb svk fr" data-i="'+i+'" style="grid-column:span '+cfg.cs+'">'+c+'</span>').join('')+'</div>';
-  h+='<div class="svt" id="svt"></div><div class="svi" id="svi"></div><p class="svh">wischen · Kasten antippen</p><svg class="svln" aria-hidden="true"><path id="svpath" fill="none" stroke="#b8b8b8" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="0.5 2.5"/></svg></div>';
+  h+='<div class="svt" id="svt"></div><div class="svnb" id="svnb"></div><div class="svi" id="svi"></div><p class="svh">wischen · Kasten antippen</p><svg class="svln" aria-hidden="true"><path id="svpath" fill="none" stroke="#b8b8b8" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="0.5 2.5"/></svg></div>';
   th.innerHTML=h;
   const root=$("sv"),trk=$("svt"),chips=$("svc"),info=$("svi");
   const cw=()=>{const c=trk.querySelector(".svcol");return c?c.offsetWidth:1;};
@@ -3163,6 +3163,7 @@ function renderSehen(){if(SV.tab==="k"&&SV.kp&&SV.kp!=="s")return renderSehenX()
   const marks=i=>{cur=SV.cur[SV.tab]=i;
     trk.querySelectorAll(".svcol").forEach((c,k)=>c.classList.toggle("on",k===i));
     chips.querySelectorAll(".svk").forEach(c=>{const on=+c.dataset.i===i;c.classList.toggle("on",on);c.style.background=on?cfg.fills[i]:"";});
+    const nb=$("svnb");if(nb){const pl=t=>String(t).replace(/<[^>]*>/g,"");const one=(k,cls,ar)=>k<0||k>=cfg.chips.length?'<span></span>':'<span role="button" tabindex="0" class="'+cls+'" data-i="'+k+'"><span class="nr">'+(ar<0?"‹ ":"")+esc(cfg.chips[k])+(ar>0?" ›":"")+'</span><span class="nt">'+esc(pl(cfg.sent(k,sel)))+'</span></span>';nb.innerHTML=one(i-1,"nv",-1)+one(i+1,"nn",1);}
     const x=cfg.info(i);info.innerHTML='<div class="svb svti" style="background:'+cfg.fills[i]+'">'+esc(cfg.title(i))+'</div><div class="svr"><span>Bildung</span><span>'+esc(x.f)+'</span></div><div class="svr"><span>Gebrauch</span><span>'+esc(x.u)+'</span></div><div class="svr"><span>Signale</span><span>'+esc(x.s)+'</span></div><div class="svr"><span>Achtung</span><span>'+esc(x.a)+'</span></div>';line();};
   const cols=()=>{trk.innerHTML='<div class="svp"></div>'+cfg.chips.map((c,i)=>'<div class="svcol"><p class="svs">'+cfg.sent(i,sel)+'</p></div>').join('')+'<div class="svp"></div>';marks(cur);};
   const go=(i,sm)=>trk.scrollTo({left:i*cw(),behavior:sm?"smooth":"auto"});
@@ -3170,7 +3171,7 @@ function renderSehen(){if(SV.tab==="k"&&SV.kp&&SV.kp!=="s")return renderSehenX()
   let raf=0;trk.addEventListener("scroll",()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const i=Math.max(0,Math.min(cfg.chips.length-1,Math.round(trk.scrollLeft/cw())));if(i!==cur)marks(i);});});
   root.addEventListener("click",e=>{const b=e.target.closest("[role=button]");if(!b||!root.contains(b))return;
     if(b.dataset.kp){SV.kp=b.dataset.kp;renderSehen();return;}if(b.dataset.tab){SV.tab=b.dataset.tab;renderSehen();return;}
-    if(b.classList.contains("svk")){const i=+b.dataset.i;marks(i);go(i,true);return;}
+    if(b.classList.contains("svk")||b.closest("#svnb")){const i=+b.dataset.i;marks(i);go(i,true);return;}
     if(b.dataset.r!==undefined){sel[+b.dataset.r]=+b.dataset.o;root.querySelectorAll('.svo[data-r="'+b.dataset.r+'"]').forEach(x=>x.classList.toggle("on",x===b));cols();go(cur,false);}});
   root.addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.getAttribute("role")==="button"){e.preventDefault();e.target.click();}});
   window.addEventListener("resize",line);
