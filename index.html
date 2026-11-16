@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-16h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16i"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -2652,6 +2652,45 @@ GT.komp={name:"Komparation",badge:"Adjektiv",tip:"Add -er, then am + -sten. Als 
  {s:"Ich bin über alles ___ informiert.",o:["bestens","beste","am besten"],why:"bestens is an Elativ: very well.",lv:"C1"},
  {s:"Wir danken Ihnen aufs ___.",o:["Herzlichste","Herzlichen","Herzlicher"],why:"aufs Herzlichste is a formal Elativ.",lv:"C1"}],
  th:`<div class="tc df"><h3>Stufen</h3><div class="rows"><div><span>schnell</span><span>schneller · am schnellsten</span></div><div><span>alt</span><span>älter · am ältesten</span></div><div><span>groß</span><span>größer · am größten</span></div><div><span>gut</span><span>besser · am besten</span></div><div><span>viel</span><span>mehr · am meisten</span></div><div><span>gern</span><span>lieber · am liebsten</span></div><div><span>hoch</span><span>höher · am höchsten</span></div><div><span>nah</span><span>näher · am nächsten</span></div></div><p class="tline">Unregelmäßig: gut, viel, gern, hoch, nah.</p></div><div class="tc df"><h3>Vergleichen</h3><div class="rows"><div><span>gleich</span><span>so groß wie</span></div><div><span>ungleich</span><span>größer als</span></div><div><span>je … desto</span><span>Je mehr, desto besser</span></div><div><span>immer</span><span>immer kälter</span></div><div><span>doppelt</span><span>doppelt so groß wie</span></div></div><p class="tline">Nach dem Komparativ steht als, nicht wie.</p></div><div class="tc df"><h3>Superlativ</h3><div class="rows"><div><span>ohne Nomen</span><span>am schnellsten</span></div><div><span>mit Nomen</span><span>der schnellste Läufer</span></div><div><span>Elativ</span><span>höchst interessant</span></div><div><span>Elativ</span><span>bestens informiert</span></div></div><p class="tline">Elativ: sehr, ohne Vergleich.</p></div>`};
+/* zeit */
+GT.zeit={name:"Zeitangaben",badge:"Präposition",tip:"am Tag, um Uhrzeit, im Monat. Seit = läuft noch. Vor = vorbei.",src:["duden","grammis","lingolia"],
+ lg:'<span><b class="wt k lgk">am · um · im</b> Zeit</span><span><b class="wt v lgk">seit</b> läuft noch</span>',
+ cards:[
+ {b:"am · um · im",st:ruleSt("Three basic words",["am Montag","am 3. Mai","am Abend","am Wochenende","um acht Uhr","um Mitternacht","im Mai","im Winter","im Jahr 2020"]),tx:"am = day or part of day · um = clock time · im = month, season, year",gt:"Use am for days, dates and parts of a day. Use um for exact clock times. Use im for months, seasons and years. Careful with the night: in der Nacht."},
+ {b:"in · an",st:ruleSt("Later, and on special days",["in einer Woche","in drei Tagen","in zwei Stunden","in der Nacht","in den Ferien","an diesem Tag","an Weihnachten"]),tx:"in + time = how long from now",gt:"In einer Woche means one week from now. Say in der Nacht. For single days you can also use an: an diesem Tag, an einem Montag."},
+ {b:"seit · vor",st:ruleSt("Since or ago",["Ich wohne seit drei Jahren hier.","Ich bin vor drei Jahren umgezogen.","Seit Montag bin ich krank.","Vor einer Woche war er hier."]),tx:"seit = still going on · vor = in the past, finished",gt:"Both take the Dativ. Seit goes with the Präsens (it is still true). Vor goes with the Perfekt or Präteritum (it is over)."},
+ {b:"ab · bis · für",st:ruleSt("Start, end and length",["Ab Montag arbeite ich zu Hause.","Bis Freitag bin ich im Urlaub.","Wir bleiben für zwei Wochen.","Ab nächster Woche","Bis nächsten Monat"]),tx:"ab = from then on · bis = until then · für = for a planned period",gt:"Ab takes the Dativ. Bis and für take the Akkusativ. Bis has no article before simple dates: bis Freitag."},
+ {b:"während · innerhalb",st:ruleSt("Gen or Dativ?",["während des Studiums","während der Pause","innerhalb einer Woche","innerhalb von drei Tagen","nach dem Essen","vor dem Frühstück"]),tx:"Both take the Genitiv in careful German",gt:"Während means at the same time as. Innerhalb means not later than. Innerhalb von + number is common: innerhalb von drei Tagen. Nach and vor take the Dativ."},
+ {b:"Fragewörter",st:ruleSt("Ask the right question",["Wann kommst du? – Um acht.","Wie lange bleibst du? – Zwei Wochen.","Seit wann wohnst du hier? – Seit 2019.","Bis wann ist offen? – Bis 18 Uhr.","Wie oft gehst du? – Zweimal pro Woche."]),tx:"Each question word matches one kind of answer",gt:"Wann asks for a point in time. Wie lange asks for the length. Seit wann asks about the start of something still going on. Bis wann asks for the end."},
+ {b:"Tageszeiten",st:ruleSt("Adverbs of time",["heute Morgen","gestern Abend","heute Nacht","morgen früh","übermorgen","montags","abends","morgens"]),tx:"Capital letter after heute, gestern, morgen",gt:"The part of the day after heute or gestern is a noun: heute Morgen, gestern Abend. Words on -s are adverbs and stay small: abends, morgens, montags means every Monday."},
+ {b:"Datum · Uhrzeit",st:ruleSt("Date and clock",["der dritte Mai","am dritten Mai","Viertel nach acht (8:15)","halb acht (7:30)","Viertel vor acht (7:45)","fünf vor zwölf (11:55)","19 Uhr 30 (19:30)"]),tx:"The date is an ordinal number",gt:"Say the number as an ordinal: heute ist der dritte Mai, am ersten Januar. In speech halb acht means half an hour before eight, so 7:30. Official times use the 24-hour clock."},
+ {b:"Akkusativ",st:ruleSt("No preposition",["jeden Tag","letzte Woche","letzten Sommer","nächsten Monat","den ganzen Tag","einen Monat lang","jeden Montag"]),tx:"Many time phrases stand in the Akkusativ",gt:"With jeder, letzter, nächster, ganz and this group of words you do not need a preposition. The ending is the Akkusativ: jeden Tag, letzten Sommer."}],
+ q:[
+ {s:"Ich stehe ___ sieben Uhr auf.",o:["um","am","im"],why:"Clock time: um sieben Uhr.",lv:"A2"},
+ {s:"Der Kurs beginnt ___ Montag.",o:["am","um","im"],why:"Days: am Montag.",lv:"A2"},
+ {s:"Wir fahren ___ Juli nach Italien.",o:["im","am","um"],why:"Months: im Juli.",lv:"A2"},
+ {s:"___ Winter ist es in Wien kalt.",o:["Im","Am","Um"],why:"Seasons: im Winter.",lv:"A2"},
+ {s:"Ich wohne ___ drei Jahren in Wien.",o:["seit","vor","für"],why:"Still going on: seit drei Jahren.",lv:"A2"},
+ {s:"Ich bin ___ drei Jahren nach Wien gezogen.",o:["vor","seit","in"],why:"Finished in the past: vor drei Jahren.",lv:"A2"},
+ {s:"___ beginnt der Film? – Um acht.",o:["Wann","Wie lange","Wie oft"],why:"Wann asks for a point in time.",lv:"A2"},
+ {s:"Nächsten Sommer bleiben wir ___ zwei Wochen in Graz.",o:["für","seit","vor"],why:"für + Akkusativ = a planned period.",lv:"A2"},
+ {s:"Ich warte ___ morgen auf deine Antwort.",o:["bis","seit","vor"],why:"bis morgen = until tomorrow.",lv:"B1"},
+ {s:"Ich habe ___ 3. Mai Geburtstag.",o:["am","im","um"],why:"Dates: am 3. Mai.",lv:"B1"},
+ {s:"___ einer Woche habe ich Urlaub.",o:["In","Am","Um"],why:"in einer Woche = one week from now.",lv:"B1"},
+ {s:"Was machst du ___ Wochenende?",o:["am","im","um"],why:"am Wochenende.",lv:"B1"},
+ {s:"___ dauert der Film? – Zwei Stunden.",o:["Wie lange","Wann","Seit wann"],why:"Wie lange asks for the length of time.",lv:"B1"},
+ {s:"Es ist 7:30 Uhr. Es ist ___ acht.",o:["halb","Viertel","fünf"],why:"halb acht = 7:30.",lv:"B1"},
+ {s:"Es ist 8:15 Uhr. Es ist ___ nach acht.",o:["Viertel","halb","eine"],why:"Viertel nach acht = 8:15.",lv:"B1"},
+ {s:"___ Sommer waren wir in Italien.",o:["Letzten","Letzter","Letzte"],why:"der Sommer in the Akkusativ: letzten Sommer.",lv:"B1"},
+ {s:"Er trainiert ___ Tag.",o:["jeden","jeder","jedem"],why:"Akkusativ: jeden Tag.",lv:"B1"},
+ {s:"___ wann ist das Geschäft geöffnet? – Bis 20 Uhr.",o:["Bis","Seit","Ab"],why:"The answer is bis, so the question is bis wann.",lv:"B2"},
+ {s:"Ich bin ___ 1990 geboren.",o:["im Jahr","in","am"],why:"im Jahr 1990. Do not say in 1990.",lv:"B2"},
+ {s:"Das Paket kommt ___ von drei Tagen.",o:["innerhalb","während","seit"],why:"innerhalb von drei Tagen = in less than three days.",lv:"B2"},
+ {s:"Gestern ___ war ich im Kino.",o:["Abend","Abends","Abenden"],why:"gestern Abend: a noun after gestern, with a capital letter.",lv:"B2"},
+ {s:"Sie hat ___ Tag gearbeitet. (ganz)",o:["den ganzen","der ganze","dem ganzen"],why:"Akkusativ: den ganzen Tag.",lv:"B2"},
+ {s:"___ des Gesprächs schaute er mehrmals auf die Uhr.",o:["Während","Seit","Bis"],why:"Während + Genitiv = at the same time.",lv:"C1"},
+ {s:"Die Antwort kam ___ weniger Minuten.",o:["innerhalb","seit","bis"],why:"innerhalb weniger Minuten: Genitiv plural, no von.",lv:"C1"}],
+ th:`<div class="tc df"><h3>am · um · im</h3><div class="rows"><div><span>am</span><span>Montag, 3. Mai, Abend, Wochenende</span></div><div><span>um</span><span>acht Uhr, Mitternacht</span></div><div><span>im</span><span>Mai, Winter, Jahr 2020</span></div><div><span>in</span><span>einer Woche (ab jetzt)</span></div></div><p class="tline">Tag und Datum: am. Uhrzeit: um. Monat und Jahreszeit: im.</p></div><div class="tc df"><h3>Dauer und Grenzen</h3><div class="rows"><div><span>seit + Dat</span><span>drei Jahren (läuft noch)</span></div><div><span>vor + Dat</span><span>drei Jahren (vorbei)</span></div><div><span>ab + Dat</span><span>Montag (von da an)</span></div><div><span>bis + Akk</span><span>Freitag (bis dahin)</span></div><div><span>für + Akk</span><span>zwei Wochen (geplant)</span></div><div><span>während + Gen</span><span>des Studiums</span></div></div><p class="tline">Seit und vor: nicht verwechseln.</p></div><div class="tc df"><h3>Fragen</h3><div class="rows"><div><span>Wann?</span><span>Um acht.</span></div><div><span>Wie lange?</span><span>Zwei Stunden.</span></div><div><span>Seit wann?</span><span>Seit 2019.</span></div><div><span>Bis wann?</span><span>Bis Freitag.</span></div><div><span>Wie oft?</span><span>Zweimal pro Woche.</span></div></div><p class="tline">Jede Frage hat ihre Art von Antwort.</p></div>`};
 /* ---------- topics + home ---------- */
 GT.neg={name:"Verneinung",badge:"nicht · kein",tip:"First ask: is it a noun with ein or no article? Then kein. Everything else: nicht.",src:["grammis","lingolia","dwds"],
  lg:'<span><b class="wt ng lgk">nicht</b> Verneinung</span><span><b class="wt v lgk">Verb</b> Satzklammer</span>',
@@ -2801,6 +2840,7 @@ const TOPICS=[
  {t:"vkas",n:"Verben & Fälle",tag:"helfen + Dativ",ds:"welcher Fall nach welchem Verb, zwei Objekte, mich oder mir · A1–C1"},
  {t:"plural",n:"Plural & n-Deklination",tag:"Student → Studenten",ds:"Pluralendungen, Genus-Tipps, n-Deklination, nur Plural · A2–C1"},
  {t:"pfall",n:"Präpositionen & Fall",tag:"mit + Dativ",ds:"immer Akkusativ, immer Dativ, Kurzformen · A1–B2"},
+ {t:"zeit",n:"Zeitangaben",tag:"am · um · im · seit · vor",ds:"am, um, im, seit, vor, ab, bis, für, während, Fragewörter, Datum und Uhrzeit · A2–C1"},
  {t:"rel",n:"Relativsätze",tag:"der · dem · dessen",ds:"Genus vom Nomen, Fall vom Satz · B1–B2"},
  {t:"modal",n:"Modalverben",tag:"kann · muss · soll",ds:"Formen, Perfekt, Vermutung, Behauptung · A1–C1"},
  {t:"zuinf",n:"zu + Infinitiv",tag:"um … zu",ds:"zu oder nicht, um / ohne / statt, haben / sein zu · A2–C1"},
@@ -2827,7 +2867,7 @@ const GROUPS=[
  {n:"Satz",t:["satz","tekamolo","neg","konn","nebs","rel","zuinf"]},
  {n:"Nomen & Fälle",t:["art","fall","vkas","plural","gen"]},
  {n:"Adjektiv",t:["adj","komp"]},
- {n:"Präpositionen",t:["prep","pfall","vprep"],soon:"Zeitangaben"},
+ {n:"Präpositionen",t:["prep","pfall","zeit","vprep"]},
  {n:"Verb",t:["praes","refl","modal","perf","praet","pass","k2","k1"]},
  {n:"Stil · C1",t:["nvv","nom"],soon:"Partikeln"},
  {n:"Wortschatz & Spaß",t:["oest","wortb","lang","zungen","fehler"]}];
@@ -4228,7 +4268,7 @@ setInterval(sync,120);})();</script>
 var AUX=/^(sind|bin|ist|habe|hat|haben|hatte|hatten|werde|wurde|wird|war|waren|wären|hätte|hätten)$/;
 function lab(q){var a=String(q.o[q.c]||""),k=q.t,sx=q.s||"",hasInf=/\(\w+\)\s*$/.test(sx);
 if(k==="vprep"||k==="prep")return "Präposition";if(k==="pfall")return "Präposition oder Artikel";if(k==="vkas")return "Artikel oder Pronomen im richtigen Fall";
-if(k==="art")return "Artikel";if(k==="plural")return "Pluralform oder Artikel";if(k==="komp")return "Steigerungsform oder Vergleichswort";if(k==="praet")return "Verbform im Präteritum oder Futur";if(k==="lang")return "Artikel oder Fuge";if(k==="oest")return "Österreichisches Wort";if(k==="wortb")return "Endung, Vorsilbe oder Artikel";if(k==="zungen")return "Welches Wort?";if(k==="fehler")return "Wo steckt der Fehler? Tippe die falsche Stelle.";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
+if(k==="art")return "Artikel";if(k==="plural")return "Pluralform oder Artikel";if(k==="komp")return "Steigerungsform oder Vergleichswort";if(k==="zeit")return "Präposition oder Zeitwort";if(k==="praet")return "Verbform im Präteritum oder Futur";if(k==="lang")return "Artikel oder Fuge";if(k==="oest")return "Österreichisches Wort";if(k==="wortb")return "Endung, Vorsilbe oder Artikel";if(k==="zungen")return "Welches Wort?";if(k==="fehler")return "Wo steckt der Fehler? Tippe die falsche Stelle.";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
 if(k==="rel")return "Relativpronomen";
 if(k==="praes"){if(/^(an|auf|aus|ein|ab|um|zu|vor|mit|nach)$/.test(a))return "Vorsilbe des trennbaren Verbs";return "Verb in der richtigen Form";}
 if(k==="modal")return "Modalverb in der richtigen Form";
