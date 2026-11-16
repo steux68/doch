@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-16a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-16b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -2355,6 +2355,141 @@ GT.nebs={name:"Nebensätze",badge:"Nebensatz",tip:"Choose the conjunction by mea
  {s:"Wenn ich das gewusst ___, wäre ich nicht gekommen.",o:["hätte","habe","würde"],why:"An unreal past condition: Wenn ich das gewusst hätte.",lv:"C1"},
  {s:"Nachdem sie angekommen ___, rief sie ihre Mutter an.",o:["war","hatte","wurde"],why:"ankommen forms the Perfekt with sein: war angekommen.",lv:"B2"}],
  th:`<div class="tc df"><h3>Das Verb am Ende</h3><div class="rows"><div><span>einfach</span><span>…, dass er kommt.</span></div><div><span>mit Modalverb</span><span>…, dass er kommen kann.</span></div><div><span>Perfekt</span><span>…, dass er gekommen ist.</span></div><div><span>Passiv</span><span>…, dass es gebaut wird.</span></div></div><p class="tline">The conjugated verb is always the last word of the Nebensatz.</p></div><div class="tc df"><h3>Konjunktionen nach Art</h3><div class="rows"><div><span>Zeit</span><span>als · wenn · bevor · nachdem · sobald · seit · bis · während</span></div><div><span>Grund</span><span>weil · da</span></div><div><span>Gegensatz</span><span>obwohl · während</span></div><div><span>Zweck</span><span>damit</span></div><div><span>Folge</span><span>so … dass</span></div><div><span>Mittel</span><span>indem</span></div><div><span>Bedingung</span><span>wenn · falls · sofern</span></div><div><span>Inhalt</span><span>dass · ob · W-Wort</span></div></div><p class="tline">Choose the conjunction by meaning first, then send the verb to the end.</p></div><div class="tc df"><h3>Nebensatz zuerst</h3><div class="rows"><div><span>Nebensatz</span><span>Weil er krank ist,</span></div><div><span>Hauptsatz</span><span>bleibt er zu Hause.</span></div></div><p class="tline">Komma, then the verb: the Nebensatz fills the first place.</p></div>`};
+/* wortschatz */
+GT.oest={name:"Österreichisch",badge:"Wort",tip:"Learn the Austrian word with the German one: Paradeiser = Tomate.",src:["duden","grammis","lingolia"],
+ lg:'<span><b class="wt k lgk">AT</b> Österreich</span>',
+ cards:[
+ {b:"Essen",st:ruleSt("Essen und Trinken",["Erdäpfel (Kartoffeln)","Paradeiser (Tomaten)","Karfiol (Blumenkohl)","Marillen (Aprikosen)","Topfen (Quark)","Schlagobers (Schlagsahne)","Faschiertes (Hackfleisch)","Semmel (Brötchen)"]),tx:"Words you hear at the market",gt:"These are standard in Austria and appear in shops, menus and newspapers. Germans understand most of them."},
+ {b:"Küche",st:ruleSt("Küche und Süßes",["Palatschinken (Pfannkuchen)","Eierschwammerl (Pfifferlinge)","Ribisel (Johannisbeeren)","Zuckerl (Bonbon)","Kren (Meerrettich)","Jause (Brotzeit)","Staubzucker (Puderzucker)","Fisolen (grüne Bohnen)"]),tx:"More food words",gt:"Jause is a small meal or snack in between. In a Beisl or at a Heuriger you will see many of these on the menu."},
+ {b:"Haus",st:ruleSt("Haus und Wohnung",["Sackerl (Tüte)","Stiege (Treppe)","Sessel (Stuhl)","Polster (Kissen)","Kasten (Schrank)","Gehsteig (Bürgersteig)","Mistkübel (Mülleimer)"]),tx:"Things at home and on the street",gt:"Stiege and Stiegenhaus are the usual words in Austria. A Kasten is any cupboard or wardrobe."},
+ {b:"Alltag",st:ruleSt("Alltag und Zeit",["Jänner (Januar)","Feber (Februar)","heuer (dieses Jahr)","Trafik (Tabakladen)","Kassa (Kasse)","Packerl (Päckchen)","Leiberl (T-Shirt)","Gewand (Kleidung)"]),tx:"Months, shops and clothes",gt:"Jänner is the normal word in Austria. Feber is also correct but you hear it less. heuer means this year."},
+ {b:"Amt",st:ruleSt("Amt, Arzt und Schule",["Meldezettel (Anmeldung beim Amt)","Zahlschein (Überweisungsformular)","Ordination (Arztpraxis)","Krankenstand (Krankschreibung)","Spital (Krankenhaus)","Matura (Abitur)","Hausübung (Hausaufgabe)"]),tx:"Useful for forms and appointments",gt:"You need Meldezettel when you move to a new flat. Ordination is the doctor's practice. Matura is the school-leaving exam."},
+ {b:"Bau",st:ruleSt("Bau und Handwerk",["Baubewilligung (Baugenehmigung)","Stiegenhaus (Treppenhaus)","Rauchfang (Schornstein)","Tischler (Schreiner)","Fleischhauer (Metzger)","Rauchfangkehrer (Schornsteinfeger)"]),tx:"Words for your own field",gt:"In Austria a building permit is a Baubewilligung. Use this word in emails to the Behörde in Vienna."},
+ {b:"Grammatik",st:ruleSt("Small grammar differences",["Wir sind lange gesessen. (nicht: haben)","Ich bin gestanden. (nicht: habe)","Es ist gelegen. (nicht: hat)","das E-Mail (auch: die E-Mail)"]),tx:"Perfekt with sein, and gender",gt:"In Austria and the south, sitzen, stehen and liegen form the Perfekt with sein. In writing for exams, both forms are understood. Pick one and stay with it."},
+ {b:"Gruß",st:ruleSt("Hello and goodbye",["Grüß Gott (Guten Tag)","Servus (Hallo und Tschüss)","Baba (Tschüss, unter Freunden)","Auf Wiederschauen (Auf Wiedersehen)"]),tx:"Greetings",gt:"Grüß Gott is polite, Servus is relaxed and works both ways, Baba is only for friends."},
+ {b:"Schweiz",st:ruleSt("Switzerland in four lines",["Velo (Fahrrad)","Trottoir (Gehsteig)","Grüezi (Guten Tag)","Strasse (ohne ß)"]),tx:"Just so you recognise them",gt:"Swiss standard German has no ß. You do not need to learn more for Austria or for the exam."}],
+ q:[
+ {s:"Kartoffel heißt in Österreich meist ___.",o:["Erdäpfel","Paradeiser","Marillen"],why:"Erdäpfel = Kartoffeln.",lv:"A2"},
+ {s:"Tomaten nennt man in Österreich ___.",o:["Paradeiser","Karfiol","Erdäpfel"],why:"Paradeiser = Tomaten.",lv:"A2"},
+ {s:"Aprikosen heißen in Österreich ___.",o:["Marillen","Ribisel","Fisolen"],why:"Marillen = Aprikosen.",lv:"A2"},
+ {s:"Quark heißt in Österreich ___.",o:["Topfen","Obers","Kren"],why:"Topfen = Quark.",lv:"A2"},
+ {s:"Schlagsahne heißt in Österreich ___.",o:["Schlagobers","Topfen","Staubzucker"],why:"Schlagobers = Schlagsahne.",lv:"A2"},
+ {s:"Zum Frühstück esse ich eine ___. (Brötchen)",o:["Semmel","Schrippe","Weck"],why:"Semmel is the Austrian word.",lv:"A2"},
+ {s:"Im Supermarkt brauche ich ein ___. (Tüte)",o:["Sackerl","Kasten","Polster"],why:"Sackerl = Tüte.",lv:"A2"},
+ {s:"Der Januar heißt in Österreich ___.",o:["Jänner","Feber","Heuer"],why:"Jänner = Januar.",lv:"A2"},
+ {s:"heuer bedeutet ___.",o:["dieses Jahr","letztes Jahr","nächstes Jahr"],why:"heuer = dieses Jahr.",lv:"A2"},
+ {s:"Die Treppe heißt in Österreich meist ___.",o:["Stiege","Sessel","Kasten"],why:"Stiege = Treppe.",lv:"B1"},
+ {s:"Das Kissen heißt in Österreich ___.",o:["Polster","Sessel","Gewand"],why:"Polster = Kissen.",lv:"B1"},
+ {s:"Der Schrank heißt in Österreich oft ___.",o:["Kasten","Polster","Stiege"],why:"Kasten = Schrank.",lv:"B1"},
+ {s:"Der Bürgersteig heißt in Österreich ___.",o:["Gehsteig","Stiege","Trafik"],why:"Gehsteig = Bürgersteig.",lv:"B1"},
+ {s:"Zigaretten und Zeitungen kauft man in der ___.",o:["Trafik","Ordination","Kassa"],why:"Trafik = Tabakladen.",lv:"B1"},
+ {s:"Die Arztpraxis heißt in Österreich oft ___.",o:["Ordination","Spital","Matura"],why:"Ordination = Arztpraxis.",lv:"B1"},
+ {s:"Das Krankenhaus heißt in Österreich auch ___.",o:["Spital","Ordination","Trafik"],why:"Spital = Krankenhaus.",lv:"B1"},
+ {s:"Das Abitur heißt in Österreich ___.",o:["Matura","Hausübung","Jause"],why:"Matura = Abitur.",lv:"B1"},
+ {s:"Hausaufgaben heißen in Österreich ___.",o:["Hausübungen","Matura","Gewand"],why:"Hausübung = Hausaufgabe.",lv:"B1"},
+ {s:"Den Metzger nennt man in Österreich meist ___.",o:["Fleischhauer","Tischler","Rauchfangkehrer"],why:"Fleischhauer = Metzger.",lv:"B1"},
+ {s:"Für Baugenehmigung sagt man in Österreich ___.",o:["Baubewilligung","Meldezettel","Zahlschein"],why:"Baubewilligung = Baugenehmigung.",lv:"B2"},
+ {s:"Bei der Anmeldung in Wien braucht man den ___.",o:["Meldezettel","Zahlschein","Kasten"],why:"Meldezettel = Anmeldung beim Amt.",lv:"B2"},
+ {s:"Kleidung heißt in Österreich oft ___.",o:["Gewand","Polster","Sackerl"],why:"Gewand = Kleidung.",lv:"B2"},
+ {s:"Wir ___ lange im Café gesessen.",o:["sind","haben","werden"],why:"In Austria and the south, sitzen forms the Perfekt with sein.",lv:"B2"},
+ {s:"Zum Abschied sagt man unter Freunden: Servus oder ___.",o:["Baba","Grüß Gott","Mahlzeit"],why:"Baba is the friendly goodbye. Grüß Gott is a greeting.",lv:"B2"}],
+ th:`<div class="tc df"><h3>Essen</h3><div class="rows"><div><span>Erdäpfel</span><span>Kartoffeln</span></div><div><span>Paradeiser</span><span>Tomaten</span></div><div><span>Marillen</span><span>Aprikosen</span></div><div><span>Topfen</span><span>Quark</span></div><div><span>Schlagobers</span><span>Schlagsahne</span></div><div><span>Semmel</span><span>Brötchen</span></div></div><p class="tline">Standard Austrian German, not dialect.</p></div><div class="tc df"><h3>Alltag</h3><div class="rows"><div><span>Sackerl</span><span>Tüte</span></div><div><span>Stiege</span><span>Treppe</span></div><div><span>Polster</span><span>Kissen</span></div><div><span>Kasten</span><span>Schrank</span></div><div><span>Gehsteig</span><span>Bürgersteig</span></div><div><span>Jänner</span><span>Januar</span></div></div><p class="tline">Also: Gewand (Kleidung), heuer (dieses Jahr).</p></div><div class="tc df"><h3>Amt und Bau</h3><div class="rows"><div><span>Meldezettel</span><span>Anmeldung</span></div><div><span>Ordination</span><span>Arztpraxis</span></div><div><span>Matura</span><span>Abitur</span></div><div><span>Baubewilligung</span><span>Baugenehmigung</span></div></div><p class="tline">Use these in letters and emails in Austria.</p></div>`};
+GT.wortb={name:"Wortbildung",badge:"Wort",tip:"Read a long word from the back, and look at the ending.",src:["duden","grammis","lingolia"],
+ lg:'<span><b class="wt k lgk">-ung</b> Endung</span><span><b class="wt v lgk">ver-</b> Vorsilbe</span>',
+ cards:[
+ {b:"Komposita",st:ruleSt("Der letzte Teil entscheidet",["der Tisch + die Lampe = die Tischlampe","das Haus + die Tür = die Haustür","das Auto + die Bahn = die Autobahn","das Kind + das Zimmer = das Kinderzimmer"]),tx:"The last word gives the article and the plural",gt:"Read a compound from the back: Kinderzimmer is a kind of Zimmer, so it is das Zimmer."},
+ {b:"Fugen",st:ruleSt("Fugenelemente",["Meinung + s + Freiheit","Gesundheit + s + Amt","Wohnung + s + Bau","Blume + n + Vase","Kind + er + Zimmer"]),tx:"Sometimes a letter joins the parts",gt:"After -ung, -heit, -keit, -ion, -ität, -schaft, -ling and -tum the joint is almost always -s. Otherwise learn the joint with the word."},
+ {b:"Nomen",st:ruleSt("Endungen und Artikel",["-ung, -heit, -keit, -schaft: die","-ion, -ität: die","-chen, -lein: das","-er, -ling, -ismus: der","-ment: das (mostly)"]),tx:"The ending tells you the article",gt:"Exceptions exist: der Zement, der Irrtum, der Reichtum. -tum is usually das (das Eigentum)."},
+ {b:"-heit · -keit",st:ruleSt("Adjektiv → Nomen",["krank → die Krankheit","frei → die Freiheit","freundlich → die Freundlichkeit","möglich → die Möglichkeit","sauber → die Sauberkeit"]),tx:"-keit after -lich, -ig, -bar, -sam, -er",gt:"Short adjectives take -heit: Krankheit, Freiheit. After -lich, -ig, -bar and -sam take -keit."},
+ {b:"Adjektiv",st:ruleSt("Endungen und Bedeutung",["wasch-bar (can be washed)","arbeits-los (without)","sinn-voll (full of)","erfolg-reich (rich in)","fehler-haft (with faults)","arbeits-fähig (able to)"]),tx:"-bar · -los · -voll · -reich · -haft · -fähig",gt:"-bar says that something can be done. -los means without. -voll and -reich mean with a lot of. Also: -lich, -ig, -isch (sonnig, freundlich, typisch)."},
+ {b:"Verb",st:ruleSt("Vorsilben",["be-arbeiten","ver-kaufen","er-reichen","ent-decken","zer-brechen","miss-verstehen"]),tx:"be- · ver- · er- · ent- · zer- · miss-",gt:"These prefixes are not separable and the Partizip has no ge-: Ich habe den Plan bearbeitet. zer- means apart, ent- means away or the start of something."},
+ {b:"-ieren",st:ruleSt("Fremdwörter",["studieren → studiert","renovieren → renoviert","kopieren → kopiert","reparieren → repariert"]),tx:"Verbs in -ieren never take ge-",gt:"The Partizip stays without ge-: Er hat Architektur studiert. The same holds for all verbs in -ieren."}],
+ q:[
+ {s:"Tisch + Lampe = ___ Tischlampe",o:["die","der","das"],why:"The last word decides: die Lampe.",lv:"A2"},
+ {s:"Auto + Bahn = ___ Autobahn",o:["die","der","das"],why:"The last word decides: die Bahn.",lv:"A2"},
+ {s:"Kind + Zimmer = ___ Kinderzimmer",o:["das","der","die"],why:"The last word decides: das Zimmer.",lv:"A2"},
+ {s:"Eine Frau, die lehrt, ist eine Lehrer___.",o:["in","e","chen"],why:"-in makes the feminine form: Lehrerin.",lv:"A2"},
+ {s:"Ein kleines Haus ist ein Häus___.",o:["chen","ung","keit"],why:"-chen makes a small thing, and the article is das.",lv:"A2"},
+ {s:"Krank___ ist nicht schön.",o:["heit","keit","ung"],why:"Short adjective + -heit: die Krankheit.",lv:"A2"},
+ {s:"Die Plan___ des Hauses dauert lange.",o:["ung","heit","schaft"],why:"planen → die Planung (-ung makes a noun from a verb).",lv:"A2"},
+ {s:"Wer keine Arbeit hat, ist arbeits___.",o:["los","voll","frei"],why:"-los means without: arbeitslos.",lv:"A2"},
+ {s:"Ein Pullover, den man waschen kann, ist wasch___.",o:["bar","los","sam"],why:"-bar means can be done: waschbar.",lv:"B1"},
+ {s:"Ein Tag mit viel Sonne ist sonn___.",o:["ig","lich","isch"],why:"Sonne + -ig: sonnig.",lv:"B1"},
+ {s:"Wer viel Erfolg hat, ist erfolg___.",o:["reich","voll","los"],why:"-reich: rich in. erfolgreich.",lv:"B1"},
+ {s:"freundlich → die Freundlich___",o:["keit","heit","ung"],why:"After -lich the noun ends in -keit.",lv:"B1"},
+ {s:"Die Meinung___freiheit ist wichtig.",o:["s","n","en"],why:"After -ung the joint is -s: Meinungsfreiheit.",lv:"B1"},
+ {s:"Das Gesundheit___amt hat geöffnet.",o:["s","n","e"],why:"After -heit the joint is -s: Gesundheitsamt.",lv:"B1"},
+ {s:"Die Blume___vase steht auf dem Tisch.",o:["n","s","e"],why:"Blume + n: Blumenvase.",lv:"B1"},
+ {s:"Das Glas ist ___brochen.",o:["zer","be","er"],why:"zer- means apart: zerbrochen.",lv:"B1"},
+ {s:"Er hat das Auto ___kauft.",o:["ver","be","er"],why:"verkaufen = sell.",lv:"B1"},
+ {s:"Er hat Architektur ___. (studieren)",o:["studiert","gestudiert","studieren"],why:"Verbs in -ieren have no ge- in the Partizip.",lv:"B1"},
+ {s:"Wir haben die Küche ___. (renovieren)",o:["renoviert","gerenoviert","renovierte"],why:"Verbs in -ieren have no ge- in the Partizip.",lv:"B1"},
+ {s:"Ich habe den Plan ___. (bearbeiten)",o:["bearbeitet","gebearbeitet","bearbeiten"],why:"Inseparable prefix be-: no ge-.",lv:"B1"},
+ {s:"___ Instrument",o:["das","der","die"],why:"-ment is usually das.",lv:"B2"},
+ {s:"Er ist krank und nicht arbeits___.",o:["fähig","bar","los"],why:"-fähig means able to: arbeitsfähig.",lv:"B2"},
+ {s:"Ein Text voller Fehler ist fehler___.",o:["haft","reich","voll"],why:"-haft: with faults. fehlerhaft.",lv:"B2"},
+ {s:"___ Eigentum",o:["das","der","die"],why:"-tum is usually das. Exceptions: der Irrtum, der Reichtum.",lv:"C1"}],
+ th:`<div class="tc df"><h3>Komposita</h3><div class="rows"><div><span>Genus</span><span>vom letzten Wort</span></div><div><span>Fuge -s</span><span>nach -ung, -heit, -keit, -ion, -ität</span></div><div><span>Fuge -n</span><span>Blumenvase</span></div><div><span>Fuge -er</span><span>Kinderzimmer</span></div></div><p class="tline">Read a compound from the back.</p></div><div class="tc df"><h3>Nomen</h3><div class="rows"><div><span>die</span><span>-ung, -heit, -keit, -schaft, -ion, -ität</span></div><div><span>das</span><span>-chen, -lein, -ment, -tum</span></div><div><span>der</span><span>-er, -ling, -ismus</span></div></div><p class="tline">Ending → article. Exceptions: der Irrtum, der Reichtum, der Zement.</p></div><div class="tc df"><h3>Adjektiv und Verb</h3><div class="rows"><div><span>-bar</span><span>kann man: waschbar</span></div><div><span>-los</span><span>ohne: arbeitslos</span></div><div><span>-voll, -reich</span><span>mit viel: sinnvoll, erfolgreich</span></div><div><span>be- ver- er- ent- zer-</span><span>Partizip ohne ge-</span></div></div><p class="tline">-ieren verbs also take no ge-.</p></div>`};
+GT.zungen={name:"Zungenbrecher",badge:"Laut",tip:"Say it slowly first. Speed comes last.",src:["duden","grammis","lingolia"],
+ lg:'<span><b class="wt k lgk">z</b> Laut</span>',
+ cards:[
+ {b:"Fritz",st:ruleSt("Fischers Fritz",["Fischers Fritz fischt frische Fische,","frische Fische fischt Fischers Fritz."]),tx:"f · fr · sch",gt:"Slowly first. Press the lower lip lightly against the upper teeth for f.",say:"Fischers Fritz fischt frische Fische, frische Fische fischt Fischers Fritz."},
+ {b:"Blaukraut",st:ruleSt("Blaukraut",["Blaukraut bleibt Blaukraut","und Brautkleid bleibt Brautkleid."]),tx:"bl · br · kl",gt:"The r is the hard part. Keep it short and relaxed.",say:"Blaukraut bleibt Blaukraut und Brautkleid bleibt Brautkleid."},
+ {b:"Zwetschgen",st:ruleSt("Zwetschgen",["Zwischen zwei Zwetschgenzweigen","zwitschern zwei Schwalben."]),tx:"zw · tsch · schw",gt:"z is pronounced ts. In Austria the plum is a Zwetschke.",say:"Zwischen zwei Zwetschgenzweigen zwitschern zwei Schwalben."},
+ {b:"Ameisen",st:ruleSt("Ameisen",["Acht alte Ameisen aßen Ananas am Abend."]),tx:"A-Laute",gt:"Open the mouth wide for every a. Short a and long a alternate.",say:"Acht alte Ameisen aßen Ananas am Abend."},
+ {b:"Wiener",st:ruleSt("Wiener Waschweiber",["Wir Wiener Waschweiber wollten weiße Wäsche waschen,","wenn wir wüssten, wo warmes Wasser wäre."]),tx:"w (wie v)",gt:"German w is like English v. Do not use the English w.",say:"Wir Wiener Waschweiber wollten weiße Wäsche waschen, wenn wir wüssten, wo warmes Wasser wäre."},
+ {b:"Hemden",st:ruleSt("Hermanns Hemden",["Hinter Hermann Hannes Haus","hängen hundert Hemden raus."]),tx:"h",gt:"Breathe out softly for h. Do not drop it and do not press it.",say:"Hinter Hermann Hannes Haus hängen hundert Hemden raus."},
+ {b:"Ziegen",st:ruleSt("Zehn zahme Ziegen",["Zehn zahme Ziegen zogen zehn Zentner Zucker zum Zoo."]),tx:"z (ts)",gt:"Start every z with t-s in one movement.",say:"Zehn zahme Ziegen zogen zehn Zentner Zucker zum Zoo."},
+ {b:"Dachdecker",st:ruleSt("Der dicke Dachdecker",["Der dicke Dachdecker deckte dir dein Dach."]),tx:"d · ch",gt:"Clear d at the front of the tongue, and the ch after a stays soft.",say:"Der dicke Dachdecker deckte dir dein Dach."},
+ {b:"Klapper",st:ruleSt("Klapperschlangen",["Es klapperten die Klapperschlangen,","bis ihre Klappern schlapper klangen."]),tx:"kl · schl",gt:"The hardest one. Say kl-kl-kl, then add schl.",say:"Es klapperten die Klapperschlangen, bis ihre Klappern schlapper klangen."}],
+ q:[
+ {s:"Fischers Fritz fischt frische ___.",o:["Fische","Frösche","Fliegen"],why:"Fischers Fritz fischt frische Fische.",lv:"A2"},
+ {s:"Blaukraut bleibt Blaukraut und Brautkleid bleibt ___.",o:["Brautkleid","Blaukraut","Brautkraut"],why:"Blaukraut bleibt Blaukraut und Brautkleid bleibt Brautkleid.",lv:"A2"},
+ {s:"Zwischen zwei Zwetschgenzweigen zwitschern zwei ___.",o:["Schwalben","Spatzen","Amseln"],why:"Zwischen zwei Zwetschgenzweigen zwitschern zwei Schwalben.",lv:"B1"},
+ {s:"Acht alte Ameisen aßen ___ am Abend.",o:["Ananas","Äpfel","Aprikosen"],why:"Acht alte Ameisen aßen Ananas am Abend.",lv:"A2"},
+ {s:"Wir Wiener Waschweiber wollten weiße ___ waschen.",o:["Wäsche","Wolle","Westen"],why:"Wir Wiener Waschweiber wollten weiße Wäsche waschen.",lv:"B1"},
+ {s:"Hinter Hermann Hannes Haus hängen hundert ___ raus.",o:["Hemden","Hosen","Hüte"],why:"Hinter Hermann Hannes Haus hängen hundert Hemden raus.",lv:"A2"},
+ {s:"Zehn zahme Ziegen zogen zehn Zentner ___ zum Zoo.",o:["Zucker","Zwiebeln","Ziegel"],why:"Zehn zahme Ziegen zogen zehn Zentner Zucker zum Zoo.",lv:"A2"},
+ {s:"Der dicke Dachdecker deckte dir dein ___.",o:["Dach","Haus","Fach"],why:"Der dicke Dachdecker deckte dir dein Dach.",lv:"A2"},
+ {s:"Es klapperten die Klapperschlangen, bis ihre ___ schlapper klangen.",o:["Klappern","Schuppen","Rasseln"],why:"…bis ihre Klappern schlapper klangen.",lv:"B2"},
+ {s:"Im Satz „Zehn zahme Ziegen“ übst du den Laut ___.",o:["z","sch","w"],why:"The letter z is pronounced ts.",lv:"A2"},
+ {s:"Im Satz „Wiener Waschweiber“ klingt w wie ___.",o:["v","w","f"],why:"German w sounds like English v.",lv:"B1"},
+ {s:"Im Wort „Zwetschge“ steht am Anfang der Laut ___.",o:["zw","sch","tsch"],why:"Zw is pronounced tsv.",lv:"B2"}],
+ th:`<div class="tc df"><h3>Laute</h3><div class="rows"><div><span>f, fr</span><span>Fischers Fritz</span></div><div><span>bl, br</span><span>Blaukraut</span></div><div><span>z</span><span>Zehn zahme Ziegen</span></div><div><span>w</span><span>Wiener Waschweiber</span></div><div><span>h</span><span>Hermanns Hemden</span></div><div><span>kl, schl</span><span>Klapperschlangen</span></div></div><p class="tline">Tap Anhören in Lernen and say each one after the voice.</p></div><div class="tc df"><h3>So übst du</h3><div class="rows"><div><span>1</span><span>langsam, jedes Wort deutlich</span></div><div><span>2</span><span>drei Mal ohne Fehler</span></div><div><span>3</span><span>schneller, ohne den Laut zu verlieren</span></div></div><p class="tline">Speed comes last.</p></div>`};
+GT.fehler={name:"Fehlerjagd",badge:"Fehler: tippe die falsche Stelle",tip:"Check the verb position first, then the case, then the article.",src:["duden","grammis","lingolia"],
+ lg:'<span><b class="wt k lgk">!</b> Fehler</span>',
+ cards:[
+ {b:"Verb",st:ruleSt("Verb am falschen Platz",["Gestern ich habe einen Film gesehen. ✗","Gestern habe ich einen Film gesehen. ✓"]),tx:"Position 2",gt:"In a main clause the finite verb is the second element. After a Nebensatz it comes first."},
+ {b:"Fall",st:ruleSt("Falscher Fall",["mit den Bus ✗ · mit dem Bus ✓","für dem Chef ✗ · für den Chef ✓","Ich helfe ihn ✗ · Ich helfe ihm ✓"]),tx:"mit + Dativ · für + Akkusativ · helfen + Dativ",gt:"Learn the case together with the preposition or the verb."},
+ {b:"Artikel",st:ruleSt("Falscher Artikel",["ein Kaffee ✗ · einen Kaffee ✓","in der Garten ✗ · im Garten ✓","dein Einladung ✗ · deine Einladung ✓"]),tx:"Genus and Fall",gt:"Check the gender of the noun, then the case."},
+ {b:"Nebensatz",st:ruleSt("Nebensatz",["weil ich habe Zeit ✗ · weil ich Zeit habe ✓","ob kommst du ✗ · ob du kommst ✓"]),tx:"The verb goes last",gt:"After weil, dass, ob, wenn, obwohl the conjugated verb is the last word."},
+ {b:"Hilfsverb",st:ruleSt("sein oder haben",["Ich habe gegangen ✗ · Ich bin gegangen ✓","Er hat angekommen ✗ · Er ist angekommen ✓"]),tx:"Movement and change take sein",gt:"gehen, fahren, kommen, ankommen, einschlafen all form the Perfekt with sein."}],
+ q:[
+ {s:"Ich habe gestern nach Hause gegangen.",o:["habe … gegangen","gestern","nach Hause"],why:"gehen forms the Perfekt with sein: Ich bin gestern nach Hause gegangen.",lv:"A2"},
+ {s:"Wir fahren mit den Bus zur Arbeit.",o:["mit den Bus","Wir fahren","zur Arbeit"],why:"mit + Dativ: mit dem Bus.",lv:"A2"},
+ {s:"Ich bin müde, weil ich habe schlecht geschlafen.",o:["weil ich habe","Ich bin müde","schlecht geschlafen"],why:"After weil the verb goes last: weil ich schlecht geschlafen habe.",lv:"A2"},
+ {s:"Gestern ich habe einen Film gesehen.",o:["Gestern ich habe","einen Film","gesehen"],why:"The verb stays in position 2: Gestern habe ich einen Film gesehen.",lv:"A2"},
+ {s:"Ich danke dir für dein Einladung.",o:["für dein Einladung","Ich danke","dir"],why:"die Einladung is feminine, so: für deine Einladung.",lv:"A2"},
+ {s:"Sie hat ein schönen Mantel gekauft.",o:["ein schönen Mantel","Sie hat","gekauft"],why:"Akkusativ masculine: einen schönen Mantel.",lv:"A2"},
+ {s:"Die Kinder spielen in der Garten.",o:["in der Garten","Die Kinder","spielen"],why:"der Garten is masculine, Dativ: in dem Garten = im Garten.",lv:"A2"},
+ {s:"Ich möchte gern ein Kaffee trinken.",o:["ein Kaffee","Ich möchte gern","trinken"],why:"Akkusativ masculine: einen Kaffee.",lv:"A2"},
+ {s:"Er fragt mich, ob kommst du heute mit.",o:["ob kommst du","Er fragt mich","heute mit"],why:"In the Nebensatz the verb goes last: ob du heute mitkommst.",lv:"B1"},
+ {s:"Ich warte seit zwei Stunden für den Bus.",o:["für den Bus","seit zwei Stunden","Ich warte"],why:"warten auf + Akkusativ: auf den Bus.",lv:"B1"},
+ {s:"Obwohl es regnet, wir gehen spazieren.",o:["wir gehen","Obwohl es regnet","spazieren"],why:"After a Nebensatz the main verb comes first: gehen wir spazieren.",lv:"B1"},
+ {s:"Ich interessiere mich an Architektur.",o:["an Architektur","Ich interessiere","mich"],why:"sich interessieren für: für Architektur.",lv:"B1"},
+ {s:"Ich habe mich die Hände gewaschen.",o:["mich die Hände","Ich habe","gewaschen"],why:"With another Akkusativ object the pronoun is Dativ: mir die Hände.",lv:"B1"},
+ {s:"Das ist die Frau, die ich gestern geholfen habe.",o:["die ich gestern","Das ist die Frau","geholfen habe"],why:"helfen + Dativ: die Frau, der ich geholfen habe.",lv:"B1"},
+ {s:"Ich habe gestern vergessen, dir anzurufen.",o:["dir anzurufen","Ich habe","gestern vergessen"],why:"anrufen + Akkusativ: dich anzurufen.",lv:"B1"},
+ {s:"Sie arbeitet als eine Architektin in Wien.",o:["als eine Architektin","Sie arbeitet","in Wien"],why:"For jobs, als has no article: als Architektin.",lv:"B1"},
+ {s:"Er hat gestern lange arbeiten gemusst.",o:["arbeiten gemusst","Er hat","gestern lange"],why:"Modal verb in the Perfekt: hat arbeiten müssen (double infinitive).",lv:"B2"},
+ {s:"Wegen dem schlechten Wetter bleiben wir zu Hause.",o:["Wegen dem schlechten Wetter","bleiben wir","zu Hause"],why:"Standard written German: wegen + Genitiv, wegen des schlechten Wetters. The Dativ is common in speech.",lv:"B2"},
+ {s:"Sie hat ihrem Bruder ein Buch geschenkt, dass sie gestern gekauft hat.",o:["dass sie gestern gekauft hat","Sie hat ihrem Bruder","ein Buch geschenkt"],why:"A relative clause needs das, not dass: ein Buch, das sie gekauft hat.",lv:"B2"},
+ {s:"Je mehr ich übe, umso ich werde besser.",o:["umso ich werde","Je mehr ich übe","besser"],why:"After je … umso the verb stays in position 2: umso besser werde ich.",lv:"B2"},
+ {s:"Man soll nicht vergessen, dass die Regeln ändern sich.",o:["dass die Regeln","Man soll nicht vergessen","ändern sich"],why:"After dass the verb goes last: dass sich die Regeln ändern.",lv:"B2"},
+ {s:"Das Projekt, dessen die Planung lange dauerte, wurde genehmigt.",o:["dessen die Planung","Das Projekt","wurde genehmigt"],why:"The relative pronoun dessen replaces the article: dessen Planung.",lv:"C1"},
+ {s:"Er bestand darauf, dass das Treffen wird stattfinden.",o:["wird stattfinden","Er bestand darauf","dass das Treffen"],why:"In the Nebensatz the finite verb is last: dass das Treffen stattfinden wird.",lv:"C1"},
+ {s:"Ich hätte das früher gewusst, wenn du mir hättest gesagt.",o:["hättest gesagt","Ich hätte das früher gewusst","wenn du mir"],why:"The finite verb goes last: wenn du es mir gesagt hättest.",lv:"C1"}],
+ th:`<div class="tc df"><h3>Wo suchst du?</h3><div class="rows"><div><span>Verb</span><span>Position 2, oder am Ende im Nebensatz</span></div><div><span>Fall</span><span>mit + Dativ, für + Akkusativ, helfen + Dativ</span></div><div><span>Artikel</span><span>der, die, das und die Endung</span></div><div><span>Hilfsverb</span><span>sein oder haben im Perfekt</span></div></div><p class="tline">Check these four first. One of them is almost always the mistake.</p></div>`};
 /* ---------- topics + home ---------- */
 GT.neg={name:"Verneinung",badge:"nicht · kein",tip:"First ask: is it a noun with ein or no article? Then kein. Everything else: nicht.",src:["grammis","lingolia","dwds"],
  lg:'<span><b class="wt ng lgk">nicht</b> Verneinung</span><span><b class="wt v lgk">Verb</b> Satzklammer</span>',
@@ -2508,6 +2643,10 @@ const TOPICS=[
  {t:"pass",n:"Passiv",tag:"wird … gebaut",ds:"alle Zeiten, Zustand, Ersatzformen · B1–C1"},
  {t:"k2",n:"Konjunktiv II",tag:"wäre · hätte · würde",ds:"irreal, höflich, Wunsch, Vergangenheit · A2–C1"},
  {t:"k1",n:"Konjunktiv I",tag:"er sei · er habe",ds:"Indirekte Rede, Berichte · B2–C1"},
+ {t:"oest",n:"Österreichisch",tag:"Paradeiser · Sackerl",ds:"Wörter und kleine Unterschiede, Amt und Bau · A2–B2"},
+ {t:"wortb",n:"Wortbildung",tag:"-ung · -bar · ver-",ds:"Komposita, Endungen, Vorsilben, Artikel erkennen · A2–C1"},
+ {t:"zungen",n:"Zungenbrecher",tag:"Fischers Fritz",ds:"Laute üben mit Anhören · A2–B2"},
+ {t:"fehler",n:"Fehlerjagd",tag:"Wo ist der Fehler?",ds:"die falsche Stelle im Satz finden · A2–C1"},
  {t:"refl",n:"Reflexiv",tag:"ich freue mich",ds:"mich oder mir, sich + Präposition, Stellung · A1–C1"},
  {t:"nvv",n:"Nomen-Verb-Verbindungen",tag:"in Frage stellen",ds:"formelles Deutsch für Briefe & Vorträge · B1–C1"},
  {t:"nom",n:"Nominalstil & Partizipien",tag:"die geplante Brücke",ds:"Partizipialattribute, Nominalisierung · B2–C1"},
@@ -2524,7 +2663,8 @@ const GROUPS=[
  {n:"Adjektiv",t:["adj"],soon:"Vergleichen"},
  {n:"Präpositionen",t:["prep","pfall","vprep"],soon:"Zeitangaben"},
  {n:"Verb",t:["praes","refl","modal","perf","pass","k2","k1"],soon:"Präteritum · Futur"},
- {n:"Stil · C1",t:["nvv","nom"],soon:"Partikeln"}];
+ {n:"Stil · C1",t:["nvv","nom"],soon:"Partikeln"},
+ {n:"Wortschatz & Spaß",t:["oest","wortb","zungen","fehler"]}];
 const tInfo=t=>TOPICS.find(x=>x.t===t);
 function tRange(t){const m=(tInfo(t).ds||"").match(/([ABC][12])(?:–([ABC][12]))?\s*$/);return m?[m[1],m[2]||m[1]]:["A1","C1"];}
 function inLevel(t){const L=store.level;if(!L||L==="all")return true;const [a,b]=tRange(t),i=LVLS.indexOf(L);return i>=LVLS.indexOf(a)&&i<=LVLS.indexOf(b);}
@@ -3922,7 +4062,7 @@ setInterval(sync,120);})();</script>
 var AUX=/^(sind|bin|ist|habe|hat|haben|hatte|hatten|werde|wurde|wird|war|waren|wären|hätte|hätten)$/;
 function lab(q){var a=String(q.o[q.c]||""),k=q.t,sx=q.s||"",hasInf=/\(\w+\)\s*$/.test(sx);
 if(k==="vprep"||k==="prep")return "Präposition";if(k==="pfall")return "Präposition oder Artikel";if(k==="vkas")return "Artikel oder Pronomen im richtigen Fall";
-if(k==="art")return "Artikel";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
+if(k==="art")return "Artikel";if(k==="oest")return "Österreichisches Wort";if(k==="wortb")return "Endung, Vorsilbe oder Artikel";if(k==="zungen")return "Welches Wort?";if(k==="fehler")return "Wo steckt der Fehler? Tippe die falsche Stelle.";if(k==="refl")return "Reflexivpronomen oder Präposition";if(k==="nebs")return "Konjunktion, Verb oder Satzstellung";
 if(k==="rel")return "Relativpronomen";
 if(k==="praes"){if(/^(an|auf|aus|ein|ab|um|zu|vor|mit|nach)$/.test(a))return "Vorsilbe des trennbaren Verbs";return "Verb in der richtigen Form";}
 if(k==="modal")return "Modalverb in der richtigen Form";
