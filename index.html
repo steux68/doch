@@ -90,7 +90,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-17f"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-17g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -4709,7 +4709,8 @@ if(vv)vv.addEventListener("resize",kt);addEventListener("focusin",function(){set
 #obar>*::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:var(--df) left top/100% 1px no-repeat,var(--dfv) right top/1px 100% no-repeat}
 #obar>*:last-child::after{background:var(--df) left top/100% 1px no-repeat}
 #obar .ob-a{flex:0 0 52px}
-#obar .ar{pointer-events:none}
+#obar .ar{pointer-events:none;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.82)}
+#obar .ar .rg{display:none}
 #obar .ob-n{flex:0 0 56px;color:#555;font-variant-numeric:tabular-nums}
 #obar .ob-n b{font-weight:700;color:#3a3c37}
 #obar button{text-decoration:none;border-radius:0}
