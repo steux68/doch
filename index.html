@@ -92,7 +92,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-17x"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-17y"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3991,7 +3991,7 @@ function renderTest(){
    '<div class="sehk tkx" id="tErr"'+(ne?'':' hidden')+'><b>Fehler üben</b><span class="tern">'+ne+(ne===1?' Frage':' Fragen')+' →</span></div></div></div>'+
    '<div class="lvsel" role="group" aria-label="Niveau"><div id="lvs2">'+["all"].concat(LVLS.slice(0,5)).map(l=>'<button class="lvb" data-l="'+l+'" aria-pressed="'+(L===l)+'">'+(l==="all"?"Alle":l)+'</button>').join("")+'</div></div>'+
    '<div class="rcb"><button class="resume" id="goTest"><span><small>Test starten</small><b>'+TLEN()+' Fragen · '+(L==="all"?"alle Stufen":L)+'</b></span><b>→</b></button></div>'+
-   '<div class="tests rows2"><button class="tst wide" id="goLueck"><b>Lückentext</b><small>ganze Texte · A1–C1 · mit Korrektur</small></button><button class="tst wide" id="goWrite"><b>Text prüfen</b><small>Schreiben A1–C1 · mit LanguageTool</small></button><button class="tst wide" id="goSet"><b class="setb"><span class="cogi" aria-hidden="true"></span>Info &amp; Einstellungen</b><small>Anleitung · Timer · neueste Version</small></button></div></div>';
+   '<div class="tests rows2"><button class="tst wide" id="goLueck"><span class="tl"><span class="no">01</span><b>Lückentext</b></span><small>ganze Texte · A1–C1</small></button><button class="tst wide" id="goWrite"><span class="tl"><span class="no">02</span><b>Text prüfen</b></span><small>Schreiben · LanguageTool</small></button><button class="tst wide" id="goSet"><span class="tl"><span class="no">03</span><b class="setb"><span class="cogi" aria-hidden="true"></span>Einstellungen</b></span><small>Info · Anleitung · Timer</small></button></div></div>';
   $("p-test").querySelectorAll(".tlen2 button").forEach(x=>x.onclick=()=>{store.tlen=+x.dataset.n;save();renderTest();});
   $("p-test").querySelectorAll("#lvs2 .lvb").forEach(x=>x.onclick=()=>{store.level=x.dataset.l;save();renderHome();renderTest();});
   $("goTest").onclick=()=>{TESTLV=(store.level&&store.level!=="all")?store.level:"all";openTopic("test");};
@@ -4829,5 +4829,13 @@ mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
 .tests.rows2{display:grid!important;grid-template-columns:1fr!important;gap:4px!important;margin-top:0!important;border:0!important;background:#f3f3f1!important}
 .tests.rows2 .tst{background:#fff!important;min-height:58px;padding:8px 12px}
 .tests.rows2 .tst b{font-size:1.1rem}
+#p-test{background:#f3f3f1}
+.tests.rows2{padding-top:4px}
+.tests.rows2 .tst .tl{display:flex;align-items:center;gap:10px;min-width:0}
+.tests.rows2 .tst .no{width:30px;flex:none;text-align:center;font-size:12px;font-weight:700}
+.tests.rows2 .tst small{text-align:right}
+.tests.rows2 .tst{padding:8px 12px 8px 0}
+.hb.hl[data-i="0"]{background-image:var(--bl),var(--hv)!important;background-position:left bottom,right top!important;background-size:100% 1px,1px 100%!important;background-repeat:no-repeat!important}
+.hb.hr[data-i="1"]{background-image:var(--bl),var(--hv)!important;background-position:left bottom,left top!important;background-size:100% 1px,1px 100%!important;background-repeat:no-repeat!important}
 </style>
 <script id="info-link-js">(function(){var l=document.getElementById('infoLink'),c=document.getElementById('cogb');if(l)l.onclick=function(e){e.stopPropagation();if(c)c.click();};})();</script>
