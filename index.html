@@ -92,7 +92,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-17m"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-17n"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -4751,5 +4751,12 @@ mo.observe(app,{attributes:true,attributeFilter:["data-mode"]});build();})();</s
 .tlar.pw,.svar.l{left:2px!important}.tlar.pe,.svar.r{right:2px!important}
 .tlar::before,.rnd::before,.svar::before,#thQe::before{inset:-10px!important}
 .abar .ar,#gnA .ar,#gnE .ar{background:radial-gradient(circle 13px at 50% 50%,rgba(255,255,255,.6) 0 12px,rgba(0,0,0,.1) 12px 13px,transparent 13px)!important;box-shadow:none!important;border-radius:0!important}
+</style>
+<style id="testpage-css">
+/* 17.11: Spiel/Test als normale Seite statt Pop-up: keine feste Karte, kein Schatten, keine Unschärfe, kein weisser Schleier */
+.app[data-mode="game"]::after{display:none!important}
+.app[data-mode="game"] #gqpop{position:relative!important;top:auto!important;left:auto!important;transform:none!important;width:auto!important;height:auto!important;min-height:340px;margin:0 12px!important;box-shadow:none!important;background:#fff!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;border:0!important;border-top:1px dotted #b8b8b8!important;z-index:auto!important}
+.app.kbo[data-mode="game"] #gqpop{height:auto!important;min-height:0}
+.app[data-mode="game"] #panel #pcn{display:none!important}
 </style>
 <script id="info-link-js">(function(){var l=document.getElementById('infoLink'),c=document.getElementById('cogb');if(l)l.onclick=function(e){e.stopPropagation();if(c)c.click();};})();</script>
