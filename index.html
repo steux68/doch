@@ -92,7 +92,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-17n"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-17o"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -4759,4 +4759,28 @@ mo.observe(app,{attributes:true,attributeFilter:["data-mode"]});build();})();</s
 .app.kbo[data-mode="game"] #gqpop{height:auto!important;min-height:0}
 .app[data-mode="game"] #panel #pcn{display:none!important}
 </style>
+<style id="scorerow-css">
+/* 17.11: Spiel/Test im PASSAGE-Aussehen: Zeile Punkte/Serie/Beste/Neu, Antworten als volle graue Zeilen */
+#srow{display:none}
+.app[data-mode="game"] #srow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 12px;height:34px;font-size:13px;color:#6b6b68;font-variant-numeric:tabular-nums}
+#srow b{color:#222;font-weight:400}
+#srow button{height:23px;padding:0 10px;border:0;border-radius:0;background:#eaeaea;color:#222;font:inherit;font-size:12px}
+.app[data-mode="game"] #panel .opts{display:flex!important;flex-direction:column!important;gap:4px!important}
+.app[data-mode="game"] #panel .opts .opt{width:100%!important;min-height:44px;margin:0!important;text-align:left!important;justify-content:flex-start!important;padding:0 14px!important;font-size:15px}
+.app[data-mode="game"] #panel .opts .opt:not(.ok):not(.bad){background:#f3f3f1!important;border:0!important}
+.app[data-mode="game"] #panel #bR{display:none!important}
+</style>
+<script id="scorerow-js">(function(){const $=id=>document.getElementById(id),app=document.querySelector(".app"),g=$("gqpop");if(!app||!g)return;
+const row=document.createElement("div");row.id="srow";g.parentNode.insertBefore(row,g);
+let best=0,streak=0,last=null,seen={};try{best=+localStorage.getItem("doch-best")||0}catch(e){}
+function upd(){if(app.dataset.mode!=="game"||typeof MC==="undefined"||!MC||!MC.list){row.innerHTML="";return;}
+ const key=MC.list.length+":"+(MC.t&&MC.t.t||"");if(MC.i===0&&MC.score===0&&Object.keys(seen).length){seen={};streak=0;}
+ const body=$("cardbody"),ans=body&&body.querySelector(".opt.ok,.opt.bad,.answer .ok,.answer .bad");
+ if(ans&&!seen[MC.i]){seen[MC.i]=1;if(body.querySelector(".opt.bad,.bad"))streak=0;else{streak++;if(streak>best){best=streak;try{localStorage.setItem("doch-best",best)}catch(e){}}}}
+ const n=Object.keys(seen).length;
+ row.innerHTML='<span>Punkte <b>'+MC.score+'</b> / '+n+'</span><span>Serie <b>'+streak+'</b></span><span>Beste <b>'+best+'</b></span><button type="button">\u21ba Neu</button>';
+ row.querySelector("button").onclick=()=>{const r=$("bR");if(r)r.click();};}
+let t=0;const q=()=>{if(!t)t=setTimeout(()=>{t=0;upd()},0)};
+new MutationObserver(q).observe(g,{childList:true,subtree:true,attributes:true,characterData:true});
+new MutationObserver(q).observe(app,{attributes:true,attributeFilter:["data-mode"]});upd();})();</script>
 <script id="info-link-js">(function(){var l=document.getElementById('infoLink'),c=document.getElementById('cogb');if(l)l.onclick=function(e){e.stopPropagation();if(c)c.click();};})();</script>
