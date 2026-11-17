@@ -92,7 +92,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-17o"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-17p"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -4172,7 +4172,7 @@ function mcRender(){if(!MC||MC.t!==T)mcStart(T);clearTimeout(MC.tm);const q=MC.l
   if(typed){const a=$("ans");$("chk").onclick=mcTyped;a.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();MC.done?mcNext():mcTyped();}};
     document.querySelectorAll(".uml button").forEach(b=>b.onclick=()=>{if(a.disabled)return;const p=a.selectionStart??a.value.length;a.value=a.value.slice(0,p)+b.dataset.c+a.value.slice(a.selectionEnd??p);a.focus();a.setSelectionRange(p+1,p+1);});
     setTimeout(()=>a.focus(),60);}
-  const old=MC.i<MC.old;if(old)$("bd").textContent="Dein Fehler · "+$("bd").textContent;
+  const old=MC.i<MC.old;if(old)$("bd").textContent="↻ Wiederholung · "+$("bd").textContent;
   setBtns("btns1",[btn("bW","Weiter →","",mcNext),btn("bR","Neu starten","",()=>{MC=null;render()})]);
   setBtns("btns2",ERRMODE?[]:[btn("bT",store.typ?"Ergänzen: an":"Ergänzen: aus",store.typ?"on":"",()=>{store.typ=!store.typ;save();MC=null;render();})]);
   if(store.timer&&!typed){const el=$("tbi");el.style.width="100%";setTimeout(()=>{el.style.transition="width 15s linear";el.style.width="0%";},30);MC.tm=setTimeout(()=>mcAnswer(-1),15000);}}
