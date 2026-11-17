@@ -92,7 +92,7 @@
 </style>
 <!--type-scale--><style id="cog-left-css">.cogb{right:auto;left:14px;transition:opacity .35s,bottom .65s cubic-bezier(.4,.1,.2,1)}</style>
 </head><body>
-<meta name="app-version" content="2026-11-17s"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-17t"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3089,7 +3089,7 @@ function renderHome(){renderBars();
     const lo=g.t.map(t=>tRange(t)[0]).sort((a,b)=>LVLS.indexOf(a)-LVLS.indexOf(b))[0],hi=g.t.map(t=>tRange(t)[1]).sort((a,b)=>LVLS.indexOf(b)-LVLS.indexOf(a))[0];
     const open=store.grp===gi,shown=g.t.filter(inLevel).length;
     return '<div class="grp'+(open?' open':'')+'"><button class="grh" id="g'+gi+'" data-g="'+gi+'" aria-expanded="'+open+'"><span class="no">'+String(gi+1).padStart(2,"0")+'</span><span><b>'+esc(g.n)+'</b><small>'+g.t.length+(g.t.length===1?' Thema':' Themen')+' · '+lo+(hi!==lo?'–'+hi:'')+(store.level&&store.level!=="all"?' · '+shown+' auf '+store.level:'')+'</small></span><span class="prog"><i style="width:'+Math.round(avg*100)+'%"></i></span><span class="pm" aria-hidden="true">'+(open?'–':'+')+'</span></button>'+
-    (open?'<div class="gl">'+g.t.map(t=>{const x=tInfo(t),s=score(t),[a,b]=tRange(t);return '<button class="tt'+(inLevel(t)?'':' dim')+'" id="t-'+t+'" data-t="'+t+'"><span class="r"><b>'+esc(x.n)+'</b><small>'+a+(b!==a?'–'+b:'')+'</small></span><span class="prog"><i style="width:'+Math.round((s||0)*100)+'%"></i></span></button>';}).join("")+(g.soon?'<span class="soonl">bald: '+esc(g.soon)+'</span>':'')+'</div>':'')+'</div>';}).join("");
+    (open?'<div class="gl">'+g.t.map(t=>{const x=tInfo(t),s=score(t),[a,b]=tRange(t);return '<button class="tt'+(inLevel(t)?'':' dim')+'" id="t-'+t+'" data-t="'+t+'"><span class="r"><b>'+esc(x.n)+'</b><small>'+a+(b!==a?'–'+b:'')+'</small></span><span class="prog"><span class="pk"><i style="width:'+Math.round((s||0)*100)+'%"></i></span><em>'+Math.round((s||0)*100)+' %</em></span></button>';}).join("")+(g.soon?'<span class="soonl">bald: '+esc(g.soon)+'</span>':'')+'</div>':'')+'</div>';}).join("");
   document.querySelectorAll(".grh").forEach(b=>b.onclick=()=>{const g=+b.dataset.g;store.grp=store.grp===g?-1:g;save();renderHome();});
   document.querySelectorAll(".tt").forEach(b=>b.onclick=()=>openTopic(b.dataset.t));
   const r=$("resume"),L=store.last;
@@ -4789,9 +4789,17 @@ new MutationObserver(q).observe(app,{attributes:true,attributeFilter:["data-mode
 -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M10.3 2.5h3.4l.5 2.6 1.6.7 2.2-1.5 2.4 2.4-1.5 2.2.7 1.6 2.6.5v3.4l-2.6.5-.7 1.6 1.5 2.2-2.4 2.4-2.2-1.5-1.6.7-.5 2.6h-3.4l-.5-2.6-1.6-.7-2.2 1.5-2.4-2.4 1.5-2.2-.7-1.6-2.6-.5v-3.4l2.6-.5.7-1.6-1.5-2.2 2.4-2.4 2.2 1.5 1.6-.7z'/%3E%3C/svg%3E") center/contain no-repeat;
 mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.6' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M10.3 2.5h3.4l.5 2.6 1.6.7 2.2-1.5 2.4 2.4-1.5 2.2.7 1.6 2.6.5v3.4l-2.6.5-.7 1.6 1.5 2.2-2.4 2.4-2.2-1.5-1.6.7-.5 2.6h-3.4l-.5-2.6-1.6-.7-2.2 1.5-2.4-2.4 1.5-2.2-.7-1.6-2.6-.5v-3.4l2.6-.5.7-1.6-1.5-2.2 2.4-2.4 2.2 1.5 1.6-.7z'/%3E%3C/svg%3E") center/contain no-repeat}
 </style>
-<style id="tt-slim-css">
-.tt .prog:has(i[style="width:0%"]){display:none}
-.tt .prog,.tt .prog i{height:2px}
-.tt{min-height:0!important;gap:6px!important;padding:8px 8px 7px!important;justify-content:flex-start!important}
+<style id="cards-css">
+.grp.open{background:rgba(205,255,62,.45)!important}
+.grp.open .gl{gap:0!important;padding:0 0 0 0!important}
+.gl .tt{background:#fff!important;min-height:52px!important;gap:6px!important;padding:8px 10px 7px!important;justify-content:space-between!important;position:relative}
+.gl .tt::after{display:block!important;content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left bottom/100% 1px no-repeat,repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px) right top/1px 100% no-repeat}
+.gl .tt:nth-child(2n)::after{background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left bottom/100% 1px no-repeat}
+.tt .prog{display:flex;align-items:center;gap:8px;height:auto;background:none!important}
+.tt .pk{flex:1;height:2px;background:#d6d6d3;position:relative}
+.tt .pk i{position:absolute;left:0;top:-2px;height:6px;background:#e30613;max-width:100%}
+.tt .pk i[style="width:0%"]{display:none}
+.tt .prog em{font-style:normal;font-size:12px;color:#333;min-width:34px;text-align:right}
+.tt .pk:has(i[style="width:0%"])+em{color:#8c918a}
 </style>
 <script id="info-link-js">(function(){var l=document.getElementById('infoLink'),c=document.getElementById('cogb');if(l)l.onclick=function(e){e.stopPropagation();if(c)c.click();};})();</script>
