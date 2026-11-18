@@ -98,8 +98,23 @@
 .hb.hl,.hb.hr{margin:24px 0 -1px 0!important}
 .hb.first{margin-top:14px!important}
 </style>
+<style id="stackpolish-css">
+/* 1. Balkentext buendig mit dem Seitentext (alles an einer Linie) */
+.hb{padding-left:0!important;padding-right:0!important}
+.hp .rows div,.hp .hi,.hp .hi:nth-child(odd),.hp .rwi,.hp .qt,.hp .qt.alt{padding-left:0!important;padding-right:0!important}
+/* 1b. jeder Balken hat immer seine gepunktete Linie unten (der erste auch oben), auch wenn er oben festklebt */
+.hb::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px)}
+.hb.first::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;pointer-events:none;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px)}
+/* 2. Abschnitte: alle hellgrau, dazwischen eine weisse Luecke */
+#p-home,#p-test,#p-links,#p-quotes,#p-rede,#p-hist{background:#f4f4f2!important}
+#p-home,#p-test,#p-links,#p-quotes,#p-rede{margin-bottom:12px!important}
+.hp .qt,.hp .qt.alt,.hp .rwi,.hp .rwi:nth-child(odd),.hp .hi,.hp .hi:nth-child(odd){background-color:transparent!important}
+/* 3. Einrasten: nach dem Wischen rastet der Abschnitt unter seinem Balken ein */
+#hscroll{scroll-snap-type:y proximity!important}
+#p-home,#p-test,#p-links,#p-quotes,#p-rede,#p-hist{scroll-snap-align:start}
+</style>
 </head><body>
-<meta name="app-version" content="2026-11-18a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-18b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
