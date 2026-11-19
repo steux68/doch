@@ -6,7 +6,7 @@ if 'id="scrollhint-css"' in s:
 CSS = '''<style id="scrollhint-css">
 /* 19.11: Scroll-Hinweis + Tipp-Welle: rund, durchsichtiges Gelb (wie der Spiel-Modus) mit feiner grauer Linie, fängt keine Berührung ab */
 #sh,.rip{position:fixed;z-index:60;pointer-events:none;border-radius:50%}
-#sh{background:rgba(255,212,0,.6);box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+#sh{background:rgba(214,214,212,.75);box-shadow:0 0 0 1px rgba(0,0,0,.14)}
 #sh{width:30px;height:30px;margin:-15px 0 0 -15px;opacity:0;transition:opacity .5s}
 #sh.on{opacity:.95;animation:shd 2s ease-in-out infinite}
 #sh.u.on{animation-name:shu}#sh.r.on{animation-name:shr}#sh.l.on{animation-name:shl}#sh.b.on{animation-name:shb}
