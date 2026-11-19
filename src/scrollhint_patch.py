@@ -68,8 +68,43 @@ new MutationObserver(later).observe(app,{attributes:true,subtree:true,childList:
 setInterval(function(){if(!sh.classList.contains("on"))upd()},2500);setTimeout(upd,800);
 })();</script>
 '''
+
+BCSS = '''<style id="barfx-css">
+/* 19.11: Mikro-Animation der Menüleisten: beim Halten wölbt sich die Leiste (Höhe x1,5, Schrift x1,3) und federt beim Loslassen zurück;
+   rastet eine Leiste oben ein, kurz grösser, dann kleiner, dann fest. Nur transform/zoom, kein Layout-Sprung. */
+.hb{transition:transform .38s cubic-bezier(.3,1.7,.5,1)}
+.hb>b,.hb>small{transition:font-size .38s cubic-bezier(.3,1.7,.5,1),transform .38s cubic-bezier(.3,1.7,.5,1);transform-origin:left center}
+.hb.hold{z-index:40;transform:scale(1,1.5);transition:transform .2s cubic-bezier(.2,1.3,.4,1)}
+.hb.hold>b{font-size:16.2px}.hb.hold>small{font-size:12.4px}
+.hb.hold>b,.hb.hold>small{transform:scale(1,.667);transition:font-size .2s cubic-bezier(.2,1.3,.4,1),transform .2s cubic-bezier(.2,1.3,.4,1)}
+.hb.lock:not(.hold){z-index:40;animation:blk .6s ease-out}
+.hb.lock:not(.hold)>b{animation:blkb .6s ease-out}.hb.lock:not(.hold)>small{animation:blks .6s ease-out}
+@keyframes blk{0%{transform:scale(1,1)}32%{transform:scale(1,1.5)}68%{transform:scale(1,.9)}100%{transform:scale(1,1)}}
+@keyframes blkb{0%{font-size:12.5px;transform:none}32%{font-size:16.2px;transform:scale(1,.667)}68%{font-size:11.9px;transform:scale(1,1.11)}100%{font-size:12.5px;transform:none}}
+@keyframes blks{0%{font-size:9.5px;transform:none}32%{font-size:12.4px;transform:scale(1,.667)}68%{font-size:9px;transform:scale(1,1.11)}100%{font-size:9.5px;transform:none}}
+@media (prefers-reduced-motion:reduce){.hb,.hb>b,.hb>small{transition:none!important;animation:none!important}}
+</style>
+'''
+BJS = '''<script id="barfx-js">(function(){
+var SC=document.getElementById("hscroll");if(!SC)return;
+var held=[],t0=0,stuck=new WeakMap(),raf=0,ready=0;
+function on(e){var b=e.target&&e.target.closest?e.target.closest(".hb"):null;if(!b)return;b.classList.remove("lock");b.classList.add("hold");held.push(b);t0=Date.now();}
+function off(){var l=held;held=[];if(!l.length)return;var w=Math.max(0,170-(Date.now()-t0));setTimeout(function(){l.forEach(function(b){b.classList.remove("hold")})},w);}
+document.addEventListener("touchstart",on,{passive:true,capture:true});
+document.addEventListener("mousedown",on,true);
+["touchend","touchcancel","mouseup","dragend","blur"].forEach(function(n){addEventListener(n,off,true)});
+function check(){raf=0;var ct=SC.getBoundingClientRect().top,bars=SC.querySelectorAll(".hb"),i,b,r,top,s;
+ for(i=0;i<bars.length;i++){b=bars[i];r=b.getBoundingClientRect();top=parseFloat(b.style.top);if(isNaN(top))top=0;
+  s=r.height>0&&r.top<=ct+top+1&&r.top>=ct-2;
+  if(ready&&s&&stuck.get(b)===false&&!b.classList.contains("hold")){b.classList.remove("lock");void b.offsetWidth;b.classList.add("lock");(function(x){setTimeout(function(){x.classList.remove("lock")},700)})(b);}
+  stuck.set(b,s);}
+ ready=1;}
+SC.addEventListener("scroll",function(){if(!raf)raf=requestAnimationFrame(check)},{passive:true});
+check();
+})();</script>
+'''
 a = '<script id="info-link-js">'
 assert s.count(a) == 1
-s = s.replace(a, CSS + JS + a)
+s = s.replace(a, CSS + JS + BCSS + BJS + a)
 open('hint.html', 'w', encoding='utf-8').write(s)
 print('hint.html geschrieben')
