@@ -120,7 +120,7 @@
 </style>
 <style id="titlesnap-css">#p-title{scroll-snap-align:start}</style>
 </head><body>
-<meta name="app-version" content="2026-11-19a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-19b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3828,17 +3828,16 @@ const RW=[["phil","C1","des Pudels Kern","der eigentliche, wesentliche Punkt ein
 
 const RS={f:"Alle"};
 function rwRow(r,i){const has=!!r[6];
-  return '<div class="rwi"><span class="rwt"><b class="rwp">'+esc(r[2])+'</b><span class="rwl">'+r[1]+'</span></span><span class="rwd">'+esc(r[3])+'</span>'+
-  '<button class="rwb" type="button" aria-expanded="false" aria-controls="rwe'+i+'">'+(has?'EN · Herkunft':'EN')+'</button>'+
-  '<span class="rwe" id="rwe'+i+'" hidden>'+esc(r[4])+'<i>'+esc(r[5])+'</i>'+(has?'<span class="rwo">'+esc(r[6])+(r[7]?' <a class="wk" href="'+r[7][0]+'" target="_blank" rel="noopener" aria-label="Mehr bei '+r[7][1]+'" title="'+r[7][1]+'">mehr ↗</a>':'')+'</span>':'')+'</span></div>';}
+  return '<div class="rwi" role="button" tabindex="0" aria-expanded="false" aria-controls="rwe'+i+'"><span class="rwt"><b class="rwp">'+esc(r[2])+'</b><span class="rwl">'+r[1]+'</span></span><span class="rwd">'+esc(r[3])+'</span>'+
+  '<span class="rwe" id="rwe'+i+'" hidden><span class="rwen">EN</span> '+esc(r[4])+'<i>'+esc(r[5])+'</i>'+(has?'<span class="rwo">'+esc(r[6])+(r[7]?' <a class="wk" href="'+r[7][0]+'" target="_blank" rel="noopener" aria-label="Mehr bei '+r[7][1]+'" title="'+r[7][1]+'">mehr ↗</a>':'')+'</span>':'')+'</span></div>';}
 function rwHTML(){const items=[];
   RWT.forEach(([k,n])=>{if(RS.f!=="Alle"&&RS.f!==k)return;if(RS.f==="Alle")items.push('<h4 class="qsec">'+esc(n)+'</h4>');
     items.push('<div class="rwlist">'+RW.map((r,i)=>r[0]===k?rwRow(r,i):"").join("")+'</div>');});
   return '<div class="tc df"><h3>Redewendungen</h3><div class="wchips qchips" id="rchips">'+[["Alle","Alle"]].concat(RWT).map(([k,n])=>'<button data-f="'+k+'" aria-pressed="'+(RS.f===k)+'">'+esc(k==="Alle"?"Alle":n.split(" ")[0])+'</button>').join("")+'</div><div class="qbw"><div class="qbs" tabindex="0" role="region" aria-label="Redewendungen">'+items.join("")+'</div><div class="qsl" aria-hidden="true"><i></i></div></div>'+
-   '<p class="tline">Stufe rechts: B1 bis C1. „EN“ zeigt Englisch und einen Beispielsatz. Eine Herkunft steht nur da, wo ich sie in Duden, DWDS oder Wikipedia gefunden habe. Erst die Wendung selbst benutzen, dann nachsehen.</p></div>';}
+   '<p class="tline">Stufe rechts: B1 bis C1. Antippen zeigt Englisch und einen Beispielsatz. Eine Herkunft steht nur da, wo ich sie in Duden, DWDS oder Wikipedia gefunden habe. Erst die Wendung selbst benutzen, dann nachsehen.</p></div>';}
 function renderRede(){const P=$("p-rede");P.innerHTML=rwHTML();
   P.querySelectorAll("#rchips button").forEach(b=>b.onclick=()=>{RS.f=b.dataset.f;P.dataset.more="";renderRede();});
-  P.querySelectorAll("button.rwb").forEach(b=>b.onclick=()=>{const e=document.getElementById(b.getAttribute("aria-controls")),o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",o?"false":"true");e.hidden=o;});}
+  P.querySelectorAll(".rwi").forEach(b=>{const tg=ev=>{if(ev.target.closest&&ev.target.closest("a"))return;const e=document.getElementById(b.getAttribute("aria-controls")),o=b.getAttribute("aria-expanded")==="true";b.setAttribute("aria-expanded",o?"false":"true");e.hidden=o;};b.onclick=tg;b.onkeydown=ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();tg(ev);}};});}
 function renderQuotes(){$("p-quotes").innerHTML='<div class="tc df"><h3>Über die deutsche Sprache</h3>'+quotesHTML()+'</div>';loadPics($("p-quotes"));
   $("p-quotes").querySelectorAll("#qchips button").forEach(b=>b.onclick=()=>{QS.f=b.dataset.f;QS.all=false;renderQuotes();});
   const m=$("qmore");if(m)m.onclick=()=>{QS.all=true;renderQuotes();};}
@@ -4906,6 +4905,20 @@ addEventListener("mousemove",function(e){if(e.buttons)fol(e.clientX,e.clientY)},
 @keyframes blkb{0%{font-size:12.5px;transform:none}32%{font-size:16.2px;transform:scale(1,.667)}68%{font-size:11.9px;transform:scale(1,1.11)}100%{font-size:12.5px;transform:none}}
 @keyframes blks{0%{font-size:9.5px;transform:none}32%{font-size:12.4px;transform:scale(1,.667)}68%{font-size:9px;transform:scale(1,1.11)}100%{font-size:9.5px;transform:none}}
 @media (prefers-reduced-motion:reduce){.hb,.hb>b,.hb>small{transition:none!important;animation:none!important}}
+
+/* fbx */
+.wchips,.qchips{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px!important;padding:2px 0 8px;margin:0}
+#llv,#wlv,#lvs,#lvs2,.tlen2{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);grid-template-columns:none;gap:2px!important;height:auto!important;width:100%}
+.wchips button,.lvb,.tlen2 button{background:#ebebeb!important;color:#222;padding:6px 8px!important;min-height:32px!important;font-size:14px!important;font-weight:700!important;line-height:1.2;text-align:left;border:0!important;border-radius:0!important;box-shadow:none!important;min-width:0}
+.wchips button[aria-pressed="true"],.lvb[aria-pressed="true"],.tlen2 button[aria-pressed="true"]{background:#cdff3e!important}
+/* Redewendungen: kompakte Zeilen, grau/weiss im Wechsel, Text buendig mit dem Text der Filterboxen (8 px) */
+.hp .rwlist{display:flex;flex-direction:column}
+.hp .rwi{padding:6px 8px 7px!important;line-height:1.25;cursor:pointer;background:transparent!important}
+.hp .rwlist .rwi:nth-child(odd){background:#fff!important}
+.hp .rwi .rwp{font-size:16px}
+.hp .rwi .rwd{font-size:14px;margin-top:1px}
+.hp .rwi .rwe{margin-top:5px;padding-top:5px;font-size:14px}
+.hp .rwi .rwen{font-size:11px;font-weight:700;letter-spacing:.08em;color:#e30613;margin-right:2px}
 </style>
 <script id="barfx-js">(function(){
 var SC=document.getElementById("hscroll");if(!SC)return;
