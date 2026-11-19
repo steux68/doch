@@ -5,7 +5,8 @@ if 'id="scrollhint-css"' in s:
     print('schon vorhanden'); sys.exit(0)
 CSS = '''<style id="scrollhint-css">
 /* 19.11: Scroll-Hinweis + Tipp-Welle: rund, durchsichtiges Gelb (wie der Spiel-Modus) mit feiner grauer Linie, fängt keine Berührung ab */
-#sh,.rip{position:fixed;z-index:60;pointer-events:none;border-radius:50%;background:rgba(255,212,0,.6);box-shadow:0 0 0 1px rgba(0,0,0,.12);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+#sh,.rip{position:fixed;z-index:60;pointer-events:none;border-radius:50%}
+#sh{background:rgba(255,212,0,.6);box-shadow:0 0 0 1px rgba(0,0,0,.12)}
 #sh{width:30px;height:30px;margin:-15px 0 0 -15px;opacity:0;transition:opacity .5s}
 #sh.on{opacity:.95;animation:shd 2s ease-in-out infinite}
 #sh.u.on{animation-name:shu}#sh.r.on{animation-name:shr}#sh.l.on{animation-name:shl}#sh.b.on{animation-name:shb}
@@ -18,8 +19,11 @@ CSS = '''<style id="scrollhint-css">
 @keyframes shr{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(5px);opacity:1}}
 @keyframes shl{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(-5px);opacity:1}}
 @keyframes shb{0%,100%{opacity:.6}50%{opacity:1}}
-.rip{width:44px;height:44px;margin:-22px 0 0 -22px;animation:rip .55s ease-out forwards}
-@keyframes rip{from{transform:scale(.3);opacity:.95}to{transform:scale(1.15);opacity:0}}
+.rip{width:44px;height:44px;margin:-22px 0 0 -22px;background:radial-gradient(circle,#000 0 2.5px,transparent 3px);animation:ripd .6s ease-out forwards}
+.rip::before,.rip::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid #222;opacity:0;animation:ripr .6s ease-out forwards}
+.rip::after{border-color:#9a9a9a;animation-delay:.1s}
+@keyframes ripr{0%{transform:scale(.12);opacity:1}100%{transform:scale(1);opacity:0}}
+@keyframes ripd{0%{opacity:1}100%{opacity:0}}
 @media (prefers-reduced-motion:reduce){#sh.on{animation:none}.rip{animation-duration:.01s}}
 </style>
 '''
@@ -30,7 +34,7 @@ var sh=document.createElement("div");sh.id="sh";
 sh.innerHTML='<svg viewBox="0 0 30 30"><polyline class="pd" points="10,12.5 15,17.5 20,12.5"/><polyline class="pu" points="10,17.5 15,12.5 20,17.5"/><polyline class="pr" points="12.5,10 17.5,15 12.5,20"/><polyline class="pl" points="17.5,10 12.5,15 17.5,20"/></svg>';
 document.body.appendChild(sh);
 /* Tipp-Welle */
-addEventListener("pointerdown",function(e){var r=document.createElement("div");r.className="rip";r.style.left=e.clientX+"px";r.style.top=e.clientY+"px";document.body.appendChild(r);setTimeout(function(){r.remove()},650);},true);
+addEventListener("pointerdown",function(e){var r=document.createElement("div");r.className="rip";r.style.left=e.clientX+"px";r.style.top=e.clientY+"px";document.body.appendChild(r);setTimeout(function(){r.remove()},750);},true);
 /* grösstes sichtbares scrollbares Feld (senkrecht bevorzugt, sonst waagrecht) */
 function find(){var best=null,ba=0,list=document.querySelectorAll("div,section,main,article,ul"),i,el,r,a,cs,v,h;
  for(i=0;i<list.length;i++){el=list[i];
