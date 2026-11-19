@@ -4900,7 +4900,7 @@ mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='
 @media (prefers-reduced-motion:reduce){#sh.on{animation:none}.rip{animation-duration:.01s}}
 </style>
 <script id="scrollhint-js">(function(){
-var app=document.querySelector(".app")||document.body,KEY="doch-sh",done=0,cur=null,last=0,idle=0,moved=0,startPos=0;
+var app=document.querySelector(".app")||document.body,KEY="doch-sh",done=0,shown={},curKey="",cur=null,last=0,idle=0,moved=0,startPos=0;
 try{done=+localStorage.getItem(KEY)||0}catch(e){}
 var sh=document.createElement("div");sh.id="sh";
 sh.innerHTML='<svg viewBox="0 0 30 30"><polyline class="pd" points="10,12.5 15,17.5 20,12.5"/><polyline class="pu" points="10,17.5 15,12.5 20,17.5"/><polyline class="pr" points="12.5,10 17.5,15 12.5,20"/><polyline class="pl" points="17.5,10 12.5,15 17.5,20"/></svg>';
@@ -4926,9 +4926,10 @@ function find(){var best=null,ba=0,list=document.querySelectorAll("div,section,m
 function blocked(){var a=document.activeElement,m=app.dataset?app.dataset.mode:"";
  return app.classList.contains("kbo")||m==="game"||(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName));}
 function upd(){clearTimeout(idle);
- if(done>=8||blocked()){sh.classList.remove("on");return;}
+ if(blocked()){sh.classList.remove("on");return;}
  var f=find();if(!f){sh.classList.remove("on");return;}
- cur=f.el;var r=f.r,pos=f.v?cur.scrollTop:cur.scrollLeft,max=f.v?cur.scrollHeight-cur.clientHeight:cur.scrollWidth-cur.clientWidth,
+ cur=f.el;var key=(cur.id||cur.className||cur.tagName)+(f.v?"v":"h");if(cur.id==="hscroll"||cur.id==="tl"||cur.id==="tlsm"||shown[key]===2){sh.classList.remove("on");return;}
+ var r=f.r,pos=f.v?cur.scrollTop:cur.scrollLeft,max=f.v?cur.scrollHeight-cur.clientHeight:cur.scrollWidth-cur.clientWidth,
   more=pos<max-8,less=pos>8,cls;
  if(!more&&!less){sh.classList.remove("on");return;}
  cls=(more&&less)?"b "+(f.v?"v":"h"):(more?(f.v?"d":"r"):(f.v?"u":"l"));
@@ -4937,6 +4938,7 @@ function upd(){clearTimeout(idle);
  if(f.v){sh.style.left=((L+R)/2)+"px";sh.style.top=(B-30)+"px";}
  else{sh.style.top=((T+B)/2)+"px";sh.style.left=(more?R-28:L+28)+"px";}
  var u=document.elementFromPoint(parseFloat(sh.style.left),parseFloat(sh.style.top));if(!u||!(cur.contains(u)||u===cur)){sh.classList.remove("on");return;}
+ if(!shown[key]){shown[key]=1;curKey=key;setTimeout(function(){shown[key]=2;if(curKey===key)sh.classList.remove("on")},6300);}
  sh.classList.add("on");}
 function later(){clearTimeout(idle);idle=setTimeout(upd,2000);}
 addEventListener("scroll",function(e){var t=e.target;sh.classList.remove("on");
@@ -4970,7 +4972,6 @@ function off(){var l=held;held=[];if(!l.length)return;var w=Math.max(0,170-(Date
 document.addEventListener("touchstart",on,{passive:true,capture:true});
 document.addEventListener("mousedown",on,true);
 ["touchend","touchcancel","mouseup","dragend","blur"].forEach(function(n){addEventListener(n,off,true)});
-var TK="doch-tease",tn=0;try{tn=+localStorage.getItem(TK)||0}catch(e){}
 /* Wisch-Andeutung der Zeitleiste: der Punkt wischt von rechts nach links (Finger-Richtung), die Leiste rutscht mit; am Ende umgekehrt */
 function swipeTease(lift){var tl=document.getElementById("tl"),hb=SC.querySelector('.hb[data-i="5"]');if(!tl||!hb)return false;
  var r=tl.getBoundingClientRect();if(r.width<100||r.bottom<=0||r.top>=innerHeight*.9)return false;
@@ -4980,29 +4981,29 @@ function swipeTease(lift){var tl=document.getElementById("tl"),hb=SC.querySelect
  if(lift){hb.classList.remove("liftb");void hb.offsetWidth;hb.classList.add("liftb");setTimeout(function(){hb.classList.remove("liftb")},1200);}
  setTimeout(function(){tl.scrollTo({left:sl+dir*am,behavior:"smooth"})},300);
  setTimeout(function(){tl.scrollTo({left:sl,behavior:"smooth"})},1300);return true;}
-function tease(){if(tn>=3||document.getElementById("tl").scrollLeft>5)return;if(swipeTease(true)){tn++;try{localStorage.setItem(TK,tn)}catch(e){}}}
 function check(){raf=0;var ct=SC.getBoundingClientRect().top,bars=SC.querySelectorAll(".hb"),i,b,r,top,s;
  for(i=0;i<bars.length;i++){b=bars[i];r=b.getBoundingClientRect();top=parseFloat(b.style.top);if(isNaN(top))top=0;
   s=r.height>0&&r.top<=ct+top+1&&r.top>=ct-2;
   if(ready&&s&&stuck.get(b)===false&&!b.classList.contains("hold")){b.classList.remove("lock");void b.offsetWidth;b.classList.add("lock");(function(x){setTimeout(function(){x.classList.remove("lock")},700)})(b);}
-  if(ready&&s&&stuck.get(b)===false&&b.dataset.i==="5")setTimeout(tease,500);
   stuck.set(b,s);}
  ready=1;}
-/* Leerlauf-Hinweise: nach IDLE1 ms ohne Berührung zeigt sich der nächste Schritt (Leiste hebt sich leicht / Zeitleiste wischt kurz), dann alle IDLE2 ms, je Ziel höchstens MAX-mal */
-var IDLE1=6000,IDLE2=16000,MAX=2,cnt={},it=0;
-function arm(ms){clearTimeout(it);it=setTimeout(hintNow,ms)}
+/* Hinweis-Zyklen: kommt man auf eine Seite, hebt sich die nächste Leiste 3-mal (bzw. wischt die Zeitleiste 3-mal); danach je Ziel aus, bis die App neu geöffnet wird. Eine Berührung bricht den Zyklus ab. */
+var done2={},busy=0,lastInt=Date.now(),GAP=1700;
 function nextBar(){var l=SC.querySelectorAll(".hb"),i,b,r;for(i=0;i<l.length;i++){b=l[i];if(stuck.get(b)===true)continue;r=b.getBoundingClientRect();if(r.height>0&&r.top<innerHeight&&r.bottom>0)return b}return null}
-function hintNow(){var a=document.activeElement,app=document.querySelector(".app");
- if(document.hidden||(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName))||(app&&(app.dataset.mode==="game"||app.classList.contains("kbo")))){arm(IDLE2);return;}
+function liftBar(b){var r=b.getBoundingClientRect();b.classList.remove("liftb");void b.offsetWidth;b.classList.add("liftb");setTimeout(function(){b.classList.remove("liftb")},1200);
+ setTimeout(function(){var q=document.createElement("div");q.className="rip";q.style.left=(r.left+r.width/2)+"px";q.style.top=(r.top+r.height/2-3)+"px";document.body.appendChild(q);setTimeout(function(){q.remove()},1400)},250);}
+function cycle(n,step){var t0=Date.now(),i=0;busy=1;(function go(){if(lastInt>t0||!step(i)){busy=0;return}if(++i<n)setTimeout(go,GAP);else setTimeout(function(){busy=0},GAP)})();}
+function ctx(){if(busy||document.hidden||Date.now()-lastInt<1200)return;
+ var a=document.activeElement,app=document.querySelector(".app");
+ if((a&&/^(INPUT|TEXTAREA)$/.test(a.tagName))||(app&&(app.dataset.mode==="game"||app.classList.contains("kbo"))))return;
  var hb5=SC.querySelector('.hb[data-i="5"]');
- if(hb5&&stuck.get(hb5)===true){if((cnt.tl||0)<MAX&&swipeTease(false)){cnt.tl=(cnt.tl||0)+1;arm(IDLE2)}return;}
- var b=nextBar();if(!b)return;var k="b"+b.dataset.i;if((cnt[k]||0)>=MAX)return;
- var r=b.getBoundingClientRect(),u=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);if(!u||!b.contains(u)){arm(IDLE2);return;}
- cnt[k]=(cnt[k]||0)+1;b.classList.remove("liftb");void b.offsetWidth;b.classList.add("liftb");setTimeout(function(){b.classList.remove("liftb")},1200);
- setTimeout(function(){var q=document.createElement("div");q.className="rip";q.style.left=(r.left+r.width/2)+"px";q.style.top=(r.top+r.height/2-3)+"px";document.body.appendChild(q);setTimeout(function(){q.remove()},1400)},250);
- arm(IDLE2);}
-["pointerdown","touchstart","touchmove","keydown","wheel"].forEach(function(n){addEventListener(n,function(){arm(IDLE1)},{passive:true,capture:true})});
-SC.addEventListener("scroll",function(){arm(IDLE1)},{passive:true});arm(IDLE1);
+ if(hb5&&stuck.get(hb5)===true){if(done2.tl)return;done2.tl=1;cycle(3,function(i){var ok=swipeTease(i===0);if(!ok&&i===0)done2.tl=0;return ok});return;}
+ var b=nextBar();if(!b)return;var k="b"+b.dataset.i;if(done2[k])return;
+ var r=b.getBoundingClientRect(),u=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);if(!u||!b.contains(u))return;
+ done2[k]=1;cycle(3,function(){liftBar(b);return true});}
+["pointerdown","touchstart","touchmove","keydown","wheel"].forEach(function(n){addEventListener(n,function(){lastInt=Date.now()},{passive:true,capture:true})});
+SC.addEventListener("scroll",function(){lastInt=Date.now()},{passive:true});
+setInterval(ctx,1500);
 SC.addEventListener("scroll",function(){if(!raf)raf=requestAnimationFrame(check)},{passive:true});
 check();
 })();</script>
