@@ -4,7 +4,7 @@ s = open('index.html', encoding='utf-8').read()
 if 'id="scrollhint-css"' in s:
     print('schon vorhanden'); sys.exit(0)
 CSS = '''<style id="scrollhint-css">
-/* 19.11: Scroll-Hinweis + Tipp-Welle: rund, durchsichtiges Gelb (wie der Spiel-Modus) mit feiner grauer Linie, fängt keine Berührung ab */
+/* 19.11: Tipp-Welle: schwarzer Punkt + graue Ringe (wie die Dasein-Kreise), fängt keine Berührung ab, liegt über allen Pop-ups */
 .rip{position:fixed;z-index:2000;pointer-events:none;border-radius:50%}
 .rip{width:44px;height:44px;margin:-22px 0 0 -22px;background:radial-gradient(circle,#000 0 2.5px,transparent 3px);animation:ripd 1.1s ease-out forwards}
 .rip::before,.rip::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid #222;opacity:0;animation:ripr 1.1s ease-out forwards}
@@ -84,5 +84,6 @@ check();
 a = '<script id="info-link-js">'
 assert s.count(a) == 1
 s = s.replace(a, CSS + JS + BCSS + BJS + a)
-open('hint.html', 'w', encoding='utf-8').write(s)
-print('hint.html geschrieben')
+out = 'index.html' if 'live' in sys.argv else 'hint.html'
+open(out, 'w', encoding='utf-8').write(s)
+print(out, 'geschrieben')
