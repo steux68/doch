@@ -19,11 +19,16 @@ CSS = '''<style id="scrollhint-css">
 @keyframes shr{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(5px);opacity:1}}
 @keyframes shl{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(-5px);opacity:1}}
 @keyframes shb{0%,100%{opacity:.6}50%{opacity:1}}
-.rip{width:44px;height:44px;margin:-22px 0 0 -22px;background:radial-gradient(circle,#000 0 2.5px,transparent 3px);animation:ripd .6s ease-out forwards}
-.rip::before,.rip::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid #222;opacity:0;animation:ripr .6s ease-out forwards}
-.rip::after{border-color:#9a9a9a;animation-delay:.1s}
+.rip{width:44px;height:44px;margin:-22px 0 0 -22px;background:radial-gradient(circle,#000 0 2.5px,transparent 3px);animation:ripd 1.1s ease-out forwards}
+.rip::before,.rip::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid #222;opacity:0;animation:ripr 1.1s ease-out forwards}
+.rip::after{border-color:#9a9a9a;animation-delay:.2s}
 @keyframes ripr{0%{transform:scale(.12);opacity:1}100%{transform:scale(1);opacity:0}}
 @keyframes ripd{0%{opacity:1}100%{opacity:0}}
+.rip.tease{animation:tg 2.2s ease-in-out forwards}
+.rip.tease::before,.rip.tease::after{animation-duration:.7s;animation-iteration-count:3}
+@keyframes tg{0%{opacity:0;transform:translateX(0)}12%{opacity:1}55%{opacity:1;transform:translateX(110px)}100%{opacity:0;transform:translateX(0)}}
+.hb.liftb{animation:blift .9s ease-in-out}
+@keyframes blift{0%,100%{transform:none}35%{transform:translateY(-4px)}}
 @media (prefers-reduced-motion:reduce){#sh.on{animation:none}.rip{animation-duration:.01s}}
 </style>
 '''
@@ -34,7 +39,11 @@ var sh=document.createElement("div");sh.id="sh";
 sh.innerHTML='<svg viewBox="0 0 30 30"><polyline class="pd" points="10,12.5 15,17.5 20,12.5"/><polyline class="pu" points="10,17.5 15,12.5 20,17.5"/><polyline class="pr" points="12.5,10 17.5,15 12.5,20"/><polyline class="pl" points="17.5,10 12.5,15 17.5,20"/></svg>';
 document.body.appendChild(sh);
 /* Tipp-Welle */
-addEventListener("pointerdown",function(e){var r=document.createElement("div");r.className="rip";r.style.left=e.clientX+"px";r.style.top=e.clientY+"px";document.body.appendChild(r);setTimeout(function(){r.remove()},750);},true);
+var rp=null,rx=0,ry=0;
+addEventListener("pointerdown",function(e){var r=document.createElement("div");r.className="rip";r.style.left=e.clientX+"px";r.style.top=e.clientY+"px";document.body.appendChild(r);rp=r;rx=e.clientX;ry=e.clientY;setTimeout(function(){r.remove();if(rp===r)rp=null},1400);},true);
+function fol(x,y){if(!rp)return;var dx=Math.max(-70,Math.min(70,(x-rx)*.55)),dy=Math.max(-70,Math.min(70,(y-ry)*.55));rp.style.transform="translate("+dx+"px,"+dy+"px)";}
+addEventListener("touchmove",function(e){var t=e.touches[0];if(t)fol(t.clientX,t.clientY)},{passive:true,capture:true});
+addEventListener("mousemove",function(e){if(e.buttons)fol(e.clientX,e.clientY)},true);
 /* grösstes sichtbares scrollbares Feld (senkrecht bevorzugt, sonst waagrecht) */
 function find(){var best=null,ba=0,list=document.querySelectorAll("div,section,main,article,ul"),i,el,r,a,cs,v,h;
  for(i=0;i<list.length;i++){el=list[i];
@@ -97,10 +106,19 @@ function off(){var l=held;held=[];if(!l.length)return;var w=Math.max(0,170-(Date
 document.addEventListener("touchstart",on,{passive:true,capture:true});
 document.addEventListener("mousedown",on,true);
 ["touchend","touchcancel","mouseup","dragend","blur"].forEach(function(n){addEventListener(n,off,true)});
+var TK="doch-tease",tn=0;try{tn=+localStorage.getItem(TK)||0}catch(e){}
+function tease(){var tl=document.getElementById("tl"),hb=SC.querySelector('.hb[data-i="5"]');if(!tl||!hb||tn>=3||tl.scrollLeft>5)return;
+ var r=tl.getBoundingClientRect();if(r.width<100||r.bottom<=0||r.top>=innerHeight)return;
+ tn++;try{localStorage.setItem(TK,tn)}catch(e){}
+ var d=document.createElement("div");d.className="rip tease";d.style.left=(r.left+60)+"px";d.style.top=(r.top+r.height/2)+"px";document.body.appendChild(d);setTimeout(function(){d.remove()},2400);
+ hb.classList.remove("liftb");void hb.offsetWidth;hb.classList.add("liftb");setTimeout(function(){hb.classList.remove("liftb")},1000);
+ setTimeout(function(){if(tl.scrollLeft<5)tl.scrollTo({left:40,behavior:"smooth"})},300);
+ setTimeout(function(){if(tl.scrollLeft>5&&tl.scrollLeft<=45)tl.scrollTo({left:0,behavior:"smooth"})},1300);}
 function check(){raf=0;var ct=SC.getBoundingClientRect().top,bars=SC.querySelectorAll(".hb"),i,b,r,top,s;
  for(i=0;i<bars.length;i++){b=bars[i];r=b.getBoundingClientRect();top=parseFloat(b.style.top);if(isNaN(top))top=0;
   s=r.height>0&&r.top<=ct+top+1&&r.top>=ct-2;
   if(ready&&s&&stuck.get(b)===false&&!b.classList.contains("hold")){b.classList.remove("lock");void b.offsetWidth;b.classList.add("lock");(function(x){setTimeout(function(){x.classList.remove("lock")},700)})(b);}
+  if(ready&&s&&stuck.get(b)===false&&b.dataset.i==="5")setTimeout(tease,500);
   stuck.set(b,s);}
  ready=1;}
 SC.addEventListener("scroll",function(){if(!raf)raf=requestAnimationFrame(check)},{passive:true});
