@@ -26,9 +26,9 @@ CSS = '''<style id="scrollhint-css">
 @keyframes ripd{0%{opacity:1}100%{opacity:0}}
 .rip.tease{animation:tg 2.2s ease-in-out forwards}
 .rip.tease::before,.rip.tease::after{animation-duration:.7s;animation-iteration-count:3}
-@keyframes tg{0%{opacity:0;transform:translateX(0)}12%{opacity:1}55%{opacity:1;transform:translateX(110px)}100%{opacity:0;transform:translateX(0)}}
-.hb.liftb{animation:blift .9s ease-in-out}
-@keyframes blift{0%,100%{transform:none}35%{transform:translateY(-4px)}}
+@keyframes tg{0%{opacity:0;transform:translateX(0)}12%{opacity:1}55%{opacity:1;transform:translateX(var(--dx,-110px))}100%{opacity:0;transform:translateX(0)}}
+.hb.liftb{z-index:40;animation:blift 1.1s ease-in-out}
+@keyframes blift{0%,100%{transform:none}30%{transform:translateY(-6px)}60%{transform:translateY(-2px)}}
 @media (prefers-reduced-motion:reduce){#sh.on{animation:none}.rip{animation-duration:.01s}}
 </style>
 '''
@@ -71,7 +71,7 @@ function upd(){clearTimeout(idle);
  else{sh.style.top=((T+B)/2)+"px";sh.style.left=(more?R-28:L+28)+"px";}
  var u=document.elementFromPoint(parseFloat(sh.style.left),parseFloat(sh.style.top));if(!u||!(cur.contains(u)||u===cur)){sh.classList.remove("on");return;}
  sh.classList.add("on");}
-function later(){clearTimeout(idle);idle=setTimeout(upd,700);}
+function later(){clearTimeout(idle);idle=setTimeout(upd,2000);}
 addEventListener("scroll",function(e){var t=e.target;sh.classList.remove("on");
  if(t&&t.nodeType===1){var p=Math.max(t.scrollTop,t.scrollLeft);if(t!==cur){cur=t;startPos=p;moved=0}moved=Math.max(moved,Math.abs(p-startPos));}
  clearTimeout(last);last=setTimeout(function(){if(moved>60){done++;try{localStorage.setItem(KEY,done)}catch(e){}}moved=0;if(cur)startPos=Math.max(cur.scrollTop,cur.scrollLeft);},800);
@@ -107,13 +107,16 @@ document.addEventListener("touchstart",on,{passive:true,capture:true});
 document.addEventListener("mousedown",on,true);
 ["touchend","touchcancel","mouseup","dragend","blur"].forEach(function(n){addEventListener(n,off,true)});
 var TK="doch-tease",tn=0;try{tn=+localStorage.getItem(TK)||0}catch(e){}
-function tease(){var tl=document.getElementById("tl"),hb=SC.querySelector('.hb[data-i="5"]');if(!tl||!hb||tn>=3||tl.scrollLeft>5)return;
- var r=tl.getBoundingClientRect();if(r.width<100||r.bottom<=0||r.top>=innerHeight)return;
- tn++;try{localStorage.setItem(TK,tn)}catch(e){}
- var d=document.createElement("div");d.className="rip tease";d.style.left=(r.left+60)+"px";d.style.top=(r.top+r.height/2)+"px";document.body.appendChild(d);setTimeout(function(){d.remove()},2400);
- hb.classList.remove("liftb");void hb.offsetWidth;hb.classList.add("liftb");setTimeout(function(){hb.classList.remove("liftb")},1000);
- setTimeout(function(){if(tl.scrollLeft<5)tl.scrollTo({left:40,behavior:"smooth"})},300);
- setTimeout(function(){if(tl.scrollLeft>5&&tl.scrollLeft<=45)tl.scrollTo({left:0,behavior:"smooth"})},1300);}
+/* Wisch-Andeutung der Zeitleiste: der Punkt wischt von rechts nach links (Finger-Richtung), die Leiste rutscht mit; am Ende umgekehrt */
+function swipeTease(lift){var tl=document.getElementById("tl"),hb=SC.querySelector('.hb[data-i="5"]');if(!tl||!hb)return false;
+ var r=tl.getBoundingClientRect();if(r.width<100||r.bottom<=0||r.top>=innerHeight*.9)return false;
+ var u=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);if(!u||!tl.contains(u))return false;
+ var max=tl.scrollWidth-tl.clientWidth,sl=tl.scrollLeft,dir=sl>=max-5?-1:1,am=sl<5?40:22;
+ var d=document.createElement("div");d.className="rip tease";d.style.setProperty("--dx",(dir>0?-110:110)+"px");d.style.left=(dir>0?r.right-60:r.left+60)+"px";d.style.top=(r.top+r.height/2)+"px";document.body.appendChild(d);setTimeout(function(){d.remove()},2400);
+ if(lift){hb.classList.remove("liftb");void hb.offsetWidth;hb.classList.add("liftb");setTimeout(function(){hb.classList.remove("liftb")},1200);}
+ setTimeout(function(){tl.scrollTo({left:sl+dir*am,behavior:"smooth"})},300);
+ setTimeout(function(){tl.scrollTo({left:sl,behavior:"smooth"})},1300);return true;}
+function tease(){if(tn>=3||document.getElementById("tl").scrollLeft>5)return;if(swipeTease(true)){tn++;try{localStorage.setItem(TK,tn)}catch(e){}}}
 function check(){raf=0;var ct=SC.getBoundingClientRect().top,bars=SC.querySelectorAll(".hb"),i,b,r,top,s;
  for(i=0;i<bars.length;i++){b=bars[i];r=b.getBoundingClientRect();top=parseFloat(b.style.top);if(isNaN(top))top=0;
   s=r.height>0&&r.top<=ct+top+1&&r.top>=ct-2;
@@ -121,6 +124,21 @@ function check(){raf=0;var ct=SC.getBoundingClientRect().top,bars=SC.querySelect
   if(ready&&s&&stuck.get(b)===false&&b.dataset.i==="5")setTimeout(tease,500);
   stuck.set(b,s);}
  ready=1;}
+/* Leerlauf-Hinweise: nach IDLE1 ms ohne Berührung zeigt sich der nächste Schritt (Leiste hebt sich leicht / Zeitleiste wischt kurz), dann alle IDLE2 ms, je Ziel höchstens MAX-mal */
+var IDLE1=6000,IDLE2=16000,MAX=2,cnt={},it=0;
+function arm(ms){clearTimeout(it);it=setTimeout(hintNow,ms)}
+function nextBar(){var l=SC.querySelectorAll(".hb"),i,b,r;for(i=0;i<l.length;i++){b=l[i];if(stuck.get(b)===true)continue;r=b.getBoundingClientRect();if(r.height>0&&r.top<innerHeight&&r.bottom>0)return b}return null}
+function hintNow(){var a=document.activeElement,app=document.querySelector(".app");
+ if(document.hidden||(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName))||(app&&(app.dataset.mode==="game"||app.classList.contains("kbo")))){arm(IDLE2);return;}
+ var hb5=SC.querySelector('.hb[data-i="5"]');
+ if(hb5&&stuck.get(hb5)===true){if((cnt.tl||0)<MAX&&swipeTease(false)){cnt.tl=(cnt.tl||0)+1;arm(IDLE2)}return;}
+ var b=nextBar();if(!b)return;var k="b"+b.dataset.i;if((cnt[k]||0)>=MAX)return;
+ var r=b.getBoundingClientRect(),u=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);if(!u||!b.contains(u)){arm(IDLE2);return;}
+ cnt[k]=(cnt[k]||0)+1;b.classList.remove("liftb");void b.offsetWidth;b.classList.add("liftb");setTimeout(function(){b.classList.remove("liftb")},1200);
+ setTimeout(function(){var q=document.createElement("div");q.className="rip";q.style.left=(r.left+r.width/2)+"px";q.style.top=(r.top+r.height/2-3)+"px";document.body.appendChild(q);setTimeout(function(){q.remove()},1400)},250);
+ arm(IDLE2);}
+["pointerdown","touchstart","touchmove","keydown","wheel"].forEach(function(n){addEventListener(n,function(){arm(IDLE1)},{passive:true,capture:true})});
+SC.addEventListener("scroll",function(){arm(IDLE1)},{passive:true});arm(IDLE1);
 SC.addEventListener("scroll",function(){if(!raf)raf=requestAnimationFrame(check)},{passive:true});
 check();
 })();</script>
