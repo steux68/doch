@@ -36,12 +36,12 @@ CSS = '''<style id="stack3-css">
 #dsw>button[data-m]::before{content:"";position:absolute;left:0;right:0;top:-5px;bottom:-5px}
 #dsw .markb{margin:2px 0;padding:0;height:16px;justify-content:center;align-items:center}
 #dsw .mark{width:46px;height:16px}
-#dsw::before,#dsw::after{content:"";position:absolute;left:0;right:0;height:1px;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px);pointer-events:none}
-#dsw::before{top:0}#dsw::after{bottom:0}
-@keyframes flS{0%{opacity:0}20%{opacity:1}40%{opacity:0}60%{opacity:1}100%{opacity:1}}
-@keyframes flD{0%{opacity:1}20%{opacity:0}40%{opacity:1}60%{opacity:0}100%{opacity:0}}
-#dsw .mark.flS .fl{animation:flS 1s linear}
-#dsw .mark.flD .fl{animation:flD 1s linear}
+@keyframes flP{0%,100%{opacity:0}50%{opacity:1}}
+#dsw .mark .fl{animation:flP 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){#dsw .mark .fl{animation:none;opacity:1}}
+/* etwas mehr Luft um den Titelblock, mittig */
+.home .titlebar{height:58px!important;padding-top:0!important;padding-bottom:0!important;align-items:center!important}
+.home .brand{align-items:center!important}
 /* Logo ganz links, rechts Flagge + Schalter; die Flagge blinkt mit dem Modus: Umriss = STUDIEREN, Farbe = STAUNEN */
 .home h1.logo{justify-content:flex-start!important}
 .home .brand{gap:8px;align-items:center}
@@ -66,9 +66,7 @@ if(last){const sm=last.querySelector("small");if(sm)sm.textContent=lk==="wow"?"z
   last.addEventListener("click",()=>go(lk==="wow"?"s":"d"));}
 function go(m){try{sessionStorage.setItem("dochMode",m);sessionStorage.setItem("dochSwitched","1");}catch(e){}location.reload();}
 const fb=document.getElementById("markb"),sw=document.getElementById("dsw");
-if(fb&&sw){sw.insertBefore(fb,sw.children[1]);const want=DMODE==="s";fb.classList.toggle("on",want);
-  try{if(sessionStorage.getItem("dochSwitched")==="1"){const m=fb.querySelector(".mark");m.classList.add(want?"flS":"flD");}}catch(e){}
-  fb.onclick=()=>go(want?"d":"s");}
+if(fb&&sw){sw.insertBefore(fb,sw.children[1]);fb.classList.remove("on");fb.onclick=()=>go(DMODE==="s"?"d":"s");}
 
 if(sw){[].forEach.call(sw.querySelectorAll("button[data-m]"),b=>{b.setAttribute("aria-pressed",String(b.dataset.m===DMODE));b.onclick=()=>{if(b.dataset.m!==DMODE)go(b.dataset.m);};});}
 try{if(sessionStorage.getItem("dochSwitched")==="1"){sessionStorage.removeItem("dochSwitched");
