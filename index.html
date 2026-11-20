@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-20m"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-20n"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -5062,18 +5062,19 @@ html body .hb::before{content:"";position:absolute;left:0;right:0;top:0;height:1
 @media (prefers-reduced-motion:reduce){#dsw4 .knob::after{animation:none;opacity:.5}}
 #dsw4::before{content:"";position:absolute;left:-8px;right:-4px;top:-14px;bottom:-14px}
 /* STAUNEN: die drei Balken oben unter dem Kopf (fest), darunter der gewaehlte Abschnitt scrollt (Zitate offen); unten ein Balken zurueck zu STUDIEREN */
-html[data-dmode="s"] #p-title,html[data-dmode="s"] #p-wow,html[data-dmode="s"] #p-study{display:none!important}
-html[data-dmode="s"] #p-quotes,html[data-dmode="s"] #p-rede,html[data-dmode="s"] #p-hist{display:none!important}
-html[data-dmode="s"] #hscroll[data-sec="quotes"] #p-quotes,html[data-dmode="s"] #hscroll[data-sec="rede"] #p-rede,html[data-dmode="s"] #hscroll[data-sec="hist"] #p-hist{display:block!important;flex:1 1 0;min-height:0;overflow-y:auto;margin:0!important;order:10}
-html[data-dmode="s"] #hscroll{display:flex!important;flex-direction:column;overflow:hidden!important;scroll-snap-type:none!important}
-html[data-dmode="s"] #hscroll>.hb{position:relative!important;top:auto!important;bottom:auto!important;flex:none;margin:0 0 -1px 0!important;z-index:6}
-html[data-dmode="s"] #hscroll>.hb[data-i="0"]{order:0}
-html[data-dmode="s"] #hscroll>.hb[data-i="1"]{order:1}
-html[data-dmode="s"] #hscroll>.hb[data-i="2"]{order:2}
-html[data-dmode="s"] #hscroll>.hb[data-i="3"]{order:20;margin-top:12px!important}
-html[data-dmode="s"] #hscroll::after{display:none!important}
-html[data-dmode="s"] .sback,html[data-dmode="s"] #abar{display:none!important}
-html[data-dmode="s"] #home:not([hidden]) ~ footer.copy{display:none!important}
+html[data-dmode="s"][data-sopen] #p-title,html[data-dmode="s"][data-sopen] #p-wow,html[data-dmode="s"][data-sopen] #p-study{display:none!important}
+html[data-dmode="s"][data-sopen] #p-quotes,html[data-dmode="s"][data-sopen] #p-rede,html[data-dmode="s"][data-sopen] #p-hist{display:none!important}
+html[data-dmode="s"][data-sopen] #hscroll[data-sec="quotes"] #p-quotes,html[data-dmode="s"][data-sopen] #hscroll[data-sec="rede"] #p-rede,html[data-dmode="s"][data-sopen] #hscroll[data-sec="hist"] #p-hist{display:block!important;flex:1 1 0;min-height:0;overflow-y:auto;margin:0!important;order:10}
+html[data-dmode="s"][data-sopen] #hscroll{display:flex!important;flex-direction:column;overflow:hidden!important;scroll-snap-type:none!important}
+html[data-dmode="s"][data-sopen] #hscroll>.hb{position:relative!important;top:auto!important;bottom:auto!important;flex:none;margin:0 0 -1px 0!important;z-index:6}
+html[data-dmode="s"][data-sopen] #hscroll>.hb[data-i="0"]{order:0}
+html[data-dmode="s"][data-sopen] #hscroll>.hb[data-i="1"]{order:1}
+html[data-dmode="s"][data-sopen] #hscroll>.hb[data-i="2"]{order:2}
+html[data-dmode="s"][data-sopen] #hscroll>.hb[data-i="3"]{order:20;margin-top:12px!important}
+html[data-dmode="s"][data-sopen] #hscroll::after{display:none!important}
+html[data-dmode="s"][data-sopen] #hscroll>#qmore{order:11}html[data-dmode="s"][data-sopen] #hscroll:not([data-sec="quotes"])>#qmore{display:none!important}
+html[data-dmode="s"][data-sopen] .sback,html[data-dmode="s"][data-sopen] #abar{display:none!important}
+html[data-dmode="s"][data-sopen] #home:not([hidden]) ~ footer.copy{display:none!important}
 html body #hscroll>.hb.sel[data-i]{background-color:var(--pcs)!important;box-shadow:inset 4px 0 0 #222!important}
 html body #hscroll>.hb.sel[data-i] b{padding-left:8px}
 #hscroll>.hb[data-i="3"] b{display:inline-flex;align-items:center;gap:9px;line-height:1}
@@ -5090,8 +5091,12 @@ const AR='<svg viewBox="0 0 18 10" width="18" height="10" aria-hidden="true" sty
 const lb=document.querySelectorAll("#hscroll>.hb")[3];if(lb){const b=lb.querySelector("b");if(b)b.innerHTML=DMODE==="s"?AL+"<span>Studieren</span>":"<span>Staunen</span>"+AR;}
 if(DMODE==="s"){const bs=[].slice.call(document.querySelectorAll("#hscroll>.hb")),sec=["quotes","rede","hist"],sc=$("hscroll");
  function pick(i){sc.setAttribute("data-sec",sec[i]);bs.slice(0,3).forEach((b,k)=>b.classList.toggle("sel",k===i));[$("p-quotes"),$("p-rede"),$("p-hist")].forEach(e=>e&&(e.scrollTop=0));}
- bs.slice(0,3).forEach((b,i)=>{b.style.bottom="auto";b.addEventListener("click",e=>{e.stopImmediatePropagation();pick(i);},true);});
- pick(0);}
+ /* stack5 */
+ function openS(i){document.documentElement.setAttribute("data-sopen","1");pick(i);}
+ bs.slice(0,3).forEach((b,i)=>{b.addEventListener("click",e=>{e.stopImmediatePropagation();openS(i);},true);});
+ [].slice.call(document.querySelectorAll("#tstage .pin")).forEach(p=>{const i=sec.indexOf(p.dataset.k);if(i<0)return;p.addEventListener("click",e=>{e.stopImmediatePropagation();e.preventDefault();openS(i);},true);});
+ const lg=document.querySelector(".home h1.logo");if(lg){lg.style.cursor="pointer";lg.addEventListener("click",()=>{document.documentElement.removeAttribute("data-sopen");bs.forEach(b=>b.classList.remove("sel"));sc.scrollTop=0;});}
+ sc.setAttribute("data-sec","quotes");}
 function row(sec,label,m){if(!sec)return;const w=document.createElement("div");w.className="endblk enter";const b=document.createElement("button");b.type="button";b.className="enterrow";b.innerHTML="<b>"+label+"</b><small>\u2192</small>";b.onclick=()=>go2(m);w.appendChild(b);sec.appendChild(w);}
 row($("p-wow"),"Staunen öffnen","s");row($("p-study"),"Studieren öffnen","d");
 })();</script>
