@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-20h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-20i"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -1081,11 +1081,12 @@ body:has(footer.copy.ch) #toTop{display:none!important}
       <section class="hp" id="p-links"></section>
       <section class="hp" id="p-quotes"></section>
       <section class="hp" id="p-rede"></section>
-      <section class="hp" id="p-hist"></section><section class="hp" id="p-wow"></section><section class="hp" id="p-study"></section><section class="hp" id="p-imp"></section>
+      <section class="hp" id="p-hist"></section><section class="hp" id="p-wow"></section><section class="hp" id="p-study"></section>
     </div>
     <div class="sback t" id="sbt"></div><div class="sback b" id="sbb"></div>
     </div>
     <div class="abar" id="abar"><button type="button" id="scrD" aria-label="weiter scrollen"><svg class="ar" width="24" height="24" viewBox="-12 -12 24 24" aria-hidden="true"><circle class="tr" r="9.5"/><circle class="tr tr2" r="9.5"/><path class="rg" d="M5.31 -7.88A9.5 9.5 0 1 1 -5.31 -7.88"/><path class="dt" transform="rotate(270)" d="M5.4 0L-4.6 -4.9L-2.2 0L-4.6 4.9Z"/><text x="-0.00" y="-9.50">N</text></svg><i class="sc">scroll</i><i class="tp">nach oben</i></button></div>
+  <div class="implink"><button type="button" id="implink">Impressum</button></div>
   </section>
 
   <!-- TOPIC -->
@@ -4020,7 +4021,7 @@ const HIST='<div class="tc tlsec"><div id="tlbox">'+tlHTML()+'</div><p class="tl
  ["1916", "Seit 1916 erscheint in Windhuk die Allgemeine Zeitung – die einzige deutsche Tageszeitung, die außerhalb des deutschsprachigen Europa übrig ist.", ["https://en.wikipedia.org/wiki/Allgemeine_Zeitung_(Namibia)", "Wikipedia"]]
 ].map(r=>hi(r[0],r[1],r[2])).join("")+'</div></div>';
 const DMODE=(()=>{try{return sessionStorage.getItem("dochMode")==="s"?"s":"d"}catch(e){return"d"}})();document.documentElement.setAttribute("data-dmode",DMODE);
-const SECS=DMODE==="s"?[["quotes","Zitate"],["rede","Redewendungen"],["hist","Geschichte"],["study","Studieren"],["imp","Impressum"]]:[["home","Grammatik"],["test","Tests"],["links","Hilfsmittel"],["wow","Staunen"],["imp","Impressum"]];
+const SECS=DMODE==="s"?[["quotes","Zitate"],["rede","Redewendungen"],["hist","Geschichte"],["study","Studieren"]]:[["home","Grammatik"],["test","Tests"],["links","Hilfsmittel"],["wow","Staunen"]];
 const DR={open:false,k:null};   /* the old rising panel is gone; kept so older checks stay false */
 const HB=24,ROWS=SECS.length,SC=$("hscroll"),HBODY=$("hbody");
 const secEl=k=>$("p-"+k);
@@ -5009,6 +5010,9 @@ try{if(sessionStorage.getItem("dochSwitched")==="1"){sessionStorage.removeItem("
 .endblk .endinfo{display:block;width:100%;height:25px;margin:0 0 14px;padding:0;border:0;background:#f2f2f2;color:#222;font:inherit;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;text-align:left;position:relative}
 .endblk .endinfo::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left top/100% 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left bottom/100% 1px no-repeat}
 .endblk.enter{padding:8px 0 24px}
+.implink{flex:none;display:flex;justify-content:flex-end;padding:5px 0 3px;background:#fff}
+#implink{border:0;background:none;padding:2px 0;font:inherit;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--red,#e30613);cursor:pointer;position:relative}
+#implink::before{content:"";position:absolute;left:-12px;right:-6px;top:-8px;bottom:-8px}
 .enterrow{display:flex;justify-content:space-between;align-items:center;width:100%;height:34px;padding:0;border:0;background:none;font:inherit;font-size:14px;text-transform:uppercase;letter-spacing:1.4px;color:#222;position:relative;text-align:left}
 .enterrow small{font-size:10px;letter-spacing:.5px;color:#777}
 .enterrow::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px)}
@@ -5016,19 +5020,8 @@ try{if(sessionStorage.getItem("dochSwitched")==="1"){sessionStorage.removeItem("
 <script id="stack3-foot">(function(){const $=id=>document.getElementById(id),sb=$("setb");if(!sb)return;
 const cr=sb.querySelector(".ucr"),imp=$("impH");
 const tl=[].slice.call(sb.querySelectorAll("p.tline"));
-const ib=document.querySelectorAll("#hscroll>.hb");if(ib[4]){const sm=ib[4].querySelector("small");if(sm)sm.textContent="";}
+
 function fnd(re){return tl.filter(p=>re.test(p.textContent))[0];}
-/* IMPRESSUM */
-(function(){const sec=$("p-imp");if(!sec)return;const w=document.createElement("div");w.className="endblk";
- if(cr)w.appendChild(cr.cloneNode(true));
- const u=document.createElement("div");u.className="utl";
- [["updbtn","update"],["homebtn","home"]].forEach(a=>{const o=$(a[0]);if(!o)return;const b=document.createElement("button");b.type="button";b.innerHTML=o.innerHTML;b.onclick=()=>o.click();u.appendChild(b);});
- w.appendChild(u);
- const b=document.createElement("button");b.type="button";b.className="endinfo";b.textContent="Info & Einstellungen";b.onclick=()=>{const c=$("cogb");if(c)c.click();};w.appendChild(b);
- const bi=fnd(/^Bilder:/);if(bi)w.appendChild(bi.cloneNode(true));
- if(imp){const h=imp.cloneNode(true);h.removeAttribute("id");w.appendChild(h);const t=imp.nextElementSibling;if(t)w.appendChild(t.cloneNode(true));}
- const v=fnd(/^Version /);if(v)w.appendChild(v.cloneNode(true));
- sec.appendChild(w);})();
 /* Einstieg: hinter dem STAUNEN-Balken die drei Eintraege des anderen Modus, hinter dem STUDIEREN-Balken ebenso */
 function enter(sec,m,list){if(!sec)return;const w=document.createElement("div");w.className="endblk enter";
  list.forEach((n,i)=>{const b=document.createElement("button");b.type="button";b.className="enterrow";b.innerHTML="<b>"+n[0]+"</b><small>"+n[1]+"</small>";
@@ -5037,7 +5030,10 @@ function enter(sec,m,list){if(!sec)return;const w=document.createElement("div");
 enter($("p-wow"),"s",[["Zitate","[A]"],["Redewendungen","[B]"],["Geschichte","[C]"]]);
 enter($("p-study"),"d",[["Grammatik","[01]"],["Tests","[02]"],["Hilfsmittel","[03]"]]);
 })();</script>
-<script id="info-link-js">(function(){var l=document.getElementById('infoLink'),c=document.getElementById('cogb');if(l)l.onclick=function(e){e.stopPropagation();if(c)c.click();};})();</script><script id="infolink2">(function(){var l=document.getElementById('infoLink');if(!l)return;l.textContent='Impressum';
-l.onclick=function(e){e.stopPropagation();e.preventDefault();try{var t=secTop(4);SC.scrollTo({top:t,behavior:'smooth'});}catch(x){var c=document.getElementById('cogb');if(c)c.click();}};})();</script>
+<script id="info-link-js">(function(){var l=document.getElementById('infoLink'),c=document.getElementById('cogb');if(l)l.onclick=function(e){e.stopPropagation();if(c)c.click();};})();</script><script id="infolink2">(function(){var l=document.getElementById('infoLink');
+function open(e){if(e){e.stopPropagation();e.preventDefault();}var c=document.getElementById('cogb');if(c)c.click();
+ requestAnimationFrame(function(){var b=document.getElementById('setb'),h=document.getElementById('impH');if(b&&h)b.scrollTop=h.getBoundingClientRect().top-b.getBoundingClientRect().top+b.scrollTop-8;});}
+if(l){l.textContent='Impressum';l.onclick=open;}
+var r=document.getElementById('implink');if(r)r.onclick=open;})();</script>
 <script id="a11y-js">(function(){var a=document.querySelector(".app");if(a&&!a.getAttribute("role"))a.setAttribute("role","main");})();</script>
 <script>(function(){function f(){document.querySelectorAll(".hb").forEach(function(b,i){if(b.dataset.i==null)b.dataset.i=i;});}f();setTimeout(f,60);window.addEventListener("load",f);})();</script>
