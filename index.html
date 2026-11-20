@@ -119,8 +119,17 @@
 .hp .rwi button.rwb{--hh:44px}
 </style>
 <style id="titlesnap-css">#p-title{scroll-snap-align:start}</style>
+<style id="safe-ui">
+/* safe-ui: unsichtbare Verbesserungen (Tippflaechen, Textgroesse, Kontrast) */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+:root{--red:#d1000f}
+a.wk::before{content:"";position:absolute;left:-4px;right:-4px;top:-8px;bottom:-8px}
+button.markb::before,.tls button::before{content:"";position:absolute;left:0;right:0;top:-7px;bottom:-7px}
+#hscroll>.hb.stt[data-i="1"]::before{content:"";position:absolute;left:0;right:0;top:1px;height:1px;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px);pointer-events:none}
+.gl{background:#fff!important}
+</style>
 </head><body>
-<meta name="app-version" content="2026-11-20a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-20b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
