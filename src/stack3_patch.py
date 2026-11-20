@@ -75,5 +75,13 @@ try{if(sessionStorage.getItem("dochSwitched")==="1"){sessionStorage.removeItem("
 })();</script>
 '''
 rep('<script id="info-link-js">', CSS + JS + '<script id="info-link-js">')
-open('stack3.html', 'w', encoding='utf-8').write(s)
-print('ok -> stack3.html')
+if '--live' in sys.argv:
+    import re
+    if 'id="stack3-css"' in open('index.html', encoding='utf-8').read():
+        print('schon live'); sys.exit(0)
+    s = re.sub(r'(<meta name="app-version" content=")([^"]*)(")', lambda m: m.group(1) + '2026-11-20e' + m.group(3), s, count=1)
+    open('index.html', 'w', encoding='utf-8').write(s)
+    print('ok -> index.html (live)')
+else:
+    open('stack3.html', 'w', encoding='utf-8').write(s)
+    print('ok -> stack3.html')
