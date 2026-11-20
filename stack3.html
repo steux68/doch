@@ -4991,6 +4991,7 @@ const NAMES={home:"grammatik · tests · hilfsmittel",wow:"zitate · redewendung
 const bars=[].slice.call(document.querySelectorAll("#hscroll>.hb"));
 const keys=SECS.map(x=>x[0]);
 bars.forEach((b,i)=>{b.setAttribute("data-k",keys[i]);});
+if(DMODE==="s")bars.slice(0,3).forEach((b,i)=>{const sm=b.querySelector("small");if(sm)sm.textContent="["+"ABC"[i]+"]";});
 const last=bars[bars.length-1],lk=keys[keys.length-1];
 if(last){const sm=last.querySelector("small");if(sm)sm.textContent=lk==="wow"?"zitate · redewendungen · geschichte":"grammatik · tests · hilfsmittel";
   last.addEventListener("click",()=>go(lk==="wow"?"s":"d"));}
