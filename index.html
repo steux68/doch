@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-20i"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-20j"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -1086,8 +1086,8 @@ body:has(footer.copy.ch) #toTop{display:none!important}
     <div class="sback t" id="sbt"></div><div class="sback b" id="sbb"></div>
     </div>
     <div class="abar" id="abar"><button type="button" id="scrD" aria-label="weiter scrollen"><svg class="ar" width="24" height="24" viewBox="-12 -12 24 24" aria-hidden="true"><circle class="tr" r="9.5"/><circle class="tr tr2" r="9.5"/><path class="rg" d="M5.31 -7.88A9.5 9.5 0 1 1 -5.31 -7.88"/><path class="dt" transform="rotate(270)" d="M5.4 0L-4.6 -4.9L-2.2 0L-4.6 4.9Z"/><text x="-0.00" y="-9.50">N</text></svg><i class="sc">scroll</i><i class="tp">nach oben</i></button></div>
-  <div class="implink"><button type="button" id="implink">Impressum</button></div>
   </section>
+  <div class="implink"><button type="button" id="implink">Impressum</button></div>
 
   <!-- TOPIC -->
   <section id="topic" hidden style="display:contents">
@@ -5010,8 +5010,10 @@ try{if(sessionStorage.getItem("dochSwitched")==="1"){sessionStorage.removeItem("
 .endblk .endinfo{display:block;width:100%;height:25px;margin:0 0 14px;padding:0;border:0;background:#f2f2f2;color:#222;font:inherit;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;text-align:left;position:relative}
 .endblk .endinfo::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left top/100% 1px no-repeat,repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left bottom/100% 1px no-repeat}
 .endblk.enter{padding:8px 0 24px}
-.implink{flex:none;display:flex;justify-content:flex-end;padding:5px 0 3px;background:#fff}
-#implink{border:0;background:none;padding:2px 0;font:inherit;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--red,#e30613);cursor:pointer;position:relative}
+#home{position:relative}
+.implink{position:absolute;right:18px;bottom:0;height:12px;display:flex;align-items:center;z-index:5}
+#home[hidden]+.implink{display:none}
+#implink{border:0;background:none;padding:0;font:inherit;font-size:10px;line-height:13px;letter-spacing:1.4px;text-transform:uppercase;color:var(--red,#e30613);cursor:pointer;position:relative}
 #implink::before{content:"";position:absolute;left:-12px;right:-6px;top:-8px;bottom:-8px}
 .enterrow{display:flex;justify-content:space-between;align-items:center;width:100%;height:34px;padding:0;border:0;background:none;font:inherit;font-size:14px;text-transform:uppercase;letter-spacing:1.4px;color:#222;position:relative;text-align:left}
 .enterrow small{font-size:10px;letter-spacing:.5px;color:#777}

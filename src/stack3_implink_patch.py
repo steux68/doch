@@ -20,7 +20,7 @@ function open(e){if(e){e.stopPropagation();e.preventDefault();}var c=document.ge
 if(l){l.textContent='Impressum';l.onclick=open;}
 var r=document.getElementById('implink');if(r)r.onclick=open;})();</script>'''
 s = s[:i] + JS + s[j:]
-rep('  </section>\n\n  <!-- TOPIC -->', '  <div class="implink"><button type="button" id="implink">Impressum</button></div>\n  </section>\n\n  <!-- TOPIC -->')
+rep('  </section>\n\n  <!-- TOPIC -->', '  </section>\n  <div class="implink"><button type="button" id="implink">Impressum</button></div>\n\n  <!-- TOPIC -->')
 rep('.endblk.enter{padding:8px 0 24px}', '.endblk.enter{padding:8px 0 24px}\n.implink{flex:none;display:flex;justify-content:flex-end;padding:5px 0 3px;background:#fff}\n#implink{border:0;background:none;padding:2px 0;font:inherit;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--red,#e30613);cursor:pointer;position:relative}\n#implink::before{content:"";position:absolute;left:-12px;right:-6px;top:-8px;bottom:-8px}')
 s = re.sub(r'(<meta name="app-version" content=")([^"]*)(")', lambda m: m.group(1) + '2026-11-20i' + m.group(3), s, count=1)
 open('index.html', 'w', encoding='utf-8').write(s)
