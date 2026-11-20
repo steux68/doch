@@ -28,6 +28,21 @@ CSS = '''<style id="stack4-css">
 @keyframes dsRing{0%{transform:scale(.55);opacity:.95}100%{transform:scale(1.7);opacity:0}}
 @media (prefers-reduced-motion:reduce){#dsw4 .knob::after{animation:none;opacity:.5}}
 #dsw4::before{content:"";position:absolute;left:-8px;right:-4px;top:-14px;bottom:-14px}
+/* STAUNEN: die drei Balken oben unter dem Kopf (fest), darunter der gewaehlte Abschnitt scrollt (Zitate offen); unten ein Balken zurueck zu STUDIEREN */
+html[data-dmode="s"] #p-title,html[data-dmode="s"] #p-wow,html[data-dmode="s"] #p-study{display:none!important}
+html[data-dmode="s"] #p-quotes,html[data-dmode="s"] #p-rede,html[data-dmode="s"] #p-hist{display:none!important}
+html[data-dmode="s"] #hscroll[data-sec="quotes"] #p-quotes,html[data-dmode="s"] #hscroll[data-sec="rede"] #p-rede,html[data-dmode="s"] #hscroll[data-sec="hist"] #p-hist{display:block!important;flex:1 1 0;min-height:0;overflow-y:auto;margin:0!important;order:10}
+html[data-dmode="s"] #hscroll{display:flex!important;flex-direction:column;overflow:hidden!important;scroll-snap-type:none!important}
+html[data-dmode="s"] #hscroll>.hb{position:relative!important;top:auto!important;bottom:auto!important;flex:none;margin:0 0 -1px 0!important;z-index:6}
+html[data-dmode="s"] #hscroll>.hb[data-i="0"]{order:0}
+html[data-dmode="s"] #hscroll>.hb[data-i="1"]{order:1}
+html[data-dmode="s"] #hscroll>.hb[data-i="2"]{order:2}
+html[data-dmode="s"] #hscroll>.hb[data-i="3"]{order:20;margin-top:12px!important}
+html[data-dmode="s"] #hscroll::after{display:none!important}
+html[data-dmode="s"] .sback,html[data-dmode="s"] #abar{display:none!important}
+html[data-dmode="s"] #home:not([hidden]) ~ footer.copy{display:none!important}
+html body #hscroll>.hb.sel[data-i]{background-color:var(--pcs)!important;box-shadow:inset 4px 0 0 #222!important}
+html body #hscroll>.hb.sel[data-i] b{padding-left:8px}
 .home h1.logo{min-width:0}.home h1.logo svg{max-width:100%;height:auto;max-height:47px}
 </style>
 '''
@@ -38,6 +53,10 @@ const old=$("dsw");if(old){const t=document.createElement("button");t.type="butt
  t.innerHTML='<span class="t1">Studieren</span><span class="pill"><i class="knob"></i></span><span class="t2">Staunen</span>';
  t.onclick=()=>go2(DMODE==="s"?"d":"s");old.parentNode.insertBefore(t,old);}
 const lb=document.querySelectorAll("#hscroll>.hb")[3];if(lb){const b=lb.querySelector("b");if(b)b.textContent=DMODE==="s"?"\\u2190 Studieren":"Staunen \\u2192";}
+if(DMODE==="s"){const bs=[].slice.call(document.querySelectorAll("#hscroll>.hb")),sec=["quotes","rede","hist"],sc=$("hscroll");
+ function pick(i){sc.setAttribute("data-sec",sec[i]);bs.slice(0,3).forEach((b,k)=>b.classList.toggle("sel",k===i));[$("p-quotes"),$("p-rede"),$("p-hist")].forEach(e=>e&&(e.scrollTop=0));}
+ bs.slice(0,3).forEach((b,i)=>{b.style.bottom="auto";b.addEventListener("click",e=>{e.stopImmediatePropagation();pick(i);},true);});
+ pick(0);}
 function row(sec,label,m){if(!sec)return;const w=document.createElement("div");w.className="endblk enter";const b=document.createElement("button");b.type="button";b.className="enterrow";b.innerHTML="<b>"+label+"</b><small>\\u2192</small>";b.onclick=()=>go2(m);w.appendChild(b);sec.appendChild(w);}
 row($("p-wow"),"Staunen öffnen","s");row($("p-study"),"Studieren öffnen","d");
 })();</script>
