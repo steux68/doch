@@ -43,6 +43,8 @@ html[data-dmode="s"] .sback,html[data-dmode="s"] #abar{display:none!important}
 html[data-dmode="s"] #home:not([hidden]) ~ footer.copy{display:none!important}
 html body #hscroll>.hb.sel[data-i]{background-color:var(--pcs)!important;box-shadow:inset 4px 0 0 #222!important}
 html body #hscroll>.hb.sel[data-i] b{padding-left:8px}
+#hscroll>.hb[data-i="3"] b{display:inline-flex;align-items:center;gap:9px;line-height:1}
+#hscroll>.hb[data-i="3"] b span{display:block;line-height:1}
 .home h1.logo{min-width:0}.home h1.logo svg{max-width:100%;height:auto;max-height:47px}
 </style>
 '''
@@ -52,7 +54,8 @@ function go2(m){try{sessionStorage.setItem("dochMode",m);}catch(e){}location.rel
 const old=$("dsw");if(old){const t=document.createElement("button");t.type="button";t.id="dsw4";t.dataset.m=DMODE;t.setAttribute("role","switch");t.setAttribute("aria-checked",String(DMODE==="s"));t.setAttribute("aria-label","Studieren oder Staunen");
  t.innerHTML='<span class="t1">Studieren</span><span class="pill"><i class="knob"></i></span><span class="t2">Staunen</span>';
  t.onclick=()=>go2(DMODE==="s"?"d":"s");old.parentNode.insertBefore(t,old);}
-const lb=document.querySelectorAll("#hscroll>.hb")[3];if(lb){const b=lb.querySelector("b");if(b)b.textContent=DMODE==="s"?"\\u2190 Studieren":"Staunen \\u2192";}
+const AR='<svg viewBox="0 0 18 10" width="18" height="10" aria-hidden="true" style="flex:none"><path d="M0 5H16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',AL='<svg viewBox="0 0 18 10" width="18" height="10" aria-hidden="true" style="flex:none"><path d="M18 5H2M6 1L2 5l4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+const lb=document.querySelectorAll("#hscroll>.hb")[3];if(lb){const b=lb.querySelector("b");if(b)b.innerHTML=DMODE==="s"?AL+"<span>Studieren</span>":"<span>Staunen</span>"+AR;}
 if(DMODE==="s"){const bs=[].slice.call(document.querySelectorAll("#hscroll>.hb")),sec=["quotes","rede","hist"],sc=$("hscroll");
  function pick(i){sc.setAttribute("data-sec",sec[i]);bs.slice(0,3).forEach((b,k)=>b.classList.toggle("sel",k===i));[$("p-quotes"),$("p-rede"),$("p-hist")].forEach(e=>e&&(e.scrollTop=0));}
  bs.slice(0,3).forEach((b,i)=>{b.style.bottom="auto";b.addEventListener("click",e=>{e.stopImmediatePropagation();pick(i);},true);});
@@ -62,5 +65,13 @@ row($("p-wow"),"Staunen öffnen","s");row($("p-study"),"Studieren öffnen","d");
 })();</script>
 '''
 rep('<script id="info-link-js">', CSS + JS + '<script id="info-link-js">')
-open('stack4.html', 'w', encoding='utf-8').write(s)
-print('ok -> stack4.html')
+if '--live' in sys.argv:
+    import re
+    if 'id="stack4-js"' in open('index.html', encoding='utf-8').read():
+        print('schon live'); sys.exit(0)
+    s = re.sub(r'(<meta name="app-version" content=")([^"]*)(")', lambda m: m.group(1) + '2026-11-20m' + m.group(3), s, count=1)
+    open('index.html', 'w', encoding='utf-8').write(s)
+    print('ok -> index.html (live)')
+else:
+    open('stack4.html', 'w', encoding='utf-8').write(s)
+    print('ok -> stack4.html')
