@@ -1,0 +1,17 @@
+{"topic":"tekamolo","items":[
+[0,"„mit dem",{"Wann?":"Wann? asks for time (Temporal).","Wohin?":"Wohin? asks for direction (Lokal)."}],
+[1,"„nach Wi",{"Wann?":"Wann? asks for time (Temporal).","Warum?":"Warum? asks for a reason (Kausal)."}],
+[2,"„seit Mo",{"Wohin?":"Wohin? asks for direction (Lokal).","Warum?":"Warum? asks for a reason (Kausal)."}],
+[3,"„wegen d",{"Wann?":"Wann? asks for time (Temporal).","Wie?":"Wie? asks for manner (Modal)."}],
+[4,"Welche G",{"Kausal":"Kausal (reason) is the KA in TEKAMOLO.","Modal":"Modal (manner) is the MO in TEKAMOLO."}],
+[5,"Neutrale ",{"nach Wien mit dem Zug morgen":"The neutral order is Te – Mo – Lo. Here the place comes before the manner and the time.","nach Wien morgen mit dem Zug":"The place comes last in the neutral order, after time and manner."}],
+[6,"Neutrale ",{"nach Graz heute mit dem Auto":"The place comes last: Te – Mo – Lo.","mit dem Auto nach Graz heute":"The time comes first: Te – Mo – Lo."}],
+[7,"Neutrale ",{"zu Hause wegen des Wetters":"The reason comes before the place: Ka – Lo."}],
+[8,"Neutrale ",{"im Garten gestern gern":"The place comes last: Te – Mo – Lo.","gern im Garten gestern":"The time comes first: Te – Mo – Lo."}],
+[9,"Neutrale ",{"sehr konzentriert jeden Tag im Büro":"The time comes before the manner: Te – Mo – Lo.","im Büro jeden Tag sehr konzentriert":"The place comes last: Te – Mo – Lo."}],
+[10,"Ich gebe ",{"dir es":"When both are pronouns, the Akkusativ comes first: es dir.","dem Kind es":"A pronoun comes before a noun: es dem Kind."}],
+[11,"Ich schen",{"einen Ring meiner Mutter":"With two nouns the Dativ comes first, so that einen Ring meiner Mutter is not read as a Genitiv."}],
+[12,"Morgen __",{"ich fahre":"Morgen fills position 1, so the verb comes next and the subject follows it: fahre ich.","ich fahren":"fahren does not agree with ich."}],
+[13,"Seit 2020",{"wohnen":"wohnen goes with wir and sie (plural). ich takes wohne.","gewohnt":"gewohnt is a Partizip. The finite verb is wohne."}],
+[14,"Neutrale ",{"wegen des großen Interesses nächste Woche im Saal":"The time comes before the reason: Te – Ka – Lo.","im Saal nächste Woche wegen des großen Interesses":"The place comes last: Te – Ka – Lo."}]
+]}
