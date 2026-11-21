@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-21a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-21b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -677,12 +677,12 @@ body.introOn .hb[data-pc="4"]{--pc:#ece2f8;animation-delay:-2.8s}body.introOn .h
 .snt{--cs:34px;display:grid;grid-template-columns:28px repeat(4,var(--cs));grid-template-rows:15px repeat(4,var(--cs));justify-content:center;margin:10px 0 4px}
 .snt .tn{font-size:9px;letter-spacing:.04em;color:#777;display:flex;align-items:center;justify-content:center}
 .snt .tn.on{color:#111;font-weight:700}
-.snt .tc{position:relative;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;background:#fff;-webkit-tap-highlight-color:transparent}
-.snt .tc i{position:absolute;inset:0;pointer-events:none;z-index:3}
-.snt .tc.grp{background:#e4f7a0}
-.snt .tc.sel{background:#cdff3e}
-.snt .tl{position:absolute;left:0;top:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2}
-.snt .tc.grp .tl,.snt .tc.sel .tl{font-weight:700}
+.snt .tq{position:relative;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;background:#fff;-webkit-tap-highlight-color:transparent}
+.snt .tq i{position:absolute;inset:0;pointer-events:none;z-index:3}
+.snt .tq.grp{background:#e4f7a0}
+.snt .tq.sel{background:#cdff3e}
+.snt .tz{position:absolute;left:0;top:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2}
+.snt .tq.grp .tz,.snt .tq.sel .tz{font-weight:700}
 .snb{position:relative}
 .snb::after{content:"";position:absolute;inset:0;pointer-events:none;background:var(--df) left top/100% 1px no-repeat,var(--df) left bottom/100% 1px no-repeat,var(--dfv) left top/1px 100% no-repeat,var(--dfv) right top/1px 100% no-repeat}
 .snsel{margin-top:6px}
@@ -3410,8 +3410,8 @@ function table(c,g){
    if(k==3||GRP[r][k+1]!=q)ln.push("var(--dfv) right top/1px 100% no-repeat");
    if(r==3||GRP[r+1][k]!=q)ln.push("var(--df) left bottom/100% 1px no-repeat");
    const L=LAB[q];let lab="";
-   if(L[0]==r&&L[1]==k)lab='<span class="tl" style="width:'+(L[3]*100)+'%;height:'+(L[2]*100)+'%">'+ART[r][k]+'</span>';
-   h+='<span role="button" tabindex="0" class="tc'+(q==ag?(r==c&&k==g?' sel':' grp'):'')+'" data-a="cell:'+r+':'+k+'">'+lab+'<i style="background:'+ln.join(",")+'"></i></span>';}}
+   if(L[0]==r&&L[1]==k)lab='<span class="tz" style="width:'+(L[3]*100)+'%;height:'+(L[2]*100)+'%">'+ART[r][k]+'</span>';
+   h+='<span role="button" tabindex="0" class="tq'+(q==ag?(r==c&&k==g?' sel':' grp'):'')+'" data-a="cell:'+r+':'+k+'">'+lab+'<i style="background:'+ln.join(",")+'"></i></span>';}}
  return h+'</div>';}
 /* ----- Seiten ----- */
 function zH(){

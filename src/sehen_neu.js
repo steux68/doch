@@ -115,8 +115,8 @@ function table(c,g){
    if(k==3||GRP[r][k+1]!=q)ln.push("var(--dfv) right top/1px 100% no-repeat");
    if(r==3||GRP[r+1][k]!=q)ln.push("var(--df) left bottom/100% 1px no-repeat");
    const L=LAB[q];let lab="";
-   if(L[0]==r&&L[1]==k)lab='<span class="tl" style="width:'+(L[3]*100)+'%;height:'+(L[2]*100)+'%">'+ART[r][k]+'</span>';
-   h+='<span role="button" tabindex="0" class="tc'+(q==ag?(r==c&&k==g?' sel':' grp'):'')+'" data-a="cell:'+r+':'+k+'">'+lab+'<i style="background:'+ln.join(",")+'"></i></span>';}}
+   if(L[0]==r&&L[1]==k)lab='<span class="tz" style="width:'+(L[3]*100)+'%;height:'+(L[2]*100)+'%">'+ART[r][k]+'</span>';
+   h+='<span role="button" tabindex="0" class="tq'+(q==ag?(r==c&&k==g?' sel':' grp'):'')+'" data-a="cell:'+r+':'+k+'">'+lab+'<i style="background:'+ln.join(",")+'"></i></span>';}}
  return h+'</div>';}
 /* ----- Seiten ----- */
 function zH(){
