@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-21k"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-21l"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -1438,6 +1438,9 @@ const TH_SATZ=`
 <div><span class="g">Warum?</span><span>Grund</span><span><b>Warum</b>? – Weil ich müde <b>bin</b>. <button class="go" data-go="konn">Konnektoren →</button></span></div>
 <div><span class="g">Wie?</span><span>Art</span><span><b>Wie</b> fährst du? – Mit dem Rad.</span></div>
 <div><span class="g">Wofür? Worauf?</span><span>Sache</span><span><b>Worauf</b> wartest du? – Auf den Bus. Person: <b>Auf wen</b>? <button class="go" data-go="vprep">Verben mit Präp. →</button></span></div>
+<div><span class="g">Mit wem?</span><span>DAT</span><span><b>Mit wem</b> gehst du ins Kino? <b>Von wem</b> ist das Geschenk? <b>Bei wem</b> wohnst du?</span></div>
+<div><span class="g">Für wen?</span><span>AKK</span><span><b>Für wen</b> ist das? <b>Gegen wen</b> spielt ihr? <b>Um wen</b> geht es?</span></div>
+<div><span class="g">Wie viel?</span><span>Maß</span><span><b>Wie viel</b> kostet das? <b>Wie viele</b> Zimmer? <b>Wie oft</b>? <b>Wie spät</b> ist es?</span></div>
 <div><span class="g">Welcher?</span><span>wie der</span><span><b>Welchen</b> Plan meinst du? Den neu<b>en</b>. <button class="go" data-go="adj">Adjektive →</button></span></div></div>
 <p class="tline">The question word asks for the case or the preposition. The verb stays in position 2: Wann kommst du? A yes/no question starts with the verb: Kommst du?</p></div>
 <div class="tc df"><h3>Was füllt Verb 2?</h3>
@@ -1808,6 +1811,12 @@ const TH_FALL=`
 <div><span>Wessen?</span><span>GEN · das Büro <b>des Architekten</b></span></div></div>
 <p class="tline">Cases as actors: NOM does it, AKK receives it, DAT gets something from it, GEN owns it. The case comes from the verb (helfen + DAT), the preposition (mit + DAT, für + AKK) or a fixed phrase (Guten Morgen!).</p></div>
 <div class="tc df"><h3>Pronomen <small>A1</small></h3><div class="ptab"><span class="h">Nom.</span><span class="h a">Akk.</span><span class="h d">Dat.</span>`+PRON.map(([n,a,d])=>'<span>'+n+'</span><span class="a">'+a+'</span><span class="d">'+d+'</span>').join("")+`</div><p class="tline">Only uns and euch are the same in AKK and DAT. Reflexiv: mich if there is no other object (Ich freue mich), mir if there is (Ich wasche mir die Hände).</p></div>
+<div class="tc df"><h3>mein · dein · sein <small>A2</small></h3><div class="rows">
+<div><span>Who owns?</span><span>ich mein · du dein · er, es sein · sie ihr · wir unser · ihr euer · Sie Ihr</span></div>
+<div><span>What is owned?</span><span>The noun decides the ending, as with ein: mein Plan · meine Lampe · meinen Plan · meinem Freund</span></div>
+<div><span>Example</span><span>Er repariert <b>sein</b> Fahrrad. Sie liest <b>ihre</b> Zeitung. Sie liest <b>ihr</b> Buch.</span></div>
+<div><span>euer · unser</span><span>euer drops the e before an ending: euer Zimmer, euren Plan, eure Lampe</span></div></div>
+<p class="tline">The owner chooses the stem (sein or ihr), the thing owned chooses the ending. The formal Sie becomes Ihr, with a capital letter.</p></div>
 <div class="tc df"><h3>Verben mit Dativ <small>A2</small></h3>`+pcs("d",["helfen","danken","gefallen","gehören","antworten","folgen","gratulieren","passen","schmecken","fehlen","glauben","vertrauen","zuhören","begegnen","raten","verzeihen","zustimmen","widersprechen"])+`<p class="tline">Der Entwurf gefällt mir = I like the design: the English subject becomes the German DAT. Also: Mir ist kalt. Es tut mir leid. Das ist mir egal.</p></div>
 <div class="tc df"><h3>Zwei Objekte <small>B1</small></h3><div class="rows">
 <div><span>2 Nomen</span><span>DAT first: Ich gebe <mark class="d">dem Kind</mark> <mark class="a">den Ball</mark>.</span></div>
