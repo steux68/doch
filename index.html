@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-21ab"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-21ac"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -4447,7 +4447,7 @@ function renderTest(){
    '<div class="sehk tkx" id="tErr"'+(ne?'':' hidden')+'><b>Fehler üben</b><span class="tern">'+ne+(ne===1?' Frage':' Fragen')+' →</span></div></div></div>'+
    '<div class="lvsel" role="group" aria-label="Niveau"><div id="lvs2">'+["all"].concat(LVLS.slice(0,5)).map(l=>'<button class="lvb" data-l="'+l+'" aria-pressed="'+(L===l)+'">'+(l==="all"?"Alle":l)+'</button>').join("")+'</div></div>'+
    '<div class="rcb"><button class="resume" id="goTest"><span><small>Test starten</small><b>'+TLEN()+' Fragen · '+(L==="all"?"alle Stufen":L)+'</b></span><b>→</b></button></div>'+
-   '<div class="tests rows2"><button class="tst wide" id="goLueck"><span class="tl"><span class="no">01</span><b>Lückentext</b></span><small>ganze Texte · A1–C1</small></button><button class="tst wide" id="goWrite"><span class="tl"><span class="no">02</span><b>Text prüfen</b></span><small>Schreiben · LanguageTool</small></button><button class="tst wide" id="goSet"><span class="tl"><span class="no">03</span><b class="setb"><span class="cogi" aria-hidden="true"></span>Einstellungen</b></span><small>Info · Anleitung · Timer</small></button></div></div>';
+   '<div class="tests rows2"><button class="tst wide" id="goLueck"><span class="tl"><span class="no">01</span><b>Lückentext</b></span><small>ganze Texte · A1–C1</small></button><button class="tst wide" id="goWrite"><span class="tl"><span class="no">02</span><b>Text prüfen</b></span><small>Schreiben · LanguageTool</small></button><button class="tst wide" id="goSet"><span class="tl"><span class="no"><span class="cogi" aria-hidden="true"></span></span><b class="setb">Einstellungen</b></span><small>Info · Anleitung · Timer</small></button></div></div>';
   $("p-test").querySelectorAll(".tlen2 button").forEach(x=>x.onclick=()=>{store.tlen=+x.dataset.n;save();renderTest();});
   $("p-test").querySelectorAll("#lvs2 .lvb").forEach(x=>x.onclick=()=>{store.level=x.dataset.l;save();renderHome();renderTest();});
   $("goTest").onclick=()=>{TESTLV=(store.level&&store.level!=="all")?store.level:"all";openTopic("test");};
@@ -5614,6 +5614,7 @@ a[href^="http"]::after{content:"";position:absolute;left:-6px;right:-6px;top:-9p
 .rcb .dayb{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;background:#e4f7a0;color:#1a1a1a;padding:9px 12px;flex:none;border:0;font:inherit;cursor:pointer;min-height:44px}
 .rcb .dayb small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#4a5a12}.rcb .dayb b{font-size:16px}
 </style>
+<style id="cog-row-css">#goSet .no{display:flex;align-items:center;justify-content:center}#goSet .no .cogi{width:17px;height:17px}</style>
 <script id="ux-js">(function(){
 /* ---- Sehen: variant rows behind "mehr" ---- */
 var openMore=false,pend=0;
