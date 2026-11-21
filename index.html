@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-21af"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-21ag"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -5652,15 +5652,21 @@ inst();})();</script>
 html[data-dmode="s"] #hscroll>.capm{order:9!important}
 html[data-dmode="s"] #hscroll>.hb{margin:0 0 -1px 0!important}
 html[data-dmode="s"] #hscroll>#stnT{display:none}
-html[data-dmode="s"] #hscroll[data-home="1"]>#stnT{display:flex;order:5;flex:1 1 0;min-height:0;align-items:center;justify-content:center;margin:0 0 12px;border:1px dotted #bbb}
-html[data-dmode="s"] #hscroll[data-home="1"] #p-quotes,html[data-dmode="s"] #hscroll[data-home="1"] #p-rede,html[data-dmode="s"] #hscroll[data-home="1"] #p-hist,html[data-dmode="s"] #hscroll[data-home="1"]>.capm{display:none!important}
-html[data-dmode="s"] #hscroll[data-home="1"]>.hb[data-i="0"]{order:11}
-html[data-dmode="s"] #hscroll[data-home="1"]>.hb[data-i="1"]{order:12}
-html[data-dmode="s"] #hscroll[data-home="1"]>.hb[data-i="2"]{order:13}
+html[data-dmode="s"] #hscroll[data-n="0"]>#stnT{display:flex;order:5;flex:1 1 0;min-height:0;align-items:center;justify-content:center;margin:0 0 12px;border:1px dotted #bbb}
+html[data-dmode="s"] #hscroll[data-n="0"] #p-quotes,html[data-dmode="s"] #hscroll[data-n="0"] #p-rede,html[data-dmode="s"] #hscroll[data-n="0"] #p-hist,html[data-dmode="s"] #hscroll[data-n="0"]>.capm{display:none!important}
+html[data-dmode="s"] #hscroll>.hb[data-i="0"]{order:11}
+html[data-dmode="s"] #hscroll>.hb[data-i="1"]{order:12}
+html[data-dmode="s"] #hscroll>.hb[data-i="2"]{order:13}
+html[data-dmode="s"] #hscroll[data-n="1"]>.hb[data-i="0"]{order:0}
+html[data-dmode="s"] #hscroll[data-n="2"]>.hb[data-i="0"]{order:0}
+html[data-dmode="s"] #hscroll[data-n="2"]>.hb[data-i="1"]{order:1}
+html[data-dmode="s"] #hscroll[data-n="3"]>.hb[data-i="0"]{order:0}
+html[data-dmode="s"] #hscroll[data-n="3"]>.hb[data-i="1"]{order:1}
+html[data-dmode="s"] #hscroll[data-n="3"]>.hb[data-i="2"]{order:2}
 html[data-dmode="s"] #hscroll>.hb[data-i="3"]{order:20;margin-top:12px!important}
 html[data-dmode="s"] #hscroll.stn-lift #p-quotes>.tc,html[data-dmode="s"] #hscroll.stn-lift #p-rede>.tc,html[data-dmode="s"] #hscroll.stn-lift #p-hist>.tc{animation:stnFade .35s ease-out}
 @keyframes stnFade{from{opacity:0}to{opacity:1}}
-html[data-dmode="s"] #hscroll[data-home="1"]>#stnT{overflow-y:auto}
+html[data-dmode="s"] #hscroll[data-n="0"]>#stnT{overflow-y:auto}
 #stnT .stq{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:16px 22px;color:inherit;text-decoration:none}
 #stnT .pic{width:132px;height:132px;flex:none;margin-bottom:6px;display:grid;place-items:center;font-size:18px;font-weight:700;position:relative;background:var(--pale);overflow:hidden}
 #stnT .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;opacity:0;filter:grayscale(1)}#stnT .pic.has img{opacity:1}#stnT .pic.has i{visibility:hidden}#stnT .pic i{font-style:normal}
@@ -5672,10 +5678,11 @@ html[data-dmode="s"] #hscroll[data-home="1"]>#stnT{overflow-y:auto}
 var T=document.getElementById("stnT");sc.insertBefore(T,sc.firstChild);try{loadPics(T)}catch(e){}
 var bars=function(){return [].slice.call(sc.querySelectorAll(":scope>.hb")).slice(0,3)},rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
 var tg=0;try{tg=+(sessionStorage.getItem("dochTarget")||0)}catch(e){}
-if(!(tg>0))sc.setAttribute("data-home","1");
+sc.setAttribute("data-n",tg>0?String(Math.min(3,tg+1)):"0");
 function flip(fn){var bs=bars(),a=bs.map(function(b){return b.getBoundingClientRect().top});fn();
  if(rm)return;bs.forEach(function(b,i){var d=a[i]-b.getBoundingClientRect().top;if(!d)return;b.style.transition="none";b.style.transform="translateY("+d+"px)";b.getBoundingClientRect();b.style.transition="transform .45s cubic-bezier(.4,.1,.2,1)";b.style.transform="";setTimeout(function(){b.style.transition=""},500)});}
 sc.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".hb");if(!b||b.parentNode!==sc)return;var i=bars().indexOf(b);if(i<0)return;
- if(sc.getAttribute("data-home")==="1"){flip(function(){sc.removeAttribute("data-home")});sc.classList.remove("stn-lift");void sc.offsetWidth;sc.classList.add("stn-lift");}
- else if(b.classList.contains("sel")){e.stopPropagation();flip(function(){sc.setAttribute("data-home","1")});}
+ var n=+sc.getAttribute("data-n");
+ if(n>0&&b.classList.contains("sel")&&i===n-1){e.stopPropagation();flip(function(){sc.setAttribute("data-n","0")});return;}
+ if(n!==i+1){flip(function(){sc.setAttribute("data-n",String(i+1))});sc.classList.remove("stn-lift");void sc.offsetWidth;sc.classList.add("stn-lift");}
 },true);})();</script>
