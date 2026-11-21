@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-21ad"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-21ac"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -5647,28 +5647,3 @@ function inst(){if(!ready()){setTimeout(inst,300);return}
   b.innerHTML='<span><small>Heute üben</small><b>15 Fragen</b></span><b>→</b>';
   b.onclick=function(){window.__dArm=1;ERRMODE=false;openTopic("test");var tt=document.getElementById("ttl");if(tt)tt.textContent="Heute üben";setMode("game")};rcb.insertBefore(b,rcb.firstChild)}}
 inst();})();</script>
-
-<style id="heute-css">
-.hte{margin:0 0 10px;border:1px dotted #bbb;background:#fffbe0;padding:8px 10px;flex:none}
-.hte .hth{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:4px}
-.hte a.htq{display:block;color:inherit;text-decoration:none;position:relative}
-.hte q{display:block;font-size:15px;line-height:1.35;color:#1a1a1a;quotes:"„" "“"}
-.hte .htw{display:block;font-size:12px;color:#666;margin-top:2px}
-.hte .htr{display:block;margin-top:7px;padding-top:6px;border-top:1px dotted #c9c27a;cursor:pointer;min-height:36px}
-.hte .htr b{font-size:15px;color:#1a1a1a}.hte .htr span{display:block;font-size:13px;line-height:1.3;color:#444}
-</style>
-<script id="heute-js">(function(){
-function ok(){return typeof renderQuotes==="function"&&typeof QUOTES!=="undefined"&&typeof RW!=="undefined"&&document.getElementById("p-quotes")}
-function go(){if(!ok()){setTimeout(go,300);return}
- var o=renderQuotes;
- function e(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
- renderQuotes=function(){o.apply(this,arguments);
-  var P=document.getElementById("p-quotes"),tc=P&&P.querySelector(".tc");if(!tc||tc.querySelector(".hte"))return;
-  var d=Math.floor((Date.now()-new Date(new Date().getFullYear(),0,0))/864e5),qs=QUOTES.filter(function(x){return !x.sec&&x.q}),q=qs[d%qs.length],r=RW[(d*7)%RW.length];
-  var h=document.createElement("div");h.className="hte";
-  h.innerHTML='<div class="hth">Heute</div><a class="htq" href="'+e(q.u)+'" target="_blank" rel="noopener"><q>'+e(q.q)+'</q><span class="htw">'+e(q.who)+' · '+e(q.when)+'</span></a>'+
-   '<div class="htr" role="button" tabindex="0"><b>'+e(r[2])+'</b><span>'+e(r[3])+'</span></div>';
-  var rb=h.querySelector(".htr"),jump=function(){var b=document.querySelectorAll("#hscroll>.hb")[1];if(b)b.click()};rb.onclick=jump;rb.onkeydown=function(ev){if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();jump()}};
-  tc.insertBefore(h,tc.firstChild)};
- renderQuotes();}
-go();})();</script>
