@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-21h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-21i"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -5454,4 +5454,12 @@ function hook(){if(typeof mcAnswer==="function"&&!mcAnswer.__wx){var o=mcAnswer;
   judge=function(a,b){var r=oj(a,b);if(r[0]!=="ok"&&CT[b]&&String(a).trim().replace(/\s+/g," ").toLowerCase()===CT[b])return["ok",""];return r;};judge.__wx=1;}}
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("#nf .wxl");if(b&&typeof setMode==="function"){e.preventDefault();setMode("learn");}});
 hook();setInterval(hook,500);
-})();</script>
+})();</script><style id="st-css">.tt .prog em{font-style:normal}.tt .prog em .stb{font-weight:700;color:#3a3c37;font-size:inherit}.tt .prog em .stw{color:#8a8a8a}</style>
+<script id="st-js">(function(){
+function status(t){var b=score(t),M=typeof mistakes==="function"?mistakes():{},open=Object.keys(M).some(function(k){return M[k]&&M[k].t===t});
+ if(b!=null&&b>=0.8&&!open)return ["sicher",1];if(b!=null)return ["geübt",0];if(store.seen&&store.seen[t])return ["gesehen",0];return ["neu",0];}
+function deco(){try{document.querySelectorAll(".tt[data-t]").forEach(function(btn){var t=btn.dataset.t,em=btn.querySelector("em");if(!em)return;
+  var s=status(t),pct=Math.round((score(t)||0)*100);em.innerHTML=(s[1]?'<span class="stb">'+s[0]+"</span>":'<span class="stw">'+s[0]+"</span>")+(s[0]==="neu"||s[0]==="gesehen"?"":" · "+pct+" %");});}catch(e){}}
+if(typeof renderHome==="function"){var r=renderHome;renderHome=function(){var x=r.apply(this,arguments);deco();return x;};}
+if(typeof setMode==="function"){var m=setMode;setMode=function(md){var x=m.apply(this,arguments);try{if(md==="learn"&&typeof T!=="undefined"&&T&&store){(store.seen||(store.seen={}))[T]=1;save();}}catch(e){}return x;};}
+deco();})();</script>
