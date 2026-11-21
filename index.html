@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-21i"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-21j"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -1817,6 +1817,19 @@ const TH_FALL=`
 <div><span>n-Deklination</span><span>der Kollege → den / dem / des Kollegen. Also Kunde, Nachbar, Architekt, Bauherr.</span></div>
 <div><span>Dativ Plural</span><span>mit den Kinder<b>n</b>, den Pferde<b>n</b> (not after -s or -n: den Autos, den Frauen)</span></div></div><p class="tline">Four traps: word order, sein, n-Deklination, Dativ plural -n.</p></div>`;
 const TH_ADJ=`
+<div class="tc df"><h3>1 · Die einfache Regel <small>A2</small></h3><p class="memo">Look at the word before the adjective. If it already shows the case (der, den, dem, diesem …), the adjective ends in <b>-e</b> or <b>-en</b>. If nothing shows the case, the adjective shows it.</p><p class="tline">Most endings are -en. der neu<b>e</b> Plan · mit dem neu<b>en</b> Plan · mit frisch<b>em</b> Brot</p></div>
+<div class="tc df"><h3>2 · Schritt für Schritt <small>A2–B1</small></h3><div class="rows">
+<div><span>Nom. m.</span><span>der neu<b>e</b> Plan: der shows the case → -e</span></div>
+<div><span>Akk. m.</span><span>Ich sehe den neu<b>en</b> Plan: den shows it → -en</span></div>
+<div><span>Nom. m.</span><span>ein neu<b>er</b> Plan: ein shows nothing → the adjective does: -er</span></div>
+<div><span>Dat. n.</span><span>mit frisch<b>em</b> Brot: no article → -em</span></div></div><p class="tline">Ask in this order: gender, case, does the article show it?</p></div>
+<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B2–C1</small></h3><div class="rows">
+<div><span>alle · diese · keine</span><span>plural: -en. alle neu<b>en</b> Pläne</span></div>
+<div><span>viele · einige · wenige</span><span>like without article: viele neu<b>e</b> Pläne</span></div>
+<div><span>-el · -er · -en · hoch</span><span>the e drops: ein dunkl<b>es</b> Zimmer · ein teur<b>es</b> Auto · ein hoh<b>es</b> Haus</span></div>
+<div><span>two adjectives</span><span>same ending: ein groß<b>er</b>, neu<b>er</b> Plan</span></div>
+<div><span>as a noun</span><span>der Deutsch<b>e</b> · ein Deutsch<b>er</b> · das Gut<b>e</b></span></div>
+<div><span>unchanged</span><span>ein rosa Kleid · lila</span></div></div></div>
 <div class="tc df"><h3>Nach der · die · das</h3>`+adjTab("best","der neu<b>e</b> Plan · mit dem neu<b>en</b> Plan")+`</div>
 <div class="tc df"><h3>Nach ein · kein · mein</h3>`+adjTab("unb","ein neu<b>er</b> Plan · ein schön<b>es</b> Haus")+`</div>
 <div class="tc df"><h3>Ohne Artikel</h3>`+adjTab("ohne","frisch<b>es</b> Brot · mit groß<b>er</b> Freude")+`</div>
