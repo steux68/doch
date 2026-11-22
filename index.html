@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-22c"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-22d"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -889,6 +889,7 @@ body.introOn .hb[data-pc="4"]{--pc:#ece2f8;animation-delay:-2.8s}body.introOn .h
 .htile .cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:4px 6px 5px;background:rgba(68,68,68,.7);color:#fff;line-height:1.15}
 .htile .cap b{display:block;font-size:12px}.htile .cap small{font-size:12px}
 .htile:active{outline:1px solid var(--red);outline-offset:-1px}
+.qplus{display:block;margin-top:5px;font-size:13px;letter-spacing:.03em;color:#777}.qmq.n{border-top:1px dotted #b8b8b8;margin-top:16px;padding-top:14px}#qb p.qsrc{margin:8px 0 0;font-size:14px;line-height:1.4;color:#777}
 .ty.rud{font-family:"DdRud","DdCor",Georgia,serif;font-weight:700}.tlth .ty.rud{font-size:calc(var(--th)*.4)}.htile .ty.rud{font-size:30px}.gfig .ty.rud{font-size:64px}.gfig .ty.rud.abc{font-size:22px}
 .ty.genz{font-family:"DdGenZ","Carlito",sans-serif;font-weight:900;letter-spacing:-.01em}.tlth .ty.genz{font-size:calc(var(--th)*.3)}.htile .ty.genz{font-size:26px}.gfig .ty.genz{font-size:52px}.gfig .ty.genz.abc{font-size:18px;font-weight:900}
 .ty.frak{font-family:"DdFrak",serif}.ty.anti{font-family:"DdCor","DdEsz",Georgia,serif;font-weight:500}
@@ -4252,9 +4253,11 @@ function loadPics(root){const cache=store.pics2||(store.pics2={});root.querySele
 const QS={f:"Alle",all:false};
 const PLUS='<svg class="pl" viewBox="-12 -12 24 24" aria-hidden="true"><circle class="r1" r="8"/><circle class="r2" r="8"/><circle class="c" r="8"/><path d="M0 -4.2V4.2"/><path d="M-4.2 0H4.2"/></svg>';
 function quotesHTML(){const secs=QUOTES.filter(x=>x.sec).map(x=>x.sec);let sec="",qi=0,n=0,hid=0;const items=[];
-  QUOTES.forEach(x=>{if(x.sec){sec=x.sec;qi=0;return;}if(QS.f!=="Alle"&&sec!==QS.f)return;
+  /* one row per person and section; further quotes of the same person go into data-more (shown together in the pop-up) */
+  const QG=[],seenQ={};let gs="";QUOTES.forEach(x=>{if(x.sec){gs=x.sec;QG.push(x);return;}const k=gs+"|"+x.who;if(seenQ[k]){seenQ[k].more.push({when:x.when,q:x.q,en:x.en,u:x.u});return;}const c=Object.assign({},x,{more:[]});seenQ[k]=c;QG.push(c);});
+  QG.forEach(x=>{if(x.sec){sec=x.sec;qi=0;return;}if(QS.f!=="Alle"&&sec!==QS.f)return;
     if(qi===0&&QS.f==="Alle")items.push('<h4 class="qsec">'+esc(sec)+'</h4>');n++;
-    items.push('<a class="qt'+(qi++%2?' alt':'')+'" href="'+x.u+'" target="_blank" rel="noopener"><span class="pic" aria-hidden="true"><i>'+x.pic+'</i>'+(x.w?'<img alt="" loading="lazy" data-w="'+x.w.join("|")+'">':'')+'</span><span class="qb"><b class="who">'+esc(x.who)+'</b><small>'+esc(x.when)+'</small><q>'+esc(x.q)+'</q><span class="qen">'+esc(x.en)+'</span></span></a>');});
+    items.push('<a class="qt'+(qi++%2?' alt':'')+'" href="'+x.u+'" target="_blank" rel="noopener"'+(x.more.length?' data-more="'+encodeURIComponent(JSON.stringify(x.more))+'"':'')+'><span class="pic" aria-hidden="true"><i>'+x.pic+'</i>'+(x.w?'<img alt="" loading="lazy" data-w="'+x.w.join("|")+'">':'')+'</span><span class="qb"><b class="who">'+esc(x.who)+'</b><small>'+esc(x.when)+'</small><q>'+esc(x.q)+'</q><span class="qen">'+esc(x.en)+'</span>'+(x.more.length?'<span class="qplus">+'+x.more.length+(x.more.length>1?' weitere Zitate':' weiteres Zitat')+'</span>':'')+'</span></a>');});
   return '<div class="wchips qchips" id="qchips">'+["Alle"].concat(secs).map(f=>'<button data-f="'+esc(f)+'" aria-pressed="'+(QS.f===f)+'">'+esc(f==="Deutsch zu meinem Pferd"?"Pferd":f==="Zu kurz, zu lang, zu schwer"?"Zu schwer":f)+'</button>').join("")+'</div>'+
    '<div class="qbw"><div class="qbs" tabindex="0" role="region" aria-label="Zitate"><div class="qlist">'+items.join("")+'</div></div><div class="qsl" aria-hidden="true"><i></i></div></div>'+(hid?'<button class="mrow" id="qmore">'+PLUS+'<span class="cvt">mehr</span><b>Zitate</b><small>+'+hid+' weitere</small></button>':'');}
 const RWT=[["phil", "Philosophie & Denken"], ["ges", "Gesellschaft & Kultur"], ["his", "Geschichte & Alte Welt"], ["gef", "Gefühle & Lagen"], ["arg", "Argumentieren"]];
@@ -4788,7 +4791,10 @@ function show(i){const L=items(),n=L.length;if(!n)return;i=(i%n+n)%n;QO.i=i;cons
  if(!sec){const c=document.querySelector('#qchips button[aria-pressed="true"]');if(c&&c.dataset.f!=="Alle")sec=c.dataset.f;}
  const im=a.querySelector("img[data-w]"),wimg=im?im.dataset.w:"",qv=$("qv");
  qv.classList.remove("has");qv.innerHTML='<i>'+E(g(".pic i"))+'</i>'+(wimg?'<img alt="" data-w="'+E(wimg)+'">':'');
- $("qb").innerHTML='<h4>'+E(g(".who"))+'</h4><p class="qq">„'+E(g("q"))+'“</p><p class="qen2">'+E(g(".qen"))+'</p><dl class="qd"><dt>Quelle</dt><dd>'+E(g("small"))+' <a class="wk" href="'+E(a.href)+'" target="_blank" rel="noopener" aria-label="Quelle öffnen: '+E(g(".who"))+'">mehr ↗</a></dd>'+(sec?'<dt>Thema</dt><dd>'+E(sec)+'</dd>':'')+'<dt>Bild</dt><dd>Wikipedia / Wikimedia Commons</dd></dl>';
+ let more=[];try{more=a.dataset.more?JSON.parse(decodeURIComponent(a.dataset.more)):[];}catch(e){}
+ if(!more.length)$("qb").innerHTML='<h4>'+E(g(".who"))+'</h4><p class="qq">„'+E(g("q"))+'“</p><p class="qen2">'+E(g(".qen"))+'</p><dl class="qd"><dt>Quelle</dt><dd>'+E(g("small"))+' <a class="wk" href="'+E(a.href)+'" target="_blank" rel="noopener" aria-label="Quelle öffnen: '+E(g(".who"))+'">mehr ↗</a></dd>'+(sec?'<dt>Thema</dt><dd>'+E(sec)+'</dd>':'')+'<dt>Bild</dt><dd>Wikipedia / Wikimedia Commons</dd></dl>';
+ else{const all=[{when:g("small"),q:g("q"),en:g(".qen"),u:a.href}].concat(more);
+  $("qb").innerHTML='<h4>'+E(g(".who"))+'</h4>'+all.map((m,k)=>'<div class="qmq'+(k?' n':'')+'"><p class="qq">„'+E(m.q)+'“</p><p class="qen2">'+E(m.en)+'</p><p class="qsrc">'+E(m.when)+' <a class="wk" href="'+E(m.u)+'" target="_blank" rel="noopener" aria-label="Quelle öffnen: '+E(g(".who"))+'">mehr ↗</a></p></div>').join("")+'<dl class="qd">'+(sec?'<dt>Thema</dt><dd>'+E(sec)+'</dd>':'')+'<dt>Bild</dt><dd>Wikipedia / Wikimedia Commons</dd></dl>';}
  if(typeof loadPics==="function")loadPics(qv);
  $("qc").innerHTML='Zitate <b>'+(i+1)+'</b> / '+n;$("qb").scrollTop=0;if(QO.upd)QO.upd();}
 function open(i){if(!QO.open){QO.open=true;navPush("qt");p.hidden=false;}show(i);}
