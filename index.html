@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-22h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-22i"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3524,7 +3524,7 @@ function optsH(c){
 function foot(){return '<div class="svg" style="--n:3;margin-top:6px"><span role="button" tabindex="0" class="svb svo fr'+(st.rat?' on':'')+'" data-a="rat"'+(st.rat?' style="background:#cdff3e"':'')+'>Raten</span><span class="svb" style="grid-column:span 2;text-transform:none;letter-spacing:0;color:#999">Satz wischen oder Pfeil</span></div>';}
 function acc(x){
  const rows=[["B","Bildung",x.f],["G","Gebrauch",x.u],["S","Signale",x.s],["A","Achtung",x.a]];
- return rows.map(r=>'<div role="button" tabindex="0" class="svr" data-a="r:'+r[0]+'"><span>'+r[1]+'</span><span>'+(st.r==r[0]?esc(r[2]):'<span style="color:#aaa">+</span>')+'</span></div>').join('');}
+ return rows.map(r=>'<div role="button" tabindex="0" class="svr" data-a="r:'+r[0]+'"><span>'+r[1]+'</span><span>'+esc(r[2])+'</span></div>').join('');}
 function table(c,g){
  const ag=GRP[c][g];let h='<div class="snt"><span></span>'+GN.map((x,i)=>'<span class="tn'+(g==i?' on':'')+'">'+x+'</span>').join("");
  for(let r=0;r<4;r++){
@@ -5721,3 +5721,4 @@ try{loadPics(T)}catch(e){}}catch(e){}})();
 #sv>.svtg .svb:not(.on){background:rgba(255,255,255,.82)}
 #sv .svln{z-index:2}
 </style>
+<style id="acc-offen-css">.sn .svr{height:auto;min-height:28px;white-space:normal;align-items:flex-start;padding:7px 2px;line-height:1.3;cursor:default}.sn .svr span:first-child{padding-top:1px}.sn .svr span:last-child{flex:1 1 auto;min-width:0}</style>
