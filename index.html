@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-22i"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-22j"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3322,12 +3322,12 @@ const SVP="#e6dccb",SVN="#e4f7a0",SVF="#a9d3f0";
 const SVG_=x=>'<span class="g">'+x+'</span>',SVY_=x=>'<span class="y">'+x+'</span>';
 const SV={tab:"t",sel:{t:[0,0],k:[0,0]},cur:{t:3,k:0},kp:"s",at:0,aw:"der",pp:{g:"W",w:"an"},rl:{g:"W",i:0,wo:0,n:0}};
 const SVT=[
-{n:"Plusquamperfekt",f:"hatte / war + Partizip II",u:"Before another past event.",s:"nachdem, bevor, schon, vorher",a:"Nebensatz: gelernt hatte."},
-{n:"Präteritum",f:"Stamm + -te (or Ablaut)",u:"Written past, narration.",s:"damals, als, einst",a:"Spoken: mostly sein, haben, Modalverben."},
-{n:"Perfekt",f:"habe / bin + Partizip II",u:"Spoken past, result counts now.",s:"schon, heute, gestern",a:"bin with movement or change."},
-{n:"Präsens",f:"Stamm + Endung",u:"Now, always, planned.",s:"jetzt, immer, morgen",a:"Also the future with a time word."},
-{n:"Futur I",f:"werden + Infinitiv",u:"Plans, promises, guesses.",s:"bald, wohl, sicher",a:"Präsens + morgen is more common."},
-{n:"Futur II",f:"werden + Partizip II + haben/sein",u:"Done by a future point; or a guess.",s:"bis dann, bis Freitag",a:"Er wird schon gegangen sein."}];
+{n:"Plusquamperfekt",f:"hatte / war + Partizip II",u:"Vor einem anderen vergangenen Ereignis.",s:"nachdem, bevor, schon, vorher",a:"Nebensatz: gelernt hatte."},
+{n:"Präteritum",f:"Stamm + -te (oder Ablaut)",u:"Schriftliche Vergangenheit, Erzählung.",s:"damals, als, einst",a:"Gesprochen: fast nur sein, haben, Modalverben."},
+{n:"Perfekt",f:"habe / bin + Partizip II",u:"Gesprochene Vergangenheit; das Ergebnis zählt jetzt.",s:"schon, heute, gestern",a:"bin bei Bewegung oder Veränderung."},
+{n:"Präsens",f:"Stamm + Endung",u:"Jetzt, immer, geplant.",s:"jetzt, immer, morgen",a:"Auch für die Zukunft, mit einer Zeitangabe."},
+{n:"Futur I",f:"werden + Infinitiv",u:"Pläne, Versprechen, Vermutungen.",s:"bald, wohl, sicher",a:"Präsens + morgen ist häufiger."},
+{n:"Futur II",f:"werden + Partizip II + haben/sein",u:"Bis zu einem Zeitpunkt in der Zukunft fertig; oder eine Vermutung.",s:"bis dann, bis Freitag",a:"Er wird schon gegangen sein."}];
 const G=SVG_,Y=SVY_;
 const SVS=[[
 [G('Hatte')+' ich '+Y('gelernt')+'.','Nachdem ich '+Y('gelernt')+' '+G('hatte')+', ging ich heim.',G('Hattest')+' du schon '+Y('gelernt')+'?'],
@@ -3345,10 +3345,10 @@ const SVS=[[
 ['Ich '+G('werde')+' '+Y('gegangen sein')+'.','Bis du kommst, '+G('werde')+' ich '+Y('gegangen sein')+'.',G('Wird')+' er schon '+Y('gegangen sein')+'?']
 ]];
 const SVKC=[
-{n:"Nominativ",q:"wer / was?",f:"the dictionary form",u:"Subject; after sein, werden.",s:"sein, werden, bleiben",a:"Ask: who does it?"},
-{n:"Akkusativ",q:"wen / was?",f:"only masculine: der → den",u:"Object; für, durch, gegen, ohne.",s:"sehen, haben, kaufen · für, ohne",a:"die, das, die stay the same."},
-{n:"Dativ",q:"wem?",f:"dem / der / dem / den",u:"Indirect object; mit, bei, nach, von.",s:"helfen, danken, gehören · mit, bei",a:"Plural noun gets -n: den Kindern."},
-{n:"Genitiv",q:"wessen?",f:"des / der / des / der",u:"Possession; wegen, trotz, während.",s:"wegen, trotz, während · Besitz",a:"masc. / neut. noun takes -(e)s."}];
+{n:"Nominativ",q:"wer / was?",f:"die Grundform",u:"Subjekt; nach sein, werden.",s:"sein, werden, bleiben",a:"Frage: Wer macht es?"},
+{n:"Akkusativ",q:"wen / was?",f:"nur Maskulinum: der → den",u:"Objekt; für, durch, gegen, ohne.",s:"sehen, haben, kaufen · für, ohne",a:"die, das, die bleiben gleich."},
+{n:"Dativ",q:"wem?",f:"dem / der / dem / den",u:"Indirektes Objekt; mit, bei, nach, von.",s:"helfen, danken, gehören · mit, bei",a:"Das Nomen im Plural bekommt -n: den Kindern."},
+{n:"Genitiv",q:"wessen?",f:"des / der / des / der",u:"Besitz; wegen, trotz, während.",s:"wegen, trotz, während · Besitz",a:"Maskulinum / Neutrum: Nomen bekommt -(e)s."}];
 const SVK=[
 [['Der Mann '+'schläft.','Ich sehe, dass der Mann schläft.'],['Ich sehe den Mann.','Ich weiß, dass sie den Mann kennt.'],['Ich helfe dem Mann.','Ich glaube, dass sie dem Mann hilft.'],['Das ist das Auto des Mannes.','Sie fragt, wo das Auto des Mannes steht.']],
 [['Die Frau schläft.','Ich sehe, dass die Frau schläft.'],['Ich sehe die Frau.','Ich weiß, dass er die Frau kennt.'],['Ich helfe der Frau.','Ich glaube, dass er der Frau hilft.'],['Das ist das Auto der Frau.','Sie fragt, wo das Auto der Frau steht.']],
@@ -3473,29 +3473,29 @@ const NN={
  haus:{g:1,s:"Haus",p:"Häuser",d:"Häusern"},stadt:{g:2,s:"Stadt",p:"Städte",d:"Städten"},garten:{g:0,s:"Garten",p:"Gärten",d:"Gärten"},schule:{g:2,s:"Schule",p:"Schulen",d:"Schulen"},
  tisch:{g:0,s:"Tisch",p:"Tische",d:"Tischen"},stuhl:{g:0,s:"Stuhl",p:"Stühle",d:"Stühlen"},bett:{g:1,s:"Bett",p:"Betten",d:"Betten"},bank:{g:2,s:"Bank",p:"Bänke",d:"Bänken"}};
 const PERS=["mann","lehrer","frau","freundin","kind","mädchen"],THING=["apfel","hund","tasche","katze","buch","auto"],PORT=["apfel","tasche","buch"],GIFT=["apfel","tasche","buch","auto"],LOC=["haus","stadt","garten","schule"],SURF=["tisch","stuhl","bett","bank"],ALL=PERS.concat(THING);
-const who={c:0,p:PERS,w:"the one who does it"};
+const who={c:0,p:PERS,w:"wer etwas tut"};
 const VB=[
- {n:"sehen",gr:"Akkusativ",f:["sieht","sehen"],sl:[who,{c:1,p:ALL,w:"sehen takes Akkusativ"}],tip:"sehen, kaufen, finden: what is seen, bought or found is Akkusativ."},
- {n:"kaufen",gr:"Akkusativ",f:["kauft","kaufen"],sl:[who,{c:1,p:THING,w:"kaufen takes Akkusativ"}],tip:"What gets bought is always Akkusativ."},
- {n:"finden",gr:"Akkusativ",f:["findet","finden"],sl:[who,{c:1,p:ALL,w:"finden takes Akkusativ"}],tip:"Akkusativ: the thing or person that is found."},
- {n:"helfen",gr:"Dativ",f:["hilft","helfen"],sl:[who,{c:2,p:PERS,w:"helfen always takes Dativ"}],tip:"Dativ verbs to learn as a group: helfen, danken, antworten, gehören, gefallen."},
- {n:"danken",gr:"Dativ",f:["dankt","danken"],sl:[who,{c:2,p:PERS,w:"danken always takes Dativ"}],tip:"You thank someone: Dativ, never Akkusativ."},
- {n:"antworten",gr:"Dativ",f:["antwortet","antworten"],sl:[who,{c:2,p:PERS,w:"antworten takes Dativ"}],tip:"You answer someone: Dativ."},
- {n:"gehören",gr:"Dativ",f:["gehört","gehören"],sl:[{c:0,p:THING,w:"the thing that belongs"},{c:2,p:PERS,w:"gehören takes Dativ"}],tip:"Belonging to someone: the owner is Dativ."},
- {n:"gefallen",gr:"Dativ",f:["gefällt","gefallen"],sl:[{c:0,p:THING,w:"the thing that pleases"},{c:2,p:PERS,w:"gefallen takes Dativ"}],tip:"The thing is the subject, the person who likes it is Dativ."},
- {n:"geben",gr:"Dativ + Akkusativ",f:["gibt","geben"],sl:[who,{c:2,p:PERS,w:"the one who receives → Dativ"},{c:1,p:GIFT,w:"the thing given → Akkusativ"}],tip:"Two objects: person = Dativ, thing = Akkusativ. The person comes first."},
- {n:"zeigen",gr:"Dativ + Akkusativ",f:["zeigt","zeigen"],sl:[who,{c:2,p:PERS,w:"the one who is shown → Dativ"},{c:1,p:GIFT,w:"the thing shown → Akkusativ"}],tip:"Same pattern as geben."},
- {n:"schenken",gr:"Dativ + Akkusativ",f:["schenkt","schenken"],sl:[who,{c:2,p:PERS,w:"the one who gets the gift → Dativ"},{c:1,p:GIFT,w:"the gift → Akkusativ"}],tip:"Same pattern as geben."},
- {n:"legen",gr:"Wechsel: Wohin? (Akk)",f:["legt","legen"],sl:[who,{c:1,p:PORT,w:"the thing that is laid down → Akkusativ"},{c:1,p:SURF,pre:"auf",w:"auf + movement (Wohin?) → Akkusativ"}],tip:"legen = put down flat: Wohin? So Akkusativ."},
- {n:"stellen",gr:"Wechsel: Wohin? (Akk)",f:["stellt","stellen"],sl:[who,{c:1,p:PORT,w:"the thing that is put upright → Akkusativ"},{c:1,p:SURF,pre:"auf",w:"auf + movement (Wohin?) → Akkusativ"}],tip:"stellen = put upright: Wohin? So Akkusativ."},
- {n:"liegen",gr:"Wechsel: Wo? (Dat)",f:["liegt","liegen"],sl:[{c:0,p:PORT,w:"the thing that lies"},{c:2,p:SURF,pre:"auf",w:"auf + place (Wo?) → Dativ"}],tip:"liegen = lies there: Wo? So Dativ. Compare legen."},
- {n:"stehen",gr:"Wechsel: Wo? (Dat)",f:["steht","stehen"],sl:[{c:0,p:PORT,w:"the thing that stands"},{c:2,p:SURF,pre:"auf",w:"auf + place (Wo?) → Dativ"}],tip:"stehen = stands there: Wo? So Dativ. Compare stellen."},
- {n:"wohnen",gr:"Ort und Richtung",f:["wohnt","wohnen"],sl:[who,{c:2,p:LOC,pre:"in",w:"in + place (Wo?) → Dativ"}],tip:"No movement, just being somewhere: Dativ."},
- {n:"gehen",gr:"Ort und Richtung",f:["geht","gehen"],sl:[who,{c:1,p:LOC,pre:"in",w:"in + movement (Wohin?) → Akkusativ"}],tip:"Movement towards a place: Akkusativ."},
- {n:"warten",gr:"Feste Präposition",f:["wartet","warten"],sl:[who,{c:1,p:PERS,pre:"auf",w:"warten auf + Akkusativ"}],tip:"warten auf is a fixed pair, always with Akkusativ."},
- {n:"denken",gr:"Feste Präposition",f:["denkt","denken"],sl:[who,{c:1,p:PERS,pre:"an",w:"denken an + Akkusativ"}],tip:"denken an is a fixed pair, always with Akkusativ."},
- {n:"sprechen",gr:"Feste Präposition",f:["spricht","sprechen"],sl:[who,{c:2,p:PERS,pre:"mit",w:"mit always takes Dativ"}],tip:"mit is always Dativ, whatever the verb."},
- {n:"sein",gr:"Nominativ",f:["ist","sind"],sl:[who,{c:0,p:PERS,w:"after sein → Nominativ (not Akkusativ!)"}],tip:"sein, werden, bleiben: the same case before and after the verb."}];
+ {n:"sehen",gr:"Akkusativ",f:["sieht","sehen"],sl:[who,{c:1,p:ALL,w:"sehen verlangt den Akkusativ"}],tip:"sehen, kaufen, finden: Was man sieht, kauft oder findet, steht im Akkusativ."},
+ {n:"kaufen",gr:"Akkusativ",f:["kauft","kaufen"],sl:[who,{c:1,p:THING,w:"kaufen verlangt den Akkusativ"}],tip:"Was man kauft, steht immer im Akkusativ."},
+ {n:"finden",gr:"Akkusativ",f:["findet","finden"],sl:[who,{c:1,p:ALL,w:"finden verlangt den Akkusativ"}],tip:"Akkusativ: die Sache oder Person, die man findet."},
+ {n:"helfen",gr:"Dativ",f:["hilft","helfen"],sl:[who,{c:2,p:PERS,w:"helfen verlangt immer den Dativ"}],tip:"Diese Dativ-Verben lernt man als Gruppe: helfen, danken, antworten, gehören, gefallen."},
+ {n:"danken",gr:"Dativ",f:["dankt","danken"],sl:[who,{c:2,p:PERS,w:"danken verlangt immer den Dativ"}],tip:"Man dankt jemandem: Dativ, nie Akkusativ."},
+ {n:"antworten",gr:"Dativ",f:["antwortet","antworten"],sl:[who,{c:2,p:PERS,w:"antworten verlangt den Dativ"}],tip:"Man antwortet jemandem: Dativ."},
+ {n:"gehören",gr:"Dativ",f:["gehört","gehören"],sl:[{c:0,p:THING,w:"was jemandem gehört"},{c:2,p:PERS,w:"gehören verlangt den Dativ"}],tip:"Etwas gehört jemandem: Der Besitzer steht im Dativ."},
+ {n:"gefallen",gr:"Dativ",f:["gefällt","gefallen"],sl:[{c:0,p:THING,w:"was gefällt"},{c:2,p:PERS,w:"gefallen verlangt den Dativ"}],tip:"Die Sache ist das Subjekt, die Person, der sie gefällt, steht im Dativ."},
+ {n:"geben",gr:"Dativ + Akkusativ",f:["gibt","geben"],sl:[who,{c:2,p:PERS,w:"wer etwas bekommt → Dativ"},{c:1,p:GIFT,w:"was man gibt → Akkusativ"}],tip:"Zwei Objekte: Person = Dativ, Sache = Akkusativ. Die Person steht zuerst."},
+ {n:"zeigen",gr:"Dativ + Akkusativ",f:["zeigt","zeigen"],sl:[who,{c:2,p:PERS,w:"wem man etwas zeigt → Dativ"},{c:1,p:GIFT,w:"was man zeigt → Akkusativ"}],tip:"Gleiches Muster wie bei geben."},
+ {n:"schenken",gr:"Dativ + Akkusativ",f:["schenkt","schenken"],sl:[who,{c:2,p:PERS,w:"the one who gets the gift → Dativ"},{c:1,p:GIFT,w:"the gift → Akkusativ"}],tip:"Gleiches Muster wie bei geben."},
+ {n:"legen",gr:"Wechsel: Wohin? (Akk)",f:["legt","legen"],sl:[who,{c:1,p:PORT,w:"the thing that is laid down → Akkusativ"},{c:1,p:SURF,pre:"auf",w:"auf + Bewegung (Wohin?) → Akkusativ"}],tip:"legen = put down flat: Wohin? So Akkusativ."},
+ {n:"stellen",gr:"Wechsel: Wohin? (Akk)",f:["stellt","stellen"],sl:[who,{c:1,p:PORT,w:"was man hinstellt → Akkusativ"},{c:1,p:SURF,pre:"auf",w:"auf + Bewegung (Wohin?) → Akkusativ"}],tip:"stellen = irgendwohin stellen: Wohin? Also Akkusativ."},
+ {n:"liegen",gr:"Wechsel: Wo? (Dat)",f:["liegt","liegen"],sl:[{c:0,p:PORT,w:"was liegt"},{c:2,p:SURF,pre:"auf",w:"auf + Ort (Wo?) → Dativ"}],tip:"liegen = irgendwo liegen: Wo? Also Dativ. Vergleiche legen."},
+ {n:"stehen",gr:"Wechsel: Wo? (Dat)",f:["steht","stehen"],sl:[{c:0,p:PORT,w:"was steht"},{c:2,p:SURF,pre:"auf",w:"auf + Ort (Wo?) → Dativ"}],tip:"stehen = irgendwo stehen: Wo? Also Dativ. Vergleiche stellen."},
+ {n:"wohnen",gr:"Ort und Richtung",f:["wohnt","wohnen"],sl:[who,{c:2,p:LOC,pre:"in",w:"in + Ort (Wo?) → Dativ"}],tip:"Keine Bewegung, man ist nur irgendwo: Dativ."},
+ {n:"gehen",gr:"Ort und Richtung",f:["geht","gehen"],sl:[who,{c:1,p:LOC,pre:"in",w:"in + Bewegung (Wohin?) → Akkusativ"}],tip:"Bewegung zu einem Ort: Akkusativ."},
+ {n:"warten",gr:"Feste Präposition",f:["wartet","warten"],sl:[who,{c:1,p:PERS,pre:"auf",w:"warten auf + Akkusativ"}],tip:"warten auf ist ein festes Paar, immer mit Akkusativ."},
+ {n:"denken",gr:"Feste Präposition",f:["denkt","denken"],sl:[who,{c:1,p:PERS,pre:"an",w:"denken an + Akkusativ"}],tip:"denken an ist ein festes Paar, immer mit Akkusativ."},
+ {n:"sprechen",gr:"Feste Präposition",f:["spricht","sprechen"],sl:[who,{c:2,p:PERS,pre:"mit",w:"mit verlangt immer den Dativ"}],tip:"mit steht immer mit Dativ, egal welches Verb."},
+ {n:"sein",gr:"Nominativ",f:["ist","sind"],sl:[who,{c:0,p:PERS,w:"nach sein → Nominativ (nicht Akkusativ!)"}],tip:"sein, werden, bleiben: derselbe Fall vor und nach dem Verb."}];
 function phrase(sl,k){
  const n=NN[sl.p[k.i]],g=k.pl?3:n.g,w=k.pl?(sl.c==2?n.d:n.p):n.s,a=ART[sl.c][g];
  if(sl.pre=="in"){
@@ -3567,7 +3567,7 @@ function fH(){
  const c=SV.cur.k;
  h+=table(c,st.g);
  h+=b.rows.map(r=>'<div role="button" tabindex="0" class="snr" data-a="np:'+r.c+':'+r.g+'"><div><span class="svb snch" style="background:'+CC()[r.c]+'">'+CN[r.c]+'</span> <b>'+r.t+'</b> <span class="snq">· '+QW[r.c]+'</span></div><div class="snw">'+esc(r.w)+'</div></div>').join("");
- return h+'<p class="svh">Every sentence is built from checked rules, so it is always correct.</p>';}
+ return h+'<p class="svh">Jeder Satz wird aus geprüften Regeln gebaut, deshalb ist er immer richtig.</p>';}
 function step(d){
  if(SV.tab==="t")SV.cur.t=Math.max(0,Math.min(5,SV.cur.t+d));else SV.cur.k=Math.max(0,Math.min(3,SV.cur.k+d));
  newOpts();render();}
@@ -3610,19 +3610,19 @@ const PNEW=(function(){
 const U=SNEW.U,ART=U.ART,CC=U.CC,CAP=U.CAP,G=U.G,mix=U.mix;
 const GN=["M","N","F","PL"];
 const PG=[
- {n:"Akkusativ",c:1,fill:"#f0be83",m:"für, durch, gegen, ohne, um, bis: always Akkusativ. Only the masculine changes.",p:[
+ {n:"Akkusativ",c:1,fill:"#f0be83",m:"für, durch, gegen, ohne, um, bis: immer Akkusativ. Nur das Maskulinum ändert sich.",p:[
   {w:"für",f:["Das Geschenk ist [für] [NP]."],n:["Lehrer","Kind","Freundin","Kinder"]},
   {w:"durch",f:["Wir gehen [durch] [NP]."],n:["Park","Dorf","Stadt","Straßen"]},
   {w:"ohne",f:["Er geht [ohne] [NP] aus dem Haus."],n:["Hund","Kind","Tasche","Schlüssel"]}]},
- {n:"Dativ",c:2,fill:"#c3ccfc",m:"aus, bei, mit, nach, seit, von, zu: always Dativ. The plural noun gets -n.",p:[
+ {n:"Dativ",c:2,fill:"#c3ccfc",m:"aus, bei, mit, nach, seit, von, zu: immer Dativ. Das Nomen im Plural bekommt -n.",p:[
   {w:"mit",f:["Ich fahre [mit] [NP]."],n:["Bus","Auto","Bahn","Freunde"]},
   {w:"bei",f:["Ich bin [bei] [NP]."],n:["Arzt","Kind","Tante","Eltern"]},
   {w:"zu",f:["Wir gehen [zu] [NP]."],n:["Arzt","Haus","Schule","Freunde"]}]},
- {n:"Wechsel",c:-1,fill:"linear-gradient(90deg,#f0be83 50%,#c3ccfc 50%)",m:"Wo? → Dativ · Wohin? → Akkusativ. Nine prepositions: an, auf, in, …",p:[
+ {n:"Wechsel",c:-1,fill:"linear-gradient(90deg,#f0be83 50%,#c3ccfc 50%)",m:"Wo? → Dativ · Wohin? → Akkusativ. Neun Präpositionen: an, auf, in, …",p:[
   {w:"in",f:["Er ist [in] [NP].","Er geht [in] [NP]."],n:["Garten","Haus","Stadt","Räume"]},
   {w:"auf",f:["Das Buch liegt [auf] [NP].","Ich lege das Buch [auf] [NP]."],n:["Tisch","Sofa","Bank","Stühle"]},
   {w:"an",f:["Das Bild hängt [an] [NP].","Ich hänge das Bild [an] [NP]."],n:["Schrank","Fenster","Wand","Wände"]}]},
- {n:"Genitiv",c:3,fill:"#c4a6ee",m:"wegen, trotz, während: formal and written. A masc. / neut. noun takes -(e)s.",p:[
+ {n:"Genitiv",c:3,fill:"#c4a6ee",m:"wegen, trotz, während: formell und schriftlich. Maskulinum / Neutrum: Nomen bekommt -(e)s.",p:[
   {w:"wegen",f:["[Wegen] [NP] bleiben wir zu Hause."],n:["Regens","Wetters","Krankheit","Kinder"]},
   {w:"trotz",f:["[Trotz] [NP] gehen wir spazieren."],n:["Lärms","Wetters","Kälte","Probleme"]},
   {w:"während",f:["[Während] [NP] schläft er ein."],n:["Films","Spiels","Sitzung","Ferien"]}]}];
@@ -3671,22 +3671,22 @@ const SVA=[
 [["kein","kein","keine","keine"],["keinen","kein","keine","keine"],["keinem","keinem","keiner","keinen"],["keines","keines","keiner","keiner"]]];
 const SVAN=["der","ein","kein · mein"];
 const SVAI=[
-[["Merke","Only masculine changes: der → den"],["Trick","Plural = feminine, except DAT: den"],["Achtung","der = NOM m · DAT f · GEN f + pl"]],
-[["Merke","Endings: -en, -em, -er, -es"],["Trick","Neuter NOM = AKK: ein Kind"],["Achtung","No plural: say keine / no article"]],
-[["Merke","kein, mein, dein: same as ein"],["Trick","Plural too: keine, meine, deine"],["Achtung","DAT plural: keinen Kindern (+n)"]]];
+[["Merke","Nur das Maskulinum ändert sich: der → den"],["Trick","Plural = wie Femininum, außer im Dativ: den"],["Achtung","der = NOM m · DAT f · GEN f + Pl."]],
+[["Merke","Endungen: -en, -em, -er, -es"],["Trick","Neutrum: NOM = AKK: ein Kind"],["Achtung","Kein Plural: man sagt keine / ohne Artikel"]],
+[["Merke","kein, mein, dein: wie ein"],["Trick","Auch im Plural: keine, meine, deine"],["Achtung","Dativ Plural: keinen Kindern (+n)"]]];
 const SVQ={
 A:{n:"Akkusativ",c:"#f0be83",l:["bis","durch","für","gegen","ohne","um"],
  s:{bis:["Ich bleibe {bis} [nächsten Montag]."],durch:["Wir gehen {durch} [den Park]."],"für":["Ich kaufe Blumen {für} [meine Mutter]."],gegen:["Er läuft {gegen} [die Wand]."],ohne:["Sie geht {ohne} [ihren Hund]."],um:["Wir sitzen {um} [den Tisch]."]},
- i:[["Merke","Only masculine changes: den"],["Trick","FUDGEBO: für um durch gegen bis ohne"],["Achtung","entlang follows: den Fluss entlang"]]},
+ i:[["Merke","Nur das Maskulinum ändert sich: den"],["Trick","FUDGEBO: für um durch gegen bis ohne"],["Achtung","entlang steht nach dem Nomen: den Fluss entlang"]]},
 D:{n:"Dativ",c:"#c3ccfc",l:["ab","aus","außer","bei","gegenüber","mit","nach","seit","von","zu"],
  s:{ab:["{Ab} [dem ersten Mai] ist geschlossen."],aus:["Er kommt {aus} [dem Haus]."],"außer":["Alle kommen {außer} [dem Chef]."],bei:["Ich wohne {bei} [meiner Tante]."],"gegenüber":["Das Café liegt {gegenüber} [dem Bahnhof]."],mit:["Ich fahre {mit} [dem Bus]."],nach:["{Nach} [der Arbeit] gehe ich heim."],seit:["Ich lerne {seit} [einem Jahr] Deutsch."],von:["Das Buch ist {von} [der Lehrerin]."],zu:["Wir fahren {zu} [meinen Eltern]."]},
- i:[["Merke","aus bei mit nach seit von zu = DAT"],["Trick","Plural noun gets -n: mit den Kindern"],["Achtung","zu + dem = zum · bei + dem = beim"]]},
+ i:[["Merke","aus bei mit nach seit von zu = DAT"],["Trick","Das Nomen im Plural bekommt -n: mit den Kindern"],["Achtung","zu + dem = zum · bei + dem = beim"]]},
 W:{n:"Wechsel",c:"linear-gradient(90deg,#f0be83 50%,#c3ccfc 50%)",l:["an","auf","hinter","in","neben","über","unter","vor","zwischen"],
  s:{an:["Das Bild hängt {an} [der Wand].","Ich hänge das Bild {an} [die Wand]."],auf:["Das Buch liegt {auf} [dem Tisch].","Ich lege das Buch {auf} [den Tisch]."],hinter:["Das Auto steht {hinter} [dem Haus].","Ich fahre das Auto {hinter} [das Haus]."],in:["Ich bin {in} [der Küche].","Ich gehe {in} [die Küche]."],neben:["Die Lampe steht {neben} [dem Sofa].","Ich stelle die Lampe {neben} [das Sofa]."],"über":["Die Lampe hängt {über} [dem Tisch].","Ich hänge die Lampe {über} [den Tisch]."],unter:["Die Katze liegt {unter} [dem Bett].","Die Katze kriecht {unter} [das Bett]."],vor:["Der Wagen steht {vor} [der Tür].","Ich stelle den Wagen {vor} [die Tür]."],zwischen:["Der Stuhl steht {zwischen} [den Fenstern].","Ich stelle den Stuhl {zwischen} [die Fenster]."]},
  i:[["Merke","Wo? → DAT · Wohin? → AKK"],["Trick","stehen, liegen, sitzen → Wo?"],["Achtung","stellen, legen, setzen → Wohin?"]]},
 G:{n:"Genitiv",c:"#c4a6ee",l:["anstatt","außerhalb","diesseits","innerhalb","jenseits","oberhalb","trotz","unterhalb","während","wegen"],
  s:{anstatt:["{Anstatt} [des Autos] nehme ich das Rad."],"außerhalb":["Er wohnt {außerhalb} [der Stadt]."],diesseits:["{Diesseits} [des Flusses] liegt das Dorf."],innerhalb:["{Innerhalb} [einer Woche] ist es fertig."],jenseits:["{Jenseits} [der Grenze] beginnt Ungarn."],oberhalb:["{Oberhalb} [des Dorfes] steht eine Kirche."],trotz:["{Trotz} [des Regens] gehen wir spazieren."],unterhalb:["{Unterhalb} [der Brücke] liegt ein Café."],"während":["{Während} [des Films] schläft er ein."],wegen:["{Wegen} [des Wetters] bleiben wir zu Hause."]},
- i:[["Merke","Formal and written: needs the Genitiv"],["Trick","Speech: wegen dem Wetter (DAT)"],["Achtung","masc. / neut. noun takes -(e)s"]]}};
+ i:[["Merke","Formell und schriftlich: verlangt den Genitiv"],["Trick","Gesprochen: wegen dem Wetter (DAT)"],["Achtung","masc. / neut. noun takes -(e)s"]]}};
 
 /* Wechsel-Roller: pro Präposition Rahmensatz (Wo?/Wohin?) und vier Nomen m / f / n / Plural */
 const SVWN={
