@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-22d"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-22e"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -5700,3 +5700,13 @@ sc.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest
  if(n>0&&b.classList.contains("sel")&&i===n-1){e.stopPropagation();flip(function(){sc.setAttribute("data-n","0")},-1);return;}
  if(n!==i+1){flip(function(){sc.setAttribute("data-n",String(i+1))},i);}
 },true);})();</script>
+<script id="stn-rot-js">/* Staunen title page: a different quote each time the page is opened, cycling through all of them (stride walk, so every quote comes once before any repeats) */
+(function(){try{if(typeof DMODE==="undefined"||DMODE!=="s")return;var T=document.getElementById("stnT");if(!T||typeof QUOTES==="undefined")return;
+var L=QUOTES.filter(function(x){return x&&!x.sec&&x.q;}),n=L.length;if(n<2)return;
+var st=[7,5,3,11,13,17,19,23],k=3;for(var a=0;a<st.length;a++){var g=st[a],b=n;while(b){var t=g%b;g=b;b=t;}if(g===1){k=st[a];break;}}
+var c=0;try{c=parseInt(localStorage.getItem("stnQ")||"-1",10);if(isNaN(c))c=-1;}catch(e){c=-1;}
+c=c+1;try{localStorage.setItem("stnQ",String(c));}catch(e){}
+var x=L[(c*k)%n],E=function(t){return String(t==null?"":t).replace(/[&<>"]/g,function(m){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m];});};
+T.innerHTML='<a class="stq" href="'+E(x.u)+'" target="_blank" rel="noopener"><span class="pic" aria-hidden="true"><i>'+E(x.pic)+'</i>'+(x.w?'<img alt="" data-w="'+E(x.w.join("|"))+'">':'')+'</span><q>'+E(x.q)+'</q><b>'+E(x.who)+'</b><small>'+E(x.when)+' \u00b7 Wikipedia \u2197</small></a>';
+try{loadPics(T)}catch(e){}}catch(e){}})();
+</script>
