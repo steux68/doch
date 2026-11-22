@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-22f"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-22g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -5678,7 +5678,7 @@ html[data-dmode="s"] #hscroll[data-n="3"]>.hb[data-i="1"]{order:1}
 html[data-dmode="s"] #hscroll[data-n="3"]>.hb[data-i="2"]{order:2}
 html[data-dmode="s"] #hscroll>.hb[data-i="3"]{order:20;margin-top:12px!important}
 @keyframes stnFade{from{opacity:0}to{opacity:1}}
-html[data-dmode="s"] #hscroll[data-n="0"]>#stnT{overflow-y:auto}
+html[data-dmode="s"] #hscroll[data-n="0"]>#stnT{overflow-y:auto;overflow-x:hidden;scrollbar-width:none}#stnT::-webkit-scrollbar{display:none}
 #stnT .stq{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:16px 22px;color:inherit;text-decoration:none}
 #stnT .pic{width:132px;height:132px;flex:none;margin-bottom:6px;display:grid;place-items:center;font-size:18px;font-weight:700;position:relative;background:var(--pale);overflow:hidden}
 #stnT .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;opacity:0;filter:grayscale(1)}#stnT .pic.has img{opacity:1}#stnT .pic.has i{visibility:hidden}#stnT .pic i{font-style:normal}
