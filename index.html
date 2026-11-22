@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-22g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-22h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3373,6 +3373,12 @@ function svGridHTML(row,col){const R=["Nom","Akk","Dat","Gen"],C=["M","N","F","P
   return '<div class="sgw"><div></div><div class="sgh">'+C.map((c,i)=>'<span class="'+(i+1===col?"on":"")+'">'+c+'</span>').join('')+'</div>'
    +'<div class="sgr">'+R.map((r,i)=>'<span class="'+(i+1===row?"on":"")+'" style="background:'+(i+1===row?F[i]:"#fff")+'">'+r+'</span>').join('')+'</div>'
    +'<div class="sgt">'+SGT.map((t,i)=>{const g=t[6]||("i"+i),on=SGT.some((u,j)=>(u[6]||("i"+j))===g&&row>=u[1]&&row<=u[2]&&col>=u[3]&&col<=u[4]);return '<div class="'+(on?"hit":"")+(t[5]?" "+t[5]:"")+(t[6]?" "+t[6]:"")+'" style="grid-row:'+t[1]+'/'+(t[2]+1)+';grid-column:'+t[3]+'/'+(t[4]+1)+'">'+t[0]+'</div>';}).join('')+'</div></div>';}
+function sehLine(){const sv=document.getElementById("sv"),pa=document.getElementById("svpath");if(!sv||!pa)return;
+  const on=sv.querySelector(".svk.on"),w=sv.querySelector(".sns .g");if(!on||!w){pa.setAttribute("d","");return;}
+  const W=sv.getBoundingClientRect(),c=on.getBoundingClientRect(),r=w.getBoundingClientRect();
+  const x1=c.left+c.width/2-W.left,y1=c.bottom-W.top+2,x2=r.left+r.width/2-W.left,y2=r.top-W.top-3,ym=y1+Math.min(14,(y2-y1)/2);
+  pa.setAttribute("d","M"+x1+" "+y1+" V"+ym+" H"+x2+" V"+y2);}
+addEventListener("resize",()=>{try{sehLine()}catch(e){}});
 function svGlue(){const sv=document.getElementById("sv");if(!sv)return;const S=sv.getBoundingClientRect(),cs=[...sv.querySelectorAll(".fr")];
   const R=cs.map(c=>c.getBoundingClientRect()),ov=(a,b,c,d)=>Math.min(b,d)-Math.max(a,c)>1;
   cs.forEach((c,i)=>{const r=R[i];let up=false,lf=false;R.forEach((q,j)=>{if(i===j)return;if(Math.abs(q.bottom-r.top)<1.6&&ov(q.left,q.right,r.left,r.right))up=true;if(Math.abs(q.right-r.left)<1.6&&ov(q.top,q.bottom,r.top,r.bottom))lf=true;});
@@ -3536,11 +3542,10 @@ function table(c,g){
 function zH(){
  const t=SV.cur.t,hide=st.rat&&st.ans==null,s=zSent(t,st.p,hide),x=SVT[t],f=FILL();
  let h=seg(PR,st.p,"p");
- h+='<div class="svg svbd" style="--n:6">'+SVCFG.t.bands.map(b=>'<span class="svb" style="grid-column:span '+b[1]+';background:'+b[2]+'">'+b[0]+'</span>').join("")+'</div>';
- h+='<div class="svg" style="--n:6">'+SVCFG.t.chips.map((c,i)=>'<span role="button" tabindex="0" class="svb svk fr'+(t==i?' on':'')+'" data-a="t:'+i+'"'+(t==i?' style="background:'+f[i]+'"':'')+'>'+c+'</span>').join("")+'</div>';
- h+='<div style="height:6px"></div>';
  h+=seg(["kurz","+ Nebensatz","Frage"],st.zl,"zl");
  h+=seg(["lernen (haben)","gehen (sein)"],st.v,"v");
+ h+='<div class="svg svbd" style="--n:6">'+SVCFG.t.bands.map(b=>'<span class="svb" style="grid-column:span '+b[1]+';background:'+b[2]+'">'+b[0]+'</span>').join("")+'</div>';
+ h+='<div class="svg" style="--n:6">'+SVCFG.t.chips.map((c,i)=>'<span role="button" tabindex="0" class="svb svk fr'+(t==i?' on':'')+'" data-a="t:'+i+'"'+(t==i?' style="background:'+f[i]+'"':'')+'>'+c+'</span>').join("")+'</div>';
  h+=hero(s,0,t>0,t<5)+optsH(plain(form(VZ[st.v],t,st.p)));
  h+='<div class="svb svti" style="background:'+f[t]+'">'+esc(x.n)+'</div>'+acc(x)+foot();
  return h;}
@@ -3568,9 +3573,9 @@ function step(d){
  newOpts();render();}
 function render(){
  const th=$("theo");
- const top='<div class="svg" style="--n:2"><span role="button" tabindex="0" class="svb svo fr'+(SV.tab==="t"?' on':'')+'" data-tab="t">Zeiten</span><span role="button" tabindex="0" class="svb svo fr'+(SV.tab==="k"?' on':'')+'" data-tab="k">Fälle</span></div>';
- th.innerHTML='<div class="sv sn" id="sv">'+top+(SV.tab==="t"?'<div style="height:6px"></div>'+zH():fH())+'</div>';
- const root=$("sv");svGlue();requestAnimationFrame(svGlue);
+ const top='<div class="svg svtg" style="--n:2"><span role="button" tabindex="0" class="svb svo fr'+(SV.tab==="t"?' on':'')+'" data-tab="t">Zeiten</span><span role="button" tabindex="0" class="svb svo fr'+(SV.tab==="k"?' on':'')+'" data-tab="k">Fälle</span></div>';
+ th.innerHTML='<div class="sv sn" id="sv">'+top+(SV.tab==="t"?'<div style="height:6px"></div>'+zH()+'<svg class="svln" aria-hidden="true"><path id="svpath" fill="none" stroke="#b8b8b8" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="0.5 2.5"/></svg>':fH())+'</div>';
+ const root=$("sv");svGlue();requestAnimationFrame(svGlue);sehLine();requestAnimationFrame(sehLine);setTimeout(sehLine,250);
  let x0=null;
  root.addEventListener("click",e=>{const b=e.target.closest("[role=button]");if(!b||!root.contains(b))return;
   if(b.dataset.tab){SV.tab=b.dataset.tab;SV.kp="s";st.rat=false;newOpts();render();return;}
@@ -3727,7 +3732,7 @@ function svRollH(){const R=SV.rl,q=SVQ[R.g];
   h+='<div class="svg" id="svc" style="--n:5;margin-top:8px">'+q.l.map((w,i)=>'<span role="button" tabindex="0" class="svb svk fr svw" data-i="'+i+'">'+w+'</span>').join('')+'</div>';
   return h+'<div class="svt" id="svt"></div><div class="svi" id="svi"></div>';}
 function renderSehenX(){const th=$("theo"),kp=SV.kp;
-  let h='<div class="sv" id="sv"><div class="svg" style="--n:2"><span role="button" tabindex="0" class="svb svo fr" data-tab="t">Zeiten</span><span role="button" tabindex="0" class="svb svo fr on" data-tab="k">Fälle</span></div>'+svSub()+'<div style="height:6px"></div>';
+  let h='<div class="sv" id="sv"><div class="svg svtg" style="--n:2"><span role="button" tabindex="0" class="svb svo fr" data-tab="t">Zeiten</span><span role="button" tabindex="0" class="svb svo fr on" data-tab="k">Fälle</span></div>'+svSub()+'<div style="height:6px"></div>';
   h+=kp==="a"?svArtH():kp==="p"?svPrepH():svRollH();
   h+='<p class="svh">'+(kp==="a"?"Wort antippen · gleiche Formen leuchten":kp==="p"?"Wort antippen":"wischen · Wort antippen")+'</p></div>';
   th.innerHTML=h;const root=$("sv");svGlue();requestAnimationFrame(svGlue);let pg=()=>false;
@@ -5630,7 +5635,7 @@ a[href^="http"]::after{content:"";position:absolute;left:-6px;right:-6px;top:-9p
 <script id="ux-js">(function(){
 /* ---- Sehen: variant rows behind "mehr" ---- */
 var openMore=false,pend=0;
-function fix(){pend=0;var th=document.getElementById("theo");if(!th)return;var root=th.querySelector("#sv");if(!root||root.querySelector(".xmore"))return;
+function fix(){pend=0;return;var th=document.getElementById("theo");if(!th)return;var root=th.querySelector("#sv");if(!root||root.querySelector(".xmore"))return;
  var rows=[].slice.call(root.children).filter(function(c){return c.classList.contains("svg")});
  var sec=rows.filter(function(r){var t=(r.innerText||"").trim().toUpperCase();return /^KURZ(\s|$)/.test(t)||/^LERNEN \(HABEN\)/.test(t)});
  if(!sec.length)return;
@@ -5710,3 +5715,9 @@ var x=L[(c*k)%n],E=function(t){return String(t==null?"":t).replace(/[&<>"]/g,fun
 T.innerHTML='<a class="stq" href="'+E(x.u)+'" target="_blank" rel="noopener"><span class="pic" aria-hidden="true"><i>'+E(x.pic)+'</i>'+(x.w?'<img alt="" data-w="'+E(x.w.join("|"))+'">':'')+'</span><q>'+E(x.q)+'</q><b>'+E(x.who)+'</b><small>'+E(x.when)+' \u00b7 Wikipedia \u2197</small></a>';
 try{loadPics(T)}catch(e){}}catch(e){}})();
 </script>
+<style id="sehen-ordnung-css">
+#sv:has(>.svtg){margin-top:46px}
+#sv>.svtg{position:absolute;left:0;right:0;top:-38px}
+#sv>.svtg .svb:not(.on){background:rgba(255,255,255,.82)}
+#sv .svln{z-index:2}
+</style>
