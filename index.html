@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-23f"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-23g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3594,7 +3594,7 @@ function selR(id,label,opts,cur,flex){return '<div class="snc1 rich" style="flex
 function zH(){
  const t=SV.cur.t,hide=st.rat&&st.ans==null,s=zSent(t,st.p,hide),x=SVT[t],f=FILL();
  let h='<div class="svg svbd" style="--n:6">'+SVCFG.t.bands.map(b=>'<span class="svb" style="grid-column:span '+b[1]+';background:'+b[2]+'">'+b[0]+'</span>').join("")+'</div>';
- h+='<div class="svg" style="--n:6">'+SVCFG.t.chips.map((c,i)=>'<span role="button" tabindex="0" class="svb svk fr'+(t==i&&!hide?' on':'')+(st.cw===i?' sno bad':'')+'" data-a="t:'+i+'"'+(t==i&&!hide?' style="background:'+f[i]+'"':'')+'>'+(st.cw===i?'✗ ':'')+c+'</span>').join("")+'</div>';
+ h+='<div class="svg" style="--n:6">'+SVCFG.t.chips.map((c,i)=>'<span role="button" tabindex="0" class="svb svk fr'+(t==i?' on':'')+'" data-a="t:'+i+'"'+(t==i?' style="background:'+f[i]+'"':'')+'>'+c+'</span>').join("")+'</div>';
  h+='<div class="snhw" style="--hl:'+SOL(t)+'">'+hero(s,0,t>0,t<5)+'</div>'+optsH(plain(form(VZ[st.v],t,st.p)));
  h+=bildT(t,hide);
  h+='<div class="snctl">'+sel1("snzp","Person",PR,st.p,.7)+sel1("snzv","Verb",VZ.map(v=>v.inf),st.v,1)+selR("snzl","Satz",["Kurz","+ Nebensatz","Frage"],st.zl,2.3)+'</div>';
@@ -3635,7 +3635,7 @@ function render(){
   const a=b.dataset.a;if(!a)return;
   if(a.startsWith("st:"))step(+a.slice(3));
   else if(a.startsWith("p:")){st.p=+a.slice(2);newOpts();render();}
-  else if(a.startsWith("t:")){const i=+a.slice(2);if(st.rat&&st.ans==null){if(i==SV.cur.t)st.ans=plain(form(VZ[st.v],i,st.p));else{st.cw=i;st.ans="~";}render();return;}SV.cur.t=i;newOpts();render();}
+  else if(a.startsWith("t:")){SV.cur.t=+a.slice(2);newOpts();render();}
   else if(a.startsWith("zl:")){st.zl=+a.slice(3);render();}
   else if(a.startsWith("v:")){st.v=+a.slice(2);newOpts();render();}
   else if(a.startsWith("cr:")){if(st.rat&&st.ans==null)return;SV.cur.k=+a.slice(3);newOpts();render();}
