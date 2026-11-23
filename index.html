@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-23g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-23h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3797,7 +3797,7 @@ function svRollH(){const R=SV.rl,q=SVQ[R.g];
   h+='<div class="svg" id="svc" style="--n:5;margin-top:8px">'+q.l.map((w,i)=>'<span role="button" tabindex="0" class="svb svk fr svw" data-i="'+i+'">'+w+'</span>').join('')+'</div>';
   return h+'<div class="svt" id="svt"></div><div class="svi" id="svi"></div>';}
 function renderSehenX(){const th=$("theo"),kp=SV.kp;
-  let h='<div class="sv" id="sv"><div class="svg svtg" style="--n:2"><span role="button" tabindex="0" class="svb svo fr" data-tab="t">Zeiten</span><span role="button" tabindex="0" class="svb svo fr on" data-tab="k">Fälle</span></div>'+svSub()+'<div style="height:6px"></div>';
+  let h='<div class="sv" id="sv"><div class="svg svtg" style="--n:2"><span role="button" tabindex="0" class="svb svo fr" data-tab="t">Zeiten</span><span role="button" tabindex="0" class="svb svo fr on" data-tab="k">Fälle</span></div><div class="sn">'+svSub()+'</div><div style="height:6px"></div>';
   h+=kp==="a"?svArtH():kp==="p"?svPrepH():svRollH();
   h+='<p class="svh">'+(kp==="a"?"Wort antippen · gleiche Formen leuchten":kp==="p"?"Wort antippen":"wischen · Wort antippen")+'</p></div>';
   th.innerHTML=h;const root=$("sv");svGlue();requestAnimationFrame(svGlue);let pg=()=>false;
@@ -5787,6 +5787,7 @@ try{loadPics(T)}catch(e){}}catch(e){}})();
 #sv .svln{z-index:2}
 </style>
 <style id="sehen-neu2-css">/* [sehen-neu2] */
+#gbar{display:none!important}
 .sn .svbd{margin-top:0}
 .sn .snhw{position:relative}
 .sn .snhw .g,.sn .snhw .y{background:var(--hl,#c8f23c);color:#1a1a1a;font-weight:700;padding:0 3px;margin:0 -1px}
