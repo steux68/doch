@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-23j"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-23k"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3626,7 +3626,7 @@ function fH(){
  VB.forEach((y,i)=>{let q=gr.find(z=>z.n==y.gr);if(!q){q={n:y.gr,it:[]};gr.push(q);}q.it.push([y.n,i]);});
  h+='<div class="snb snsel"><select id="snv" aria-label="Verb">'+gr.map(q=>'<optgroup label="'+q.n+'">'+q.it.map(y=>'<option value="'+y[1]+'"'+(y[1]==st.vb?' selected':'')+'>'+y[0]+'</option>').join("")+'</optgroup>').join("")+'</select></div>';
  v.sl.forEach((sl,i)=>{h+='<div class="snrow"><span class="svb snch" style="background:'+CC()[sl.c]+'">'+(sl.pre?sl.pre+' ':'')+CN[sl.c]+'</span><div class="snb snsel"><select data-sel="'+i+'" aria-label="'+CN[sl.c]+'">'+sl.p.map((k,j)=>'<option value="'+j+'"'+(st.pk[i].i==j?' selected':'')+'>'+nomLabel(k)+'</option>').join("")+'</select></div><span role="button" tabindex="0" class="snb snpl'+(st.pk[i].pl?' on':'')+'" data-a="pl:'+i+'">Pl</span></div>';});
- h+='<div class="sncard">'+b.html+'</div><div class="snm"><span class="snl2">Merke</span> '+esc(v.tip)+'</div>';
+ h+='<div class="sncard">'+b.html+'</div><div class="snm"><span class="snl2">Gebrauch</span> '+esc(v.tip)+'</div>';
  const c=SV.cur.k;
  h+=table(c,st.g);
  h+=b.rows.map(r=>'<div role="button" tabindex="0" class="snr" data-a="np:'+r.c+':'+r.g+'"><div><span class="svb snch" style="background:'+CC()[r.c]+'">'+CN[r.c]+'</span> <b>'+r.t+'</b> <span class="snq">· '+QW[r.c]+'</span></div><div class="snw">'+esc(r.w)+'</div></div>').join("");
@@ -3716,7 +3716,7 @@ function html(){
  h+='<div class="svg" style="--n:3">'+g.p.map((x,i)=>'<span role="button" tabindex="0" class="svb svk fr'+(P.i==i?' on':'')+'" data-a="i:'+i+'"'+(P.i==i?' style="background:'+g.fill+'"':'')+'>'+x.w+'</span>').join("")+'</div>';
  if(g.c<0)h+='<div class="svg" style="--n:2"><span role="button" tabindex="0" class="svb svo fr'+(!P.wo?' on':'')+'" data-a="w:0"'+(!P.wo?' style="background:#c3ccfc"':'')+'>Wo? · Dativ</span><span role="button" tabindex="0" class="svb svo fr'+(P.wo?' on':'')+'" data-a="w:1"'+(P.wo?' style="background:#f0be83"':'')+'>Wohin? · Akkusativ</span></div>';
  h+=U.hero({main:sent(hide),ns:""},0,true,true)+optsH();
- h+='<div class="snm"><span class="snl2">Merke</span> '+g.m+'</div>';
+ h+='<div class="snm"><span class="snl2">Gebrauch</span> '+g.m+'</div>';
  h+=U.table(c,P.gd);
  h+='<div class="svg" style="--n:3;margin-top:6px"><span role="button" tabindex="0" class="svb svo fr'+(P.rat?' on':'')+'" data-a="rat"'+(P.rat?' style="background:#cdff3e"':'')+'>Raten</span><span class="svb" style="grid-column:span 2;text-transform:none;letter-spacing:0;color:#999">Satz wischen: M · N · F · PL</span></div>';
  return '<div class="sv sn" id="sv">'+h+'</div>';}
@@ -3745,22 +3745,22 @@ const SVA=[
 [["kein","kein","keine","keine"],["keinen","kein","keine","keine"],["keinem","keinem","keiner","keinen"],["keines","keines","keiner","keiner"]]];
 const SVAN=["der","ein","kein · mein"];
 const SVAI=[
-[["Merke","Nur das Maskulinum ändert sich: der → den"],["Trick","Plural = wie Femininum, außer im Dativ: den"],["Achtung","der = NOM m · DAT f · GEN f + Pl."]],
-[["Merke","Endungen: -en, -em, -er, -es"],["Trick","Neutrum: NOM = AKK: ein Kind"],["Achtung","Kein Plural: man sagt keine / ohne Artikel"]],
-[["Merke","kein, mein, dein: wie ein"],["Trick","Auch im Plural: keine, meine, deine"],["Achtung","Dativ Plural: keinen Kindern (+n)"]]];
+[["Gebrauch","Nur das Maskulinum ändert sich: der → den"],["Signale","Plural = wie Femininum, außer im Dativ: den"],["Achtung","der = NOM m · DAT f · GEN f + Pl."]],
+[["Gebrauch","Endungen: -en, -em, -er, -es"],["Signale","Neutrum: NOM = AKK: ein Kind"],["Achtung","Kein Plural: man sagt keine / ohne Artikel"]],
+[["Gebrauch","kein, mein, dein: wie ein"],["Signale","Auch im Plural: keine, meine, deine"],["Achtung","Dativ Plural: keinen Kindern (+n)"]]];
 const SVQ={
 A:{n:"Akkusativ",c:"#f0be83",l:["bis","durch","für","gegen","ohne","um"],
  s:{bis:["Ich bleibe {bis} [nächsten Montag]."],durch:["Wir gehen {durch} [den Park]."],"für":["Ich kaufe Blumen {für} [meine Mutter]."],gegen:["Er läuft {gegen} [die Wand]."],ohne:["Sie geht {ohne} [ihren Hund]."],um:["Wir sitzen {um} [den Tisch]."]},
- i:[["Merke","Nur das Maskulinum ändert sich: den"],["Trick","FUDGEBO: für um durch gegen bis ohne"],["Achtung","entlang steht nach dem Nomen: den Fluss entlang"]]},
+ i:[["Gebrauch","Nur das Maskulinum ändert sich: den"],["Signale","FUDGEBO: für um durch gegen bis ohne"],["Achtung","entlang steht nach dem Nomen: den Fluss entlang"]]},
 D:{n:"Dativ",c:"#c3ccfc",l:["ab","aus","außer","bei","gegenüber","mit","nach","seit","von","zu"],
  s:{ab:["{Ab} [dem ersten Mai] ist geschlossen."],aus:["Er kommt {aus} [dem Haus]."],"außer":["Alle kommen {außer} [dem Chef]."],bei:["Ich wohne {bei} [meiner Tante]."],"gegenüber":["Das Café liegt {gegenüber} [dem Bahnhof]."],mit:["Ich fahre {mit} [dem Bus]."],nach:["{Nach} [der Arbeit] gehe ich heim."],seit:["Ich lerne {seit} [einem Jahr] Deutsch."],von:["Das Buch ist {von} [der Lehrerin]."],zu:["Wir fahren {zu} [meinen Eltern]."]},
- i:[["Merke","aus bei mit nach seit von zu = DAT"],["Trick","Das Nomen im Plural bekommt -n: mit den Kindern"],["Achtung","zu + dem = zum · bei + dem = beim"]]},
+ i:[["Gebrauch","aus bei mit nach seit von zu = DAT"],["Signale","Das Nomen im Plural bekommt -n: mit den Kindern"],["Achtung","zu + dem = zum · bei + dem = beim"]]},
 W:{n:"Wechsel",c:"linear-gradient(90deg,#f0be83 50%,#c3ccfc 50%)",l:["an","auf","hinter","in","neben","über","unter","vor","zwischen"],
  s:{an:["Das Bild hängt {an} [der Wand].","Ich hänge das Bild {an} [die Wand]."],auf:["Das Buch liegt {auf} [dem Tisch].","Ich lege das Buch {auf} [den Tisch]."],hinter:["Das Auto steht {hinter} [dem Haus].","Ich fahre das Auto {hinter} [das Haus]."],in:["Ich bin {in} [der Küche].","Ich gehe {in} [die Küche]."],neben:["Die Lampe steht {neben} [dem Sofa].","Ich stelle die Lampe {neben} [das Sofa]."],"über":["Die Lampe hängt {über} [dem Tisch].","Ich hänge die Lampe {über} [den Tisch]."],unter:["Die Katze liegt {unter} [dem Bett].","Die Katze kriecht {unter} [das Bett]."],vor:["Der Wagen steht {vor} [der Tür].","Ich stelle den Wagen {vor} [die Tür]."],zwischen:["Der Stuhl steht {zwischen} [den Fenstern].","Ich stelle den Stuhl {zwischen} [die Fenster]."]},
- i:[["Merke","Wo? → DAT · Wohin? → AKK"],["Trick","stehen, liegen, sitzen → Wo?"],["Achtung","stellen, legen, setzen → Wohin?"]]},
+ i:[["Gebrauch","Wo? → DAT · Wohin? → AKK"],["Signale","stehen, liegen, sitzen → Wo?"],["Achtung","stellen, legen, setzen → Wohin?"]]},
 G:{n:"Genitiv",c:"#c4a6ee",l:["anstatt","außerhalb","diesseits","innerhalb","jenseits","oberhalb","trotz","unterhalb","während","wegen"],
  s:{anstatt:["{Anstatt} [des Autos] nehme ich das Rad."],"außerhalb":["Er wohnt {außerhalb} [der Stadt]."],diesseits:["{Diesseits} [des Flusses] liegt das Dorf."],innerhalb:["{Innerhalb} [einer Woche] ist es fertig."],jenseits:["{Jenseits} [der Grenze] beginnt Ungarn."],oberhalb:["{Oberhalb} [des Dorfes] steht eine Kirche."],trotz:["{Trotz} [des Regens] gehen wir spazieren."],unterhalb:["{Unterhalb} [der Brücke] liegt ein Café."],"während":["{Während} [des Films] schläft er ein."],wegen:["{Wegen} [des Wetters] bleiben wir zu Hause."]},
- i:[["Merke","Formell und schriftlich: verlangt den Genitiv"],["Trick","Gesprochen: wegen dem Wetter (DAT)"],["Achtung","masc. / neut. noun takes -(e)s"]]}};
+ i:[["Gebrauch","Formell und schriftlich: verlangt den Genitiv"],["Signale","Gesprochen: wegen dem Wetter (DAT)"],["Achtung","masc. / neut. noun takes -(e)s"]]}};
 
 /* Wechsel-Roller: pro Präposition Rahmensatz (Wo?/Wohin?) und vier Nomen m / f / n / Plural */
 const SVWN={
@@ -3809,8 +3809,9 @@ function svRollH(){const R=SV.rl,q=SVQ[R.g];
   return h+'<div class="svt" id="svt"></div><div class="svi" id="svi"></div>';}
 function renderSehenX(){const th=$("theo"),kp=SV.kp;
   let h='<div class="sv" id="sv"><div class="svg svtg" style="--n:2"><span role="button" tabindex="0" class="svb svo fr" data-tab="t">Zeiten</span><span role="button" tabindex="0" class="svb svo fr on" data-tab="k">Fälle</span></div><div class="sn">'+svSub()+'</div><div style="height:6px"></div>';
+  h+='<div class="sn"><div class="snc snant">'+(kp==="a"?"Antippen · gleiche Formen leuchten":kp==="p"?"Antippen":"Wischen · antippen")+'</div></div>';
   h+=kp==="a"?svArtH():kp==="p"?svPrepH():svRollH();
-  h+='<p class="svh">'+(kp==="a"?"Wort antippen · gleiche Formen leuchten":kp==="p"?"Wort antippen":"wischen · Wort antippen")+'</p></div>';
+  h+='</div>';
   th.innerHTML=h;const root=$("sv");svGlue();requestAnimationFrame(svGlue);let pg=()=>false;
   if(kp==="a"){pg=b=>{if(b.dataset.at!==undefined){SV.at=+b.dataset.at;const g=SVA[SV.at];if(!g.some(r=>r.includes(SV.aw)))SV.aw=g[0][0];renderSehenX();return true;}
     if(b.dataset.w){SV.aw=b.dataset.w;root.querySelectorAll(".sat").forEach(x=>x.classList.toggle("on",x.dataset.w===SV.aw));return true;}return false;};}
@@ -5856,6 +5857,7 @@ try{loadPics(T)}catch(e){}}catch(e){}})();
 .sn .snhw .g.bk{background:none!important;border-bottom:1px solid #222;padding:0 22px!important}
 .sn .snctl{background:var(--dfv) left top/1px 100% no-repeat}
 .sn .snant{display:block;padding:6px 8px 0}
+.sv>.sn>.snant{padding:6px 8px 5px}
 .snt{margin:2px 0 6px}
 .sn .snrat.on{background-color:transparent;font-weight:700;color:#111}
 </style>
