@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-23m"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-23n"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3609,8 +3609,12 @@ function zH(){
  h+='<div class="snhw" style="--hl:'+SOL(t)+'">'+hero(s,0,t>0,t<5)+'</div>'+optsH(plain(form(VZ[st.v],t,st.p)));
  h+=bildT(t,hide);
  h+='<div class="snctl">'+sel1("snzp","Person",PR,st.p,.7)+sel1("snzv","Verb",VZ.map(v=>v.inf),st.v,1)+selR("snzl","Satz",["Kurz","+ Nebensatz","Frage"],st.zl,2.3)+'</div>';
- h+=acc(x);
+ h+='<div class="snc snant">Antippen</div>'+zAll(t,hide)+acc(x);
  return h;}
+const ZNAME=["Plusquamperfekt","Präteritum","Perfekt","Präsens","Futur I","Futur II"];
+function zAll(t,hide){const v=VZ[st.v];
+ return '<div class="zall">'+ZNAME.map((nm,k)=>{const on=k==t,sh=hide;
+  return '<div role="button" tabindex="0" class="zr'+(on&&!hide?' on':'')+'" data-a="t:'+k+'"'+(on&&!hide?' style="background-color:'+SOL(k)+'"':'')+'><span class="zl">'+nm+'</span><span class="zf">'+(sh?'…':PR[st.p]+' '+plain(form(v,k,st.p)))+'</span></div>';}).join("")+'</div>';}
 function fH(){
  let h=svSub();
  if(st.fm=="bsp"){
@@ -5834,6 +5838,10 @@ try{loadPics(T)}catch(e){}}catch(e){}})();
 .sn .snrat::before{content:"";position:absolute;inset:-8px}
 .sn .snrat.on{background-color:#cdff3e;font-weight:700}
 /* [sehen-verben] */
+.zall{margin:0 0 6px;background:var(--dfv) left top/1px 100% no-repeat}
+.zall .zr{display:flex;align-items:center;gap:8px;min-height:30px;padding:0 10px;cursor:pointer;background-image:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px);background-position:left bottom;background-size:100% 1px;background-repeat:no-repeat}
+.zall .zl{flex:0 0 118px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#555}
+.zall .zf{font-size:15px;color:#222}.zall .zr.on .zl{color:#111;font-weight:700}.zall .zr.on .zf{font-weight:700}
 mark.a{background:var(--makk);color:var(--ink);border-bottom:0;padding:0 3px}mark.d{background:var(--mdat);color:var(--ink);border-bottom:0;padding:0 3px}
 .trio .nom{background:var(--mnom)}.trio .akk{background:var(--makk);box-shadow:none;color:var(--akkt)}.trio .dat{background:var(--mdat);box-shadow:none;color:var(--datt)}
 /* [tabs-lime] aktiver Reiter immer Lime, wie Zeiten/Fälle */
