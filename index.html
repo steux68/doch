@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-23p"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-23q"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -5871,5 +5871,11 @@ mark.a{background:var(--makk);color:var(--ink);border-bottom:0;padding:0 3px}mar
 .sv>.sn>.snant{padding:6px 8px 5px}
 .snt{margin:2px 0 6px}
 .sn .snrat.on{background-color:transparent;font-weight:700;color:#111}
+/* [linien-voll] */
+.seg button:not([aria-pressed="true"]){background:var(--df) left top/100% 1px no-repeat,var(--df) left bottom/100% 1px no-repeat,repeating-linear-gradient(to bottom,#b8b8b8 0 1px,transparent 1px 3px) left top/1px 100% no-repeat,#f2f2f2}
+.seg button:first-child:not([aria-pressed="true"]){background:var(--df) left top/100% 1px no-repeat,var(--df) left bottom/100% 1px no-repeat,#f2f2f2}
+.seg button:active:not([aria-pressed="true"]){background:var(--hl),var(--lime)}
+.rgc .snctl{background:var(--df) left top/100% 1px no-repeat,var(--dfv) left top/1px 100% no-repeat}
+#gqpop:has(#stage .rgc) #panel{display:none}
 </style>
 <style id="acc-offen-css">.sn .svr{height:auto;min-height:28px;white-space:normal;align-items:flex-start;padding:7px 2px;line-height:1.3;cursor:default}.sn .svr span:first-child{padding-top:1px}.sn .svr span:last-child{flex:1 1 auto;min-width:0}</style>
