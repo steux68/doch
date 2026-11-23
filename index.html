@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-23k"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-23l"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -4037,7 +4037,7 @@ const whyCard=([sq,sx,tx,gt])=>({b:"Warum?",st:'<div class="story"><span class="
 Object.keys(WHY).forEach(k=>{const c=whyCard(WHY[k]);if(GT[k])GT[k].cards.unshift(c);else({art:ART_CARDS,fall:FALL_CARDS,gen:GEN_CARDS,adj:ADJ_CARDS})[k].unshift(c);});
 Object.keys(GT).forEach(k=>{SRC[k]=GT[k].src;TH[k]=()=>GT[k].th+srcCard(k);});
 GT.perf.cards.unshift(tpxCard('t'));GT.praet.cards.unshift(tpxCard('t'));FALL_CARDS.unshift(tpxCard('k'));
-const LG={fall:'<span class="lgc nom">Nom</span><span class="lgc akk">Akk</span><span class="lgc dat">Dat</span><span class="lgc gen">Gen</span>',adj:'<span><b class="lgx">-e/-er/-es</b> Merkzellen</span><span><b class="lgx en">-en</b> überall sonst</span>',art:'<span><b>der</b> · <b>die</b> · <b>das</b></span>',pron:'<span><i class="sw" style="background:var(--grey)"></i>Nominativ</span><span style="color:var(--akk)"><i class="sw" style="box-shadow:inset 0 0 0 2px var(--akk)"></i>Akkusativ</span><span style="color:var(--dat)"><i class="sw" style="box-shadow:inset 0 0 0 2px var(--dat)"></i>Dativ</span>',gen:'<span><i class="sw" style="background:var(--cream);box-shadow:inset 0 0 0 1px var(--line)"></i>Genitiv: des · der</span>'};
+const LG={fall:'<span class="lgc nom">Nom</span><span class="lgc akk">Akk</span><span class="lgc dat">Dat</span><span class="lgc gen">Gen</span>',adj:'<span><b class="lgx">-e/-er/-es</b> Merkzellen</span><span><b class="lgx en">-en</b> überall sonst</span>',art:'<span><b>der</b> · <b>die</b> · <b>das</b></span>',pron:'<span class="lgc nom">Nominativ</span><span class="lgc akk">Akkusativ</span><span class="lgc dat">Dativ</span>',gen:'<span class="lgc gen">Genitiv: des · der</span>'};
 function render(){clearTimeout(MC&&MC.tm);
   if(mode==="theo"){if(T==="write"){renderWrite();$("theo").scrollTop=0;return;}if(T==="lueck"){renderLueck();$("theo").scrollTop=0;return;}if(T==="sehen"){renderSehen();$("theo").scrollTop=0;return;}theoGallery();$("theo").scrollTop=0;return;}
   if(mode==="game"&&T!=="satz"){mcRender();return;}
@@ -5834,6 +5834,7 @@ try{loadPics(T)}catch(e){}}catch(e){}})();
 .sn .snrat::before{content:"";position:absolute;inset:-8px}
 .sn .snrat.on{background-color:#cdff3e;font-weight:700}
 /* [sehen-verben] */
+.trio .nom{background:var(--mnom)}.trio .akk{background:var(--makk);box-shadow:none;color:var(--akkt)}.trio .dat{background:var(--mdat);box-shadow:none;color:var(--datt)}
 /* [tabs-lime] aktiver Reiter immer Lime, wie Zeiten/Fälle */
 .seg #mLearn[aria-pressed="true"],.seg #mGame[aria-pressed="true"],.seg #mTheo[aria-pressed="true"]{background:var(--hl),#e4f7a0;color:#222}
 .seg button[aria-pressed="true"] small.n{opacity:.7}
