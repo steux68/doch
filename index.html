@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-23e"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-23f"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3420,7 +3420,7 @@ function renderSehenOld(){if(SV.tab==="k"&&SV.kp&&SV.kp!=="s")return renderSehen
 
 /* ---------- Sehen neu (2026-11-21): der Satz ist der Regler [sehen-neu] ---------- */
 const SNEW=(function(){
-const st={fv:0,fvc:-1,p:0,zl:0,v:0,fl:0,fm:"bsp",rat:false,ans:null,r:"B",vb:0,g:0,pk:[{i:0,pl:0},{i:0,pl:0},{i:0,pl:0}],opts:[]};
+const st={nn:0,fv:0,fvc:-1,p:0,zl:0,v:0,fl:0,fm:"bsp",rat:false,ans:null,r:"B",vb:0,g:0,pk:[{i:0,pl:0},{i:0,pl:0},{i:0,pl:0}],opts:[]};
 const PR=["ich","du","er","wir","ihr","sie"],CAP=s=>s.charAt(0).toUpperCase()+s.slice(1);
 const HAB=["habe","hast","hat","haben","habt","haben"],HATT=["hatte","hattest","hatte","hatten","hattet","hatten"],WERD=["werde","wirst","wird","werden","werdet","werden"],WILL=["will","willst","will","wollen","wollt","wollen"],SEIN=["bin","bist","ist","sind","seid","sind"],WAR=["war","warst","war","waren","wart","waren"];
 const PE=["e","st","t","en","t","en"];
@@ -3470,13 +3470,23 @@ const NO=[["Mann","Mann","Mann","Mannes"],["Kind","Kind","Kind","Kindes"],["Frau
 const GRP=[[1,2,3,3],[4,2,3,3],[5,5,6,7],[8,8,6,6]];
 const LAB={1:[0,0,1,1],2:[0,1,2,1],3:[0,2,2,2],4:[1,0,1,1],5:[2,0,1,2],6:[3,2,1,2],7:[2,3,1,1],8:[3,0,1,2]};
 const QW=["wer / was?","wen / was?","wem?","wessen?"];
+/* [sehen-nomen] Satzrahmen je Fall (Name, Satz, optional Nebensatz). Bitte Deutsch prüfen. */
+const VN=(l,a,b,r)=>[l,(n,pl)=>n+" "+(pl?b:a)+(r?" "+r:"")];
+const VA=(l,f)=>[l,n=>"Ich "+f+" "+n];
 const FRM=[
- [["schlafen",(n,pl)=>n+" "+(pl?"schlafen":"schläft")],["ist hier",(n,pl)=>n+" "+(pl?"sind":"ist")+" hier"],["kommt",(n,pl)=>n+" "+(pl?"kommen":"kommt")+" heute"]],
- [["sehen",n=>"Ich sehe "+n],["kennen",n=>"Ich kenne "+n],["besuchen",n=>"Ich besuche "+n]],
- [["helfen",n=>"Ich helfe "+n],["danken",n=>"Ich danke "+n],["antworten",n=>"Ich antworte "+n]],
- [["das Auto",n=>"Das ist das Auto "+n],["das Haus",n=>"Das ist das Haus "+n]]];
+ [VN("schlafen","schläft","schlafen"),VN("ist hier","ist","sind","hier"),VN("kommt","kommt","kommen","heute"),VN("lachen","lacht","lachen"),VN("warten","wartet","warten","hier"),VN("wohnen","wohnt","wohnen","hier"),VN("arbeiten","arbeitet","arbeiten","heute"),VN("spielen","spielt","spielen","draußen"),VN("bleiben","bleibt","bleiben","zu Hause"),VN("lernen","lernt","lernen","viel")],
+ [VA("sehen","sehe"),VA("kennen","kenne"),VA("besuchen","besuche"),VA("treffen","treffe"),VA("finden","finde"),VA("suchen","suche"),VA("brauchen","brauche"),VA("mögen","mag"),VA("fragen","frage"),VA("rufen","rufe")],
+ [VA("helfen","helfe"),VA("danken","danke"),VA("antworten","antworte"),["gehören",n=>"Das Buch gehört "+n],["gefallen",n=>"Das Buch gefällt "+n],VA("glauben","glaube"),VA("folgen","folge"),["zuhören",n=>"Ich höre "+n+" zu"],VA("vertrauen","vertraue"),VA("gratulieren","gratuliere")],
+ [["das Auto",n=>"Das ist das Auto "+n,"das ich gestern gesehen <span class=\"vf\">habe</span>."],["das Fahrrad",n=>"Das ist das Fahrrad "+n,"das ich gestern gesehen <span class=\"vf\">habe</span>."],["der Garten",n=>"Das ist der Garten "+n,"den ich gestern gesehen <span class=\"vf\">habe</span>."],["das Buch",n=>"Das ist das Buch "+n,"das ich gestern gelesen <span class=\"vf\">habe</span>."],["die Tasche",n=>"Das ist die Tasche "+n,"die ich gestern gesehen <span class=\"vf\">habe</span>."],["das Zimmer",n=>"Das ist das Zimmer "+n,"das ich gestern gesehen <span class=\"vf\">habe</span>."],["der Name",n=>"Das ist der Name "+n,"den ich gestern gehört <span class=\"vf\">habe</span>."],["die Meinung",n=>"Das ist die Meinung "+n,"die ich gestern gehört <span class=\"vf\">habe</span>."],["wegen",n=>"Wegen "+n+" bleibe ich hier","weil es <span class=\"vf\">regnet</span>."],["trotz",n=>"Trotz "+n+" gehe ich raus","obwohl es dunkel <span class=\"vf\">ist</span>."]]];
+/* Nomen: g = Spalte der Tabelle (0 M, 1 N, 2 F, 3 Pl); f = Nom, Akk, Dat, Gen */
+const NL=[
+ {g:0,f:["Mann","Mann","Mann","Mannes"]},{g:0,f:["Hund","Hund","Hund","Hundes"]},{g:0,f:["Student","Studenten","Studenten","Studenten"],n:1},{g:0,f:["Lehrer","Lehrer","Lehrer","Lehrers"]},
+ {g:1,f:["Kind","Kind","Kind","Kindes"]},{g:1,f:["Mädchen","Mädchen","Mädchen","Mädchens"]},
+ {g:2,f:["Frau","Frau","Frau","Frau"]},{g:2,f:["Katze","Katze","Katze","Katze"]},
+ {g:3,f:["Kinder","Kinder","Kindern","Kinder"]},{g:3,f:["Freunde","Freunde","Freunden","Freunde"]}];
+
 function nounH(c,g,col,hide,first){
- const A=ART[c][g],Nn=NO[g][c],B=NO[g][0],a=hide?"____":(first?CAP(A):A);
+ const A=ART[c][g],nz=NL[st.nn],Nn=nz.f[c],B=nz.f[0],a=hide?"____":(first?CAP(A):A);
  const suf=(Nn.length>B.length&&Nn.indexOf(B)==0)?Nn.slice(B.length):"";
  return '<span class="np" style="background:'+(hide?'none;border-bottom:1px solid #222':col)+'">'+a+'</span> '+(hide?B:suf?B+'<span class="np" style="background:'+col+'">'+suf+'</span>':Nn);}
 function fSent(c,g,hide){
@@ -3484,7 +3494,8 @@ function fSent(c,g,hide){
  const np=nounH(c,g,CC()[c],hide,c==0);
  const pl=g==3,fr=FRM[c][Math.min(st.fv,FRM[c].length-1)],main=fr[1](np,pl);
  const ns=[ 'weil '+['er','es','sie','sie'][g]+' müde <span class="vf">'+(pl?'sind':'ist')+'</span>.','obwohl es dunkel <span class="vf">ist</span>.','weil es <span class="vf">regnet</span>.','das ich gestern gesehen <span class="vf">habe</span>.'][c];
- return st.fl?{main:main+',',ns}:{main:main+'.',ns:""};}
+ const nsx=(c==3&&fr[2])?fr[2]:ns;
+ return st.fl?{main:main+',',ns:nsx}:{main:main+'.',ns:""};}
 /* ----- Satz bauen: Nomen und Verben (eigene Formulierung, bitte prüfen) ----- */
 const NN={
  mann:{g:0,s:"Mann",p:"Männer",d:"Männern"},lehrer:{g:0,s:"Lehrer",p:"Lehrer",d:"Lehrern"},frau:{g:2,s:"Frau",p:"Frauen",d:"Frauen"},freundin:{g:2,s:"Freundin",p:"Freundinnen",d:"Freundinnen"},kind:{g:1,s:"Kind",p:"Kinder",d:"Kindern"},mädchen:{g:1,s:"Mädchen",p:"Mädchen",d:"Mädchen"},
@@ -3574,10 +3585,10 @@ function bildT(t,hide){
  else{const q=f.rest.split(" ");fo=MK(f.fin,col)+" + "+MK(q[0],col)+" + "+MK(q[1],col);}
  return bildH(lab,fo);}
 function bildF(c,g,hide){
- const base=ART[0][g]+" "+NO[g][0],x=SVKC[c];
+ const base=ART[0][g]+" "+NL[st.nn].f[0],x=SVKC[c];
  if(hide)return bildH(x.f,"…");
  return bildH(x.f,c==0?base:base+" → "+nounH(c,g,CC()[c],false,false));}
-const NSEL=["der Mann","das Kind","die Frau","die Kinder"];
+const NSEL=NL.map(n=>ART[0][n.g]+" "+n.f[0]);
 function sel1(id,label,opts,cur,flex){return '<div class="snc1" style="flex:'+flex+'"><label class="snl3" for="'+id+'">'+label+'</label><select id="'+id+'">'+opts.map((o,i)=>'<option value="'+i+'"'+(i==cur?' selected':'')+'>'+o+'</option>').join("")+'</select></div>';}
 function selR(id,label,opts,cur,flex){return '<div class="snc1 rich" style="flex:'+flex+'"><label class="snl3" for="'+id+'">'+label+'</label><div class="disp">'+opts.map((o,i)=>i==cur?'<b>'+o+'</b>':o).join('<i>/</i>')+'</div><select id="'+id+'">'+opts.map((o,i)=>'<option value="'+i+'"'+(i==cur?' selected':'')+'>'+o+'</option>').join("")+'</select></div>';}
 function zH(){
@@ -3592,12 +3603,13 @@ function zH(){
 function fH(){
  let h=svSub();
  if(st.fm=="bsp"){
-  const c=SV.cur.k,g=st.g,hide=st.rat&&st.ans==null,x=SVKC[c],f=CC();
+  if(NL[st.nn].g!==st.g)st.nn=NL.findIndex(n=>n.g==st.g);
+  const c=SV.cur.k,g=st.g,hide=st.rat&&st.ans==null,f=CC(),x0=SVKC[c],x=(NL[st.nn].n&&c>0)?Object.assign({},x0,{a:"n-Deklination: "+NL[st.nn].f[0]+" → -en in allen Fällen außer Nom."}):x0;
   h+='<div class="svg svbd" style="--n:4">'+QW.map((q,i)=>'<span class="svb" style="background:'+f[i]+'">'+q+'</span>').join("")+'</div>';
   h+='<div class="svg" style="--n:4">'+CNn.map((n,i)=>'<span role="button" tabindex="0" class="svb svk fr'+(c==i&&!hide?' on':'')+(st.cw===i?' sno bad':'')+'" data-a="c:'+i+'"'+(c==i&&!hide?' style="background:'+f[i]+'"':'')+'>'+(st.cw===i?'✗ ':'')+n+'</span>').join("")+'</div>';
   h+='<div class="snhw">'+hero(fSent(c,g,hide),0,c>0,c<3)+'</div>'+optsH(ART[c][g]);
   h+=bildF(c,g,hide);
-  h+='<div class="snctl">'+sel1("snfn","Nomen",NSEL,g,1.1)+sel1("snfv","Satz",FRM[c].map(y=>y[0]),Math.min(st.fv,FRM[c].length-1),1.1)+selR("snff","Form",["Kurz","+ Nebensatz"],st.fl,1.3)+'</div>';
+  h+='<div class="snctl">'+sel1("snfn","Nomen",NSEL,st.nn,1.1)+sel1("snfv","Satz",FRM[c].map(y=>y[0]),Math.min(st.fv,FRM[c].length-1),1.1)+selR("snff","Form",["Kurz","+ Nebensatz"],st.fl,1.3)+'</div>';
   h+='<div class="snc snant">Antippen</div>'+table(c,g,hide)+acc(x);return h;}
  const v=VB[st.vb],b=build(),gr=[];
  VB.forEach((y,i)=>{let q=gr.find(z=>z.n==y.gr);if(!q){q={n:y.gr,it:[]};gr.push(q);}q.it.push([y.n,i]);});
@@ -3643,7 +3655,7 @@ function render(){
   if(t.id=="snzp"){st.p=+t.value;newOpts();render();}
   else if(t.id=="snzv"){st.v=+t.value;newOpts();render();}
   else if(t.id=="snzl"){st.zl=+t.value;render();}
-  else if(t.id=="snfn"){st.g=+t.value;newOpts();render();}
+  else if(t.id=="snfn"){st.nn=+t.value;st.g=NL[st.nn].g;newOpts();render();}
   else if(t.id=="snfv"){st.fv=+t.value;render();}
   else if(t.id=="snff"){st.fl=+t.value;render();}
   else if(t.id=="snv"){st.vb=+t.value;st.pk=[{i:0,pl:0},{i:0,pl:0},{i:0,pl:0}];const v=VB[st.vb],k=v.sl.length-1,sl=v.sl[k];SV.cur.k=sl.c;st.g=phrase(sl,st.pk[k]).g;render();}
