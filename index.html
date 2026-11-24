@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-24a"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-24b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -1992,45 +1992,45 @@ GT.konn={name:"Konnektoren",badge:"Konnektor",tip:"Erst fragen: Schiebt der Konn
 
 /* ===== Zeitformen ===== */
 const TLZ=`<div class="tlz"><div class="tlax"></div>${[["Plusquamperfekt","hatte gezeichnet","Vorvergangenheit","gestern, 7 Uhr"],["Präteritum","zeichnete","geschrieben","gestern, 9 Uhr"],["Perfekt","habe gezeichnet","gesprochen","heute, 10 Uhr"],["Präsens","zeichne","jetzt","14 Uhr"],["Futur I","werde zeichnen","Zukunft","morgen, 9 Uhr"],["Futur II","werde gezeichnet haben","fertig in der Zukunft","bis morgen, 18 Uhr"]].map(([a,b,c,d],i)=>'<div class="tlc'+(i===3?" now":"")+'"><b>'+a+'</b><span>ich '+b+'</span><small><span class="clk">'+d+'</span> · '+c+'</small></div>').join("")}</div>`;
-GT.praes={name:"Präsens & Trennbare Verben",badge:"Präsens",tip:"du and er change the vowel (du fährst, er gibt); ich and wir never do. A stressed prefix goes to the end: ich rufe dich an.",src:["dudenk","dg20","dw"],
+GT.praes={name:"Präsens & Trennbare Verben",badge:"Präsens",tip:"du und er wechseln den Vokal (du fährst, er gibt); ich und wir nie. Eine betonte Vorsilbe geht ans Ende: ich rufe dich an.",src:["dudenk","dg20","dw"],
  lg:'<span><b class="wt v lgk">rufe</b> … <b class="wt v lgk">an</b> Satzklammer</span>',
  cards:[
- {b:"Endungen",st:ruleSt("mach-e · mach-st · mach-t",["ich mache","du machst","er macht","wir machen","ihr macht","sie machen"]),tx:"Six persons, four endings",gt:"wir, sie and Sie look like the Infinitiv. er and ihr both end in -t."},
- {b:"-est · -et",st:ruleSt("du arbeitest · er arbeitet",["du findest","er wartet","es regnet","du öffnest"]),tx:"Stem in -t or -d: add an e",gt:"Also after a consonant + m or n: es regnet, du öffnest, er rechnet."},
- {b:"Vokalwechsel",st:ruleSt("e → i · e → ie · a → ä",["geben: du gibst","sehen: er sieht","fahren: du fährst","laufen: er läuft","nehmen: du nimmst"]),tx:"Many strong verbs change the vowel",gt:"Only in du and er/sie/es. ich and wir keep it: ich gebe, wir fahren."},
- {b:"sein · haben · werden",st:ruleSt("bin · hast · wird",["ich bin, du bist, er ist","ich habe, du hast, er hat","ich werde, du wirst, er wird","ich weiß, er weiß"]),tx:"The irregular helpers",gt:"wissen, and the modal verbs, have no ending in ich and er: ich weiß, er kann."},
- {b:"Trennbar",st:D("Ich~s|rufe~v|dich|morgen|an~v|.~p","1-4a:anrufen"),tx:"Separable verbs: the prefix goes to the end",gt:"Another verb bracket. Stressed prefixes separate: an-, auf-, aus-, ein-, mit-, vor-, zu-, zurück-, fern-.",say:"Ich rufe dich morgen an."},
- {b:"Untrennbar",st:ruleSt("be- · ver- · er- · ent- · zer- · ge- · miss-",["ich bezahle","ich verstehe","ich erkläre","ich entscheide"]),tx:"These prefixes never separate",gt:"They are never stressed: be-ZAH-len. Stressed prefixes separate: AN-rufen."},
- {b:"Nebensatz",st:D("Ich weiß,|dass~k|er|heute|ankommt~v|.~p","1-4a:zusammen am Ende"),tx:"In a Nebensatz the verb stays in one piece",gt:"dass, weil, wenn … send it to the end in one word. With zu: anzurufen, aufzustehen.",say:"Ich weiß, dass er heute ankommt."},
- {b:"Zukunft · seit",st:ruleSt("Morgen fahre ich nach Graz.",["Nächste Woche ziehe ich um.","Ich wohne seit 2005 in Wien."]),tx:"Präsens for the future, and with seit",gt:"With a time word, the Präsens is the normal future. seit + Präsens = English 'have been doing'."}],
+ {b:"Endungen",st:ruleSt("mach-e · mach-st · mach-t",["ich mache","du machst","er macht","wir machen","ihr macht","sie machen"]),tx:"Sechs Personen, vier Endungen",gt:"wir, sie und Sie sehen aus wie der Infinitiv. er und ihr enden beide auf -t."},
+ {b:"-est · -et",st:ruleSt("du arbeitest · er arbeitet",["du findest","er wartet","es regnet","du öffnest"]),tx:"Stamm auf -t oder -d: ein e einfügen",gt:"Auch nach Konsonant + m oder n: es regnet, du öffnest, er rechnet."},
+ {b:"Vokalwechsel",st:ruleSt("e → i · e → ie · a → ä",["geben: du gibst","sehen: er sieht","fahren: du fährst","laufen: er läuft","nehmen: du nimmst"]),tx:"Viele starke Verben wechseln den Vokal",gt:"Nur bei du und er/sie/es. ich und wir behalten ihn: ich gebe, wir fahren."},
+ {b:"sein · haben · werden",st:ruleSt("bin · hast · wird",["ich bin, du bist, er ist","ich habe, du hast, er hat","ich werde, du wirst, er wird","ich weiß, er weiß"]),tx:"Die unregelmäßigen Hilfsverben",gt:"wissen und die Modalverben haben bei ich und er keine Endung: ich weiß, er kann."},
+ {b:"Trennbar",st:D("Ich~s|rufe~v|dich|morgen|an~v|.~p","1-4a:anrufen"),tx:"Trennbare Verben: Die Vorsilbe geht ans Ende",gt:"Noch eine Verbklammer. Betonte Vorsilben trennen sich: an-, auf-, aus-, ein-, mit-, vor-, zu-, zurück-, fern-.",say:"Ich rufe dich morgen an."},
+ {b:"Untrennbar",st:ruleSt("be- · ver- · er- · ent- · zer- · ge- · miss-",["ich bezahle","ich verstehe","ich erkläre","ich entscheide"]),tx:"Diese Vorsilben trennen sich nie",gt:"Sie sind nie betont: be-ZAH-len. Betonte Vorsilben trennen sich: AN-rufen."},
+ {b:"Nebensatz",st:D("Ich weiß,|dass~k|er|heute|ankommt~v|.~p","1-4a:zusammen am Ende"),tx:"Im Nebensatz bleibt das Verb in einem Stück",gt:"dass, weil, wenn … schicken es in einem Wort ans Ende. Mit zu: anzurufen, aufzustehen.",say:"Ich weiß, dass er heute ankommt."},
+ {b:"Zukunft · seit",st:ruleSt("Morgen fahre ich nach Graz.",["Nächste Woche ziehe ich um.","Ich wohne seit 2005 in Wien."]),tx:"Präsens für die Zukunft und mit seit",gt:"Mit einer Zeitangabe ist das Präsens die normale Zukunft. seit + Präsens drückt aus, dass etwas noch andauert."}],
  q:[
- {s:"Du ___ sehr schnell. (sprechen)",o:["sprichst", "sprechst", "spricht"],why:"e → i in the du and er forms: du sprichst.",lv:"A1"},
- {s:"Er ___ jeden Tag mit dem Rad. (fahren)",o:["fährt", "fahrt", "fährst"],why:"a → ä in the du and er forms: er fährt.",lv:"A1"},
+ {s:"Du ___ sehr schnell. (sprechen)",o:["sprichst", "sprechst", "spricht"],why:"e → i bei du und er: du sprichst.",lv:"A1"},
+ {s:"Er ___ jeden Tag mit dem Rad. (fahren)",o:["fährt", "fahrt", "fährst"],why:"a → ä bei du und er: er fährt.",lv:"A1"},
  {s:"Was ___ du am Wochenende? (machen)",o:["machst", "macht", "machest"],why:"du + -st: du machst.",lv:"A1"},
- {s:"Ich rufe dich heute Abend ___.",o:["an", "auf", "zu"],why:"anrufen is separable: the prefix goes to the end.",lv:"A1"},
- {s:"Wann kommt der Zug ___?",o:["an", "um", "aus"],why:"ankommen: the prefix goes to the end.",lv:"A1"},
+ {s:"Ich rufe dich heute Abend ___.",o:["an", "auf", "zu"],why:"anrufen ist trennbar: Die Vorsilbe geht ans Ende.",lv:"A1"},
+ {s:"Wann kommt der Zug ___?",o:["an", "um", "aus"],why:"ankommen: Die Vorsilbe geht ans Ende.",lv:"A1"},
  {s:"Der Film fängt um acht Uhr ___.",o:["an", "auf", "ein"],why:"anfangen: fängt … an.",lv:"A2"},
  {s:"___ du mir bitte das Salz? (geben)",o:["Gibst", "Gebst", "Gibt"],why:"e → i: du gibst.",lv:"A1"},
  {s:"Er ___ die Zeitung. (lesen)",o:["liest", "lest", "lesst"],why:"e → ie: er liest.",lv:"A1"},
- {s:"Es ___ schon wieder. (regnen)",o:["regnet", "regnt", "regent"],why:"Stem ends in -n after a consonant: an extra e, es regnet.",lv:"A1"},
- {s:"Du ___ zu viel. (arbeiten)",o:["arbeitest", "arbeitst", "arbeitet"],why:"Stem ends in -t: an extra e, du arbeitest.",lv:"A1"},
- {s:"Ich ___ nicht, wo er wohnt. (wissen)",o:["weiß", "weiße", "wisse"],why:"wissen: ich weiß, with no ending.",lv:"A1"},
- {s:"Er ___ nicht, wo sie wohnt. (wissen)",o:["weiß", "weißt", "wisst"],why:"wissen: er weiß, also with no ending.",lv:"A2"},
+ {s:"Es ___ schon wieder. (regnen)",o:["regnet", "regnt", "regent"],why:"Der Stamm endet auf -n nach Konsonant: zusätzliches e, es regnet.",lv:"A1"},
+ {s:"Du ___ zu viel. (arbeiten)",o:["arbeitest", "arbeitst", "arbeitet"],why:"Der Stamm endet auf -t: zusätzliches e, du arbeitest.",lv:"A1"},
+ {s:"Ich ___ nicht, wo er wohnt. (wissen)",o:["weiß", "weiße", "wisse"],why:"wissen: ich weiß, ohne Endung.",lv:"A1"},
+ {s:"Er ___ nicht, wo sie wohnt. (wissen)",o:["weiß", "weißt", "wisst"],why:"wissen: er weiß, auch ohne Endung.",lv:"A2"},
  {s:"___ ihr heute Abend Zeit? (haben)",o:["Habt", "Hat", "Habst"],why:"ihr + -t: ihr habt.",lv:"A1"},
  {s:"Du siehst heute müde ___.",o:["aus", "an", "um"],why:"aussehen: siehst … aus.",lv:"A2"},
- {s:"Ich ___ immer meinen Schlüssel. (vergessen)",o:["vergesse", "vergisse", "vergiss"],why:"The vowel only changes in du and er: ich vergesse, du vergisst.",lv:"A2"},
- {s:"Wir ___ um sieben Uhr auf. (aufstehen)",o:["stehen", "steht", "stehn"],why:"wir: the same form as the Infinitiv.",lv:"A1"},
- {s:"Ich weiß, dass er heute ___.",o:["ankommt", "kommt an", "an kommt"],why:"In a dass-clause the separable verb stays together at the end.",lv:"B1"},
- {s:"Ich ___ die Rechnung. (bezahlen)",o:["bezahle", "zahle be", "be zahle"],why:"be- never separates.",lv:"A2"},
- {s:"Ich ___ das nicht. (verstehen)",o:["verstehe", "stehe ver", "verstehst"],why:"ver- never separates.",lv:"A2"},
+ {s:"Ich ___ immer meinen Schlüssel. (vergessen)",o:["vergesse", "vergisse", "vergiss"],why:"Der Vokal wechselt nur bei du und er: ich vergesse, du vergisst.",lv:"A2"},
+ {s:"Wir ___ um sieben Uhr auf. (aufstehen)",o:["stehen", "steht", "stehn"],why:"wir: dieselbe Form wie der Infinitiv.",lv:"A1"},
+ {s:"Ich weiß, dass er heute ___.",o:["ankommt", "kommt an", "an kommt"],why:"Im dass-Satz bleibt das trennbare Verb am Ende zusammen.",lv:"B1"},
+ {s:"Ich ___ die Rechnung. (bezahlen)",o:["bezahle", "zahle be", "be zahle"],why:"be- trennt sich nie.",lv:"A2"},
+ {s:"Ich ___ das nicht. (verstehen)",o:["verstehe", "stehe ver", "verstehst"],why:"ver- trennt sich nie.",lv:"A2"},
  {s:"Räumst du heute dein Zimmer ___?",o:["auf", "an", "aus"],why:"aufräumen: räumst … auf.",lv:"A2"},
  {s:"Sie steht jeden Morgen um sechs ___.",o:["auf", "an", "ab"],why:"aufstehen: steht … auf.",lv:"A1"},
- {s:"Er ___ einen Kaffee. (nehmen)",o:["nimmt", "nehmt", "nimt"],why:"nehmen is irregular: du nimmst, er nimmt.",lv:"A1"},
- {s:"Was ___ du? (essen)",o:["isst", "esst", "ist"],why:"e → i: du isst (ist is from sein).",lv:"A1"},
+ {s:"Er ___ einen Kaffee. (nehmen)",o:["nimmt", "nehmt", "nimt"],why:"nehmen ist unregelmäßig: du nimmst, er nimmt.",lv:"A1"},
+ {s:"Was ___ du? (essen)",o:["isst", "esst", "ist"],why:"e → i: du isst (ist gehört zu sein).",lv:"A1"},
  {s:"Wohin ___ du? (laufen)",o:["läufst", "laufst", "läuft"],why:"au → äu: du läufst.",lv:"A2"},
- {s:"Ich ___ seit zehn Jahren in Wien. (wohnen)",o:["wohne", "habe gewohnt", "wohnte"],why:"seit + Präsens for something still going on. English says 'I have lived'.",lv:"B1"},
- {s:"Morgen ___ ich nach Salzburg. (fahren)",o:["fahre", "fuhr", "gefahren"],why:"Präsens with a time word for the future.",lv:"A2"},
- {s:"Ich hoffe, dich bald ___.",o:["anzurufen", "zu anrufen", "anrufen zu"],why:"Separable verb + zu: zu goes in the middle.",lv:"B1"},
+ {s:"Ich ___ seit zehn Jahren in Wien. (wohnen)",o:["wohne", "habe gewohnt", "wohnte"],why:"seit + Präsens für etwas, das noch andauert.",lv:"B1"},
+ {s:"Morgen ___ ich nach Salzburg. (fahren)",o:["fahre", "fuhr", "gefahren"],why:"Präsens mit Zeitangabe für die Zukunft.",lv:"A2"},
+ {s:"Ich hoffe, dich bald ___.",o:["anzurufen", "zu anrufen", "anrufen zu"],why:"Trennbares Verb + zu: zu steht in der Mitte.",lv:"B1"},
  {s:"Ziehst du den Mantel ___? Es ist kalt.",o:["an", "um", "ab"],why:"anziehen: ziehst … an.",lv:"A2"},
  {s:"Sie ___ ihm beim Umzug. (helfen)",o:["hilft", "helft", "hilfst"],why:"e → i: sie hilft.",lv:"A2"},
  {s:"Der Zug ___ pünktlich ab. (fahren)",o:["fährt", "fahrt", "fahren"],why:"abfahren: er fährt … ab.",lv:"A2"},
@@ -2038,10 +2038,10 @@ GT.praes={name:"Präsens & Trennbare Verben",badge:"Präsens",tip:"du and er cha
  {s:"Er ___ Lehrer. (werden)",o:["wird", "werdet", "wirdt"],why:"werden: du wirst, er wird.",lv:"A2"},
  {s:"Ich lade dich zum Essen ___.",o:["ein", "an", "auf"],why:"einladen: lade … ein.",lv:"A2"},
  {s:"Wir kaufen heute im Supermarkt ___.",o:["ein", "an", "zu"],why:"einkaufen: kaufen … ein.",lv:"A1"},
- {s:"Der Übersetzer ___ den Text ins Englische. (übersetzen)",o:["übersetzt", "setzt über", "übersetzen"],why:"übersetzen (translate) is not separable: the stress is on -setz-.",lv:"B2"}],
- th:`<div class="tc df"><h3>1 · Die einfache Regel <small>A1</small></h3><p class="memo">Present tense: verb stem + ending. <b>ich -e · du -st · er -t · wir -en · ihr -t · sie -en</b>. The verb is in second place.</p><p class="tline">Ich mache. · Du machst. · Heute mache ich Pause.</p></div>
-<div class="tc df"><h3>2 · Schritt für Schritt <small>A1</small></h3><div class="rows"><div><span>1 Infinitive</span><span>machen</span></div><div><span>2 Stem</span><span>mach-</span></div><div><span>3 Ending</span><span>ich mache · du machst · er macht</span></div><div><span>4 Position</span><span>Heute <b>mache</b> ich Pause.</span></div></div></div>
-<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>A2–B1</small></h3><div class="rows"><div><span>Vowel change</span><span>du gibst, er gibt (e → i) · du fährst, er fährt (a → ä)</span></div><div><span>Stem on -t, -d</span><span>du arbeitest, er arbeitet (extra -e-)</span></div><div><span>Stem on -s, -ß, -z</span><span>du heißt, du reist</span></div><div><span>sein · haben</span><span>ich bin, du bist, er ist · ich habe, du hast, er hat</span></div><div><span>Future</span><span>Morgen fahre ich nach Graz. = the present can mean the future</span></div></div></div>
+ {s:"Der Übersetzer ___ den Text ins Englische. (übersetzen)",o:["übersetzt", "setzt über", "übersetzen"],why:"übersetzen (in eine andere Sprache) ist nicht trennbar: Die Betonung liegt auf -setz-.",lv:"B2"}],
+ th:`<div class="tc df"><h3>1 · Die einfache Regel <small>A1</small></h3><p class="memo">Präsens: Verbstamm + Endung. <b>ich -e · du -st · er -t · wir -en · ihr -t · sie -en</b>. Das Verb steht an zweiter Stelle.</p><p class="tline">Ich mache. · Du machst. · Heute mache ich Pause.</p></div>
+<div class="tc df"><h3>2 · Schritt für Schritt <small>A1</small></h3><div class="rows"><div><span>1 Infinitiv</span><span>machen</span></div><div><span>2 Stamm</span><span>mach-</span></div><div><span>3 Endung</span><span>ich mache · du machst · er macht</span></div><div><span>4 Position</span><span>Heute <b>mache</b> ich Pause.</span></div></div></div>
+<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>A2–B1</small></h3><div class="rows"><div><span>Vokalwechsel</span><span>du gibst, er gibt (e → i) · du fährst, er fährt (a → ä)</span></div><div><span>Stamm auf -t, -d</span><span>du arbeitest, er arbeitet (zusätzliches -e-)</span></div><div><span>Stamm auf -s, -ß, -z</span><span>du heißt, du reist</span></div><div><span>sein · haben</span><span>ich bin, du bist, er ist · ich habe, du hast, er hat</span></div><div><span>Zukunft</span><span>Morgen fahre ich nach Graz. = Das Präsens kann Zukunft bedeuten.</span></div></div></div>
 <div class="tc df"><h3>Endungen <small>A1</small></h3><div class="nt" style="--nc:4.6em repeat(4,minmax(0,1fr))"><div class="hd"><span></span><span>machen</span><span>arbeiten</span><span>sein</span><span>haben</span></div>
 <div><span class="g">ich</span><span>mache</span><span>arbeite</span><span>bin</span><span>habe</span></div>
 <div><span class="g">du</span><span>machst</span><span>arbeitest</span><span>bist</span><span>hast</span></div>
@@ -2049,28 +2049,28 @@ GT.praes={name:"Präsens & Trennbare Verben",badge:"Präsens",tip:"du and er cha
 <div><span class="g">wir</span><span>machen</span><span>arbeiten</span><span>sind</span><span>haben</span></div>
 <div><span class="g">ihr</span><span>macht</span><span>arbeitet</span><span>seid</span><span>habt</span></div>
 <div><span class="g">sie · Sie</span><span>machen</span><span>arbeiten</span><span>sind</span><span>haben</span></div></div>
-<p class="tline">Stem in -t or -d (arbeiten, finden) takes an extra e in du, er and ihr. Stem in -s, -ß, -z: du only adds -t (du heißt, du sitzt).</p></div>
+<p class="tline">Ein Stamm auf -t oder -d (arbeiten, finden) bekommt bei du, er und ihr ein zusätzliches e. Stamm auf -s, -ß, -z: bei du kommt nur -t dazu (du heißt, du sitzt).</p></div>
 <div class="tc df"><h3>Vokalwechsel <small>A1–A2</small></h3><div class="rows">
 <div><span>e → i</span><span>geben, helfen, nehmen, sprechen, treffen, vergessen, essen: du gibst, er hilft</span></div>
 <div><span>e → ie</span><span>sehen, lesen, empfehlen, stehlen: du siehst, er liest</span></div>
 <div><span>a → ä</span><span>fahren, schlafen, tragen, waschen, fallen, halten, laden, anfangen: du fährst</span></div>
 <div><span>au → äu</span><span>laufen: du läufst · o → ö: stoßen: er stößt</span></div></div>
-<p class="tline">Only du and er/sie/es change. The Imperativ du-form follows: gib!, nimm!, lies! (but fahr!).</p></div>
+<p class="tline">Nur du und er/sie/es wechseln. Der Imperativ folgt: gib!, nimm!, lies! (aber fahr!).</p></div>
 <div class="tc df"><h3>Trennbar oder nicht? <small>A2–B2</small></h3><div class="rows">
-<div><span>trennbar</span><span>stressed prefix: an-, auf-, aus-, ab-, bei-, ein-, mit-, nach-, vor-, weg-, zu-, zurück-, fern-, statt-</span></div>
-<div><span>untrennbar</span><span>unstressed prefix: be-, emp-, ent-, er-, ge-, miss-, ver-, zer-</span></div>
-<div><span>beides</span><span>durch-, über-, um-, unter-, wieder-: the stress decides. Er setzt ans andere Ufer über (ferry across) · Er übersetzt den Text (translate).</span></div></div></div>
+<div><span>trennbar</span><span>betonte Vorsilbe: an-, auf-, aus-, ab-, bei-, ein-, mit-, nach-, vor-, weg-, zu-, zurück-, fern-, statt-</span></div>
+<div><span>untrennbar</span><span>unbetonte Vorsilbe: be-, emp-, ent-, er-, ge-, miss-, ver-, zer-</span></div>
+<div><span>beides</span><span>durch-, über-, um-, unter-, wieder-: Die Betonung entscheidet. Er setzt ans andere Ufer über (mit der Fähre) · Er übersetzt den Text.</span></div></div></div>
 <div class="tc df"><h3>Wo steht die Vorsilbe? <small>A2–B1</small></h3><div class="rows">
-<div><span>Hauptsatz</span><span>at the end: Ich <b>rufe</b> dich morgen <b>an</b>.</span></div>
-<div><span>Nebensatz</span><span>together at the end: …, weil ich dich morgen <b>anrufe</b>.</span></div>
-<div><span>mit Modalverb</span><span>Infinitiv in one piece: Ich muss dich <b>anrufen</b>.</span></div>
-<div><span>zu + Infinitiv</span><span>zu in the middle: Ich vergesse nie, dich <b>anzurufen</b>.</span></div>
-<div><span>Perfekt</span><span>ge in the middle: Ich habe dich <b>angerufen</b>.</span></div></div></div>
+<div><span>Hauptsatz</span><span>am Ende: Ich <b>rufe</b> dich morgen <b>an</b>.</span></div>
+<div><span>Nebensatz</span><span>zusammen am Ende: …, weil ich dich morgen <b>anrufe</b>.</span></div>
+<div><span>mit Modalverb</span><span>Infinitiv in einem Stück: Ich muss dich <b>anrufen</b>.</span></div>
+<div><span>zu + Infinitiv</span><span>zu in der Mitte: Ich vergesse nie, dich <b>anzurufen</b>.</span></div>
+<div><span>Perfekt</span><span>ge in der Mitte: Ich habe dich <b>angerufen</b>.</span></div></div></div>
 <div class="tc df"><h3>Wofür das Präsens? <small>A2–B1</small></h3><div class="rows">
-<div><span>jetzt</span><span>Ich zeichne gerade. (no -ing form in German)</span></div>
+<div><span>jetzt</span><span>Ich zeichne gerade. (Deutsch hat keine -ing-Form)</span></div>
 <div><span>Zukunft</span><span>Morgen fahre ich nach Graz.</span></div>
-<div><span>seit</span><span>Ich wohne seit 2005 in Wien. = I have lived …</span></div>
-<div><span>immer</span><span>Wasser kocht bei 100 Grad.</span></div></div></div>`};
+<div><span>seit</span><span>Ich wohne seit 2005 in Wien. (Es dauert noch an.)</span></div>
+<div><span>immer</span><span>Wasser kocht bei 100 Grad. (allgemein gültig)</span></div></div></div>`};
 
 (function(){
 var TL=["#e3d8c8","#d3def0","#eaffae","#fffbd6"];
@@ -2092,13 +2092,13 @@ t:{n:"Zeitformen",o1:["lernen","gehen"],ab:["Plusq.","Prät.","Perf.","Präs.","
   [[["Morgen","t"],["werde","v"],["ich","t"],["gehen","e"]],[["Wenn du","t"],["willst","v"],[", ","t"],["werde","v"],["ich mit dir","t"],["gehen","e"],[".","t"]]]],
  [[[["Bis Montag","t"],["werde","v"],["ich","t"],["gelernt haben","e"]],[["Bis die Prüfung","t"],["beginnt","v"],[", ","t"],["werde","v"],["ich alles","t"],["gelernt haben","e"],[".","t"]]],
   [[["Bis Montag","t"],["werde","v"],["ich","t"],["gegangen sein","e"]],[["Bis du","t"],["ankommst","v"],[", ","t"],["werde","v"],["ich schon","t"],["gegangen sein","e"],[".","t"]]]]],
- I:[["hatte / war + Partizip II","Before another past event","nachdem, bevor, bereits"],["Stem + -te, or a new vowel","Stories, reports; war, hatte, konnte","damals, früher, als"],["habe / bin + Partizip II","Spoken past, letters, emails","gestern, schon, gerade"],["Stem + ending","Now, always, planned future","jetzt, heute, immer"],["werde + Infinitiv","Plans, forecasts, a guess about now","bald, wohl"],["werde + Partizip II + haben / sein","Finished by a future time; a guess about the past","bis morgen, sicher"]],
+ I:[["hatte / war + Partizip II","Vor einem anderen vergangenen Ereignis","nachdem, bevor, bereits"],["Stamm + -te oder neuer Vokal","Erzählungen, Berichte; war, hatte, konnte","damals, früher, als"],["habe / bin + Partizip II","Gesprochene Vergangenheit, Briefe, E-Mails","gestern, schon, gerade"],["Stamm + Endung","Jetzt, immer, geplante Zukunft","jetzt, heute, immer"],["werde + Infinitiv","Pläne, Prognosen, eine Vermutung über jetzt","bald, wohl"],["werde + Partizip II + haben / sein","Bis zu einem künftigen Zeitpunkt abgeschlossen; Vermutung über die Vergangenheit","bis morgen, sicher"]],
  L:["Bildung","Gebrauch","Signale"],leg:"Grün: konjugiertes Verb · Gelb: Rest des Verbs"},
 k:{n:"Fälle",o1:["der Mann","die Frau","das Kind","die Kinder","der Student"],ab:["Nom","Akk","Dat","Gen"],i0:1,
  bands:[["Wer?",1,"#ededeb"],["Wen?",1,"#f0be83"],["Wem?",1,"#c3ccfc"],["Wessen?",1,"#c4a6ee"]],
  nm:["Nominativ","Akkusativ","Dativ","Genitiv"],st:["Wer oder was?","Wen oder was?","Wem?","Wessen?"],
  F:[["der Mann","den Mann","dem Mann","des Mannes"],["die Frau","die Frau","der Frau","der Frau"],["das Kind","das Kind","dem Kind","des Kindes"],["die Kinder","die Kinder","den Kindern","der Kinder"],["der Student","den Studenten","dem Studenten","des Studenten"]],
- I:["Subject: who does it. Also after sein.","Direct object: sehen, finden, kaufen. Also after für, durch, ohne.","Indirect object: helfen, danken, gehören. Also after mit, bei, nach.","Belonging: das Auto des Mannes. Also after wegen, trotz, während."],
+ I:["Subjekt: wer es tut. Auch nach sein.","Direktes Objekt: sehen, finden, kaufen. Auch nach für, durch, ohne.","Indirektes Objekt: helfen, danken, gehören. Auch nach mit, bei, nach.","Zugehörigkeit: das Auto des Mannes. Auch nach wegen, trotz, während."],
  leg:"Der Artikel (und das Nomen) ändert sich mit dem Fall."}};
 function cap(x){return x.charAt(0).toUpperCase()+x.slice(1)}
 function parts(k,i,v,l){
@@ -2147,65 +2147,65 @@ window.tpxCard=function(k){return {b:"Regler",st:tpxHTML(k),tx:"",gt:"",say:""};
 new MutationObserver(all).observe(document.documentElement,{childList:true,subtree:true});
 window.addEventListener("resize",function(){document.querySelectorAll(".rgsn").forEach(fit);document.querySelectorAll(".rgc").forEach(rgLine)});
 })();
-GT.perf={name:"Zeitformen",badge:"Zeitform",tip:"Movement from A to B or a change of state → sein. Everything else → haben.",src:["dudenk","dg20","dw"],
+GT.perf={name:"Zeitformen",badge:"Zeitform",tip:"Bewegung von A nach B oder Zustandsänderung → sein. Alles andere → haben.",src:["dudenk","dg20","dw"],
  lg:'<span><b class="wt v lgk">habe</b> … <b class="wt v lgk">gemacht</b> Satzklammer</span>',
  cards:[
- {b:"Überblick",st:TLZ,tx:"Six tenses on one line",gt:"In speech you mostly need three: Präsens, Perfekt and Präteritum of sein, haben and the modal verbs."},
- {b:"Perfekt",st:D("Ich~s|habe~v|den Plan|gezeichnet~v|.~p","1-3a:Perfekt"),tx:"haben or sein + Partizip II",gt:"The two parts form the verb bracket. This is the normal spoken past.",say:"Ich habe den Plan gezeichnet."},
- {b:"haben · sein",st:ruleSt("Wir sind nach Graz gefahren.",["Ich bin aufgestanden.","Das Pferd ist gewachsen.","Ich habe gearbeitet."]),tx:"sein: movement from A to B, change of state",gt:"Also sein, bleiben, werden, passieren. In Austria also liegen, sitzen, stehen: ich bin gesessen."},
- {b:"Partizip II",st:ruleSt("ge- … -t · ge- … -en",["machen → gemacht","schreiben → geschrieben","aufräumen → aufgeräumt","bezahlen → bezahlt","renovieren → renoviert"]),tx:"How the Partizip is formed",gt:"Separable verbs put ge in the middle. be-, ver-, er-, ent-, zer- and -ieren verbs have no ge-."},
- {b:"Präteritum",st:ruleSt("war · hatte · konnte",["ich ging","ich kam","ich fuhr","es gab"]),tx:"The written past",gt:"Used in writing and reports. In speech mainly for sein, haben, the modal verbs and es gab."},
- {b:"Plusquamperfekt",st:D("Nachdem~k|ich|gegessen|hatte~v|,~p|ging~v|ich|in den Stall|.~p","3-5b:zuerst → dann@g"),tx:"One step further back",gt:"hatte or war + Partizip II. For what happened before another past event.",say:"Nachdem ich gegessen hatte, ging ich in den Stall."},
- {b:"Futur",st:D("Morgen|werde~v|ich~s|den Plan|abgeben~v|.~p","1-4a:werden + Infinitiv"),tx:"werden + Infinitiv",gt:"In speech the present plus a time word is more common: Morgen gebe ich den Plan ab.",say:"Morgen werde ich den Plan abgeben."}],
+ {b:"Überblick",st:TLZ,tx:"Sechs Zeitformen auf einer Linie",gt:"Im Gespräch brauchst du meistens drei: Präsens, Perfekt und das Präteritum von sein, haben und den Modalverben."},
+ {b:"Perfekt",st:D("Ich~s|habe~v|den Plan|gezeichnet~v|.~p","1-3a:Perfekt"),tx:"haben oder sein + Partizip II",gt:"Die zwei Teile bilden die Verbklammer. Das ist die normale gesprochene Vergangenheit.",say:"Ich habe den Plan gezeichnet."},
+ {b:"haben · sein",st:ruleSt("Wir sind nach Graz gefahren.",["Ich bin aufgestanden.","Das Pferd ist gewachsen.","Ich habe gearbeitet."]),tx:"sein: Bewegung von A nach B, Zustandsänderung",gt:"Auch sein, bleiben, werden, passieren. In Österreich auch liegen, sitzen, stehen: ich bin gesessen."},
+ {b:"Partizip II",st:ruleSt("ge- … -t · ge- … -en",["machen → gemacht","schreiben → geschrieben","aufräumen → aufgeräumt","bezahlen → bezahlt","renovieren → renoviert"]),tx:"So wird das Partizip gebildet",gt:"Trennbare Verben setzen ge in die Mitte. Verben mit be-, ver-, er-, ent-, zer- und -ieren haben kein ge-."},
+ {b:"Präteritum",st:ruleSt("war · hatte · konnte",["ich ging","ich kam","ich fuhr","es gab"]),tx:"Die geschriebene Vergangenheit",gt:"Wird in Texten und Berichten benutzt. Gesprochen vor allem bei sein, haben, den Modalverben und es gab."},
+ {b:"Plusquamperfekt",st:D("Nachdem~k|ich|gegessen|hatte~v|,~p|ging~v|ich|in den Stall|.~p","3-5b:zuerst → dann@g"),tx:"Einen Schritt weiter zurück",gt:"hatte oder war + Partizip II. Für das, was vor einem anderen vergangenen Ereignis geschah.",say:"Nachdem ich gegessen hatte, ging ich in den Stall."},
+ {b:"Futur",st:D("Morgen|werde~v|ich~s|den Plan|abgeben~v|.~p","1-4a:werden + Infinitiv"),tx:"werden + Infinitiv",gt:"Gesprochen ist das Präsens mit Zeitangabe häufiger: Morgen gebe ich den Plan ab.",say:"Morgen werde ich den Plan abgeben."}],
  q:[
- {s:"Wir ___ nach Graz gefahren. (fahren)",o:["sind","haben","werden"],why:"Movement from A to B: sein.",lv:"A2"},
- {s:"Ich ___ den Plan gezeichnet. (zeichnen)",o:["habe","bin","war"],why:"No movement, an object: haben.",lv:"A2"},
- {s:"Er ___ um sieben aufgestanden. (aufstehen)",o:["ist","hat","wird"],why:"aufstehen is a change of position: sein.",lv:"A2"},
- {s:"Das Fohlen ___ schnell gewachsen. (wachsen)",o:["ist","hat","wurde"],why:"Change of state: sein.",lv:"B1"},
- {s:"Wir ___ den ganzen Tag im Büro geblieben. (bleiben)",o:["sind","haben","hatten"],why:"bleiben always takes sein.",lv:"B1"},
- {s:"Ich habe die Rechnung ___. (bezahlen)",o:["bezahlt","gebezahlt","bezahlen"],why:"be- verbs have no ge-.",lv:"A2"},
- {s:"Wir haben das Zimmer ___. (aufräumen)",o:["aufgeräumt","geaufräumt","aufgeräumen"],why:"Separable verb: auf-ge-räumt.",lv:"A2"},
- {s:"Sie hat Architektur ___. (studieren)",o:["studiert","gestudiert","studieret"],why:"-ieren verbs have no ge-.",lv:"A2"},
- {s:"Hast du den Brief schon ___? (schreiben)",o:["geschrieben","geschreibt","schrieben"],why:"Strong verb: ge- … -en.",lv:"A2"},
- {s:"Ich habe dich nicht ___. (verstehen)",o:["verstanden","geverstanden","verstehen"],why:"ver- verbs have no ge-.",lv:"B1"},
- {s:"Gestern ___ ich keine Zeit. (haben)",o:["hatte","habe","hätte"],why:"Past of haben: hatte (Präteritum).",lv:"A2"},
- {s:"Als Kind ___ ich in Glasgow. (wohnen)",o:["wohnte","wohne","gewohnt"],why:"A past state, written style: Präteritum wohnte.",lv:"B1"},
- {s:"Nachdem er gegessen ___, ging er in den Stall. (haben)",o:["hatte","hat","ist"],why:"nachdem + Plusquamperfekt before a Präteritum.",lv:"B1"},
+ {s:"Wir ___ nach Graz gefahren. (fahren)",o:["sind","haben","werden"],why:"Bewegung von A nach B: sein.",lv:"A2"},
+ {s:"Ich ___ den Plan gezeichnet. (zeichnen)",o:["habe","bin","war"],why:"Keine Bewegung, ein Objekt: haben.",lv:"A2"},
+ {s:"Er ___ um sieben aufgestanden. (aufstehen)",o:["ist","hat","wird"],why:"aufstehen ist eine Lageänderung: sein.",lv:"A2"},
+ {s:"Das Fohlen ___ schnell gewachsen. (wachsen)",o:["ist","hat","wurde"],why:"Zustandsänderung: sein.",lv:"B1"},
+ {s:"Wir ___ den ganzen Tag im Büro geblieben. (bleiben)",o:["sind","haben","hatten"],why:"bleiben steht immer mit sein.",lv:"B1"},
+ {s:"Ich habe die Rechnung ___. (bezahlen)",o:["bezahlt","gebezahlt","bezahlen"],why:"Verben mit be- haben kein ge-.",lv:"A2"},
+ {s:"Wir haben das Zimmer ___. (aufräumen)",o:["aufgeräumt","geaufräumt","aufgeräumen"],why:"Trennbares Verb: auf-ge-räumt.",lv:"A2"},
+ {s:"Sie hat Architektur ___. (studieren)",o:["studiert","gestudiert","studieret"],why:"Verben auf -ieren haben kein ge-.",lv:"A2"},
+ {s:"Hast du den Brief schon ___? (schreiben)",o:["geschrieben","geschreibt","schrieben"],why:"Starkes Verb: ge- … -en.",lv:"A2"},
+ {s:"Ich habe dich nicht ___. (verstehen)",o:["verstanden","geverstanden","verstehen"],why:"Verben mit ver- haben kein ge-.",lv:"B1"},
+ {s:"Gestern ___ ich keine Zeit. (haben)",o:["hatte","habe","hätte"],why:"Vergangenheit von haben: hatte (Präteritum).",lv:"A2"},
+ {s:"Als Kind ___ ich in Glasgow. (wohnen)",o:["wohnte","wohne","gewohnt"],why:"Ein vergangener Zustand im Schriftstil: Präteritum wohnte.",lv:"B1"},
+ {s:"Nachdem er gegessen ___, ging er in den Stall. (haben)",o:["hatte","hat","ist"],why:"nachdem + Plusquamperfekt vor einem Präteritum.",lv:"B1"},
  {s:"Morgen ___ ich den Plan abgeben. (werden)",o:["werde","wurde","worden"],why:"Futur: werden + Infinitiv.",lv:"A2"},
- {s:"Wann ___ der Unfall passiert? (passieren)",o:["ist","hat","wird"],why:"passieren takes sein.",lv:"B1"},
- {s:"Ich bin lange im Café ___. (sitzen)",o:["gesessen","gesitzt","gesitzen"],why:"sitzen → gesessen. In Austria with sein, in Germany usually with haben.",lv:"B1"},
+ {s:"Wann ___ der Unfall passiert? (passieren)",o:["ist","hat","wird"],why:"passieren steht mit sein.",lv:"B1"},
+ {s:"Ich bin lange im Café ___. (sitzen)",o:["gesessen","gesitzt","gesitzen"],why:"sitzen → gesessen. In Österreich mit sein, in Deutschland meist mit haben.",lv:"B1"},
  {s:"Bis Freitag ___ ich den Bericht geschrieben haben. (werden)",o:["werde","wurde","habe"],why:"Futur II: werden + Partizip + haben.",lv:"C1"}],
- th:`${tpxHTML('t')}<div class="tc df"><h3>1 · Die einfache Regel <small>A2</small></h3><p class="memo">The Perfekt is the spoken past: <b>haben</b> or <b>sein</b> + Partizip II at the end of the sentence.</p><p class="tline">Ich habe gelernt. · Ich bin gegangen.</p></div>
-<div class="tc df"><h3>2 · Schritt für Schritt <small>A2</small></h3><div class="rows"><div><span>1 Auxiliary</span><span>haben (most verbs) · sein (movement, change of state)</span></div><div><span>2 Partizip II</span><span>ge-…-t (machen → gemacht) · ge-…-en (schreiben → geschrieben)</span></div><div><span>3 Position</span><span>Ich habe gestern gelernt.</span></div></div></div>
-<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B1–C1</small></h3><div class="rows"><div><span>sein</span><span>bleiben, sein, passieren: ist geblieben, ist gewesen, ist passiert</span></div><div><span>No ge-</span><span>studieren → studiert · verstehen → verstanden · besuchen → besucht</span></div><div><span>Separable</span><span>aufstehen → aufgestanden · anrufen → angerufen</span></div><div><span>Austria</span><span>ich bin gesessen, ich bin gestanden (south of Germany too)</span></div><div><span>With a modal</span><span>…, weil er hat arbeiten müssen.</span></div></div></div>
+ th:`${tpxHTML('t')}<div class="tc df"><h3>1 · Die einfache Regel <small>A2</small></h3><p class="memo">Das Perfekt ist die gesprochene Vergangenheit: <b>haben</b> oder <b>sein</b> + Partizip II am Satzende.</p><p class="tline">Ich habe gelernt. · Ich bin gegangen.</p></div>
+<div class="tc df"><h3>2 · Schritt für Schritt <small>A2</small></h3><div class="rows"><div><span>1 Hilfsverb</span><span>haben (die meisten Verben) · sein (Bewegung, Zustandsänderung)</span></div><div><span>2 Partizip II</span><span>ge-…-t (machen → gemacht) · ge-…-en (schreiben → geschrieben)</span></div><div><span>3 Stellung</span><span>Ich habe gestern gelernt.</span></div></div></div>
+<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B1–C1</small></h3><div class="rows"><div><span>sein</span><span>bleiben, sein, passieren: ist geblieben, ist gewesen, ist passiert</span></div><div><span>Kein ge-</span><span>studieren → studiert · verstehen → verstanden · besuchen → besucht</span></div><div><span>Trennbar</span><span>aufstehen → aufgestanden · anrufen → angerufen</span></div><div><span>Österreich</span><span>ich bin gesessen, ich bin gestanden (auch in Süddeutschland)</span></div><div><span>Mit Modalverb</span><span>…, weil er hat arbeiten müssen.</span></div></div></div>
 <div class="tc df"><h3>Sechs Zeitformen</h3>${TLZ}</div>
 <div class="tc df"><h3>haben oder sein?</h3><div class="rows">
-<div><span>sein</span><span>movement from A to B: gehen, fahren, fliegen, kommen, reiten (nach Hause)</span></div>
-<div><span>sein</span><span>change of state: aufstehen, einschlafen, wachsen, sterben, werden</span></div>
-<div><span>sein</span><span>also: sein, bleiben, passieren, gelingen</span></div>
-<div><span>haben</span><span>everything else, all verbs with an Akkusativ object, all reflexive verbs</span></div>
-<div><span>Österreich</span><span>liegen, sitzen, stehen with sein: ich bin gestanden</span></div></div></div>
+<div><span>sein</span><span>Bewegung von A nach B: gehen, fahren, fliegen, kommen, reiten (nach Hause)</span></div>
+<div><span>sein</span><span>Zustandsänderung: aufstehen, einschlafen, wachsen, sterben, werden</span></div>
+<div><span>sein</span><span>außerdem: sein, bleiben, passieren, gelingen</span></div>
+<div><span>haben</span><span>alles andere, alle Verben mit Akkusativobjekt, alle reflexiven Verben</span></div>
+<div><span>Österreich</span><span>liegen, sitzen, stehen mit sein: ich bin gestanden</span></div></div></div>
 <div class="tc df"><h3>Partizip II</h3><div class="rows">
 <div><span>schwach</span><span>ge-…-t: machen → gemacht, kaufen → gekauft</span></div>
-<div><span>stark</span><span>ge-…-en, often a vowel change: schreiben → geschrieben, finden → gefunden</span></div>
-<div><span>trennbar</span><span>ge in the middle: aufräumen → aufgeräumt, anrufen → angerufen</span></div>
-<div><span>ohne ge-</span><span>be-, ver-, er-, ent-, zer-, ge-, miss- and -ieren: bezahlt, verstanden, renoviert</span></div></div></div>
-<div class="tc df"><h3>Präteritum im Alltag</h3><div class="pcs">${["war","hatte","konnte","musste","wollte","durfte","sollte","es gab","ging","kam","fuhr","sah","nahm","schrieb","wusste"].map(w=>'<span class="pc">'+w+'</span>').join("")}</div><p class="tline">In speech these are more common than their Perfekt forms. Write stories and reports in the Präteritum.</p></div>
+<div><span>stark</span><span>ge-…-en, oft mit Vokalwechsel: schreiben → geschrieben, finden → gefunden</span></div>
+<div><span>trennbar</span><span>ge in der Mitte: aufräumen → aufgeräumt, anrufen → angerufen</span></div>
+<div><span>ohne ge-</span><span>be-, ver-, er-, ent-, zer-, ge-, miss- und -ieren: bezahlt, verstanden, renoviert</span></div></div></div>
+<div class="tc df"><h3>Präteritum im Alltag</h3><div class="pcs">${["war","hatte","konnte","musste","wollte","durfte","sollte","es gab","ging","kam","fuhr","sah","nahm","schrieb","wusste"].map(w=>'<span class="pc">'+w+'</span>').join("")}</div><p class="tline">Gesprochen sind diese Formen häufiger als ihr Perfekt. Erzählungen und Berichte schreibst du im Präteritum.</p></div>
 <div class="tc df"><h3>Zeitenfolge</h3><div class="rows">
 <div><span>nachdem</span><span>Plusquamperfekt → Präteritum: Nachdem ich gegessen hatte, ging ich.</span></div>
 <div><span>nachdem</span><span>Perfekt → Präsens: Nachdem ich gegessen habe, gehe ich.</span></div>
-<div><span>Futur II</span><span>finished by then: Bis Freitag werde ich es geschafft haben. Also a guess: Er wird den Zug verpasst haben.</span></div></div></div>`};
+<div><span>Futur II</span><span>bis dahin abgeschlossen: Bis Freitag werde ich es geschafft haben. Auch eine Vermutung: Er wird den Zug verpasst haben.</span></div></div></div>`};
 
 /* ===== Verben mit Präpositionen ===== */
-GT.vprep={name:"Verben mit Präpositionen",badge:"Präposition",tip:"Learn verb, preposition and case together as one unit, with an example sentence.",src:["dwds","duden","dg20"],
+GT.vprep={name:"Verben mit Präpositionen",badge:"Präposition",tip:"Lerne Verb, Präposition und Fall zusammen als eine Einheit, mit einem Beispielsatz.",src:["dwds","duden","dg20"],
  lg:'<span><b class="wt v lgk">warten</b> + <b class="wt k lgk">auf</b> fest verbunden</span>',
  cards:[
- {b:"fest",st:D("Wir~s|warten~v|auf~k|die Genehmigung~a|.~p","1-2a:fest;2-3b:+ Akk@a"),tx:"The preposition belongs to the verb",gt:"No Wo/Wohin logic here: warten auf always takes the Akkusativ.",say:"Wir warten auf die Genehmigung."},
- {b:"+ Dativ",st:D("Ich~s|beschäftige~v|mich|mit~k|dem Entwurf~d|.~p","1-3a:fest;3-4b:+ Dat@d"),tx:"mit, von, nach, zu, bei, aus: always Dativ",gt:"They keep their normal case: sich beschäftigen mit, abhängen von, fragen nach.",say:"Ich beschäftige mich mit dem Entwurf."},
- {b:"an · auf · über",st:ruleSt("meistens + Akkusativ",["denken an + A","warten auf + A","sprechen über + A"]),tx:"Two-way prepositions usually take Akkusativ here",gt:"Learn the Dativ exceptions: teilnehmen an, arbeiten an, zweifeln an, leiden an, basieren auf, bestehen auf, Angst haben vor, warnen vor."},
- {b:"da- · wo-",st:D("Ich~s|warte~v|darauf~k|,~p|dass~k|die Genehmigung|kommt~v|.~p","2-4a:verweist auf"),tx:"For things: darauf, daran, wofür …",gt:"darauf, dass … points forward to a whole clause. With a vowel add r: da-r-auf, wo-r-an.",say:"Ich warte darauf, dass die Genehmigung kommt."},
- {b:"Personen",st:ruleSt("Auf wen wartest du? Auf ihn.",["Worauf wartest du? Darauf.","An wen denkst du? An sie.","Woran denkst du? Daran."]),tx:"For people keep the preposition",gt:"Things: wo-/da- forms. People: preposition + wen/wem or a pronoun."},
- {b:"freuen",st:ruleSt("sich freuen auf · über",["auf das Wochenende (kommt noch)","über das Geschenk (schon da)"]),tx:"Same verb, different preposition, different meaning",gt:"Also: sprechen mit (with) / über (about), bestehen aus (consist of) / auf (insist on)."}],
+ {b:"fest",st:D("Wir~s|warten~v|auf~k|die Genehmigung~a|.~p","1-2a:fest;2-3b:+ Akk@a"),tx:"Die Präposition gehört zum Verb",gt:"Hier gilt keine Wo/Wohin-Logik: warten auf steht immer mit Akkusativ.",say:"Wir warten auf die Genehmigung."},
+ {b:"+ Dativ",st:D("Ich~s|beschäftige~v|mich|mit~k|dem Entwurf~d|.~p","1-3a:fest;3-4b:+ Dat@d"),tx:"mit, von, nach, zu, bei, aus: immer Dativ",gt:"Sie behalten ihren normalen Fall: sich beschäftigen mit, abhängen von, fragen nach.",say:"Ich beschäftige mich mit dem Entwurf."},
+ {b:"an · auf · über",st:ruleSt("meistens + Akkusativ",["denken an + A","warten auf + A","sprechen über + A"]),tx:"Wechselpräpositionen haben hier meistens den Akkusativ",gt:"Lerne die Dativ-Ausnahmen: teilnehmen an, arbeiten an, zweifeln an, leiden an, basieren auf, bestehen auf, Angst haben vor, warnen vor."},
+ {b:"da- · wo-",st:D("Ich~s|warte~v|darauf~k|,~p|dass~k|die Genehmigung|kommt~v|.~p","2-4a:verweist auf"),tx:"Für Sachen: darauf, daran, wofür …",gt:"darauf, dass … verweist auf einen ganzen Satz. Vor einem Vokal kommt ein r dazu: da-r-auf, wo-r-an.",say:"Ich warte darauf, dass die Genehmigung kommt."},
+ {b:"Personen",st:ruleSt("Auf wen wartest du? Auf ihn.",["Worauf wartest du? Darauf.","An wen denkst du? An sie.","Woran denkst du? Daran."]),tx:"Bei Personen bleibt die Präposition",gt:"Sachen: wo-/da-Formen. Personen: Präposition + wen/wem oder ein Pronomen."},
+ {b:"freuen",st:ruleSt("sich freuen auf · über",["auf das Wochenende (kommt noch)","über das Geschenk (schon da)"]),tx:"Dasselbe Verb, andere Präposition, andere Bedeutung",gt:"Außerdem: sprechen mit / über, bestehen aus / auf."}],
  q:[
  {s:"Wir warten noch ___ die Genehmigung.",o:["auf","an","für"],why:"warten auf + Akkusativ.",lv:"A2"},
  {s:"Denk bitte ___ den Termin!",o:["an","auf","über"],why:"denken an + Akkusativ.",lv:"A2"},
@@ -2213,23 +2213,23 @@ GT.vprep={name:"Verben mit Präpositionen",badge:"Präposition",tip:"Learn verb,
  {s:"Sie hat sich ___ die Stelle beworben.",o:["um","für","auf"],why:"sich bewerben um.",lv:"B1"},
  {s:"Das hängt ___ Budget ab.",o:["vom","am","zum"],why:"abhängen von + Dativ: vom.",lv:"B1"},
  {s:"Wir nehmen ___ Wettbewerb teil.",o:["am","im","beim"],why:"teilnehmen an + Dativ: am.",lv:"B1"},
- {s:"Ich freue mich schon ___ das Wochenende.",o:["auf","über","an"],why:"Something still to come: sich freuen auf.",lv:"B1"},
- {s:"Ich habe mich sehr ___ dein Geschenk gefreut.",o:["über","auf","an"],why:"Something already there: sich freuen über.",lv:"B1"},
+ {s:"Ich freue mich schon ___ das Wochenende.",o:["auf","über","an"],why:"Etwas, das noch kommt: sich freuen auf.",lv:"B1"},
+ {s:"Ich habe mich sehr ___ dein Geschenk gefreut.",o:["über","auf","an"],why:"Etwas, das schon da ist: sich freuen über.",lv:"B1"},
  {s:"Kannst du dich ___ das Pferd kümmern?",o:["um","für","an"],why:"sich kümmern um.",lv:"B1"},
  {s:"Er fragt ___ dem Weg.",o:["nach","für","über"],why:"fragen nach + Dativ.",lv:"A2"},
- {s:"Wir haben lange ___ das Projekt gesprochen.",o:["über","von","an"],why:"sprechen über + Akkusativ (about).",lv:"A2"},
+ {s:"Wir haben lange ___ das Projekt gesprochen.",o:["über","von","an"],why:"sprechen über + Akkusativ (Thema).",lv:"A2"},
  {s:"Ich bedanke mich ___ die Einladung.",o:["für","über","auf"],why:"sich bedanken für.",lv:"A2"},
  {s:"Hast du Angst ___ Pferden?",o:["vor","von","für"],why:"Angst haben vor + Dativ.",lv:"B1"},
- {s:"Der Entwurf basiert ___ einer Studie.",o:["auf","an","über"],why:"basieren auf + Dativ (exception).",lv:"B2"},
- {s:"Ich zweifle nicht ___ seiner Kompetenz.",o:["an","über","auf"],why:"zweifeln an + Dativ (exception).",lv:"B2"},
- {s:"___ wartest du? Auf den Bus.",o:["Worauf","Wofür","Woran"],why:"A thing: wo + r + auf.",lv:"B1"},
+ {s:"Der Entwurf basiert ___ einer Studie.",o:["auf","an","über"],why:"basieren auf + Dativ (Ausnahme).",lv:"B2"},
+ {s:"Ich zweifle nicht ___ seiner Kompetenz.",o:["an","über","auf"],why:"zweifeln an + Dativ (Ausnahme).",lv:"B2"},
+ {s:"___ wartest du? Auf den Bus.",o:["Worauf","Wofür","Woran"],why:"Eine Sache: wo + r + auf.",lv:"B1"},
  {s:"Ich warte ___, dass du anrufst.",o:["darauf","dafür","daran"],why:"warten auf → darauf, dass …",lv:"B2"},
- {s:"___ denkst du gerade? An meine Mutter.",o:["An wen","Woran","Worüber"],why:"A person: an wen.",lv:"B1"},
- {s:"Die Fassade besteht ___ Lärchenholz.",o:["aus","auf","von"],why:"bestehen aus = consist of.",lv:"B1"}],
- th:`<div class="tc df"><h3>1 · Die einfache Regel <small>A2</small></h3><p class="memo">Many verbs come with a fixed preposition. Learn <b>verb + preposition + case</b> as one block.</p><p class="tline">warten auf den Bus</p></div>
-<div class="tc df"><h3>2 · Schritt für Schritt <small>A2–B1</small></h3><div class="rows"><div><span>1 The block</span><span>warten + auf</span></div><div><span>2 The case</span><span>with auf, über, für, um, gegen: Akkusativ · with mit, von, nach, zu, bei: Dativ</span></div><div><span>3 Question</span><span>Worauf wartest du? (thing) · Auf wen wartest du? (person)</span></div><div><span>4 Answer</span><span>Ich warte <b>darauf</b>. · Ich warte <b>auf ihn</b>.</span></div></div></div>
-<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B1–C1</small></h3><div class="rows"><div><span>Dativ with an · auf</span><span>teilnehmen an, zweifeln an, bestehen auf (Dativ)</span></div><div><span>Same verb, new meaning</span><span>sich freuen auf (coming) · sich freuen über (already here)</span></div><div><span>With dass or zu</span><span>Ich freue mich <b>darauf</b>, dich zu sehen.</span></div><div><span>halten von</span><span>Was hältst du <b>davon</b>? Von takes Dativ.</span></div></div></div>
-<div class="tc df"><h3>Die Regel</h3>${D("warten~v|auf~k|den Bus~a","0-1a:fest;1-2b:Akk@a")}<p class="memo">With <b>an, auf, über</b> the Akkusativ wins. <b>mit, von, nach, zu, bei, aus</b> stay Dativ. <b>für, um, gegen</b> stay Akkusativ.</p></div>
+ {s:"___ denkst du gerade? An meine Mutter.",o:["An wen","Woran","Worüber"],why:"Eine Person: an wen.",lv:"B1"},
+ {s:"Die Fassade besteht ___ Lärchenholz.",o:["aus","auf","von"],why:"bestehen aus = zusammengesetzt sein aus.",lv:"B1"}],
+ th:`<div class="tc df"><h3>1 · Die einfache Regel <small>A2</small></h3><p class="memo">Viele Verben haben eine feste Präposition. Lerne <b>Verb + Präposition + Fall</b> als einen Block.</p><p class="tline">warten auf den Bus</p></div>
+<div class="tc df"><h3>2 · Schritt für Schritt <small>A2–B1</small></h3><div class="rows"><div><span>1 Der Block</span><span>warten + auf</span></div><div><span>2 Der Fall</span><span>mit auf, über, für, um, gegen: Akkusativ · mit mit, von, nach, zu, bei: Dativ</span></div><div><span>3 Frage</span><span>Worauf wartest du? (Sache) · Auf wen wartest du? (Person)</span></div><div><span>4 Antwort</span><span>Ich warte <b>darauf</b>. · Ich warte <b>auf ihn</b>.</span></div></div></div>
+<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B1–C1</small></h3><div class="rows"><div><span>Dativ bei an · auf</span><span>teilnehmen an, zweifeln an, bestehen auf (Dativ)</span></div><div><span>Gleiches Verb, neue Bedeutung</span><span>sich freuen auf (kommt noch) · sich freuen über (schon da)</span></div><div><span>Mit dass oder zu</span><span>Ich freue mich <b>darauf</b>, dich zu sehen.</span></div><div><span>halten von</span><span>Was hältst du <b>davon</b>? von hat den Dativ.</span></div></div></div>
+<div class="tc df"><h3>Die Regel</h3>${D("warten~v|auf~k|den Bus~a","0-1a:fest;1-2b:Akk@a")}<p class="memo">Bei <b>an, auf, über</b> gewinnt der Akkusativ. <b>mit, von, nach, zu, bei, aus</b> bleiben Dativ. <b>für, um, gegen</b> bleiben Akkusativ.</p></div>
 <div class="tc df"><h3>Dativ-Ausnahmen</h3><div class="pcs">${["teilnehmen an","arbeiten an","zweifeln an","leiden an","sterben an","basieren auf","bestehen auf","Angst haben vor","warnen vor","sich fürchten vor","schützen vor"].map(w=>'<span class="pc d">'+w+'</span>').join("")}</div></div>
 <div class="tc df"><h3>Nach Präposition</h3><div class="rows">
 <div><span>auf + A</span><span>warten, achten, hoffen, verzichten, sich freuen (Zukunft), sich verlassen, sich vorbereiten, sich konzentrieren</span></div>
@@ -2245,7 +2245,7 @@ GT.vprep={name:"Verben mit Präpositionen",badge:"Präposition",tip:"Learn verb,
 <div><span>Sache</span><span>Worauf wartest du? Ich warte darauf.</span></div>
 <div><span>Person</span><span>Auf wen wartest du? Ich warte auf ihn.</span></div>
 <div><span>Satz</span><span>Ich freue mich darauf, dich zu sehen. · Ich warte darauf, dass du kommst.</span></div>
-<div><span>-r-</span><span>before a vowel: darauf, daran, darüber, worum (but: damit, dafür, davon, wofür)</span></div></div></div>
+<div><span>-r-</span><span>vor einem Vokal: darauf, daran, darüber, worum (aber: damit, dafür, davon, wofür)</span></div></div></div>
 <div class="tc df kzk vp"><h3>Satz korrigieren <small>A2–B2</small></h3>
 <details><summary>Ich warte <s>für</s> den Bus.</summary><p class="lsg">Ich warte <b>auf</b> den Bus.<small>warten auf: Verb und Präposition gehören fest zusammen.</small></p></details>
 <details><summary><s>Wofür</s> wartest du? Auf meinen Freund.</summary><p class="lsg"><b>Auf wen</b> wartest du? Auf meinen Freund.<small>Bei Personen bleibt die Präposition: auf wen, nicht wo-.</small></p></details>
@@ -2253,10 +2253,10 @@ GT.vprep={name:"Verben mit Präpositionen",badge:"Präposition",tip:"Learn verb,
 <details><summary>Ich interessiere mich <s>an</s> Architektur.</summary><p class="lsg">Ich interessiere mich <b>für</b> Architektur.<small>sich interessieren für: die Präposition ist nicht übersetzbar, lerne sie mit dem Verb.</small></p></details>
 <p class="tline">Verb und Präposition immer als Block lernen.</p></div>
 <div class="tc df"><h3>Gleiches Verb, andere Bedeutung</h3><div class="rows">
-<div><span>sich freuen</span><span>auf (coming) · über (already here)</span></div>
-<div><span>sprechen</span><span>mit (with someone) · über (about something)</span></div>
-<div><span>bestehen</span><span>aus (consist of) · auf (insist on)</span></div>
-<div><span>sich halten</span><span>an (follow a rule) · für (consider oneself)</span></div></div></div>`};
+<div><span>sich freuen</span><span>auf (kommt noch) · über (schon da)</span></div>
+<div><span>sprechen</span><span>mit (mit jemandem) · über (über etwas)</span></div>
+<div><span>bestehen</span><span>aus (zusammengesetzt sein aus) · auf (auf etwas beharren)</span></div>
+<div><span>sich halten</span><span>an (eine Regel befolgen) · für (sich selbst einschätzen)</span></div></div></div>`};
 
 /* ===== Relativsätze ===== */
 const RELT=`<div class="box" role="img" aria-label="Relativpronomen">
@@ -2265,49 +2265,49 @@ const RELT=`<div class="box" role="img" aria-label="Relativpronomen">
 <b class="c nom" style="grid-area:2/2/3/3">der</b><b class="c akk" style="grid-area:3/2/4/3">den</b><b class="c same" style="grid-area:2/3/4/4">das</b><b class="c same" style="grid-area:2/4/4/6">die</b>
 <b class="c dat" style="grid-area:4/2/5/4">dem</b><b class="c dat" style="grid-area:4/4/5/5">der</b><b class="c dat new" style="grid-area:4/5/5/6">denen</b>
 <b class="c gen new" style="grid-area:5/2/6/4">dessen</b><b class="c gen new" style="grid-area:5/4/6/6">deren</b></div>`;
-GT.rel={name:"Relativsätze",badge:"Relativpronomen",tip:"Two questions: which noun does it refer to (gender, number)? What job does it do in its own clause (case)?",src:["grammis","lingolia","dg20"],
+GT.rel={name:"Relativsätze",badge:"Relativpronomen",tip:"Zwei Fragen: Auf welches Nomen bezieht es sich (Genus, Numerus)? Welche Aufgabe hat es im eigenen Satz (Fall)?",src:["grammis","lingolia","dg20"],
  lg:'<span><b class="wt x lgk">Nomen</b> → <b class="wt r lgk">der</b> Bezug</span>',
  cards:[
- {b:"Bezug",st:D("Das ist|der Architekt~x|,~p|der~r|das Haus|entworfen hat~v|.~p","1-3a:gleiches Genus;3-5b:Verb ans Ende@g"),tx:"A relative clause describes a noun",gt:"The relative pronoun takes the gender and number of the noun. The verb goes to the end.",say:"Das ist der Architekt, der das Haus entworfen hat."},
- {b:"Formen",st:RELT,tx:"Almost the same as der, die, das",gt:"New are only <b>denen</b> (Dativ plural) and <b>dessen / deren</b> (Genitiv)."},
- {b:"Fall",st:D("der Plan~x|,~p|den~a|ich|gezeichnet habe~v","0-2a:Genus von Plan;2-4b:Akk: ich zeichne ihn@a"),tx:"The case comes from the relative clause",gt:"Ask: what is the pronoun in its own clause? Here the object of zeichnen → Akkusativ den.",say:"der Plan, den ich gezeichnet habe"},
- {b:"Präposition",st:D("das Büro~x|,~p|in~k|dem~d|ich|arbeite~v","0-3a:Genus von Büro;2-3b:in + Dat@d"),tx:"Preposition first, then the pronoun",gt:"Wo? → Dativ: das Büro, in dem ich arbeite. Never put the preposition at the end as in English.",say:"das Büro, in dem ich arbeite"},
- {b:"dessen · deren",st:D("der Kollege~x|,~p|dessen~g|Büro|neben meinem|liegt~v","0-2a:sein Büro"),tx:"Whose: dessen (der/das), deren (die/Plural)",gt:"The next noun has no article: dessen Büro, deren Entwurf.",say:"der Kollege, dessen Büro neben meinem liegt"},
- {b:"was · wo",st:ruleSt("alles, was ich weiß",["nichts, was hilft","das Beste, was es gibt","Wien, wo ich wohne"]),tx:"was after alles, nichts, etwas, das and superlatives",gt:"wo for places: die Stadt, wo ich wohne (also: in der ich wohne)."}],
+ {b:"Bezug",st:D("Das ist|der Architekt~x|,~p|der~r|das Haus|entworfen hat~v|.~p","1-3a:gleiches Genus;3-5b:Verb ans Ende@g"),tx:"Ein Relativsatz beschreibt ein Nomen",gt:"Das Relativpronomen übernimmt Genus und Numerus des Nomens. Das Verb geht ans Ende.",say:"Das ist der Architekt, der das Haus entworfen hat."},
+ {b:"Formen",st:RELT,tx:"Fast gleich wie der, die, das",gt:"Neu sind nur <b>denen</b> (Dativ Plural) und <b>dessen / deren</b> (Genitiv)."},
+ {b:"Fall",st:D("der Plan~x|,~p|den~a|ich|gezeichnet habe~v","0-2a:Genus von Plan;2-4b:Akk: ich zeichne ihn@a"),tx:"Der Fall kommt aus dem Relativsatz",gt:"Frage: Was ist das Pronomen in seinem eigenen Satz? Hier das Objekt von zeichnen → Akkusativ den.",say:"der Plan, den ich gezeichnet habe"},
+ {b:"Präposition",st:D("das Büro~x|,~p|in~k|dem~d|ich|arbeite~v","0-3a:Genus von Büro;2-3b:in + Dat@d"),tx:"Zuerst die Präposition, dann das Pronomen",gt:"Wo? → Dativ: das Büro, in dem ich arbeite. Die Präposition steht nie am Ende.",say:"das Büro, in dem ich arbeite"},
+ {b:"dessen · deren",st:D("der Kollege~x|,~p|dessen~g|Büro|neben meinem|liegt~v","0-2a:sein Büro"),tx:"Wessen: dessen (der/das), deren (die/Plural)",gt:"Das folgende Nomen hat keinen Artikel: dessen Büro, deren Entwurf.",say:"der Kollege, dessen Büro neben meinem liegt"},
+ {b:"was · wo",st:ruleSt("alles, was ich weiß",["nichts, was hilft","das Beste, was es gibt","Wien, wo ich wohne"]),tx:"was nach alles, nichts, etwas, das und Superlativen",gt:"wo bei Orten: die Stadt, wo ich wohne (auch: in der ich wohne)."}],
  q:[
- {s:"Das ist der Mann, ___ mir geholfen hat.",o:["der","den","dem"],why:"He helped: subject → Nominativ der.",lv:"B1"},
- {s:"Das ist der Plan, ___ ich gezeichnet habe.",o:["den","der","dem"],why:"I drew it: object → Akkusativ den.",lv:"B1"},
- {s:"Die Frau, ___ ich das Buch gegeben habe, ist meine Kollegin.",o:["der","die","deren"],why:"I gave her the book: Dativ feminine der.",lv:"B1"},
- {s:"Das Haus, ___ wir gekauft haben, ist alt.",o:["das","dem","dessen"],why:"Object, neuter: das.",lv:"B1"},
- {s:"Die Kinder, mit ___ ich spiele, sind laut.",o:["denen","den","die"],why:"mit + Dativ plural: denen.",lv:"B1"},
- {s:"Der Kollege, ___ Büro neben meinem liegt, ist nett.",o:["dessen","deren","dem"],why:"His office, masculine: dessen.",lv:"B2"},
- {s:"Die Firma, für ___ ich arbeite, sitzt in Wien.",o:["die","der","deren"],why:"für + Akkusativ, feminine: die.",lv:"B1"},
- {s:"Das Pferd, auf ___ ich reite, heißt Luna.",o:["dem","das","den"],why:"Wo? auf + Dativ, neuter: dem.",lv:"B1"},
- {s:"Die Architektin, ___ Entwurf gewonnen hat, kommt aus Graz.",o:["deren","dessen","der"],why:"Her design, feminine: deren.",lv:"B2"},
- {s:"Wien ist die Stadt, ___ ich am liebsten wohne.",o:["in der","in die","in den"],why:"Wo? in + Dativ, feminine: in der.",lv:"B1"},
- {s:"Alles, ___ du sagst, stimmt.",o:["was","das","dem"],why:"After alles: was.",lv:"B2"},
- {s:"Das ist das Beste, ___ ich je gegessen habe.",o:["was","das","dem"],why:"After a superlative: was.",lv:"B2"},
- {s:"Die Pläne, ___ du mir geschickt hast, sind gut.",o:["die","denen","der"],why:"Object, plural: die.",lv:"B1"},
- {s:"Ich danke den Kollegen, ___ mir geholfen haben.",o:["die","denen","den"],why:"They helped: subject, plural → die.",lv:"B1"},
+ {s:"Das ist der Mann, ___ mir geholfen hat.",o:["der","den","dem"],why:"Er hat geholfen: Subjekt → Nominativ der.",lv:"B1"},
+ {s:"Das ist der Plan, ___ ich gezeichnet habe.",o:["den","der","dem"],why:"Ich habe ihn gezeichnet: Objekt → Akkusativ den.",lv:"B1"},
+ {s:"Die Frau, ___ ich das Buch gegeben habe, ist meine Kollegin.",o:["der","die","deren"],why:"Ich habe ihr das Buch gegeben: Dativ feminin der.",lv:"B1"},
+ {s:"Das Haus, ___ wir gekauft haben, ist alt.",o:["das","dem","dessen"],why:"Objekt, Neutrum: das.",lv:"B1"},
+ {s:"Die Kinder, mit ___ ich spiele, sind laut.",o:["denen","den","die"],why:"mit + Dativ Plural: denen.",lv:"B1"},
+ {s:"Der Kollege, ___ Büro neben meinem liegt, ist nett.",o:["dessen","deren","dem"],why:"Sein Büro, maskulin: dessen.",lv:"B2"},
+ {s:"Die Firma, für ___ ich arbeite, sitzt in Wien.",o:["die","der","deren"],why:"für + Akkusativ, feminin: die.",lv:"B1"},
+ {s:"Das Pferd, auf ___ ich reite, heißt Luna.",o:["dem","das","den"],why:"Wo? auf + Dativ, Neutrum: dem.",lv:"B1"},
+ {s:"Die Architektin, ___ Entwurf gewonnen hat, kommt aus Graz.",o:["deren","dessen","der"],why:"Ihr Entwurf, feminin: deren.",lv:"B2"},
+ {s:"Wien ist die Stadt, ___ ich am liebsten wohne.",o:["in der","in die","in den"],why:"Wo? in + Dativ, feminin: in der.",lv:"B1"},
+ {s:"Alles, ___ du sagst, stimmt.",o:["was","das","dem"],why:"Nach alles: was.",lv:"B2"},
+ {s:"Das ist das Beste, ___ ich je gegessen habe.",o:["was","das","dem"],why:"Nach einem Superlativ: was.",lv:"B2"},
+ {s:"Die Pläne, ___ du mir geschickt hast, sind gut.",o:["die","denen","der"],why:"Objekt, Plural: die.",lv:"B1"},
+ {s:"Ich danke den Kollegen, ___ mir geholfen haben.",o:["die","denen","den"],why:"Sie haben geholfen: Subjekt, Plural → die.",lv:"B1"},
  {s:"Kennst du den Mann, ___ du geholfen hast?",o:["dem","den","der"],why:"helfen + Dativ: dem.",lv:"B1"},
- {s:"Das Projekt, an ___ wir arbeiten, ist groß.",o:["dem","das","den"],why:"arbeiten an + Dativ, neuter: dem.",lv:"B2"}],
- th:`<div class="tc df"><h3>1 · Die einfache Regel <small>A2–B1</small></h3><p class="memo">A relative clause describes a noun. It begins with der, die or das. <b>Gender and number</b> come from the noun, the <b>case</b> from the job in the relative clause. The verb goes to the end.</p><p class="tline">der Mann, der dort wohnt</p></div>
-<div class="tc df"><h3>2 · Schritt für Schritt <small>B1</small></h3><div class="rows"><div><span>1 The noun</span><span>die Frau → feminine</span></div><div><span>2 The job</span><span>ich helfe ihr → Dativ</span></div><div><span>3 The pronoun</span><span>feminine + Dativ → der</span></div><div><span>4 Write it</span><span>die Frau, <b>der</b> ich helfe</span></div></div></div>
-<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B2–C1</small></h3><div class="rows"><div><span>Preposition</span><span>das Haus, in dem ich wohne · die Firma, für die ich arbeite</span></div><div><span>Dativ plural</span><span>die Kinder, denen ich helfe</span></div><div><span>Genitiv</span><span>der Kollege, dessen Büro … · die Kollegin, deren Entwurf …</span></div><div><span>was</span><span>alles, was ich weiß · nichts, was ich sagen kann</span></div><div><span>Partizip</span><span>die gebaute Brücke = die Brücke, die gebaut wurde</span></div></div></div>
-<div class="tc df"><h3>Alle Relativpronomen</h3>${RELT}<p class="tline">Pale cells are the only new forms. Everything else is the definite article.</p></div>
-<div class="tc df"><h3>Zwei Fragen</h3>${D("die Frau~x|,~p|der~d|ich|helfe~v","0-2a:Genus;2-4b:Fall@d")}<div class="rows"><div><span>1 · Genus</span><span>from the noun it refers to: die Frau → feminine</span></div><div><span>2 · Fall</span><span>from its job in the relative clause: ich helfe ihr → Dativ der</span></div></div></div>
+ {s:"Das Projekt, an ___ wir arbeiten, ist groß.",o:["dem","das","den"],why:"arbeiten an + Dativ, Neutrum: dem.",lv:"B2"}],
+ th:`<div class="tc df"><h3>1 · Die einfache Regel <small>A2–B1</small></h3><p class="memo">Ein Relativsatz beschreibt ein Nomen. Er beginnt mit der, die oder das. <b>Genus und Numerus</b> kommen vom Nomen, der <b>Fall</b> von der Aufgabe im Relativsatz. Das Verb geht ans Ende.</p><p class="tline">der Mann, der dort wohnt</p></div>
+<div class="tc df"><h3>2 · Schritt für Schritt <small>B1</small></h3><div class="rows"><div><span>1 Das Nomen</span><span>die Frau → feminin</span></div><div><span>2 Die Aufgabe</span><span>ich helfe ihr → Dativ</span></div><div><span>3 Das Pronomen</span><span>feminin + Dativ → der</span></div><div><span>4 Aufschreiben</span><span>die Frau, <b>der</b> ich helfe</span></div></div></div>
+<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B2–C1</small></h3><div class="rows"><div><span>Präposition</span><span>das Haus, in dem ich wohne · die Firma, für die ich arbeite</span></div><div><span>Dativ Plural</span><span>die Kinder, denen ich helfe</span></div><div><span>Genitiv</span><span>der Kollege, dessen Büro … · die Kollegin, deren Entwurf …</span></div><div><span>was</span><span>alles, was ich weiß · nichts, was ich sagen kann</span></div><div><span>Partizip</span><span>die gebaute Brücke = die Brücke, die gebaut wurde</span></div></div></div>
+<div class="tc df"><h3>Alle Relativpronomen</h3>${RELT}<p class="tline">Die hellen Felder sind die einzigen neuen Formen. Alles andere ist der bestimmte Artikel.</p></div>
+<div class="tc df"><h3>Zwei Fragen</h3>${D("die Frau~x|,~p|der~d|ich|helfe~v","0-2a:Genus;2-4b:Fall@d")}<div class="rows"><div><span>1 · Genus</span><span>vom Nomen, auf das es sich bezieht: die Frau → feminin</span></div><div><span>2 · Fall</span><span>von seiner Aufgabe im Relativsatz: ich helfe ihr → Dativ der</span></div></div></div>
 <div class="tc df"><h3>Mit Präposition</h3><div class="rows">
 <div><span>Wo?</span><span>das Haus, in dem ich wohne</span></div>
 <div><span>Wohin?</span><span>das Haus, in das wir ziehen</span></div>
-<div><span>Verb + Präp.</span><span>die Firma, für die ich arbeite · der Termin, an den ich denke</span></div></div><p class="tline">The preposition always comes first. English “the house I live in” has no equivalent.</p></div>
+<div><span>Verb + Präp.</span><span>die Firma, für die ich arbeite · der Termin, an den ich denke</span></div></div><p class="tline">Die Präposition steht immer zuerst: das Haus, in dem ich wohne.</p></div>
 <div class="tc df"><h3>dessen · deren</h3><div class="rows">
 <div><span>dessen</span><span>der Kollege, dessen Büro … · das Haus, dessen Dach …</span></div>
-<div><span>deren</span><span>die Kollegin, deren Entwurf … · die Pferde, deren Stall …</span></div></div><p class="tline">After dessen and deren, adjectives take the endings with no article: dessen neues Büro.</p></div>
+<div><span>deren</span><span>die Kollegin, deren Entwurf … · die Pferde, deren Stall …</span></div></div><p class="tline">Nach dessen und deren haben Adjektive die Endungen ohne Artikel: dessen neues Büro.</p></div>
 <div class="tc df"><h3>was · wo · wer</h3><div class="rows">
-<div><span>was</span><span>after alles, nichts, etwas, vieles, das, superlatives: alles, was ich weiß</span></div>
-<div><span>was</span><span>for a whole clause: Er kam pünktlich, was mich freute.</span></div>
-<div><span>wo</span><span>places and times: die Stadt, wo … · der Tag, an dem / wo …</span></div>
-<div><span>wer</span><span>general: Wer zu spät kommt, muss warten.</span></div></div></div>`};
+<div><span>was</span><span>nach alles, nichts, etwas, vieles, das, Superlativen: alles, was ich weiß</span></div>
+<div><span>was</span><span>für einen ganzen Satz: Er kam pünktlich, was mich freute.</span></div>
+<div><span>wo</span><span>Orte und Zeiten: die Stadt, wo … · der Tag, an dem / wo …</span></div>
+<div><span>wer</span><span>allgemein: Wer zu spät kommt, muss warten.</span></div></div></div>`};
 
 /* ===== Passiv ===== */
 const PAKT=`<div class="pas">${D("Der Mechaniker~s|repariert~v|das Auto~a|.~p","","Aktiv")}<div class="parr">↓ <small>Akkusativ-Objekt wird Subjekt</small></div>${D("Das Auto~s|wird~v|vom Mechaniker|repariert~v|.~p","1-3a:werden + Partizip II","Passiv")}</div>`;
@@ -2362,89 +2362,89 @@ GT.pass={name:"Passiv",badge:"Passiv",tip:"Passiv = werden + Partizip II. Perfek
 
 /* ===== Konjunktiv II ===== */
 const K2F=["sein → wäre","haben → hätte","werden → würde","können → könnte","müssen → müsste","dürfen → dürfte","sollen → sollte","wollen → wollte","wissen → wüsste","kommen → käme","gehen → ginge","geben → gäbe"];
-GT.k2={name:"Konjunktiv II",badge:"Konjunktiv II",tip:"Most verbs: würde + Infinitiv. Learn the dozen own forms: wäre, hätte, könnte, müsste …",src:["grammis","dg20","lingolia"],
+GT.k2={name:"Konjunktiv II",badge:"Konjunktiv II",tip:"Die meisten Verben: würde + Infinitiv. Lerne die gut zwölf eigenen Formen: wäre, hätte, könnte, müsste …",src:["grammis","dg20","lingolia"],
  lg:'<span><b class="wt v lgk">würde</b> … <b class="wt v lgk">zeichnen</b></span>',
  cards:[
- {b:"Irreal",st:D("Wenn~k|ich|Zeit|hätte~v|,~p|würde~v|ich|mehr|zeichnen~v|.~p","0-3a:Verb ans Ende;5-8a:würde + Infinitiv"),tx:"What isn't real (yet)",gt:"I don't have time. If I had, I would draw more.",say:"Wenn ich Zeit hätte, würde ich mehr zeichnen."},
- {b:"Formen",st:ruleSt("würde + Infinitiv",K2F.slice(0,6)),tx:"würde for most verbs, own forms for a few",gt:"Own forms: wäre, hätte, the modals, and in writing wüsste, käme, ginge, gäbe."},
- {b:"Höflich",st:ruleSt("Könnten Sie mir helfen?",["Ich hätte gern einen Kaffee.","Würden Sie bitte die Tür schließen?","Wäre es möglich, …?"]),tx:"Polite requests",gt:"Standard in shops, letters and at work."},
- {b:"Wunsch · Rat",st:ruleSt("Wenn ich doch mehr Zeit hätte!",["Ich wünschte, ich wäre in Glasgow.","An deiner Stelle würde ich …","Du solltest mehr schlafen."]),tx:"Wishes and advice",gt:"doch or nur make the wish stronger."},
- {b:"Vergangenheit",st:D("Wenn~k|ich|das|gewusst hätte~v|,~p|wäre~v|ich|gekommen~v|.~p","0-3a:Ende;5-7a:wäre + Partizip"),tx:"hätte / wäre + Partizip II",gt:"For the past there is no würde: Ich hätte es gemacht. Ich wäre gekommen.",say:"Wenn ich das gewusst hätte, wäre ich gekommen."},
- {b:"Modal + Vergangenheit",st:D("Ich~s|hätte~v|früher|kommen sollen~v|.~p","1-3a:hätte … Infinitiv + Modalverb"),tx:"hätte + two infinitives (C1)",gt:"Ich hätte früher kommen sollen = I should have come earlier. Not: gesollt.",say:"Ich hätte früher kommen sollen."},
- {b:"ohne wenn",st:D("Hätte~v|ich|Zeit|,~p|würde~v|ich~s|kommen~v|.~p","0-1b:Verb zuerst = wenn@g"),tx:"Verb first replaces wenn",gt:"Hätte ich Zeit, … = Wenn ich Zeit hätte, … Common in writing.",say:"Hätte ich Zeit, würde ich kommen."},
- {b:"als ob",st:ruleSt("Er tut so, als ob er nichts wüsste.",["Er tut so, als wüsste er nichts.","Es sieht aus, als würde es regnen."]),tx:"als ob, als: as if",gt:"With als alone, the verb comes straight after it."}],
+ {b:"Irreal",st:D("Wenn~k|ich|Zeit|hätte~v|,~p|würde~v|ich|mehr|zeichnen~v|.~p","0-3a:Verb ans Ende;5-8a:würde + Infinitiv"),tx:"Was (noch) nicht wirklich ist",gt:"Ich habe keine Zeit. Hätte ich welche, würde ich mehr zeichnen.",say:"Wenn ich Zeit hätte, würde ich mehr zeichnen."},
+ {b:"Formen",st:ruleSt("würde + Infinitiv",K2F.slice(0,6)),tx:"würde für die meisten Verben, eigene Formen für wenige",gt:"Eigene Formen: wäre, hätte, die Modalverben und in Texten wüsste, käme, ginge, gäbe."},
+ {b:"Höflich",st:ruleSt("Könnten Sie mir helfen?",["Ich hätte gern einen Kaffee.","Würden Sie bitte die Tür schließen?","Wäre es möglich, …?"]),tx:"Höfliche Bitten",gt:"Standard in Geschäften, in Briefen und bei der Arbeit."},
+ {b:"Wunsch · Rat",st:ruleSt("Wenn ich doch mehr Zeit hätte!",["Ich wünschte, ich wäre in Glasgow.","An deiner Stelle würde ich …","Du solltest mehr schlafen."]),tx:"Wünsche und Ratschläge",gt:"doch oder nur machen den Wunsch stärker."},
+ {b:"Vergangenheit",st:D("Wenn~k|ich|das|gewusst hätte~v|,~p|wäre~v|ich|gekommen~v|.~p","0-3a:Ende;5-7a:wäre + Partizip"),tx:"hätte / wäre + Partizip II",gt:"Für die Vergangenheit gibt es kein würde: Ich hätte es gemacht. Ich wäre gekommen.",say:"Wenn ich das gewusst hätte, wäre ich gekommen."},
+ {b:"Modal + Vergangenheit",st:D("Ich~s|hätte~v|früher|kommen sollen~v|.~p","1-3a:hätte … Infinitiv + Modalverb"),tx:"hätte + zwei Infinitive (C1)",gt:"Ich hätte früher kommen sollen: Ich bin zu spät gekommen. Nicht: gesollt.",say:"Ich hätte früher kommen sollen."},
+ {b:"ohne wenn",st:D("Hätte~v|ich|Zeit|,~p|würde~v|ich~s|kommen~v|.~p","0-1b:Verb zuerst = wenn@g"),tx:"Das Verb an erster Stelle ersetzt wenn",gt:"Hätte ich Zeit, … = Wenn ich Zeit hätte, … In Texten häufig.",say:"Hätte ich Zeit, würde ich kommen."},
+ {b:"als ob",st:ruleSt("Er tut so, als ob er nichts wüsste.",["Er tut so, als wüsste er nichts.","Es sieht aus, als würde es regnen."]),tx:"als ob, als: wie wenn",gt:"Mit als allein steht das Verb direkt dahinter."}],
  q:[
- {s:"Wenn ich Zeit ___, würde ich mehr zeichnen. (haben)",o:["hätte","habe","hatte"],why:"Unreal: hätte.",lv:"B1"},
- {s:"Wenn ich du ___, würde ich das Angebot annehmen. (sein)",o:["wäre","bin","war"],why:"Unreal: wäre.",lv:"B1"},
- {s:"___ Sie mir bitte kurz helfen? (können)",o:["Könnten","Konnten","Gekonnt"],why:"Polite: könnten.",lv:"A2"},
- {s:"Ich ___ gern einen Kaffee. (haben)",o:["hätte","hatte","hat"],why:"Polite order: Ich hätte gern …",lv:"A2"},
- {s:"An deiner Stelle ___ ich früher losfahren. (werden)",o:["würde","werde","wurde"],why:"Advice: würde + Infinitiv.",lv:"B1"},
- {s:"Wenn ich das gewusst ___, wäre ich gekommen. (haben)",o:["hätte","habe","wäre"],why:"Past unreal: hätte + Partizip (wissen takes haben).",lv:"B2"},
- {s:"Wenn der Zug pünktlich gewesen wäre, ___ wir den Termin geschafft. (haben)",o:["hätten","wären","würden"],why:"schaffen takes haben: hätten … geschafft.",lv:"B2"},
- {s:"Er tut so, als ___ er nichts. (wissen)",o:["wüsste","weiß","wusste"],why:"als + Konjunktiv II, verb straight after als.",lv:"C1"},
- {s:"Du ___ mehr schlafen. (Rat)",o:["solltest","sollst","sollen"],why:"Advice: solltest (Konjunktiv II of sollen).",lv:"B1"},
- {s:"Ich hätte früher kommen ___. (sollen)",o:["sollen","gesollt","soll"],why:"Two infinitives: kommen sollen.",lv:"C1"},
- {s:"Ich wünschte, ich ___ mehr Zeit. (haben)",o:["hätte","habe","hatte"],why:"Wish: hätte.",lv:"B1"},
- {s:"Wenn es nicht regnen ___, könnten wir ausreiten. (werden)",o:["würde","wird","wurde"],why:"würde + Infinitiv for regnen.",lv:"B1"},
- {s:"Es ___ schön, wenn du mitkommst. (sein)",o:["wäre","war","würde"],why:"Konjunktiv II of sein: wäre.",lv:"B1"},
- {s:"___ ich mehr Geld, würde ich ein Pferd kaufen. (haben)",o:["Hätte","Habe","Hatte"],why:"Verb first instead of wenn: Hätte ich …",lv:"B2"},
- {s:"Das ___ stimmen. (Vermutung)",o:["dürfte","darf","durfte"],why:"Guess: dürfte = probably.",lv:"C1"},
- {s:"___ es möglich, den Termin zu verschieben? (sein)",o:["Wäre","War","Würde"],why:"Polite: Wäre es möglich …?",lv:"B1"}],
- th:`<div class="tc df"><h3>1 · Die einfache Regel <small>B1</small></h3><p class="memo">Konjunktiv II is for wishes, unreal situations and polite requests. Mostly use <b>würde + Infinitiv</b>. With sein, haben and the modal verbs use their own forms: <b>wäre, hätte, könnte</b>.</p><p class="tline">Wenn ich Zeit hätte, würde ich kommen.</p></div>
-<div class="tc df"><h3>2 · Schritt für Schritt <small>B1</small></h3><div class="rows"><div><span>Wunsch</span><span>Ich hätte gern einen Kaffee.</span></div><div><span>Unreal</span><span>Wenn ich reich wäre, würde ich reisen.</span></div><div><span>Höflich</span><span>Könnten Sie mir bitte helfen?</span></div><div><span>Vergangenheit</span><span>hätte / wäre + Partizip II: Wenn ich Zeit gehabt hätte, wäre ich gekommen.</span></div></div></div>
-<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B2–C1</small></h3><div class="rows"><div><span>Regular verbs</span><span>arbeitete looks like the Präteritum, so use würde arbeiten</span></div><div><span>Strong verbs</span><span>käme, ginge, wüsste – common in writing</span></div><div><span>Without wenn</span><span>Hätte ich Zeit, käme ich mit.</span></div><div><span>als ob</span><span>Er tut so, als ob er nichts wüsste.</span></div><div><span>Modal in the past</span><span>Ich hätte kommen können.</span></div></div></div>
-<div class="tc df"><h3>Formen</h3><div class="pcs">${K2F.map(w=>'<span class="pc">'+w+'</span>').join("")}</div><p class="memo">All other verbs: <b>würde + Infinitiv</b>. ich würde, du würdest, er würde, wir würden.</p></div>
+ {s:"Wenn ich Zeit ___, würde ich mehr zeichnen. (haben)",o:["hätte","habe","hatte"],why:"Irreal: hätte.",lv:"B1"},
+ {s:"Wenn ich du ___, würde ich das Angebot annehmen. (sein)",o:["wäre","bin","war"],why:"Irreal: wäre.",lv:"B1"},
+ {s:"___ Sie mir bitte kurz helfen? (können)",o:["Könnten","Konnten","Gekonnt"],why:"Höflich: könnten.",lv:"A2"},
+ {s:"Ich ___ gern einen Kaffee. (haben)",o:["hätte","hatte","hat"],why:"Höfliche Bestellung: Ich hätte gern …",lv:"A2"},
+ {s:"An deiner Stelle ___ ich früher losfahren. (werden)",o:["würde","werde","wurde"],why:"Rat: würde + Infinitiv.",lv:"B1"},
+ {s:"Wenn ich das gewusst ___, wäre ich gekommen. (haben)",o:["hätte","habe","wäre"],why:"Irreal in der Vergangenheit: hätte + Partizip (wissen steht mit haben).",lv:"B2"},
+ {s:"Wenn der Zug pünktlich gewesen wäre, ___ wir den Termin geschafft. (haben)",o:["hätten","wären","würden"],why:"schaffen steht mit haben: hätten … geschafft.",lv:"B2"},
+ {s:"Er tut so, als ___ er nichts. (wissen)",o:["wüsste","weiß","wusste"],why:"als + Konjunktiv II, das Verb direkt nach als.",lv:"C1"},
+ {s:"Du ___ mehr schlafen. (Rat)",o:["solltest","sollst","sollen"],why:"Rat: solltest (Konjunktiv II von sollen).",lv:"B1"},
+ {s:"Ich hätte früher kommen ___. (sollen)",o:["sollen","gesollt","soll"],why:"Zwei Infinitive: kommen sollen.",lv:"C1"},
+ {s:"Ich wünschte, ich ___ mehr Zeit. (haben)",o:["hätte","habe","hatte"],why:"Wunsch: hätte.",lv:"B1"},
+ {s:"Wenn es nicht regnen ___, könnten wir ausreiten. (werden)",o:["würde","wird","wurde"],why:"würde + Infinitiv bei regnen.",lv:"B1"},
+ {s:"Es ___ schön, wenn du mitkommst. (sein)",o:["wäre","war","würde"],why:"Konjunktiv II von sein: wäre.",lv:"B1"},
+ {s:"___ ich mehr Geld, würde ich ein Pferd kaufen. (haben)",o:["Hätte","Habe","Hatte"],why:"Verb an erster Stelle statt wenn: Hätte ich …",lv:"B2"},
+ {s:"Das ___ stimmen. (Vermutung)",o:["dürfte","darf","durfte"],why:"Vermutung: dürfte = wahrscheinlich.",lv:"C1"},
+ {s:"___ es möglich, den Termin zu verschieben? (sein)",o:["Wäre","War","Würde"],why:"Höflich: Wäre es möglich …?",lv:"B1"}],
+ th:`<div class="tc df"><h3>1 · Die einfache Regel <small>B1</small></h3><p class="memo">Der Konjunktiv II steht für Wünsche, irreale Situationen und höfliche Bitten. Meistens benutzt du <b>würde + Infinitiv</b>. Bei sein, haben und den Modalverben gelten eigene Formen: <b>wäre, hätte, könnte</b>.</p><p class="tline">Wenn ich Zeit hätte, würde ich kommen.</p></div>
+<div class="tc df"><h3>2 · Schritt für Schritt <small>B1</small></h3><div class="rows"><div><span>Wunsch</span><span>Ich hätte gern einen Kaffee.</span></div><div><span>Irreal</span><span>Wenn ich reich wäre, würde ich reisen.</span></div><div><span>Höflich</span><span>Könnten Sie mir bitte helfen?</span></div><div><span>Vergangenheit</span><span>hätte / wäre + Partizip II: Wenn ich Zeit gehabt hätte, wäre ich gekommen.</span></div></div></div>
+<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B2–C1</small></h3><div class="rows"><div><span>Schwache Verben</span><span>arbeitete sieht aus wie das Präteritum, also würde arbeiten</span></div><div><span>Starke Verben</span><span>käme, ginge, wüsste – in Texten häufig</span></div><div><span>Ohne wenn</span><span>Hätte ich Zeit, käme ich mit.</span></div><div><span>als ob</span><span>Er tut so, als ob er nichts wüsste.</span></div><div><span>Modalverb in der Vergangenheit</span><span>Ich hätte kommen können.</span></div></div></div>
+<div class="tc df"><h3>Formen</h3><div class="pcs">${K2F.map(w=>'<span class="pc">'+w+'</span>').join("")}</div><p class="memo">Alle anderen Verben: <b>würde + Infinitiv</b>. ich würde, du würdest, er würde, wir würden.</p></div>
 <div class="tc df"><h3>Wofür?</h3><div class="rows">
 <div><span>irreal</span><span>Wenn ich Zeit hätte, würde ich kommen.</span></div>
 <div><span>höflich</span><span>Könnten Sie …? · Ich hätte gern … · Würden Sie bitte …?</span></div>
 <div><span>Wunsch</span><span>Wenn ich doch … hätte! · Ich wünschte, …</span></div>
 <div><span>Rat</span><span>Du solltest … · An deiner Stelle würde ich …</span></div>
 <div><span>Vermutung</span><span>Das dürfte stimmen. · Er müsste schon da sein.</span></div></div></div>
-<div class="tc df"><h3>Vergangenheit</h3>${D("hätte~v|… gemacht~v","0-1a:haben-Verben")}${D("wäre~v|… gekommen~v","0-1a:sein-Verben")}<p class="tline">Same choice of haben or sein as in the Perfekt. With a modal: hätte … machen müssen.</p></div>
+<div class="tc df"><h3>Vergangenheit</h3>${D("hätte~v|… gemacht~v","0-1a:haben-Verben")}${D("wäre~v|… gekommen~v","0-1a:sein-Verben")}<p class="tline">Dieselbe Wahl zwischen haben und sein wie im Perfekt. Mit Modalverb: hätte … machen müssen.</p></div>
 <div class="tc df"><h3>wenn-Sätze</h3><div class="rows">
-<div><span>real</span><span>Wenn ich Zeit habe, komme ich. (possible)</span></div>
+<div><span>real</span><span>Wenn ich Zeit habe, komme ich. (möglich)</span></div>
 <div><span>irreal jetzt</span><span>Wenn ich Zeit hätte, käme ich / würde ich kommen.</span></div>
 <div><span>irreal früher</span><span>Wenn ich Zeit gehabt hätte, wäre ich gekommen.</span></div>
 <div><span>ohne wenn</span><span>Hätte ich Zeit, würde ich kommen.</span></div></div></div>
-<div class="tc df"><h3>als ob · als</h3><p class="ex">Er tut so, als ob er nichts wüsste. · Er tut so, als wüsste er nichts.</p><p class="tline">With als alone, the verb comes straight after it.</p></div>`};
+<div class="tc df"><h3>als ob · als</h3><p class="ex">Er tut so, als ob er nichts wüsste. · Er tut so, als wüsste er nichts.</p><p class="tline">Mit als allein steht das Verb direkt dahinter.</p></div>`};
 
 /* ===== Konjunktiv I ===== */
-GT.k1={name:"Konjunktiv I",badge:"Konjunktiv I",tip:"Konjunktiv I reports what others said. If the form looks like the Indikativ, use Konjunktiv II.",src:["grammis","dg20","duden"],
+GT.k1={name:"Konjunktiv I",badge:"Konjunktiv I",tip:"Der Konjunktiv I gibt wieder, was andere gesagt haben. Sieht die Form aus wie der Indikativ, nimm den Konjunktiv II.",src:["grammis","dg20","duden"],
  lg:'<span><b class="wt v lgk">sei</b> · <b class="wt v lgk">habe</b> · <b class="wt v lgk">komme</b></span>',
  cards:[
- {b:"Wiedergabe",st:`<div class="pas">${D("„Ich~s|bin~v|krank.“","","direkt")}<div class="parr">↓ <small>berichtet</small></div>${D("Er sagt,|er~s|sei~v|krank|.~p","1-2a:Konjunktiv I","indirekt")}</div>`,tx:"Reported speech",gt:"News, reports and academic writing use Konjunktiv I to show: this is what someone said, not my claim.",say:"Er sagt, er sei krank."},
- {b:"Formen",st:ruleSt("Stamm + e",["er komme","er habe","er könne","er werde","er wisse","er sei"]),tx:"Mostly needed for er, sie, es",gt:"Infinitive stem + -e. sein is irregular: ich sei, du seist, er sei, wir seien, sie seien."},
- {b:"Ersatz",st:`<div class="pas">${D("Sie sagen,|sie~s|haben~v|keine Zeit|.~p","1-2a:= Indikativ?")}<div class="parr">↓ <small>Konjunktiv II</small></div>${D("Sie sagen,|sie~s|hätten~v|keine Zeit|.~p","1-2a:eindeutig")}</div>`,tx:"Looks like the Indikativ? Use Konjunktiv II",gt:"sie haben (Konj. I) = sie haben (Indikativ) → sie hätten. Also kommen → kämen, or würden + Infinitiv."},
- {b:"Vergangenheit",st:D("Sie sagt,|sie~s|habe~v|den Plan|gestern|abgegeben~v|.~p","2-5a:habe + Partizip"),tx:"habe / sei + Partizip II",gt:"For any past form in the original: Er sei gekommen. Sie habe es gewusst.",say:"Sie sagt, sie habe den Plan gestern abgegeben."},
+ {b:"Wiedergabe",st:`<div class="pas">${D("„Ich~s|bin~v|krank.“","","direkt")}<div class="parr">↓ <small>berichtet</small></div>${D("Er sagt,|er~s|sei~v|krank|.~p","1-2a:Konjunktiv I","indirekt")}</div>`,tx:"Indirekte Rede",gt:"Nachrichten, Berichte und wissenschaftliche Texte benutzen den Konjunktiv I, um zu zeigen: Das hat jemand gesagt, das ist nicht meine Behauptung.",say:"Er sagt, er sei krank."},
+ {b:"Formen",st:ruleSt("Stamm + e",["er komme","er habe","er könne","er werde","er wisse","er sei"]),tx:"Meistens nur bei er, sie, es nötig",gt:"Infinitivstamm + -e. sein ist unregelmäßig: ich sei, du seist, er sei, wir seien, sie seien."},
+ {b:"Ersatz",st:`<div class="pas">${D("Sie sagen,|sie~s|haben~v|keine Zeit|.~p","1-2a:= Indikativ?")}<div class="parr">↓ <small>Konjunktiv II</small></div>${D("Sie sagen,|sie~s|hätten~v|keine Zeit|.~p","1-2a:eindeutig")}</div>`,tx:"Sieht aus wie der Indikativ? Nimm den Konjunktiv II",gt:"sie haben (Konj. I) = sie haben (Indikativ) → sie hätten. Ebenso kommen → kämen oder würden + Infinitiv."},
+ {b:"Vergangenheit",st:D("Sie sagt,|sie~s|habe~v|den Plan|gestern|abgegeben~v|.~p","2-5a:habe + Partizip"),tx:"habe / sei + Partizip II",gt:"Für jede Vergangenheitsform im Original: Er sei gekommen. Sie habe es gewusst.",say:"Sie sagt, sie habe den Plan gestern abgegeben."},
  {b:"Zukunft",st:D("Laut Bericht|werde~v|das Projekt|teurer|werden~v|.~p","1-4a:werde + Infinitiv"),tx:"werde + Infinitiv",gt:"Original: Das Projekt wird teurer werden.",say:"Laut Bericht werde das Projekt teurer werden."},
- {b:"Fragen · Bitten",st:ruleSt("Er fragt, ob ich komme.",["Sie fragt, wann der Termin sei.","Er sagt, ich solle warten.","Sie bittet, man möge leise sein."]),tx:"Questions with ob or a W-word, commands with sollen",gt:"Polite requests: mögen."},
- {b:"Perspektive",st:ruleSt("„Ich komme morgen hierher.“",["→ Sie sagt, sie komme am nächsten Tag dorthin."]),tx:"Change person, time and place",gt:"ich → er/sie · heute → an diesem Tag · morgen → am nächsten Tag · hier → dort."}],
+ {b:"Fragen · Bitten",st:ruleSt("Er fragt, ob ich komme.",["Sie fragt, wann der Termin sei.","Er sagt, ich solle warten.","Sie bittet, man möge leise sein."]),tx:"Fragen mit ob oder einem W-Wort, Aufforderungen mit sollen",gt:"Höfliche Bitten: mögen."},
+ {b:"Perspektive",st:ruleSt("„Ich komme morgen hierher.“",["→ Sie sagt, sie komme am nächsten Tag dorthin."]),tx:"Person, Zeit und Ort ändern",gt:"ich → er/sie · heute → an diesem Tag · morgen → am nächsten Tag · hier → dort."}],
  q:[
- {s:"Der Minister sagt, er ___ zufrieden. (sein)",o:["sei","seid","sein"],why:"Konjunktiv I of sein, 3rd person: sei.",lv:"B2"},
- {s:"Sie sagt, sie ___ morgen. (kommen)",o:["komme","kommt","kam"],why:"Konjunktiv I: stem + e.",lv:"C1"},
- {s:"Er behauptet, er ___ keine Zeit. (haben)",o:["habe","hat","hatte"],why:"Konjunktiv I of haben: habe.",lv:"C1"},
- {s:"Sie sagen, sie ___ keine Zeit. (haben)",o:["hätten","haben","habe"],why:"sie haben looks like the Indikativ → Konjunktiv II hätten.",lv:"C1"},
- {s:"Laut Bericht ___ das Projekt teurer werden. (werden)",o:["werde","wird","wurde"],why:"Konjunktiv I of werden: werde.",lv:"C1"},
- {s:"Er sagte, er ___ gestern in Graz gewesen. (sein)",o:["sei","ist","war"],why:"Past in reported speech: sei + Partizip.",lv:"C1"},
- {s:"Sie erzählte, sie ___ den Plan abgegeben. (haben)",o:["habe","hat","hatte"],why:"Past with haben: habe + Partizip.",lv:"C1"},
- {s:"Der Arzt meint, ich ___ mehr schlafen. (sollen)",o:["solle","soll","sollen"],why:"Reported advice: solle.",lv:"C1"},
- {s:"Er fragt, ___ ich morgen komme.",o:["ob","dass","wenn"],why:"Reported yes/no question: ob.",lv:"B2"},
- {s:"Sie sagt: „Ich bin müde.“ → Sie sagt, sie ___ müde. (sein)",o:["sei","bin","ist"],why:"Konjunktiv I, 3rd person: sei.",lv:"B2"},
- {s:"Die Firma teilt mit, man ___ die Preise erhöhen. (werden)",o:["werde","wird","wurde"],why:"Reported future: werde + Infinitiv.",lv:"C1"},
+ {s:"Der Minister sagt, er ___ zufrieden. (sein)",o:["sei","seid","sein"],why:"Konjunktiv I von sein, 3. Person: sei.",lv:"B2"},
+ {s:"Sie sagt, sie ___ morgen. (kommen)",o:["komme","kommt","kam"],why:"Konjunktiv I: Stamm + e.",lv:"C1"},
+ {s:"Er behauptet, er ___ keine Zeit. (haben)",o:["habe","hat","hatte"],why:"Konjunktiv I von haben: habe.",lv:"C1"},
+ {s:"Sie sagen, sie ___ keine Zeit. (haben)",o:["hätten","haben","habe"],why:"sie haben sieht aus wie der Indikativ → Konjunktiv II hätten.",lv:"C1"},
+ {s:"Laut Bericht ___ das Projekt teurer werden. (werden)",o:["werde","wird","wurde"],why:"Konjunktiv I von werden: werde.",lv:"C1"},
+ {s:"Er sagte, er ___ gestern in Graz gewesen. (sein)",o:["sei","ist","war"],why:"Vergangenheit in der indirekten Rede: sei + Partizip.",lv:"C1"},
+ {s:"Sie erzählte, sie ___ den Plan abgegeben. (haben)",o:["habe","hat","hatte"],why:"Vergangenheit mit haben: habe + Partizip.",lv:"C1"},
+ {s:"Der Arzt meint, ich ___ mehr schlafen. (sollen)",o:["solle","soll","sollen"],why:"Wiedergegebener Rat: solle.",lv:"C1"},
+ {s:"Er fragt, ___ ich morgen komme.",o:["ob","dass","wenn"],why:"Wiedergegebene Ja/Nein-Frage: ob.",lv:"B2"},
+ {s:"Sie sagt: „Ich bin müde.“ → Sie sagt, sie ___ müde. (sein)",o:["sei","bin","ist"],why:"Konjunktiv I, 3. Person: sei.",lv:"B2"},
+ {s:"Die Firma teilt mit, man ___ die Preise erhöhen. (werden)",o:["werde","wird","wurde"],why:"Wiedergegebene Zukunft: werde + Infinitiv.",lv:"C1"},
  {s:"Die Nachbarn sagen, sie ___ nichts gehört. (haben)",o:["hätten","haben","habe"],why:"sie haben = Indikativ → hätten gehört.",lv:"C1"},
- {s:"Er sagt, er ___ das nicht. (wissen)",o:["wisse","weiß","wusste"],why:"Konjunktiv I of wissen: wisse.",lv:"C1"}],
- th:`<div class="tc df"><h3>Wofür?</h3><p>Konjunktiv I marks reported speech: news, reports, minutes, academic texts. In everyday speech Germans and Austrians mostly use the Indikativ or Konjunktiv II.</p>${D("Er sagt,|er~s|sei~v|krank|.~p","1-2a:berichtet")}</div>
-<div class="tc df"><h3>Formen</h3><div class="ptab"><span class="h">Person</span><span class="h">sein</span><span class="h">haben / kommen</span>${[["ich","sei","habe* / komme*"],["du","seist","habest / kommest"],["er, sie, es","sei","habe / komme"],["wir","seien","haben* / kommen*"],["ihr","seiet","habet / kommet"],["sie, Sie","seien","haben* / kommen*"]].map(r=>r.map(c=>'<span>'+c+'</span>').join("")).join("")}</div><p class="tline">* same as the Indikativ → use Konjunktiv II: hätte, käme.</p></div>
-<div class="tc df"><h3>Die Ersatzregel</h3><p class="memo">Konjunktiv I = Indikativ? → <b>Konjunktiv II</b>. Konjunktiv II = Präteritum? → <b>würde + Infinitiv</b>.</p><p class="tline">sie kommen → sie kämen · sie arbeiten (Konj. I) = sie arbeiteten (Konj. II looks like Präteritum) → sie würden arbeiten.</p></div>
+ {s:"Er sagt, er ___ das nicht. (wissen)",o:["wisse","weiß","wusste"],why:"Konjunktiv I von wissen: wisse.",lv:"C1"}],
+ th:`<div class="tc df"><h3>Wofür?</h3><p>Der Konjunktiv I kennzeichnet die indirekte Rede: Nachrichten, Berichte, Protokolle, wissenschaftliche Texte. Im Alltag benutzt man meistens den Indikativ oder den Konjunktiv II.</p>${D("Er sagt,|er~s|sei~v|krank|.~p","1-2a:berichtet")}</div>
+<div class="tc df"><h3>Formen</h3><div class="ptab"><span class="h">Person</span><span class="h">sein</span><span class="h">haben / kommen</span>${[["ich","sei","habe* / komme*"],["du","seist","habest / kommest"],["er, sie, es","sei","habe / komme"],["wir","seien","haben* / kommen*"],["ihr","seiet","habet / kommet"],["sie, Sie","seien","haben* / kommen*"]].map(r=>r.map(c=>'<span>'+c+'</span>').join("")).join("")}</div><p class="tline">* gleich wie der Indikativ → Konjunktiv II nehmen: hätte, käme.</p></div>
+<div class="tc df"><h3>Die Ersatzregel</h3><p class="memo">Konjunktiv I = Indikativ? → <b>Konjunktiv II</b>. Konjunktiv II = Präteritum? → <b>würde + Infinitiv</b>.</p><p class="tline">sie kommen → sie kämen · sie arbeiten (Konj. I) = Indikativ; sie arbeiteten (Konj. II) sieht aus wie das Präteritum → sie würden arbeiten.</p></div>
 <div class="tc df"><h3>Zeiten</h3><div class="rows">
 <div><span>Gegenwart</span><span>Er sagt, er komme / sei krank.</span></div>
 <div><span>Vergangenheit</span><span>Er sagt, er sei gekommen / habe es gewusst.</span></div>
-<div><span>Zukunft</span><span>Er sagt, er werde kommen.</span></div></div><p class="tline">The tense of the reporting verb (sagt, sagte) does not matter.</p></div>
+<div><span>Zukunft</span><span>Er sagt, er werde kommen.</span></div></div><p class="tline">Die Zeit des einleitenden Verbs (sagt, sagte) spielt keine Rolle.</p></div>
 <div class="tc df"><h3>Direkt → indirekt</h3><div class="rows">
 <div><span>Aussage</span><span>„Ich komme.“ → Sie sagt, sie komme.</span></div>
 <div><span>Ja/Nein-Frage</span><span>„Kommst du?“ → Er fragt, ob ich komme.</span></div>
 <div><span>W-Frage</span><span>„Wann kommst du?“ → Er fragt, wann ich komme.</span></div>
-<div><span>Befehl</span><span>„Warte!“ → Er sagt, ich solle warten. · höflich: möge</span></div>
+<div><span>Aufforderung</span><span>„Warte!“ → Er sagt, ich solle warten. · höflich: möge</span></div>
 <div><span>Zeit, Ort</span><span>heute → an diesem Tag · morgen → am nächsten Tag · hier → dort</span></div></div></div>`};
 
 /* ===== Nomen-Verb-Verbindungen ===== */
@@ -3932,7 +3932,7 @@ $("mLearn").onclick=()=>setMode("learn");$("mTheo").onclick=()=>setMode("theo");
 const TH={satz:()=>TH_SATZ+srcCard("satz"),prep:()=>TH_PREP+srcCard("prep"),art:()=>TH_ART+ownHTML()+srcCard("art"),pron:()=>TH_PRON+srcCard("pron"),gen:()=>TH_GEN+srcCard("gen"),fall:()=>TH_FALL+srcCard("fall"),adj:()=>TH_ADJ+srcCard("adj"),links:()=>TH_LINKS};
 
 /* ---------- "Warum?": the story behind each rule, the first Lernen card of every topic ---------- */
-const WHY={"neg": ["nicht = ni + wiht", "Althochdeutsch, um 800", "Warum endet nicht auf -t?", "Im Althochdeutschen bedeutete niwiht „nicht ein Ding“ – es ist dasselbe Wort wie englisch „not a whit“. Früher kam noch ein zweites ni dazu, ähnlich wie im Französischen bei ne … pas; das kleine ni fiel weg, und nicht übernahm die ganze Aufgabe. kein folgt derselben Idee: ni + ein, „nicht ein“."], "art": ["das Mädchen", "Mark Twain, 1880", "Why is a girl neuter?", "Because of -chen, not because of the girl: every -chen and -lein word is neuter, whatever it means. Twain complained that in German a young lady has no sex, while a turnip has. Gender belongs to the word, not to the thing: der Löffel, die Gabel, das Messer."], "fall": ["se · þone · þæm", "Altenglisch: der · den · dem", "Why does German keep four cases?", "English once had them too: Old English said se, þone, þæm for 'the'. English dropped the endings and relies on word order; only he/him and who/whom are left. German kept them in the article – so Den Plan zeichnet der Architekt is perfectly clear."], "gen": ["Der Dativ ist dem Genitiv sein Tod", "Bastian Sick, 2004", "Is the Genitiv dying?", "In speech it is retreating: wegen dem Regen, das Auto von meinem Bruder. Bastian Sick's best-selling book even makes the joke in the 'wrong' grammar. In writing it is very much alive, and it survives in fixed phrases: eines Tages, meines Wissens, guten Mutes."], "adj": ["stark · schwach", "Jacob Grimm, Deutsche Grammatik, 1819", "Why do the endings change?", "Jacob Grimm named the two sets of endings strong and weak. The rule behind them is thrift: one word has to show the case. If der or dem already shows it, the adjective takes the weak -e or -en. If nothing shows it, the adjective does the job itself: frischer Kaffee."], "konn": ["weil ich hab keine Zeit", "gesprochenes Deutsch", "Warum sagen Leute weil mit dem Verb an zweiter Stelle?", "In der gesprochenen Sprache nähert sich weil dem denn an: „weil ich hab keine Zeit“, mit einer kleinen Pause nach weil, ist heute üblich. In der Schrift und in der Prüfung ist es weiterhin falsch. Die Regel zum Merken: weil, dass, ob, wenn schicken das Verb ans Ende; und, aber, oder, denn nicht."], "rel": ["der Mann, der dort steht", "aus dem alten Zeigewort der", "Why do relative pronouns look like articles?", "They grew out of the old pointing word der, 'that one'. Der Mann, der dort steht, is literally 'the man – that one stands there'. Only dessen, deren and denen show they are something extra: the Genitiv and the Dativ plural grew longer forms."], "perf": ["ich bin gegangen", "Präteritumschwund", "Why does Austria hardly use the Präteritum?", "In southern German – Bavaria, Austria, Switzerland – the simple past has almost vanished from speech over the last centuries; Swiss German has practically none. People say ich bin gegangen, not ich ging. Only war, hatte and the modal verbs stay. In the north and in writing the Präteritum is alive."], "vprep": ["warten auf · Angst vor", "feste Paare", "Why auf and not für?", "These prepositions are fixed by history, not logic – English is no better: wait for, think of, afraid of. German often thinks in space: warten auf (looking towards it), Angst vor (it stands in front of you), denken an (touching it in thought). Learn verb and preposition as one word."], "pass": ["Hier wird getanzt.", "ein Passiv ohne Subjekt", "What can the German Passiv do that English can't?", "German can build a passive with no subject at all: Hier wird nicht geraucht. Sonntags wird gearbeitet. English needs 'there is no smoking here'. It names an activity without saying who does it – very useful for rules, reports and building specifications."], "k2": ["ich hülfe · ich stürbe", "die alten Formen", "Why does everyone say würde?", "The old Konjunktiv II of many verbs looks like the past or sounds bookish: ich hülfe, ich stürbe, ich würfe. So speakers moved to würde + Infinitiv. A handful of short forms stayed alive and are used every day: wäre, hätte, könnte, müsste, sollte, wüsste, käme, ginge."], "k1": ["Er sagte, er sei krank.", "die Sprache der Nachrichten", "Why do the news say er sei?", "Konjunktiv I marks reported speech: the speaker passes on what someone said without vouching for it. Journalists use it to keep their distance – er sei krank means 'he says he is ill'. In everyday speech people use the indicative or würde instead."], "nvv": ["zur Anwendung kommen", "Kanzleisprache", "Why do officials say zur Anwendung kommen?", "Since the chancelleries of the late Middle Ages, official German has loved nouns: a noun plus an almost empty verb such as kommen, stellen, nehmen. zur Anwendung kommen simply means angewendet werden. It sounds formal and precise – good in letters and reports, tiring when overdone."], "tekamolo": ["TE · KA · MO · LO", "eine Eselsbrücke aus dem DaF-Unterricht", "Ist TEKAMOLO eine Regel?", "Es ist eine Gedächtnisstütze, kein Gesetz. Es beschreibt die neutrale Reihenfolge, die du immer verwenden kannst. Muttersprachler verschieben Teile zur Betonung: Je neuer oder wichtiger die Information, desto weiter hinten steht sie. Lerne TEKAMOLO als sicheren Standard und beobachte dann, wie echte Texte davon abweichen."], "nom": ["Donaudampfschifffahrt", "Mark Twain, 1880", "Why is German so fond of long nouns?", "German glues words together where English uses 'of': one word for a whole phrase. Twain joked that some German words are so long they have a perspective. Nominalstil packs a clause into a noun: die Planung des Neubaus instead of dass man den Neubau plant."], "praes": ["er reiste … ab", "Mark Twain, 1880", "Why does the prefix run to the end?", "A separable verb is a verb plus a small adverb, and in a main clause the adverb waits at the end of the verb bracket. Twain mocked a novel in which the hero packs, kisses his mother and sisters and, many words later, finally 'reiste … ab'. The good side: the end of a German sentence always holds a surprise."]};
+const WHY={"neg": ["nicht = ni + wiht", "Althochdeutsch, um 800", "Warum endet nicht auf -t?", "Im Althochdeutschen bedeutete niwiht „nicht ein Ding“ – es ist dasselbe Wort wie englisch „not a whit“. Früher kam noch ein zweites ni dazu, ähnlich wie im Französischen bei ne … pas; das kleine ni fiel weg, und nicht übernahm die ganze Aufgabe. kein folgt derselben Idee: ni + ein, „nicht ein“."], "art": ["das Mädchen", "Mark Twain, 1880", "Why is a girl neuter?", "Because of -chen, not because of the girl: every -chen and -lein word is neuter, whatever it means. Twain complained that in German a young lady has no sex, while a turnip has. Gender belongs to the word, not to the thing: der Löffel, die Gabel, das Messer."], "fall": ["se · þone · þæm", "Altenglisch: der · den · dem", "Why does German keep four cases?", "English once had them too: Old English said se, þone, þæm for 'the'. English dropped the endings and relies on word order; only he/him and who/whom are left. German kept them in the article – so Den Plan zeichnet der Architekt is perfectly clear."], "gen": ["Der Dativ ist dem Genitiv sein Tod", "Bastian Sick, 2004", "Is the Genitiv dying?", "In speech it is retreating: wegen dem Regen, das Auto von meinem Bruder. Bastian Sick's best-selling book even makes the joke in the 'wrong' grammar. In writing it is very much alive, and it survives in fixed phrases: eines Tages, meines Wissens, guten Mutes."], "adj": ["stark · schwach", "Jacob Grimm, Deutsche Grammatik, 1819", "Why do the endings change?", "Jacob Grimm named the two sets of endings strong and weak. The rule behind them is thrift: one word has to show the case. If der or dem already shows it, the adjective takes the weak -e or -en. If nothing shows it, the adjective does the job itself: frischer Kaffee."], "konn": ["weil ich hab keine Zeit", "gesprochenes Deutsch", "Warum sagen Leute weil mit dem Verb an zweiter Stelle?", "In der gesprochenen Sprache nähert sich weil dem denn an: „weil ich hab keine Zeit“, mit einer kleinen Pause nach weil, ist heute üblich. In der Schrift und in der Prüfung ist es weiterhin falsch. Die Regel zum Merken: weil, dass, ob, wenn schicken das Verb ans Ende; und, aber, oder, denn nicht."], "rel": ["der Mann, der dort steht", "aus dem alten Zeigewort der", "Warum sehen Relativpronomen wie Artikel aus?", "Sie sind aus dem alten Zeigwort der, „jener“, entstanden. Der Mann, der dort steht, heißt wörtlich: „der Mann – jener steht dort“. Nur dessen, deren und denen zeigen, dass sie etwas Eigenes sind: Genitiv und Dativ Plural haben längere Formen bekommen."], "perf": ["ich bin gegangen", "Präteritumschwund", "Warum benutzt man in Österreich kaum das Präteritum?", "Im Süden des deutschen Sprachraums – Bayern, Österreich, Schweiz – ist das Präteritum in den letzten Jahrhunderten aus der gesprochenen Sprache fast verschwunden; im Schweizerdeutschen gibt es es praktisch nicht. Man sagt ich bin gegangen, nicht ich ging. Nur war, hatte und die Modalverben bleiben. Im Norden und in der Schriftsprache lebt das Präteritum."], "vprep": ["warten auf · Angst vor", "feste Paare", "Warum auf und nicht für?", "Diese Präpositionen sind durch die Geschichte festgelegt, nicht durch Logik. Das Deutsche denkt oft räumlich: warten auf (man blickt darauf zu), Angst vor (es steht vor einem), denken an (man berührt es in Gedanken). Lerne Verb und Präposition wie ein Wort."], "pass": ["Hier wird getanzt.", "ein Passiv ohne Subjekt", "What can the German Passiv do that English can't?", "German can build a passive with no subject at all: Hier wird nicht geraucht. Sonntags wird gearbeitet. English needs 'there is no smoking here'. It names an activity without saying who does it – very useful for rules, reports and building specifications."], "k2": ["ich hülfe · ich stürbe", "die alten Formen", "Warum sagen alle würde?", "Der alte Konjunktiv II vieler Verben sieht aus wie die Vergangenheit oder klingt altmodisch: ich hülfe, ich stürbe, ich würfe. Deshalb weicht man auf würde + Infinitiv aus. Einige kurze Formen sind lebendig geblieben und werden täglich benutzt: wäre, hätte, könnte, müsste, sollte, wüsste, käme, ginge."], "k1": ["Er sagte, er sei krank.", "die Sprache der Nachrichten", "Warum sagen die Nachrichten er sei?", "Der Konjunktiv I kennzeichnet die indirekte Rede: Der Sprecher gibt weiter, was jemand gesagt hat, ohne dafür zu bürgen. Journalisten halten damit Abstand – er sei krank heißt: Er sagt, er sei krank. Im Alltag nimmt man stattdessen den Indikativ oder würde."], "nvv": ["zur Anwendung kommen", "Kanzleisprache", "Why do officials say zur Anwendung kommen?", "Since the chancelleries of the late Middle Ages, official German has loved nouns: a noun plus an almost empty verb such as kommen, stellen, nehmen. zur Anwendung kommen simply means angewendet werden. It sounds formal and precise – good in letters and reports, tiring when overdone."], "tekamolo": ["TE · KA · MO · LO", "eine Eselsbrücke aus dem DaF-Unterricht", "Ist TEKAMOLO eine Regel?", "Es ist eine Gedächtnisstütze, kein Gesetz. Es beschreibt die neutrale Reihenfolge, die du immer verwenden kannst. Muttersprachler verschieben Teile zur Betonung: Je neuer oder wichtiger die Information, desto weiter hinten steht sie. Lerne TEKAMOLO als sicheren Standard und beobachte dann, wie echte Texte davon abweichen."], "nom": ["Donaudampfschifffahrt", "Mark Twain, 1880", "Why is German so fond of long nouns?", "German glues words together where English uses 'of': one word for a whole phrase. Twain joked that some German words are so long they have a perspective. Nominalstil packs a clause into a noun: die Planung des Neubaus instead of dass man den Neubau plant."], "praes": ["er reiste … ab", "Mark Twain, 1880", "Warum läuft die Vorsilbe ans Ende?", "Ein trennbares Verb besteht aus einem Verb und einem kleinen Adverb, und im Hauptsatz wartet das Adverb am Ende der Verbklammer. Twain machte sich über einen Roman lustig, in dem der Held packt, Mutter und Schwestern küsst und erst viele Wörter später endlich „reiste … ab“. Das Gute daran: Am Ende eines deutschen Satzes wartet immer eine Überraschung."]};
 /* ===== Modalverben (30 Oct) ===== */
 GT.modal={name:"Modalverben",badge:"Modalverb",tip:"Modalverb an Position 2, Infinitiv am Ende – ohne zu. ich und er haben dieselbe Form: ich kann, er kann.",src:["dudenk","dg20","grammis"],
  lg:'<span><b class="wt v lgk">Verb</b> Satzklammer</span><span><b class="wt ng lgk">nicht</b> Verneinung</span>',
