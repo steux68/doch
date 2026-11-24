@@ -158,7 +158,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .app #stage .tkm .mo,.app .lg .sw.mo,.app .sw.mo,.app .mo{background:#d4d4d4!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-24q"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-24t"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -1193,7 +1193,7 @@ body:has(footer.copy.ch) #toTop{display:none!important}
 /* ---------- data: Satzbau ---------- */
 const SB=[
  {id:1,lvl:"A1",topic:"Verb an Position 2",en:"I live in Vienna.",p:".",clauses:[{k:"main",seg:[["vf","Ich"],["v1","wohne"],["mf","in Wien"],["v2",""]]}],note:"Same order as English: the safe starting point."},
- {id:2,lvl:"A1",topic:"Inversion",en:"Today I'm working in the office.",p:".",clauses:[{k:"main",seg:[["vf","Heute"],["v1","arbeite"],["mf","ich im Büro"],["v2",""]]}],alt:["Ich arbeite heute im Büro"],note:"English keeps “I” before the verb. German keeps the verb second, so “ich” moves behind it."},
+ {id:2,lvl:"A1",topic:"Inversion",en:"Today I'm working in the office.",p:".",clauses:[{k:"main",seg:[["vf","Heute"],["v1","arbeite"],["mf","ich im Büro"],["v2",""]]}],alt:["Ich arbeite heute im Büro"],note:"Im Englischen bleibt „I“ vor dem Verb. Im Deutschen bleibt das Verb an zweiter Stelle, also rückt „ich“ dahinter."},
  {id:3,lvl:"A1",topic:"Inversion",en:"On Saturday we're going to the stable.",p:".",clauses:[{k:"main",seg:[["vf","Am Samstag"],["v1","fahren"],["mf","wir in den Stall"],["v2",""]]}],alt:["Wir fahren am Samstag in den Stall"],note:"“in den” is Akkusativ: movement towards a place."},
  {id:4,lvl:"A1",topic:"Trennbares Verb",en:"When does the course start?",p:"?",clauses:[{k:"main",seg:[["vf","Wann"],["v1","fängt"],["mf","der Kurs"],["v2","an"]]}],note:"English adds “does”. German splits “anfangen” and the prefix closes the bracket."},
  {id:5,lvl:"A2",topic:"Modalverb",en:"I have to draw the plan tomorrow.",p:".",clauses:[{k:"main",seg:[["vf","Ich"],["v1","muss"],["mf","morgen den Plan"],["v2","zeichnen"]]}],alt:["Morgen muss ich den Plan zeichnen"],note:"Im Englischen bleibt „have to draw“ zusammen. Im Deutschen steht der Infinitiv am Ende."},
@@ -1201,7 +1201,7 @@ const SB=[
  {id:7,lvl:"A2",topic:"Perfekt mit haben",en:"Yesterday I groomed the horse.",p:".",clauses:[{k:"main",seg:[["vf","Gestern"],["v1","habe"],["mf","ich das Pferd"],["v2","geputzt"]]}],alt:["Ich habe gestern das Pferd geputzt"],note:"Im Englischen steht das Simple Past. Gesprochenes Deutsch nimmt das Perfekt: habe … geputzt."},
  {id:8,lvl:"A2",topic:"Perfekt mit sein",en:"We flew to London in January.",p:".",clauses:[{k:"main",seg:[["vf","Wir"],["v1","sind"],["mf","im Jänner nach London"],["v2","geflogen"]]}],alt:["Im Jänner sind wir nach London geflogen"],note:"Verbs of movement take “sein”. Jänner is Austrian; Januar is accepted too."},
  {id:9,lvl:"B1",topic:"weil: Verb ans Ende",en:"I'm coming later because the bus is late.",p:".",clauses:[{k:"main",seg:[["vf","Ich"],["v1","komme"],["mf","später"],["v2",""]]},{k:"sub",seg:[["ein","weil"],["mf","der Bus Verspätung"],["v2","hat"]]}],note:"After “weil” the conjugated verb goes to the very end."},
- {id:10,lvl:"B1",topic:"Nebensatz im Vorfeld",en:"Because it's raining, we're staying inside today.",p:".",clauses:[{k:"sub",seg:[["ein","Weil"],["mf","es"],["v2","regnet"]]},{k:"main",ref:true,seg:[["vf",""],["v1","bleiben"],["mf","wir heute drinnen"],["v2",""]]}],alt:["Wir bleiben heute drinnen weil es regnet"],note:"The whole weil-clause fills the Vorfeld, so the verb comes straight after the comma."},
+ {id:10,lvl:"B1",topic:"Nebensatz im Vorfeld",en:"Because it's raining, we're staying inside today.",p:".",clauses:[{k:"sub",seg:[["ein","Weil"],["mf","es"],["v2","regnet"]]},{k:"main",ref:true,seg:[["vf",""],["v1","bleiben"],["mf","wir heute drinnen"],["v2",""]]}],alt:["Wir bleiben heute drinnen weil es regnet"],note:"Der ganze weil-Satz füllt das Vorfeld, also folgt das Verb direkt nach dem Komma."},
  {id:11,lvl:"B1",topic:"ob: whether",en:"I don't know whether the project will be finished on time.",p:".",clauses:[{k:"main",seg:[["vf","Ich"],["v1","weiß"],["mf","nicht"],["v2",""]]},{k:"sub",seg:[["ein","ob"],["mf","das Projekt rechtzeitig fertig"],["v2","wird"]]}],note:"„ob“ heißt „whether“. „wenn“ ist hier falsch, auch wenn das Englische „if“ sagen kann."},
  {id:12,lvl:"B1",topic:"Relativsatz",en:"That's the house (that) I designed.",p:".",clauses:[{k:"main",seg:[["vf","Das"],["v1","ist"],["mf","das Haus"],["v2",""]]},{k:"sub",seg:[["ein","das"],["mf","ich"],["v2","entworfen habe"]]}],note:"Im Englischen kann „that“ wegfallen. Im Deutschen darf das Relativpronomen nicht wegfallen, und beide Verben gehen ans Ende."}
 ];
@@ -1521,7 +1521,7 @@ const PRON_Q=[
  {s:"Ich besuche ___ morgen. (du)",lv:"A1",o:["dich","dir"],why:"besuchen + Akkusativ.",p:"du",cs:"akk"},
  {s:"Das Haus gehört ___. (er)",lv:"A2",o:["ihm","ihn"],why:"gehören + Dativ.",p:"er",cs:"dat"},
  {s:"Ich habe ___ gestern gesehen. (sie, Sg.)",lv:"A2",o:["sie","ihr"],why:"sehen + Akkusativ.",p:"sie",cs:"akk"},
- {s:"Der Entwurf gefällt ___. (wir)",lv:"A2",o:["uns","wir"],why:"gefallen + Dativ: the person who likes it.",p:"wir",cs:"dat"},
+ {s:"Der Entwurf gefällt ___. (wir)",lv:"A2",o:["uns","wir"],why:"gefallen + Dativ: Wem es gefällt, steht im Dativ.",p:"wir",cs:"dat"},
  {s:"Ich danke ___ für die Hilfe. (Sie)",lv:"A1",o:["Ihnen","Sie"],why:"danken + Dativ.",p:"Sie",cs:"dat"},
  {s:"Ich rufe ___ später an. (ihr)",lv:"A2",o:["euch","ihr"],why:"anrufen + Akkusativ.",p:"ihr",cs:"akk"},
  {s:"Gib es ___, bitte. (ich)",lv:"A1",o:["mir","mich"],why:"geben: Die Person, die etwas bekommt, steht im Dativ. Zwei Pronomen: es (Akk) vor mir (Dat).",p:"ich",cs:"dat"},
@@ -1539,17 +1539,17 @@ const PRON_Q=[
  {s:"Wie gefällt ___ die Wohnung? (du)",lv:"A2",o:["dir", "dich"],why:"gefallen + Dativ.",p:"du",cs:"dat"},
  {s:"Ich rufe ___ heute Abend an. (du)",lv:"A2",o:["dich", "dir"],why:"anrufen + Akkusativ.",p:"du",cs:"akk"},
  {s:"Der Kaffee schmeckt ___ nicht. (er)",lv:"A2",o:["ihm", "ihn"],why:"schmecken + Dativ.",p:"er",cs:"dat"},
- {s:"Kannst du ___ bitte fragen? (sie, she)",lv:"A2",o:["sie", "ihr"],why:"fragen + Akkusativ. Akkusativ of sie is sie.",p:"sie",cs:"akk"},
+ {s:"Kannst du ___ bitte fragen? (sie, she)",lv:"A2",o:["sie", "ihr"],why:"fragen + Akkusativ. Der Akkusativ von sie ist sie.",p:"sie",cs:"akk"},
  {s:"Ich danke ___ für Ihre Hilfe. (Sie)",lv:"B1",o:["Ihnen", "Sie"],why:"danken + Dativ: Ihnen.",p:"Sie",cs:"dat"},
  {s:"Die Schuhe passen ___ nicht mehr. (ich)",lv:"A2",o:["mir", "mich"],why:"passen + Dativ.",p:"ich",cs:"dat"},
  {s:"Wir laden ___ zur Feier ein. (sie, they)",lv:"A2",o:["sie", "ihnen"],why:"einladen + Akkusativ: plural sie.",p:"sie",cs:"akk"},
  {s:"Gehört das Pferd ___? (sie, she)",lv:"A2",o:["ihr", "sie"],why:"gehören + Dativ: sie → ihr.",p:"sie",cs:"dat"},
  {s:"Ich habe ___ gestern gesehen. (er)",lv:"A1",o:["ihn", "ihm"],why:"sehen + Akkusativ.",p:"er",cs:"akk"},
  {s:"Glaubst du ___? (ich)",lv:"B1",o:["mir", "mich"],why:"jemandem glauben: Die Person steht im Dativ.",p:"ich",cs:"dat"},
- {s:"Ich gebe es ___ morgen. (er)",lv:"B1",o:["ihm", "ihn"],why:"Two pronouns: es (Akk) first, then the person in Dativ.",p:"er",cs:"dat"},
+ {s:"Ich gebe es ___ morgen. (er)",lv:"B1",o:["ihm", "ihn"],why:"Zwei Pronomen: erst es (Akk), dann die Person im Dativ.",p:"er",cs:"dat"},
  {s:"Er hat ___ nicht geantwortet. (sie, they)",lv:"B1",o:["ihnen", "sie"],why:"antworten + Dativ: plural ihnen.",p:"sie",cs:"dat"},
  {s:"Ich vermisse ___ sehr. (du)",lv:"B1",o:["dich", "dir"],why:"vermissen + Akkusativ, like English 'miss someone'.",p:"du",cs:"akk"},
- {s:"Das erinnert ___ an meine Kindheit. (ich)",lv:"B2",o:["mich", "mir"],why:"jemanden an etwas erinnern: the person is Akkusativ.",p:"ich",cs:"akk"}
+ {s:"Das erinnert ___ an meine Kindheit. (ich)",lv:"B2",o:["mich", "mir"],why:"jemanden an etwas erinnern: Die Person steht im Akkusativ.",p:"ich",cs:"akk"}
 ];
 /* ---------- data: Genitiv ---------- */
 const GEN_CARDS=[
@@ -1730,17 +1730,17 @@ const FALL_Q=[
  {s:"Wir danken ___ Kollegen für die Hilfe.",n:"die Kollegen",cs:"Dativ",o:["den","die","der"],why:"danken + Dativ plural: den Kollegen. Already ends in -n, so no extra -n.",lv:"A2"},
  {s:"Ohne ___ Laptop kann ich nicht arbeiten.",n:"mein Laptop",cs:"Akkusativ",o:["meinen","mein","meinem"],why:"ohne hat immer den Akkusativ: mein → meinen.",lv:"A2"},
  {s:"Seit ___ Jahr wohne ich in Wien.",n:"ein Jahr",cs:"Dativ",o:["einem","ein","einen"],why:"seit is always Dativ: ein → einem. Present tense, where English says \"have lived\".",lv:"A2"},
- {s:"Der Mantel gefällt ___ Frau.",n:"die Frau",cs:"Dativ",o:["der", "die", "den"],why:"gefallen + Dativ: the person who likes it. die → der.",lv:"A2"},
- {s:"Ich helfe ___ Nachbarn.",n:"der Nachbar",cs:"Dativ",o:["dem", "den", "der"],why:"helfen + Dativ. Nachbar is a weak noun: dem Nachbarn.",lv:"A2"},
+ {s:"Der Mantel gefällt ___ Frau.",n:"die Frau",cs:"Dativ",o:["der", "die", "den"],why:"gefallen + Dativ: Wem es gefällt, steht im Dativ. die → der.",lv:"A2"},
+ {s:"Ich helfe ___ Nachbarn.",n:"der Nachbar",cs:"Dativ",o:["dem", "den", "der"],why:"helfen + Dativ. Nachbar ist ein n-Nomen: dem Nachbarn.",lv:"A2"},
  {s:"Wir gratulieren ___ Chefin zum Geburtstag.",n:"die Chefin",cs:"Dativ",o:["der", "die", "den"],why:"gratulieren + Dativ: die → der.",lv:"A2"},
  {s:"Ich frage ___ Lehrer.",n:"der Lehrer",cs:"Akkusativ",o:["den", "dem", "der"],why:"fragen + Akkusativ, like English 'ask someone'.",lv:"A2"},
  {s:"Das Kleid steht ___ Tochter gut.",n:"deine Tochter",cs:"Dativ",o:["deiner", "deine", "deinen"],why:"stehen (= to suit) + Dativ.",lv:"B1"},
  {s:"Der Hund folgt ___ Kind.",n:"das Kind",cs:"Dativ",o:["dem", "das", "den"],why:"folgen + Dativ.",lv:"A2"},
  {s:"Er ruft ___ Mutter an.",n:"seine Mutter",cs:"Akkusativ",o:["seine", "seiner", "seinen"],why:"anrufen + Akkusativ, like English 'call someone'.",lv:"A2"},
- {s:"Ich schicke ___ Kunden das Angebot.",n:"der Kunde",cs:"Dativ",o:["dem", "den", "der"],why:"schicken: DAT person, AKK thing. Kunde is a weak noun: dem Kunden.",lv:"B1"},
+ {s:"Ich schicke ___ Kunden das Angebot.",n:"der Kunde",cs:"Dativ",o:["dem", "den", "der"],why:"schicken: Person im Dativ, Sache im Akkusativ. Kunde ist ein n-Nomen: dem Kunden.",lv:"B1"},
  {s:"Sie erklärt ___ Studenten die Aufgabe.",n:"die Studenten",cs:"Dativ",o:["den", "die", "der"],why:"erklären: DAT person (plural den), AKK thing.",lv:"B1"},
  {s:"Kannst du ___ Kollegin den Schlüssel geben?",n:"die Kollegin",cs:"Dativ",o:["der", "die", "den"],why:"geben: DAT person, AKK thing.",lv:"A2"},
- {s:"Ich zeige dir ___ Garten.",n:"der Garten",cs:"Akkusativ",o:["den", "dem", "der"],why:"zeigen: dir is the DAT person, the thing shown is AKK.",lv:"A2"},
+ {s:"Ich zeige dir ___ Garten.",n:"der Garten",cs:"Akkusativ",o:["den", "dem", "der"],why:"zeigen: dir ist die Person im Dativ, das Gezeigte steht im Akkusativ.",lv:"A2"},
  {s:"Das Fahrrad gehört ___ Bruder.",n:"mein Bruder",cs:"Dativ",o:["meinem", "meinen", "mein"],why:"gehören + Dativ.",lv:"A2"},
  {s:"Wir brauchen ___ Termin.",n:"ein Termin",cs:"Akkusativ",o:["einen", "einem", "ein"],why:"brauchen + Akkusativ: ein → einen.",lv:"A1"},
  {s:"Ich empfehle ___ Gästen das Restaurant.",n:"die Gäste",cs:"Dativ",o:["den", "die", "der"],why:"empfehlen: DAT person. Dativ plural: den Gästen (+n).",lv:"B1"},
@@ -1750,17 +1750,17 @@ const FALL_Q=[
  {s:"Wir laden ___ Nachbarn zum Essen ein.",n:"die Nachbarn",cs:"Akkusativ",o:["die", "den", "der"],why:"einladen + Akkusativ: plural die.",lv:"A2"},
  {s:"Das Essen schmeckt ___ Kindern.",n:"die Kinder",cs:"Dativ",o:["den", "die", "der"],why:"schmecken + Dativ. Dativ plural: den Kindern.",lv:"A2"},
  {s:"Bitte antworte ___ Kundin heute noch.",n:"die Kundin",cs:"Dativ",o:["der", "die", "den"],why:"antworten + Dativ.",lv:"B1"},
- {s:"Die Stadt erteilt ___ Bauherrn die Genehmigung.",n:"der Bauherr",cs:"Dativ",o:["dem", "den", "der"],why:"erteilen: DAT person, AKK thing. Bauherr is weak: dem Bauherrn.",lv:"B2"},
+ {s:"Die Stadt erteilt ___ Bauherrn die Genehmigung.",n:"der Bauherr",cs:"Dativ",o:["dem", "den", "der"],why:"erteilen: Person im Dativ, Sache im Akkusativ. Bauherr ist ein n-Nomen: dem Bauherrn.",lv:"B2"},
  {s:"Ich vertraue ___ Ärztin.",n:"meine Ärztin",cs:"Dativ",o:["meiner", "meine", "meinen"],why:"vertrauen + Dativ.",lv:"B1"},
  {s:"Er widerspricht ___ Chef nie.",n:"sein Chef",cs:"Dativ",o:["seinem", "seinen", "sein"],why:"widersprechen + Dativ.",lv:"B2"},
- {s:"Wir bitten ___ Gemeinde um Unterstützung.",n:"die Gemeinde",cs:"Akkusativ",o:["die", "der", "den"],why:"jemanden um etwas bitten: the person is Akkusativ.",lv:"B1"},
+ {s:"Wir bitten ___ Gemeinde um Unterstützung.",n:"die Gemeinde",cs:"Akkusativ",o:["die", "der", "den"],why:"jemanden um etwas bitten: Die Person steht im Akkusativ.",lv:"B1"},
  {s:"Ich danke ___ Team für die Arbeit.",n:"das Team",cs:"Dativ",o:["dem", "das", "den"],why:"danken + Dativ.",lv:"A2"},
  {s:"Der Architekt überreicht ___ Bürgermeisterin die Pläne.",n:"die Bürgermeisterin",cs:"Dativ",o:["der", "die", "den"],why:"überreichen: DAT person, AKK thing.",lv:"B2"},
  {s:"Ich habe ___ Freund mein Auto geliehen.",n:"mein Freund",cs:"Dativ",o:["meinem", "meinen", "mein"],why:"leihen: DAT person, AKK thing.",lv:"B1"},
  {s:"Wir unterstützen ___ Projekt gern.",n:"das Projekt",cs:"Akkusativ",o:["das", "dem", "des"],why:"unterstützen + Akkusativ.",lv:"A2"},
  {s:"Das Ergebnis überrascht ___ Experten.",n:"die Experten",cs:"Akkusativ",o:["die", "den", "der"],why:"überraschen + Akkusativ: plural die.",lv:"B2"},
  {s:"Der Sattel passt ___ Pferd nicht.",n:"das Pferd",cs:"Dativ",o:["dem", "das", "den"],why:"passen (= to fit) + Dativ.",lv:"B1"},
- {s:"Peter repariert ___ Fahrrad. (er)",n:"sein Fahrrad",cs:"Akkusativ",o:["sein","seine","ihr"],why:"Owner er → sein. Fahrrad is neuter in the Akkusativ: no ending.",lv:"A1"},
+ {s:"Peter repariert ___ Fahrrad. (er)",n:"sein Fahrrad",cs:"Akkusativ",o:["sein","seine","ihr"],why:"Besitzer er → sein. Fahrrad ist im Akkusativ ein Neutrum: keine Endung.",lv:"A1"},
  {s:"Anna liest ___ Buch. (sie)",n:"ihr Buch",cs:"Akkusativ",o:["ihr","sein","ihre"],why:"Besitzerin sie → ihr. Buch ist im Akkusativ ein Neutrum: keine Endung.",lv:"A1"},
  {s:"Ich vermisse ___ Familie. (ich)",n:"meine Familie",cs:"Akkusativ",o:["meine","meinen","meiner"],why:"vermissen + Akkusativ. Familie ist feminin: meine.",lv:"A1"},
  {s:"Hast du ___ Schlüssel gefunden? (du)",n:"dein Schlüssel",cs:"Akkusativ",o:["deinen","dein","deinem"],why:"Das Maskulinum im Akkusativ nimmt -en: dein → deinen.",lv:"A1"},
@@ -1780,7 +1780,7 @@ const FALL_Q=[
 const ADJ_T={best:[["e","e","e","en"],["en","e","e","en"],["en","en","en","en"],["en","en","en","en"]],unb:[["er","es","e","en"],["en","es","e","en"],["en","en","en","en"],["en","en","en","en"]],ohne:[["er","es","e","e"],["en","es","e","e"],["em","em","er","en"],["en","en","er","er"]]};
 function adjTab(k,ex){const R=["Nom","Akk","Dat","Gen"];return '<div class="adjt"><span></span><span class="h">mask.</span><span class="h">neutr.</span><span class="h">fem.</span><span class="h">Pl.</span>'+ADJ_T[k].map((r,i)=>'<span class="h">'+R[i]+'</span>'+r.map(e=>'<b class="'+(e==="en"?"en":"x")+'">-'+e+'</b>').join("")).join("")+'</div>'+(ex?'<p class="adjx">'+ex+'</p>':'');}
 const ADJ_CARDS=[
- {b:"der · die · das",st:adjTab("best","der neu<b>e</b> Plan · den neu<b>en</b> Plan"),tx:"After der, die, das: only -e or -en",gt:"-e in den fünf hellen Feldern, überall sonst -en.",say:"der neue Plan, den neuen Plan, mit dem neuen Plan"},
+ {b:"der · die · das",st:adjTab("best","der neu<b>e</b> Plan · den neu<b>en</b> Plan"),tx:"Nach der, die, das: nur -e oder -en",gt:"-e in den fünf hellen Feldern, überall sonst -en.",say:"der neue Plan, den neuen Plan, mit dem neuen Plan"},
  {b:"ein · kein · mein",st:adjTab("unb","ein neu<b>er</b> Plan · ein schön<b>es</b> Haus"),tx:"Nach ein, kein, mein: Das Adjektiv zeigt das Genus",gt:"ein hat im maskulinen Nominativ und im Neutrum keine Endung, also übernimmt das Adjektiv sie: -er, -es. Sonst -e oder -en wie vorher.",say:"ein neuer Plan, ein schönes Haus, einen neuen Plan"},
  {b:"ohne Artikel",st:adjTab("ohne","frisch<b>es</b> Brot · mit groß<b>er</b> Freude"),tx:"Ohne Artikel: Das Adjektiv übernimmt die Aufgabe des Artikels",gt:"Die Endungen kopieren der, das, die, dem: -er, -es, -e, -em. Ausnahme: Genitiv maskulin und Neutrum -en (trotz schlecht<b>en</b> Wetters).",say:"frisches Brot, kaltes Wasser, mit großer Freude"},
  {b:"Merkhilfe",st:ruleSt("Einer muss den Fall zeigen.",["der → neu<b>e</b>","ein → neu<b>er</b>","– → neu<b>er</b>"]),tx:"Jemand muss den Fall zeigen",gt:"Zeigt der Artikel den Fall schon deutlich, braucht das Adjektiv nur -e oder -en. Sonst zeigt ihn das Adjektiv."},
@@ -1854,11 +1854,11 @@ const TH_FALL=`
 <div class="tc df"><h3>2 · Schritt für Schritt <small>A2–B1</small></h3><div class="rows">
 <div><span>Wer zeigt?</span><span>NOM · <b>der Architekt</b></span></div>
 <div><span>Wem?</span><span>DAT · <b>dem Kunden</b> (masc. → dem)</span></div>
-<div><span>Was?</span><span>AKK · <b>den Plan</b> (masc. → den)</span></div></div><p class="tline">Der Architekt zeigt dem Kunden den Plan. Ask the verb: Wer? Wem? Was? Then pick the article by gender.</p></div>
+<div><span>Was?</span><span>AKK · <b>den Plan</b> (masc. → den)</span></div></div><p class="tline">Der Architekt zeigt dem Kunden den Plan. Frage das Verb: Wer? Wem? Was? Dann wähle den Artikel nach dem Genus.</p></div>
 <div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B2–C1</small></h3><div class="rows">
 <div><span>n-Deklination</span><span>der Student → den, dem, des <b>Studenten</b></span></div>
 <div><span>Dativ Plural</span><span>mit den Kinder<b>n</b> · von den Kollegen</span></div>
-<div><span>Genitiv</span><span>masculine and neuter nouns add -s or -es: des Hauses, des Mannes</span></div>
+<div><span>Genitiv</span><span>maskuline und neutrale Nomen bekommen -s oder -es: des Hauses, des Mannes</span></div>
 <div><span>sein · werden</span><span>Nominativ again: Er ist ein guter Lehrer. Er wird Arzt.</span></div>
 <div><span>Zeit</span><span>Akkusativ: jeden Tag, letzten Montag</span></div>
 <div><span>es gibt</span><span>immer Akkusativ: Es gibt einen Park.</span></div>
@@ -1960,7 +1960,7 @@ GT.konn={name:"Konnektoren",badge:"Konnektor",tip:"Erst fragen: Schiebt der Konn
  {s:"___ ich Zeit habe, zeichne ich.",o:["Wenn","Als","Ob"],why:"Present, whenever: wenn.",lv:"A2"},
  {s:"Ich weiß nicht, ___ er heute kommt.",o:["ob","wenn","dass"],why:"Eine indirekte Ja/Nein-Frage: ob.",lv:"A2"},
  {s:"Ich glaube, ___ der Plan fertig ist.",o:["dass","ob","das"],why:"Reporting a statement: dass (with ss).",lv:"A2"},
- {s:"Ich spreche langsam, ___ du mich verstehst.",o:["damit","dass","um"],why:"Purpose with a different subject: damit.",lv:"B1"},
+ {s:"Ich spreche langsam, ___ du mich verstehst.",o:["damit","dass","um"],why:"Zweck mit einem anderen Subjekt: damit.",lv:"B1"},
  {s:"Ich lerne Deutsch, ___ in Wien zu arbeiten.",o:["um","damit","dass"],why:"Same subject plus zu + Infinitiv: um … zu.",lv:"B1"},
  {s:"Ich trinke keinen Kaffee, ___ Tee.",o:["sondern","aber","oder"],why:"Nach einer Verneinung die Korrektur: sondern.",lv:"A2"},
  {s:"___ mehr ich übe, desto besser spreche ich.",o:["Je","So","Wenn"],why:"Fixed pair: je … desto.",lv:"B1"},
@@ -1973,7 +1973,7 @@ GT.konn={name:"Konnektoren",badge:"Konnektor",tip:"Erst fragen: Schiebt der Konn
  {s:"Wir nehmen ___ den Bus oder die Bahn.",o:["entweder","weder","sowohl"],why:"Fixed pair: entweder … oder.",lv:"B1"}],
  th:`<div class="tc df"><h3>1 · Die einfache Regel <small>A2</small></h3><p class="memo">Konnektoren verbinden Sätze. Frage zuerst: Wohin geht das Verb? <b>Position 0</b> (und, aber, oder, denn, sondern): normale Wortstellung. <b>Verb am Ende</b> (weil, dass, wenn, obwohl). <b>Erste Stelle</b> (deshalb, trotzdem, dann): Das Verb folgt sofort.</p><p class="tline">Merkhilfe für Position 0: ADUSO</p></div>
 <div class="tc df"><h3>2 · Schritt für Schritt <small>A2–B1</small></h3><div class="rows"><div><span>1 Meaning</span><span>reason → weil, denn · contrast → aber, obwohl · result → deshalb</span></div><div><span>2 Position</span><span>weil: Verb am Ende · denn: Verb an zweiter Stelle · deshalb: Verb direkt danach</span></div><div><span>3 Aufschreiben</span><span>Ich bleibe zu Hause, <b>weil</b> ich krank <b>bin</b>. · …, <b>denn</b> ich <b>bin</b> krank. · <b>Deshalb bleibe</b> ich zu Hause.</span></div></div></div>
-<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B1–C1</small></h3><div class="rows"><div><span>aber · sondern</span><span>sondern follows a negative: Ich komme nicht heute, sondern morgen.</span></div><div><span>obwohl · trotzdem</span><span>Obwohl es regnet, gehen wir. · Es regnet. Trotzdem gehen wir.</span></div><div><span>weil · da</span><span>da usually starts the sentence: Da es regnet, bleiben wir hier.</span></div><div><span>wenn · falls</span><span>falls ist förmlicher und meint immer eine echte Möglichkeit.</span></div><div><span>gesprochen</span><span>Gesprochen hört man „weil ich bin müde“. Schreibe das Verb ans Ende.</span></div></div></div>
+<div class="tc df"><h3>3 · Ausnahmen &amp; mehr <small>B1–C1</small></h3><div class="rows"><div><span>aber · sondern</span><span>sondern follows a negative: Ich komme nicht heute, sondern morgen.</span></div><div><span>obwohl · trotzdem</span><span>Obwohl es regnet, gehen wir. · Es regnet. Trotzdem gehen wir.</span></div><div><span>weil · da</span><span>da steht meist am Satzanfang: Da es regnet, bleiben wir hier.</span></div><div><span>wenn · falls</span><span>falls ist förmlicher und meint immer eine echte Möglichkeit.</span></div><div><span>gesprochen</span><span>Gesprochen hört man „weil ich bin müde“. Schreibe das Verb ans Ende.</span></div></div></div>
 <div class="tc df"><h3>Drei Positionen</h3>${D("aber~k|ich~s|lerne~v","0-2a:0")}${D("weil~k|ich|Deutsch|lerne~v","0-3a:Ende")}${D("deshalb~k|lerne~v|ich~s","0-1a:2")}<div class="rows">
 <div><span>Position 0</span><span><b>und, aber, oder, denn, sondern, doch</b> · Merkhilfe ADUSO</span></div>
 <div><span>Verb am Ende</span><span><b>weil, dass, ob, wenn, als, obwohl, damit, bevor, nachdem, während, seit, bis, sobald</b> und W-Wörter in indirekten Fragen</span></div>
@@ -2342,7 +2342,7 @@ GT.pass={name:"Passiv",badge:"Passiv",tip:"Passiv = werden + Partizip II. Perfek
  {s:"Das Paket ist heute früh geliefert ___. (werden)",o:["worden","geworden","werden"],why:"Passiv Perfekt: worden, nicht geworden.",lv:"B2"},
  {s:"Die Rechnung muss bis Freitag bezahlt ___. (werden)",o:["werden","worden","wird"],why:"Modalverb + Partizip II + werden.",lv:"B1"},
  {s:"Die Ergebnisse ___ morgen veröffentlicht. (werden)",o:["werden","wurden","worden"],why:"Plural, Zukunftsbedeutung mit morgen: werden.",lv:"B1"},
- {s:"Der Plan wurde ___ der Architektin gezeichnet.",o:["von","durch","mit"],why:"A person as the doer: von + Dativ.",lv:"B1"},
+ {s:"Der Plan wurde ___ der Architektin gezeichnet.",o:["von","durch","mit"],why:"Eine Person als Handelnder: von + Dativ.",lv:"B1"},
  {s:"Das Dorf wurde ___ das Hochwasser zerstört.",o:["durch","von","mit"],why:"A cause, with Akkusativ das: durch.",lv:"B2"},
  {s:"Dem Patienten ___ sofort geholfen. (werden)",o:["wird","werden","wurden"],why:"Kein Subjekt (Dativ bleibt): Verb im Singular.",lv:"B2"},
  {s:"Hier ___ nicht geraucht. (werden)",o:["wird","ist","hat"],why:"Impersonal passive: wird + Partizip.",lv:"B1"},
@@ -2367,7 +2367,7 @@ GT.pass={name:"Passiv",badge:"Passiv",tip:"Passiv = werden + Partizip II. Perfek
 <div><span>Modalverb</span><span>Das Haus <b>muss</b> gebaut <b>werden</b>.</span></div></div></div>
 <div class="tc df"><h3>von oder durch?</h3><div class="rows"><div><span>von + Dat</span><span>der Handelnde, meist eine Person oder Institution: von der Stadt geplant</span></div><div><span>durch + Akk</span><span>eine Ursache oder ein Mittel: durch das Hochwasser zerstört, durch einen Boten zugestellt</span></div></div></div>
 <div class="tc df"><h3>Vorgang oder Zustand</h3><div class="rows"><div><span>werden</span><span>process: Die Tür wird geschlossen.</span></div><div><span>sein</span><span>result: Die Tür ist geschlossen. · Der Tisch ist gedeckt.</span></div></div></div>
-<div class="tc df"><h3>Ohne Subjekt</h3>${D("Mir~d|wurde~v|gesagt~v|,~p|dass …","0-1b:Dativ bleibt@d")}<p class="tline">Dem Patienten wird geholfen. · Hier wird gearbeitet. · Es wird getanzt. The verb is always singular.</p></div>
+<div class="tc df"><h3>Ohne Subjekt</h3>${D("Mir~d|wurde~v|gesagt~v|,~p|dass …","0-1b:Dativ bleibt@d")}<p class="tline">Dem Patienten wird geholfen. · Hier wird gearbeitet. · Es wird getanzt. Das Verb steht immer im Singular.</p></div>
 <div class="tc df"><h3>Ersatzformen <small>C1</small></h3><div class="rows">
 <div><span>sich lassen</span><span>Das Problem lässt sich lösen. = kann gelöst werden</span></div>
 <div><span>sein + zu</span><span>Der Antrag ist bis Montag zu prüfen. = muss geprüft werden</span></div>
@@ -2583,7 +2583,7 @@ const TH_LINKS=`
 GT.vkas={name:"Verben & Fälle",badge:"Verb",tip:"Lerne den Fall zusammen mit dem Verb: helfen + Dativ, brauchen + Akkusativ.",src:["duden","grammis","lingolia"],
  lg:'<span class="lgc akk">Akk</span><span class="lgc dat">Dat</span><span class="lgc nom">Nom</span><span class="lgc gen">Gen</span>',
  cards:[
- {b:"Akkusativ",st:ruleSt("Die meisten Verben: + Akkusativ",["Ich sehe den Hengst.","Wir brauchen einen Plan.","Sie besucht ihre Tante.","Er kauft das Buch."]),tx:"Direct object: Wen oder was?",gt:"sehen, brauchen, besuchen, kaufen, haben, machen, lesen, suchen, finden …"},
+ {b:"Akkusativ",st:ruleSt("Die meisten Verben: + Akkusativ",["Ich sehe den Hengst.","Wir brauchen einen Plan.","Sie besucht ihre Tante.","Er kauft das Buch."]),tx:"Akkusativobjekt: Wen oder was?",gt:"sehen, brauchen, besuchen, kaufen, haben, machen, lesen, suchen, finden …"},
  {b:"Dativ",st:ruleSt("helfen · danken · gehören · gefallen",["Ich helfe dem Nachbarn.","Das Pferd gehört mir.","Der Entwurf gefällt der Kundin.","Wir danken Ihnen."]),tx:"Eine kleine Gruppe hat nur den Dativ",gt:"Außerdem: antworten, folgen, passen, schmecken, fehlen, zuhören, glauben (einer Person), begegnen."},
  {b:"Dat + Akk",st:ruleSt("geben · zeigen · schenken · schicken",["Ich gebe dem Bauherrn den Plan.","Sie zeigt mir das Zimmer.","Er schenkt seiner Mutter einen Ring.","Wir schicken Ihnen die Rechnung."]),tx:"Zwei Objekte: Person Dativ, Sache Akkusativ",gt:"Außerdem: bringen, erklären, empfehlen, leihen, schreiben, sagen. Zwei Nomen: Dativ zuerst. Zwei Pronomen: Akkusativ zuerst."},
  {b:"Nominativ",st:ruleSt("sein · werden · bleiben",["Er ist Architekt.","Sie wird Ärztin.","Das bleibt ein Geheimnis."]),tx:"Das Nomen nach diesen Verben bleibt Nominativ",gt:"Hier gibt es kein Objekt. Das Nomen sagt dasselbe wie das Subjekt. Außerdem: heißen, scheinen."},
@@ -2624,7 +2624,7 @@ GT.pfall={name:"Präpositionen & Fall",badge:"Präposition",tip:"Ordne die Präp
  {b:"Wechsel",st:ruleSt("an · auf · hinter · in · neben · über · unter · vor · zwischen",["Wo? → Dativ: im Stall","Wohin? → Akkusativ: in den Stall"]),tx:"Neun Wechselpräpositionen",gt:"Position (Wo?) hat den Dativ, Bewegung (Wohin?) den Akkusativ. Übe in Wo oder wohin?"},
  {b:"Kurzform",st:ruleSt("am · im · zum · zur · vom · beim · ins · ans",["am Montag (an dem)","zum Arzt (zu dem)","zur Schule (zu der)","ins Kino (in das)"]),tx:"Kurzformen mit dem Artikel",gt:"Die lange Form betont den Artikel: Ich gehe zu dem Arzt, den du empfohlen hast."},
  {b:"Genitiv",st:ruleSt("wegen · trotz · während · statt",["wegen des Regens","trotz der Kälte","während der Sitzung"]),tx:"Schriftlich und formell: Genitiv",gt:"Die vollständige Liste steht im Thema Genitiv."},
- {b:"Merken",st:ruleSt("Lerne sie in Sätzen",["Ich fahre mit dem Zug zu meiner Tante.","Ich gehe ohne meinen Schirm durch den Regen."]),tx:"One short sentence beats a list",gt:"Say the sentence aloud and change the noun: mit dem Bus, mit der Bahn, mit dem Auto."}],
+ {b:"Merken",st:ruleSt("Lerne sie in Sätzen",["Ich fahre mit dem Zug zu meiner Tante.","Ich gehe ohne meinen Schirm durch den Regen."]),tx:"Ein kurzer Satz schlägt eine Liste",gt:"Sprich den Satz laut und tausche das Nomen aus: mit dem Bus, mit der Bahn, mit dem Auto."}],
  q:[
  {s:"Wir gehen durch ___ Park.",o:["den","dem","der"],why:"durch + Akkusativ; masculine → den.",lv:"A1"},
  {s:"Das Geschenk ist für ___ Mutter.",o:["meine","meiner","meinen"],why:"für + Akkusativ; feminine stays meine.",lv:"A1"},
@@ -2714,7 +2714,7 @@ GT.nebs={name:"Nebensätze",badge:"Nebensatz",tip:"Wähle die Konjunktion nach d
  {s:"Es ist so laut, ___ ich nicht schlafen kann.",o:["dass","damit","weil"],why:"so … dass nennt die Folge.",lv:"B1"},
  {s:"___ es regnet, gehen wir spazieren.",o:["Obwohl","Weil","Damit"],why:"Der Regen hält uns nicht auf: obwohl.",lv:"B1"},
  {s:"Ich bin müde, ___ ich schlecht geschlafen habe.",o:["weil","obwohl","damit"],why:"Schlechter Schlaf ist der Grund: weil.",lv:"B1"},
- {s:"Nachdem ich gegessen ___, ging ich spazieren.",o:["hatte","habe","war"],why:"nachdem + Plusquamperfekt before the Präteritum: gegessen hatte.",lv:"B1"},
+ {s:"Nachdem ich gegessen ___, ging ich spazieren.",o:["hatte","habe","war"],why:"nachdem + Plusquamperfekt vor dem Präteritum: gegessen hatte.",lv:"B1"},
  {s:"Er ruft an, ___ er nach Hause kommt.",o:["sobald","damit","obwohl"],why:"As soon as: sobald.",lv:"B1"},
  {s:"Ich weiß, dass er gestern nicht ___.",o:["gekommen ist","ist gekommen","gekommen hat"],why:"Erst das Partizip, dann das konjugierte Verb. kommen bildet das Perfekt mit sein.",lv:"B1"},
  {s:"Ich glaube, dass er morgen ___.",o:["kommen kann","kann kommen","kann kommen können"],why:"Erst der Infinitiv, dann das konjugierte Modalverb.",lv:"B1"},
@@ -2850,7 +2850,7 @@ GT.zungen={name:"Zungenbrecher",badge:"Laut",tip:"Sprich es zuerst langsam. Das 
  {s:"Der dicke Dachdecker deckte dir dein ___.",o:["Dach","Haus","Fach"],why:"Der dicke Dachdecker deckte dir dein Dach.",lv:"A2"},
  {s:"Es klapperten die Klapperschlangen, bis ihre ___ schlapper klangen.",o:["Klappern","Schuppen","Rasseln"],why:"…bis ihre Klappern schlapper klangen.",lv:"B2"},
  {s:"Im Satz „Zehn zahme Ziegen“ übst du den Laut ___.",o:["z","sch","w"],why:"The letter z is pronounced ts.",lv:"A2"},
- {s:"Im Satz „Wiener Waschweiber“ klingt w wie ___.",o:["v","w","f"],why:"German w sounds like English v.",lv:"B1"},
+ {s:"Im Satz „Wiener Waschweiber“ klingt w wie ___.",o:["v","w","f"],why:"Deutsches w klingt wie englisches v.",lv:"B1"},
  {s:"Im Wort „Zwetschge“ steht am Anfang der Laut ___.",o:["zw","sch","tsch"],why:"Zw wird tsv gesprochen.",lv:"B2"}],
  th:`<div class="tc df"><h3>Laute</h3><div class="rows"><div><span>f, fr</span><span>Fischers Fritz</span></div><div><span>bl, br</span><span>Blaukraut</span></div><div><span>z</span><span>Zehn zahme Ziegen</span></div><div><span>w</span><span>Wiener Waschweiber</span></div><div><span>h</span><span>Hermanns Hemden</span></div><div><span>kl, schl</span><span>Klapperschlangen</span></div></div><p class="tline">Tippe in Lernen auf Anhören und sprich jeden Satz der Stimme nach.</p></div><div class="tc df"><h3>So übst du</h3><div class="rows"><div><span>1</span><span>langsam, jedes Wort deutlich</span></div><div><span>2</span><span>drei Mal ohne Fehler</span></div><div><span>3</span><span>schneller, ohne den Laut zu verlieren</span></div></div><p class="tline">Das Tempo kommt zuletzt.</p></div>`};
 GT.fehler={name:"Fehlerjagd",badge:"Fehler: tippe die falsche Stelle",tip:"Prüfe zuerst die Verbstellung, dann den Fall, dann den Artikel.",src:["duden","grammis","lingolia"],
@@ -3089,7 +3089,7 @@ GT.zeit={name:"Zeitangaben",badge:"Präposition",tip:"am Tag, um Uhrzeit, im Mon
  {s:"Es ist 8:15 Uhr. Es ist ___ nach acht.",o:["Viertel","halb","eine"],why:"Viertel nach acht = 8:15.",lv:"B1"},
  {s:"___ Sommer waren wir in Italien.",o:["Letzten","Letzter","Letzte"],why:"der Sommer im Akkusativ: letzten Sommer.",lv:"B1"},
  {s:"Er trainiert ___ Tag.",o:["jeden","jeder","jedem"],why:"Akkusativ: jeden Tag.",lv:"B1"},
- {s:"___ wann ist das Geschäft geöffnet? – Bis 20 Uhr.",o:["Bis","Seit","Ab"],why:"The answer is bis, so the question is bis wann.",lv:"B2"},
+ {s:"___ wann ist das Geschäft geöffnet? – Bis 20 Uhr.",o:["Bis","Seit","Ab"],why:"Die Antwort ist bis, also lautet die Frage bis wann.",lv:"B2"},
  {s:"Ich bin ___ 1990 geboren.",o:["im Jahr","in","am"],why:"im Jahr 1990. Do not say in 1990.",lv:"B2"},
  {s:"Das Paket kommt ___ von drei Tagen.",o:["innerhalb","während","seit"],why:"innerhalb von drei Tagen = in less than three days.",lv:"B2"},
  {s:"Gestern ___ war ich im Kino.",o:["Abend","Abends","Abenden"],why:"gestern Abend: ein Nomen nach gestern, großgeschrieben.",lv:"B2"},
@@ -3161,7 +3161,7 @@ GT.dopp={name:"Zweiteilige Konnektoren",badge:"Doppelkonnektor",tip:"Der erste T
  {s:"Er hat weder angerufen ___ geschrieben.",o:["noch","sondern","als auch"],why:"weder … noch: no nicht needed.",lv:"B1"},
  {s:"Das Haus ist zwar alt, ___ es ist sehr schön.",o:["aber","sondern","denn"],why:"zwar … aber: A wird zugestanden, B zählt mehr.",lv:"B1"},
  {s:"Zwar ist das Haus alt, aber ___.",o:["es ist schön","ist es schön","es schön ist"],why:"aber steht außerhalb des Satzes: normale Wortstellung.",lv:"B1"},
- {s:"Je früher du kommst, ___ mehr Zeit haben wir.",o:["desto","so","als"],why:"je … desto: the more A, the more B.",lv:"B1"},
+ {s:"Je früher du kommst, ___ mehr Zeit haben wir.",o:["desto","so","als"],why:"je … desto: Je mehr A, desto mehr B.",lv:"B1"},
  {s:"Je länger ich warte, desto ___ werde ich.",o:["nervöser","nervös","am nervösesten"],why:"Nach desto steht ein Komparativ.",lv:"B1"},
  {s:"Je mehr ich übe, ___.",o:["desto besser spreche ich","desto besser ich spreche","desto ich besser spreche"],why:"Das Verb folgt sofort auf desto + Komparativ.",lv:"B1"},
  {s:"Je mehr ich übe, desto besser ___ ich.",o:["spreche","sprechen","gesprochen"],why:"Der Hauptsatz: Das Verb steht nach desto besser an zweiter Stelle.",lv:"B1"},
@@ -3329,7 +3329,7 @@ GT.tekamolo={name:"TEKAMOLO",badge:"Te · Ka · Mo · Lo",tip:"Stelle vier Frage
 <p class="tline">TEKAMOLO ist der sichere Normalfall, kein Gesetz.</p></div>
 <div class="tc df"><h3>Wann gilt es nicht? <small>B1</small></h3>
 <div class="nt" style="--nc:8.4em minmax(0,1fr)"><div class="hd"><span>Fall</span><span>Beispiel</span></div>
-<div><span class="g">Betonung</span><span>Nach Wien fahre ich <b>mit dem Zug</b>. The part you stress moves back or to the front.</span></div>
+<div><span class="g">Betonung</span><span>Nach Wien fahre ich <b>mit dem Zug</b>. Der betonte Teil rückt nach hinten oder nach vorn.</span></div>
 <div><span class="g">Vorfeld</span><span><b>Morgen</b> fahre ich mit dem Zug nach Wien.</span></div>
 <div><span class="g">nicht</span><span>Ich fahre heute <b>nicht</b> nach Wien. See Verneinung.</span></div></div>
 <p class="tline">TEKAMOLO ist eine Gedächtnisstütze aus dem Deutschunterricht für Ausländer, kein Gesetz der Sprache. Sie ist deine sichere Grundregel.</p></div>`};
@@ -3965,7 +3965,7 @@ GT.modal={name:"Modalverben",badge:"Modalverb",tip:"Modalverb an Position 2, Inf
  {s:"Er ___ heute lange arbeiten. (müssen)",o:["muss","musst","müsst"],why:"er muss: keine Endung, Vokal ü → u im Singular.",lv:"A1"},
  {s:"___ du mir bitte helfen? (können)",o:["Kannst","Kann","Könnt"],why:"du kannst. Die Frage beginnt mit dem Verb.",lv:"A1"},
  {s:"Ich ___ einen Kaffee, bitte. (mögen)",o:["möchte","möchten","mag"],why:"Ordering politely: ich möchte.",lv:"A1"},
- {s:"Hier ___ man nicht rauchen. (dürfen)",o:["darf","dürfen","darfst"],why:"man takes the er-form: man darf.",lv:"A1"},
+ {s:"Hier ___ man nicht rauchen. (dürfen)",o:["darf","dürfen","darfst"],why:"man nimmt die er-Form: man darf.",lv:"A1"},
  {s:"Wir ___ morgen ins Kino gehen. (wollen)",o:["wollen","will","wollt"],why:"wir wollen – der Plural behält den Vokal des Infinitivs.",lv:"A1"},
  {s:"Wenn du keine Zeit hast, ___ du nicht kommen. (müssen)",o:["musst","darfst","sollst"],why:"No obligation: du musst nicht = you don't have to. darfst nicht would forbid it.",lv:"A2"},
  {s:"Im Museum ___ man nicht fotografieren. Es ist verboten. (dürfen)",o:["darf","muss","will"],why:"verboten → nicht dürfen.",lv:"A2"},
@@ -4099,12 +4099,12 @@ GT.konn.q.push(
  {s:"Ich bleibe zu Hause, ___ ich ohnehin müde bin.",o:["zumal","sodass","obgleich"],why:"zumal = especially since; adds a second reason.",lv:"C1"});
 GT.rel.q.push(
  {s:"Die Stadt, ___ ich komme, liegt am Meer.",o:["aus der","in der","die"],why:"kommen aus + Dativ, feminine: aus der (or woher).",lv:"B2"},
- {s:"Er hat den Termin verpasst, ___ mich sehr ärgert.",o:["was","das","der"],why:"Refers to the whole clause: was.",lv:"B2"},
+ {s:"Er hat den Termin verpasst, ___ mich sehr ärgert.",o:["was","das","der"],why:"Bezieht sich auf den ganzen Satz: was.",lv:"B2"},
  {s:"Die Kinder, ___ Eltern arbeiten, essen in der Schule.",o:["deren","dessen","denen"],why:"Plural owner: deren.",lv:"B2"},
  {s:"Die Leute, mit ___ ich arbeite, sind sehr freundlich.",o:["denen","den","deren"],why:"mit + Dativ plural: denen.",lv:"B2"},
- {s:"Wer viel arbeitet, ___ braucht Pausen.",o:["der","den","dem"],why:"wer …, der …: der is the subject of braucht.",lv:"C1"},
- {s:"Wem das nicht gefällt, ___ kann gehen.",o:["der","dem","den"],why:"The second clause needs a subject: der (wem only belongs to gefällt).",lv:"C1"},
- {s:"Das Haus, in ___ Garten eine alte Linde steht, gehört meiner Tante.",o:["dessen","deren","dem"],why:"in + dessen Garten: das Haus is neuter, so dessen.",lv:"C1"},
+ {s:"Wer viel arbeitet, ___ braucht Pausen.",o:["der","den","dem"],why:"wer …, der …: der ist das Subjekt von braucht.",lv:"C1"},
+ {s:"Wem das nicht gefällt, ___ kann gehen.",o:["der","dem","den"],why:"Der zweite Satz braucht ein Subjekt: der (wem gehört nur zu gefällt).",lv:"C1"},
+ {s:"Das Haus, in ___ Garten eine alte Linde steht, gehört meiner Tante.",o:["dessen","deren","dem"],why:"in + dessen Garten: das Haus ist sächlich, also dessen.",lv:"C1"},
  {s:"Die Frage, über ___ Antwort wir lange gestritten haben, bleibt offen.",o:["deren","dessen","die"],why:"die Frage is feminine: deren Antwort.",lv:"C1"});
 GT.k2.q.push(
  {s:"Wenn er doch nur endlich ___! (kommen)",o:["käme","kam","kommt"],why:"Wunsch: Konjunktiv II käme (mit Umlaut).",lv:"B2"},
@@ -6019,3 +6019,8 @@ renderHome=function(){var x=r.apply(this,arguments);
  return x;};
 try{renderHome();}catch(e){}
 })();</script>
+<style id="legende3-css">
+.app[data-mode="learn"] #lg:has(.lgk),.app[data-mode="learn"] #lg:has(.lgc){display:flex!important;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px 12px;width:100%;max-width:none;margin:0;box-sizing:border-box;padding:8px 0;min-height:0;font-size:12px;color:var(--fg);white-space:normal;
+ background:repeating-linear-gradient(to right,#b8b8b8 0 1px,transparent 1px 3px) left bottom/100% 1px no-repeat}
+.app[data-mode="learn"] #lg:has(.lgk) span,.app[data-mode="learn"] #lg:has(.lgc) span{display:inline-flex;align-items:center;gap:4px}
+</style>
