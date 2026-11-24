@@ -144,7 +144,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .gl{background:#fff!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-23w"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-23x"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -5972,3 +5972,11 @@ mark.a{background:var(--makk);color:var(--ink);border-bottom:0;padding:0 3px}mar
 .app[data-mode="learn"] #panel{margin-bottom:auto!important}
 </style>
 <style id="abstand-marker">/* Abstaende: 6,7,9,10,11 -> 8; 14 -> 12 */</style>
+<style id="streifen-css">
+html body #hscroll>.hb.hb[data-i]{background-image:none!important}
+html body #hscroll>.hb.hb[data-i]::before{content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:1px!important;z-index:2!important;pointer-events:none!important;background:repeating-linear-gradient(to right,rgba(0,0,0,.3) 0 1px,transparent 1px 3px)!important}
+html body #hscroll>.hb.hb[data-i]::after{content:""!important;position:absolute!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;height:1px!important;z-index:2!important;pointer-events:none!important;background:repeating-linear-gradient(to right,rgba(0,0,0,.3) 0 1px,transparent 1px 3px)!important}
+html body #hscroll>.hb.hb.nb[data-i]::after{display:none!important}
+html[data-dmode="s"] #hscroll>.hb.hb[data-i="3"]{margin-top:0!important}
+html[data-dmode="s"] #hscroll>.hb.hb[data-i="2"]::after{display:none!important}
+</style>
