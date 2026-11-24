@@ -158,7 +158,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .app #stage .tkm .mo,.app .lg .sw.mo,.app .sw.mo,.app .mo{background:#d4d4d4!important}
 </style>
 </head><body>
-<meta name="app-version" content="2026-11-24p"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-24q"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3396,7 +3396,7 @@ function renderHome(){renderBars();
   $("groups").innerHTML=GROUPS.map((g,gi)=>{const sc=g.t.map(t=>score(t)||0),avg=sc.reduce((a,b)=>a+b,0)/sc.length;
     const lo=g.t.map(t=>tRange(t)[0]).sort((a,b)=>LVLS.indexOf(a)-LVLS.indexOf(b))[0],hi=g.t.map(t=>tRange(t)[1]).sort((a,b)=>LVLS.indexOf(b)-LVLS.indexOf(a))[0];
     const open=store.grp===gi,shown=g.t.filter(inLevel).length;
-    return '<div class="grp'+(open?' open':'')+'"><button class="grh" id="g'+gi+'" data-g="'+gi+'" aria-expanded="'+open+'"><span class="no">'+String(gi+1).padStart(2,"0")+'</span><span><b>'+esc(g.n)+'</b><small>'+g.t.length+(g.t.length===1?' Thema':' Themen')+' · '+lo+(hi!==lo?'–'+hi:'')+(store.level&&store.level!=="all"?' · '+shown+' auf '+store.level:'')+'</small></span><span class="prog"><i style="width:'+Math.round(avg*100)+'%"></i></span><span class="pm" aria-hidden="true">'+(open?'–':'+')+'</span></button>'+
+    return '<div class="grp'+(open?' open':'')+'"><button class="grh" id="g'+gi+'" data-g="'+gi+'" aria-expanded="'+open+'"><span class="no">'+String(gi+1).padStart(2,"0")+'</span><span><b>'+esc(g.n)+'</b><small>'+g.t.filter(t=>score(t)!=null).length+' von '+g.t.length+' geübt · '+lo+(hi!==lo?'–'+hi:'')+(store.level&&store.level!=="all"?' · '+shown+' auf '+store.level:'')+'</small></span><span class="prog"><i style="width:'+Math.round(avg*100)+'%"></i></span><span class="pm" aria-hidden="true">'+(open?'–':'+')+'</span></button>'+
     (open?'<div class="gl">'+g.t.map(t=>{const x=tInfo(t),s=score(t),[a,b]=tRange(t);return '<button class="tt'+(inLevel(t)?'':' dim')+'" id="t-'+t+'" data-t="'+t+'"><span class="r"><b>'+esc(x.n)+'</b><small>'+a+(b!==a?'–'+b:'')+'</small></span><span class="prog"><span class="pk"><i style="width:'+Math.round((s||0)*100)+'%"></i></span><em>'+Math.round((s||0)*100)+' %</em></span></button>';}).join("")+(g.soon?'<span class="soonl">bald: '+esc(g.soon)+'</span>':'')+'</div>':'')+'</div>';}).join("");
   document.querySelectorAll(".grh").forEach(b=>b.onclick=()=>{const g=+b.dataset.g;store.grp=store.grp===g?-1:g;save();renderHome();});
   document.querySelectorAll(".tt").forEach(b=>b.onclick=()=>openTopic(b.dataset.t));
@@ -6004,3 +6004,18 @@ html[data-dmode="s"] #hscroll>.hb.hb[data-i="2"]::after{display:none!important}
 .tt .pk i::after{content:"";position:absolute;right:-4px;top:-4px;width:8px;height:8px;border-radius:50%;background:#e30613}
 .gl .tt.dim .pk i::after{background:#c9cbc6}
 </style>
+<style id="fortschritt-css">
+.grp .grh .prog{background:#e4e4e2!important}
+.hb .hbn{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:12px;letter-spacing:0;text-transform:none;font-weight:400;color:#222}
+</style>
+<script id="fortschritt-js">(function(){
+if(typeof renderHome!=="function")return;
+var r=renderHome;
+renderHome=function(){var x=r.apply(this,arguments);
+ try{var all=GROUPS.reduce(function(a,g){return a.concat(g.t)},[]),n=all.filter(function(t){return score(t)!=null}).length;
+  var b=document.querySelector("#hscroll>.hb");
+  if(b&&/grammatik/i.test(b.textContent.replace(/\d+\s*von.*/,""))){var e=b.querySelector(".hbn");if(!e){e=document.createElement("span");e.className="hbn";b.appendChild(e);}e.textContent=n+" von "+all.length+" geübt";}
+ }catch(e){}
+ return x;};
+try{renderHome();}catch(e){}
+})();</script>
