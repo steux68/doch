@@ -173,7 +173,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .qvimg.has .tlar,.qvimg .tlar{opacity:1!important}
 </style>
 <meta id="farbe-done" name="farbe" content="1"><!--skala2--><style id="schliessen-css">#px.tlx{padding:8px;margin:-6px;font-size:inherit;line-height:0;flex:none}</style><style id="spiel-glitch-css">.app[data-mode="game"] #lg{display:flex;justify-content:center;gap:4px 12px;flex-wrap:wrap;white-space:normal}.app[data-mode="game"] #lg span{display:inline-flex;align-items:center;gap:4px}</style><style id="side-credit">footer.copy>span:not(.cimg){color:#e30613!important}footer.copy .ilink{display:inline-block!important;color:#1a5fd0!important;background:#dfe9fa!important;text-decoration:none!important;font-size:12px!important;font-weight:700;letter-spacing:.04em;padding:1px 8px 2px!important;margin:0 0 0 4px!important;border:0;line-height:1.2;cursor:pointer}</style></head><body>
-<meta name="app-version" content="2026-11-26g"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-26h"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -1137,6 +1137,8 @@ body:has(footer.copy.ch) #toTop{display:none!important}
 .qt .pic{margin:0!important}
 .qt .qb{padding:0 8px 0 0!important}
 .qt b.who{line-height:1.1;display:block;margin-top:-1px}
+
+#artNbar{display:flex;justify-content:center;align-items:center;gap:10px;margin:8px 0 0}#artNbar[hidden]{display:none!important}#artNbar b{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e30613}#artNbar .tlen2{width:auto!important;grid-auto-columns:52px!important}.app:not([data-mode="game"]) #artNbar{display:none!important}
 </style>
 <style id="set-btn2-css">.cogb{display:none!important}#goSet .setb{display:inline-flex;align-items:center;gap:8px}#goSet .setb svg{flex:none}</style>
 
@@ -3946,7 +3948,7 @@ document.querySelectorAll("#sehb .sehk[data-sv]").forEach(b=>{const go=e=>{const
 (()=>{const b=$("goArtH");if(!b)return;const go=()=>{openTopic("art");setMode("game");};b.addEventListener("click",go);b.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go();}});})();
 /* ---------- navigation ---------- */
 let T=null,mode="learn",idx=0,self=false,caseMode="wo",gi=0,MC=null;
-function openTopic(t){navPush("topic");T=t;idx=0;gi=0;MC=null;$("home").hidden=true;$("topic").hidden=false;
+function openTopic(t){navPush("topic");{const nb=$("artNbar");if(nb)nb.hidden=true;}T=t;idx=0;gi=0;MC=null;$("home").hidden=true;$("topic").hidden=false;
   $("ttl").textContent=TOPICS.find(x=>x.t===t).n;$("seg").hidden=t==="test"||t==="links"||t==="write"||t==="lueck"||t==="sehen";setMode(t==="test"?"game":(t==="links"||t==="write"||t==="lueck"||t==="sehen")?"theo":"learn");}
 function goHome(){TESTLV=null;ERRMODE=false;document.querySelector(".app").classList.remove("typ");closePop();delete document.querySelector(".app").dataset.mode;$("topic").hidden=true;$("home").hidden=false;renderHome();}
 /* the Start button (house) goes back to the title page; the phone's back button returns to where you were */
@@ -4757,13 +4759,13 @@ function byLevel(list){const L=store.level;if(!L||L==="all")return list;let i=LV
   while(out.length<6&&i>0){i--;out=out.concat(list.filter(q=>q.lv===LVLS[i]));}return out.length?out:list;}
 let TESTLV=null;   /* level picked in the Tests section; null = the level chips decide */
 function bank(t){
-  if(GT[t])return shuffle(byLevel(GT[t].q.map(q=>Object.assign({c:0},q)))).slice(0,15).map(q=>Object.assign({t},q));
-  if(t==="prep"){const P=byLevel(PQ);const a=P.filter(q=>!q.x),b=shuffle(P.filter(q=>q.x));return shuffle(a.concat(b.slice(0,Math.max(8,15-a.length)))).slice(0,18).map(q=>Object.assign({t:"prep"},q));}
+  if(GT[t])return shuffle(byLevel(GT[t].q.map(q=>Object.assign({c:0},q)))).slice(0,ARTN()).map(q=>Object.assign({t},q));
+  if(t==="prep"){const P=byLevel(PQ);const a=P.filter(q=>!q.x),b=shuffle(P.filter(q=>q.x));return shuffle(a.concat(b.slice(0,Math.max(8,ARTN()-a.length)))).slice(0,ARTN()).map(q=>Object.assign({t:"prep"},q));}
   if(t==="art"){const pool=byLevel(ART.concat(ownList()).map(w=>Object.assign([],w,{lv:w[4]||"B1"}))).map(w=>w);const st=pool.filter(w=>starred(w[1]));return shuffle(st).concat(shuffle(pool.filter(w=>!starred(w[1])))).slice(0,ARTN()).map(artQ);}
-  if(t==="pron")return shuffle(byLevel(PRON_Q)).map(q=>Object.assign({t:"pron",c:0},q));
+  if(t==="pron")return shuffle(byLevel(PRON_Q)).slice(0,ARTN()).map(q=>Object.assign({t:"pron",c:0},q));
   if(t==="fall")return shuffle(shuffle(byLevel(FALL_Q)).slice(0,Math.round(ARTN()*2/3)).map(q=>Object.assign({t:"fall"},q)).concat(shuffle(byLevel(PRON_Q)).slice(0,ARTN()-Math.round(ARTN()*2/3)).map(q=>Object.assign({t:"pron",c:0},q))));
-  if(t==="adj")return shuffle(byLevel(ADJ_Q)).slice(0,15).map(q=>Object.assign({t:"adj"},q));
-  if(t==="gen")return shuffle(byLevel(GEN_Q)).map(q=>Object.assign({t:"gen",c:0},q));
+  if(t==="adj")return shuffle(byLevel(ADJ_Q)).slice(0,ARTN()).map(q=>Object.assign({t:"adj"},q));
+  if(t==="gen")return shuffle(byLevel(GEN_Q)).slice(0,ARTN()).map(q=>Object.assign({t:"gen",c:0},q));
   const L=TESTLV||store.level;if(L&&L!=="all"){const all=[].concat(PQ.map(q=>Object.assign({t:"prep"},q)),ART.concat(ownList()).map(artQ),PRON_Q.map(q=>Object.assign({t:"pron",c:0},q)),GEN_Q.map(q=>Object.assign({t:"gen",c:0},q)),FALL_Q.map(q=>Object.assign({t:"fall"},q)),ADJ_Q.map(q=>Object.assign({t:"adj"},q)),...Object.keys(GT).map(k=>GT[k].q.map(q=>Object.assign({t:k,c:0},q))));
     /* mix (Steuart, 30 Oct): about 50 % hard = the level itself, 20 % medium = one level below, 30 % easy = further below; gaps are filled in that order */
     const k=LVLS.indexOf(L),N=TLEN(),at=shuffle(all.filter(q=>q.lv===L)),mid=shuffle(all.filter(q=>LVLS.indexOf(q.lv)===k-1)),easy=shuffle(all.filter(q=>LVLS.indexOf(q.lv)<k-1));
@@ -4807,7 +4809,7 @@ function mcStart(t){let list;
   MC={t,list:list.map(mix),i:0,score:0,done:false,per:{},old:ERRMODE?list.length:Math.min(4,mistQs(t).length)};}
 /* ---------- Ergänzen: type the gap yourself, with the phone's autocorrect, suggestions and spellcheck switched off ---------- */
 const sameWords=q=>{const k=o=>o.split(/\s+/).sort().join(" ");return q.o.every(x=>k(x)===k(q.o[0]));};
-document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("#lg .artN button[data-n]");if(!b)return;store.artn=+b.dataset.n;save();MC=null;render();});
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("#artNbar button[data-n]");if(!b)return;store.artn=+b.dataset.n;save();MC=null;render();});
 const ARTN=()=>[10,20,50].includes(store.artn)?store.artn:20;
 const canType=q=>store.typ&&q.s.includes("___")&&q.k!=="c"&&q.o[q.c].length<=24&&!sameWords(q)&&q.t!=="tekamolo"&&!q.o.every(w=>/^((d(er|ie|as|en|em|es))|((ein|kein|mein|dein|sein|ihr|unser|euer|dies|jed|welch)(e|en|em|er|es)?))$/i.test(w));
 const deU=w=>w.replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/Ä/g,"Ae").replace(/Ö/g,"Oe").replace(/Ü/g,"Ue").replace(/ß/g,"ss");
@@ -4826,8 +4828,11 @@ function mcTyped(){if(!MC||MC.done)return;const q=MC.list[MC.i],inp=$("ans").val
 function mcCount(){const q=MC.list[MC.i];$("ct").innerHTML=(q&&q.lv?'<span class="lv">'+q.lv+'</span> ':"")+(MC.i+1)+" / "+MC.list.length+" · "+MC.score+" richtig";}
 function mcRender(){if(!MC||MC.t!==T)mcStart(T);clearTimeout(MC.tm);const q=MC.list[MC.i];MC.done=false;const typed=canType(q);document.querySelector(".app").classList.toggle("typ",!!typed);
   if(q.t==="prep")prLegend(false);else $("lg").innerHTML=LG[q.t]||(GT[q.t]&&GT[q.t].lg)||"";
-  if((T==="art"||T==="fall")&&!ERRMODE&&!$("lg").querySelector(".tlen2"))$("lg").innerHTML+='<span class="artN"><b class="lgx">Fragen</b> <span class="tlen2">'+[10,20,50].map(k=>'<button type="button" data-n="'+k+'" aria-pressed="'+(ARTN()===k)+'">'+k+'</button>').join("")+"</span></span>";
-  (STAGE[q.t]||gStage)(q,false);$("bd").textContent=(BADGE[q.t]||(q=>GT[q.t].badge))(q);mcCount();
+    (STAGE[q.t]||gStage)(q,false);$("bd").textContent=(BADGE[q.t]||(q=>GT[q.t].badge))(q);mcCount();
+  {const need=(["art","fall","prep","adj","pron","gen"].includes(T)||(typeof GT!=="undefined"&&GT[T]))&&!ERRMODE;let bar=$("artNbar");
+    if(need){if(!bar){bar=document.createElement("div");bar.id="artNbar";$("lg").insertAdjacentElement("afterend",bar);}bar.hidden=false;
+      bar.innerHTML='<b class="lgx">Fragen</b><span class="tlen2">'+[10,20,50].map(k=>'<button type="button" data-n="'+k+'" aria-pressed="'+(ARTN()===k)+'">'+k+'</button>').join("")+"</span>";}
+    else if(bar)bar.hidden=true;}
   $("cardbody").innerHTML='<p id="tx">'+esc(q.s).replace("___",'<span class="gap" id="gap">&nbsp;</span>').replace(/\[(.+?)\]/,'<mark class="fm">$1</mark>')+'</p>'+(typed?'<div class="answer typ"><input id="ans" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" type="text" lang="de" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="Was fehlt?" aria-label="Deine Antwort"><button class="primary" id="chk">Prüfen</button></div><div id="res"></div>':'<div class="opts'+(q.o.some(w=>w.length>12)?" long":q.o.length===3?" three":"")+'">'+q.o.map((w,i)=>'<button class="opt" id="o'+i+'" data-i="'+i+'">'+esc(w)+'</button>').join("")+'</div>')+(store.timer&&!typed?'<div class="tbar"><i id="tbi"></i></div>':'')+'<p id="gt"></p><p class="nf" id="nf">'+(store.arthelp&&baseOf(q)&&q.t!=="art"?'Grundform: <b>'+esc(baseOf(q))+'</b>':'')+'</p>';
   document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>mcAnswer(+b.dataset.i));
   if(typed){const a=$("ans");$("chk").onclick=mcTyped;a.onkeydown=e=>{if(e.key==="Enter"){e.preventDefault();MC.done?mcNext():mcTyped();}};
