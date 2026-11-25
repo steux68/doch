@@ -173,7 +173,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .qvimg.has .tlar,.qvimg .tlar{opacity:1!important}
 </style>
 <meta id="farbe-done" name="farbe" content="1"><!--skala2--><style id="schliessen-css">#px.tlx{padding:8px;margin:-6px;font-size:inherit;line-height:0;flex:none}</style><style id="spiel-glitch-css">.app[data-mode="game"] #lg{display:flex;justify-content:center;gap:4px 12px;flex-wrap:wrap;white-space:normal}.app[data-mode="game"] #lg span{display:inline-flex;align-items:center;gap:4px}</style><style id="side-credit">footer.copy>span:not(.cimg){color:#e30613!important}footer.copy .ilink{display:inline-block!important;color:#1a5fd0!important;background:#dfe9fa!important;text-decoration:none!important;font-size:12px!important;font-weight:700;letter-spacing:.04em;padding:1px 8px 2px!important;margin:0 0 0 4px!important;border:0;line-height:1.2;cursor:pointer}</style></head><body>
-<meta name="app-version" content="2026-11-26j"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-26k"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -4891,15 +4891,16 @@ const MIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-wid
 let rec=null;
 function sbCur(){const L=sbList();return L[gi%L.length];}
 function sbList(){return byLevel(SB.map(x=>Object.assign({lv:x.lvl},x)));}
-function sbGame(){sbLegend();const L=sbList();const it=sbCur();
-  $("stage").innerHTML='<p class="en big">'+esc(it.en)+'</p><div class="answer"><input id="ans" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" type="text" lang="de" autocomplete="off" autocorrect="off" autocapitalize="sentences" spellcheck="false" enterkeyhint="done" placeholder="Auf Deutsch …" aria-label="Deine Antwort"><button class="mic" id="mic" aria-label="Sprechen">'+MIC+'</button></div><p class="tip" id="tip">Sprechen: Mikrofon der Tastatur nutzen.</p><div id="res"></div>';
+function sbHint(){const it=sbCur(),t=sbTokens(it);const e=$("tip");if(e)e.innerHTML='Beginne mit „<b>'+esc(t[0].w)+'</b>“ · '+esc(it.topic);}
+function sbGame(){$("lg").innerHTML="";const L=sbList();const it=sbCur();const nw=sbTokens(it).length;
+  $("stage").innerHTML='<div class="sbq"><div class="sbtag"><span>Übersetze ins Deutsche</span><i>'+nw+' Wörter</i></div><p class="sben">'+esc(it.en)+'</p><div class="answer"><input id="ans" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false" type="text" lang="de" autocomplete="off" autocorrect="off" autocapitalize="sentences" spellcheck="false" enterkeyhint="done" placeholder="Dein Satz …" aria-label="Deine Antwort"><button class="mic" id="mic" aria-label="Sprechen">'+MIC+'</button></div><p class="tip" id="tip"></p><div id="res"></div></div>';
   $("stage").onclick=null;
-  $("bd").textContent=it.lvl;$("ct").innerHTML='<span class="lv">'+it.lvl+'</span> '+(gi%L.length+1)+" / "+L.length+" · "+SB.filter(x=>store["sb"+x.id]==="ok").length+" richtig";
-  $("cardbody").innerHTML='<p id="tx">'+esc(it.topic)+'</p><p id="gt">Sag oder schreib den Satz auf Deutsch.</p>';
+  $("bd").textContent=it.topic;$("ct").innerHTML='<span class="lv">'+it.lvl+'</span> '+(gi%L.length+1)+" / "+L.length+" · "+SB.filter(x=>store["sb"+x.id]==="ok").length+" richtig";
+  $("cardbody").innerHTML='<p id="gt" class="sbnote">Schreibe oder sprich den ganzen Satz. Satzzeichen und Großschreibung sind egal.</p>';
   $("ans").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();sbCheck();}});
   $("mic").onclick=micGo;
   setBtns("btns1",[btn("bP","Prüfen","primary",sbCheck),btn("bW","Weiter →","",()=>{gi=(gi+1)%sbList().length;render()})]);
-  setBtns("btns2",[btn("bL","Lösung","",sbReveal),btn("bH","Anhören","",()=>speak(sbGerman(it)))]);}
+  setBtns("btns2",[btn("bTp","Tipp","",sbHint),btn("bL","Lösung","",sbReveal),btn("bH","Anhören","",()=>speak(sbGerman(it)))]);}
 function micGo(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   const fail=()=>{$("tip").textContent="Spracheingabe ist hier gesperrt. Nutze das Mikrofon der Tastatur.";};
   if(!SR){fail();$("ans").focus();return;} if(rec){rec.stop();return;}
@@ -4925,12 +4926,12 @@ function sbCheck(){const it=sbCur(),raw=$("ans").value.trim();if(!raw){$("ans").
     const miss=t.filter((x,j)=>!used[j]).map(x=>x.w);if(miss.length)msgs.push("Fehlt: "+miss.join(", "));
     const ex=rawW.filter((w,k)=>um[k]<0);if(ex.length)msgs.push("Nicht in diesem Satz: "+ex.join(", "));
     if(!msgs.length)msgs.push("Richtige Wörter, andere Reihenfolge. Vergleiche mit dem Rahmen.");}
-  $("res").innerHTML='<div class="mine">'+rawW.map((w,k)=>'<span class="w '+(um[k]>=0?t[um[k]].type:"unk")+(form[k]?" form":"")+'">'+esc(w)+'</span>').join("")+'</div>'+(ok?"":frameHTML(it));
+  sbLegend();$("res").innerHTML='<div class="mine">'+rawW.map((w,k)=>'<span class="w '+(um[k]>=0?t[um[k]].type:"unk")+(form[k]?" form":"")+'">'+esc(w)+'</span>').join("")+'</div>'+(ok?"":frameHTML(it));
   $("cardbody").innerHTML='<p class="status '+(ok?"ok":"no")+'">'+(ok?"Richtig! "+esc(sbGerman(it)):"Fast. Zuerst das:")+'</p>'+(msgs.length?'<ul class="msgs">'+msgs.map(m=>'<li>'+esc(m)+'</li>').join("")+'</ul>':"");
   if(ok)store["sb"+it.id]="ok";else if(store["sb"+it.id]!=="ok")store["sb"+it.id]="try";save();
   $("ct").innerHTML='<span class="lv">'+it.lvl+'</span> '+(gi%sbList().length+1)+" / "+sbList().length+" · "+SB.filter(x=>store["sb"+x.id]==="ok").length+" richtig";
   if(ok)$("bW").className="primary",$("bP").className="";}
-function sbReveal(){const it=sbCur();$("res").innerHTML=frameHTML(it);
+function sbReveal(){const it=sbCur();sbLegend();$("res").innerHTML=frameHTML(it);
   $("cardbody").innerHTML='<p id="tx">'+esc(sbGerman(it))+'</p><p id="gt">'+esc(it.note)+'</p>';}
 
 /* ---------- Präpositionen ---------- */
@@ -5376,7 +5377,7 @@ if(k==="zuinf"){if(/^(um|damit|ohne|statt|darauf)$/i.test(a))return "Wort vor de
 if(k==="nom"){if(/^(Wegen|Trotz|Während|Bei)$/.test(a))return "Präposition";if(/^[A-ZÄÖÜ]/.test(a))return "Nomen";return "Partizip als Adjektiv (mit Endung)";}
 if(k==="nvv")return /^[A-ZÄÖÜ]/.test(a)?"Nomen":"Verb in der richtigen Form";
 return "fehlendes Wort";}
-setInterval(function(){var a=document.getElementById("ans");if(!a)return;var w=a.closest(".answer")||a.parentNode,t=document.getElementById("task"),q;try{q=MC.list[MC.i];}catch(e){}var txt="fehlendes Wort";try{if(q)txt=lab(q);}catch(e){}var h="Ergänze: <b>"+txt+"</b>";if(!t){t=document.createElement("div");t.id="task";w.parentNode.insertBefore(t,w);}if(t.innerHTML!==h)t.innerHTML=h;},150);})();</script>
+setInterval(function(){var a=document.getElementById("ans");if(!a)return;if(document.querySelector(".sbq")){var o=document.getElementById("task");if(o)o.remove();return;}var w=a.closest(".answer")||a.parentNode,t=document.getElementById("task"),q;try{q=MC.list[MC.i];}catch(e){}var txt="fehlendes Wort";try{if(q)txt=lab(q);}catch(e){}var h="Ergänze: <b>"+txt+"</b>";if(!t){t=document.createElement("div");t.id="task";w.parentNode.insertBefore(t,w);}if(t.innerHTML!==h)t.innerHTML=h;},150);})();</script>
 <script id="textkb-js">(function(){var app=document.querySelector(".app"),vv=window.visualViewport;
 function kt(){var a=document.activeElement,ok=a&&(a.id==="wtx"||(a.classList&&a.classList.contains("lg")))&&app.dataset.mode==="theo";
 var h=vv?vv.height:innerHeight,open=!!ok&&h<innerHeight*.8;document.documentElement.style.setProperty("--vvh",Math.round(h)+"px");app.classList.toggle("kbt",open);if(open){scrollTo(0,0);if(a.scrollIntoView)a.scrollIntoView({block:"center"});}}
@@ -6089,4 +6090,20 @@ for(const t in N){
 }
 }catch(e){console.error("more-q",e)}})();
 </script>
+<style id="sb-css">
+.app[data-mode="game"] .stage:has(.sbq){max-height:none!important;overflow:visible!important;margin:0 0 8px!important}
+.sbq{display:flex;flex-direction:column;gap:12px;padding:10px 0 0;text-align:center}
+.sbtag{display:flex;justify-content:center;align-items:baseline;gap:10px;font-size:12px;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;color:#e30613;font-weight:700}
+.sbtag i{font-style:normal;color:#8a8a86;font-weight:400;letter-spacing:0;text-transform:none;font-size:13px}
+.app[data-mode="game"] .stage .sben{margin:0!important;padding:18px 14px;background:#f3f3f1;color:#222!important;font-size:20px!important;font-weight:500!important;line-height:1.35!important;text-align:center;text-wrap:balance}
+.app[data-mode="game"] .stage .sbq .answer{display:flex;gap:8px;height:44px;margin:0}
+.app[data-mode="game"] .stage .sbq .answer input{flex:1;min-width:0;height:44px;box-sizing:border-box;font-size:16px;padding:0 12px;text-align:left}
+.app[data-mode="game"] .stage .sbq .answer .mic{flex:none;width:44px;height:44px;border-radius:0;display:grid;place-items:center;background:#fbe3e1!important;box-shadow:none}
+.app[data-mode="game"] .stage .sbq .answer .mic svg{width:22px;height:22px}
+.app[data-mode="game"] .stage .sbq .tip{margin:0;min-height:18px;font-size:13px;color:#666;text-align:left}
+.app[data-mode="game"] .stage .sbq .tip b{color:#222}
+.app[data-mode="game"] #panel .sbnote{font-size:14px;line-height:1.4;color:#666;margin:0;text-align:left}
+.app[data-mode="game"] .stage .sbq #res{text-align:left}
+.app[data-mode="game"] .stage .sbq .mine{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px;margin:4px 0 12px}
+</style>
 
