@@ -168,8 +168,12 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 #pb p:not([class]){font-size:14px!important;line-height:1.4!important}
 .qv2 .qq,#qpop .tlbody p{font-size:14px}
 </style>
+<style id="zitate-pfeile-css">
+.qvimg .tlar{top:50%!important;z-index:2}
+.qvimg.has .tlar,.qvimg .tlar{opacity:1!important}
+</style>
 </head><body>
-<meta name="app-version" content="2026-11-25b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-25c"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -4960,14 +4964,14 @@ window.qSlider=function(sc,sl){var th=sl.querySelector("i"),dr=false,tH=0;
 const E=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const W='<svg class="ar" width="28" height="28" viewBox="-12 -12 24 24" aria-hidden="true"><circle class="tr" r="9.5"/><path class="rg" d="M-7.88 -5.31A9.5 9.5 0 1 1 -7.88 5.31"/><path class="dt" transform="rotate(180)" d="M5.4 0L-4.6 -4.9L-2.2 0L-4.6 4.9Z"/><text x="-9.50" y="0">W</text></svg>',EE='<svg class="ar" width="28" height="28" viewBox="-12 -12 24 24" aria-hidden="true"><circle class="tr" r="9.5"/><path class="rg" d="M7.88 5.31A9.5 9.5 0 1 1 7.88 -5.31"/><path class="dt" transform="rotate(0)" d="M5.4 0L-4.6 -4.9L-2.2 0L-4.6 4.9Z"/><text x="9.50" y="0">E</text></svg>',X='<svg viewBox="-12 -12 24 24" aria-hidden="true"><circle class="rg" r="9.5"/><path class="xx" d="M-3.6 -3.6L3.6 3.6M3.6 -3.6L-3.6 3.6"/></svg>';
 const p=document.createElement("div");p.className="tlpop";p.id="qpop";p.hidden=true;p.setAttribute("role","dialog");p.setAttribute("aria-modal","true");p.setAttribute("aria-labelledby","qk");
-p.innerHTML='<div class="tlcard qv2"><div class="tltop"><span class="qvc"><button type="button" class="qva" id="qw" aria-label="Zurück">'+W+'</button><span class="count" id="qc"></span><button type="button" class="qva" id="qe" aria-label="Weiter">'+EE+'</button></span><button type="button" class="tlx" id="qx" aria-label="Schließen">'+X+'</button></div><span class="qsr" id="qk">Zitat</span><div class="qvimg" id="qv" aria-hidden="true"></div><div class="qvw"><div class="tlbody" id="qb"></div><div class="qsl" id="qvsl" aria-hidden="true"><i></i></div></div></div>';
+p.innerHTML='<div class="tlcard qv2"><div class="tltop"><span class="qvc"><span class="count" id="qc"></span></span><button type="button" class="tlx" id="qx" aria-label="Schließen">'+X+'</button></div><span class="qsr" id="qk">Zitat</span><div class="qvimg" id="qv" aria-hidden="true"></div><div class="qvw"><div class="tlbody" id="qb"></div><div class="qsl" id="qvsl" aria-hidden="true"><i></i></div></div></div>';
 document.body.appendChild(p);QO.upd=window.qSlider?window.qSlider($("qb"),$("qvsl")):null;
 const items=()=>Array.prototype.slice.call(document.querySelectorAll("#p-quotes a.qt"));
 function show(i){const L=items(),n=L.length;if(!n)return;i=(i%n+n)%n;QO.i=i;const a=L[i],g=(sel)=>{const x=a.querySelector(sel);return x?x.textContent:"";};
  let sec="",el=a.previousElementSibling;while(el){if(el.classList.contains("qsec")){sec=el.textContent;break;}el=el.previousElementSibling;}
  if(!sec){const c=document.querySelector('#qchips button[aria-pressed="true"]');if(c&&c.dataset.f!=="Alle")sec=c.dataset.f;}
  const im=a.querySelector("img[data-w]"),wimg=im?im.dataset.w:"",qv=$("qv");
- qv.classList.remove("has");qv.innerHTML='<i>'+E(g(".pic i"))+'</i>'+(wimg?'<img alt="" data-w="'+E(wimg)+'">':'');
+ qv.classList.remove("has");qv.innerHTML='<i>'+E(g(".pic i"))+'</i>'+(wimg?'<img alt="" data-w="'+E(wimg)+'">':'');qv.insertAdjacentHTML("beforeend",'<button type="button" class="tlar pw" id="qw" aria-label="Zurück">'+W+'</button><button type="button" class="tlar pe" id="qe" aria-label="Weiter">'+EE+'</button>');$("qw").onclick=()=>show(QO.i-1);$("qe").onclick=()=>show(QO.i+1);
  let more=[];try{more=a.dataset.more?JSON.parse(decodeURIComponent(a.dataset.more)):[];}catch(e){}
  if(!more.length)$("qb").innerHTML='<h4>'+E(g(".who"))+'</h4><p class="qq">„'+E(g("q"))+'“</p><p class="qen2">'+E(g(".qen"))+'</p><dl class="qd"><dt>Quelle</dt><dd>'+E(g("small"))+' <a class="wk" href="'+E(a.href)+'" target="_blank" rel="noopener" aria-label="Quelle öffnen: '+E(g(".who"))+'">mehr ↗</a></dd>'+(sec?'<dt>Thema</dt><dd>'+E(sec)+'</dd>':'')+'<dt>Bild</dt><dd>Wikipedia / Wikimedia Commons</dd></dl>';
  else{const all=[{when:g("small"),q:g("q"),en:g(".qen"),u:a.href}].concat(more);
@@ -4979,7 +4983,6 @@ function close(){QO.open=false;p.hidden=true;}
 function back(){if(navState()==="qt")history.back();else close();}
 sec0.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a.qt");if(!a)return;e.preventDefault();open(items().indexOf(a));});
 $("qx").onclick=back;p.addEventListener("click",e=>{if(e.target===p)back();});
-$("qw").onclick=()=>show(QO.i-1);$("qe").onclick=()=>show(QO.i+1);
 window.addEventListener("popstate",()=>{if(QO.open)close();});
 document.addEventListener("keydown",e=>{if(!QO.open)return;if(e.key==="Escape")back();if(e.key==="ArrowRight")show(QO.i+1);if(e.key==="ArrowLeft")show(QO.i-1);});
 let x0=null,y0=0;const tb=p;tb.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY;},{passive:true});
