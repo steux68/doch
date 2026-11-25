@@ -173,7 +173,7 @@ html body .grp.open,html body .grp.open:nth-child(odd),html body .grp.open .grh,
 .qvimg.has .tlar,.qvimg .tlar{opacity:1!important}
 </style>
 <meta id="farbe-done" name="farbe" content="1"><!--skala2--><style id="schliessen-css">#px.tlx{padding:8px;margin:-6px;font-size:inherit;line-height:0;flex:none}</style><style id="spiel-glitch-css">.app[data-mode="game"] #lg{display:flex;justify-content:center;gap:4px 12px;flex-wrap:wrap;white-space:normal}.app[data-mode="game"] #lg span{display:inline-flex;align-items:center;gap:4px}</style><style id="side-credit">footer.copy>span:not(.cimg){color:#e30613!important}footer.copy .ilink{display:inline-block!important;color:#1a5fd0!important;background:#dfe9fa!important;text-decoration:none!important;font-size:12px!important;font-weight:700;letter-spacing:.04em;padding:1px 8px 2px!important;margin:0 0 0 4px!important;border:0;line-height:1.2;cursor:pointer}</style></head><body>
-<meta name="app-version" content="2026-11-26b"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
+<meta name="app-version" content="2026-11-26c"><script id="start-top">(function(){try{if("scrollRestoration" in history)history.scrollRestoration="manual";var K="start-seen",LIM=5000,base=location.pathname+location.search;function get(){try{return +sessionStorage.getItem(K)||0}catch(e){return 0}}function put(){try{sessionStorage.setItem(K,String(Date.now()))}catch(e){}}function stale(){var p=get();return p&&Date.now()-p>LIM}function reset(){try{sessionStorage.removeItem(K)}catch(e){}location.replace(base)}if(stale()&&location.hash){reset();return}put();function back(){if(stale())reset();else put()}setInterval(function(){if(document.visibilityState==="visible")put()},3000);document.addEventListener("visibilitychange",function(){if(document.visibilityState==="hidden")put();else back()});addEventListener("pageshow",function(e){if(e.persisted)location.reload();else back()});addEventListener("focus",back);document.addEventListener("resume",back);addEventListener("pagehide",put);}catch(e){}})();</script>
 <title>DOCH! Deutsche Grammatik</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
@@ -3418,8 +3418,8 @@ function renderHome(){renderBars();
   document.querySelectorAll(".tt").forEach(b=>b.onclick=()=>openTopic(b.dataset.t));
   const r=$("resume"),L=store.last;
   if(L&&tInfo(L.t)){const s=score(L.t);r.hidden=false;r.innerHTML='<span><small>Weitermachen</small><b>'+esc(tInfo(L.t).n)+' · '+MNAME[L.m]+'</b></span><b>'+'→</b>';r.onclick=()=>{openTopic(L.t);if(L.m!=="learn")setMode(L.m);};}else r.hidden=true;
-  {const n=Object.keys(mistakes()).length,e=$("errc");e.hidden=!n;if(n){e.innerHTML='<span><small>Fehler üben</small><b>'+n+(n===1?' Frage':' Fragen')+'</b></span><b>→</b>';
-    e.onclick=()=>{ERRMODE=true;openTopic("test");$("ttl").textContent="Deine Fehler";setMode("game");};}}
+  {const n=dueCount(),e=$("errc");e.hidden=!n;if(n){e.innerHTML='<span><small>Heute wiederholen</small><b>'+n+(n===1?' Frage':' Fragen')+'</b></span><b>→</b>';
+    e.onclick=()=>{ERRMODE=true;openTopic("test");$("ttl").textContent="Heute wiederholen";setMode("game");};}}
   const tb=$("tmr");tb.setAttribute("aria-pressed",!!store.timer);tb.textContent=store.timer?"an · 15 s":"aus";
   $("lvs").innerHTML=["all"].concat(LVLS.slice(0,5)).map(l=>'<button class="lvb" data-l="'+l+'" id="lv-'+l+'" aria-pressed="'+((store.level||"all")===l)+'">'+(l==="all"?"Alle":l)+'</button>').join("");
   document.querySelectorAll("#lvs .lvb").forEach(b=>b.onclick=()=>{store.level=b.dataset.l;save();renderHome();if(typeof renderTest==="function"&&$("p-test").firstChild)renderTest();});
@@ -4635,17 +4635,17 @@ function tapGo(el,i){el.classList.add("hit");setTimeout(()=>{SC.scrollTo({top:se
 /* sections other than Grammatik, filled once (Test again when the level changes) */
 const TLEN=()=>[15,30,45].includes(store.tlen)?store.tlen:15;
 function renderTest(){
-  const L=store.level||"all",ne=Object.keys(mistakes()).length;
+  const L=store.level||"all",ne=dueCount();
   $("p-test").innerHTML='<div class="tc tpg">'+
    '<div class="sehb"><div class="sehg"><div class="sehk tkx"><b>Länge</b><div class="tlen2">'+[15,30,45].map(k=>'<button data-n="'+k+'" aria-pressed="'+(TLEN()===k)+'">'+k+'</button>').join("")+'</div></div>'+
-   '<div class="sehk tkx" id="tErr"'+(ne?'':' hidden')+'><b>Fehler üben</b><span class="tern">'+ne+(ne===1?' Frage':' Fragen')+' →</span></div></div></div>'+
+   '<div class="sehk tkx" id="tErr"'+(ne?'':' hidden')+'><b>Heute wiederholen</b><span class="tern">'+ne+(ne===1?' Frage':' Fragen')+' →</span></div></div></div>'+
    '<div class="lvsel" role="group" aria-label="Niveau"><div id="lvs2">'+["all"].concat(LVLS.slice(0,5)).map(l=>'<button class="lvb" data-l="'+l+'" aria-pressed="'+(L===l)+'">'+(l==="all"?"Alle":l)+'</button>').join("")+'</div></div>'+
    '<div class="rcb"><button class="resume" id="goTest"><span><small>Test starten</small><b>'+TLEN()+' Fragen · '+(L==="all"?"alle Stufen":L)+'</b></span><b>→</b></button></div>'+
    '<div class="tests rows2"><button class="tst wide" id="goLueck"><span class="tl"><span class="no">01</span><b>Lückentext</b></span><small>ganze Texte · A1–C1</small></button><button class="tst wide" id="goWrite"><span class="tl"><span class="no">02</span><b>Text prüfen</b></span><small>Schreiben · LanguageTool</small></button><button class="tst wide" id="goSet"><span class="tl"><span class="no"><span class="cogi" aria-hidden="true"></span></span><b class="setb">Einstellungen</b></span><small>Info · Anleitung · Timer</small></button></div></div>';
   $("p-test").querySelectorAll(".tlen2 button").forEach(x=>x.onclick=()=>{store.tlen=+x.dataset.n;save();renderTest();});
   $("p-test").querySelectorAll("#lvs2 .lvb").forEach(x=>x.onclick=()=>{store.level=x.dataset.l;save();renderHome();renderTest();});
   $("goTest").onclick=()=>{TESTLV=(store.level&&store.level!=="all")?store.level:"all";openTopic("test");};
-  $("tErr").onclick=()=>{ERRMODE=true;openTopic("test");$("ttl").textContent="Deine Fehler";setMode("game");};
+  $("tErr").onclick=()=>{ERRMODE=true;openTopic("test");$("ttl").textContent="Heute wiederholen";setMode("game");};
   $("goWrite").onclick=()=>openTopic("write");$("goSet").onclick=()=>{const c=$("cogb");if(c)c.click();};$("goLueck").onclick=()=>openTopic("lueck");}
 $("p-links").innerHTML=TH_LINKS;
 renderQuotes();renderRede();
@@ -4786,9 +4786,10 @@ const TIP={fall:"Frage nach dem Fall: Wer? Wen? Wem? Wessen? Die Antwort nennt d
 const today=()=>new Date().toISOString().slice(0,10);
 const qKey=q=>q.t+"|"+q.s;
 function mistakes(){return store.mist||(store.mist={});}
+const plusDays=n=>new Date(Date.now()+n*864e5).toISOString().slice(0,10);const GAPS=[1,3];function isDue(m){return !m.due||m.due<=today();}function dueCount(){const M=mistakes();return Object.keys(M).filter(k=>isDue(M[k])).length;}
 function noteResult(q,ok){const M=mistakes(),k=qKey(q),m=M[k],d=today();
-  if(!ok){M[k]={t:q.t,w:d,n:0,last:null};}
-  else if(m&&m.last!==d){m.n++;m.last=d;if(m.n>=2)delete M[k];}
+  if(!ok){M[k]={t:q.t,w:d,n:0,last:null,due:d};}
+  else if(m&&m.last!==d){m.n++;m.last=d;if(m.n>=3)delete M[k];else m.due=plusDays(GAPS[m.n-1]||3);}
   save();}
 function fullPool(t){const T_=x=>q=>Object.assign({t:x,c:0},q);
   if(GT[t])return GT[t].q.map(T_(t));
@@ -4796,7 +4797,7 @@ function fullPool(t){const T_=x=>q=>Object.assign({t:x,c:0},q);
     fall:()=>FALL_Q.map(q=>Object.assign({t:"fall"},q)).concat(PRON_Q.map(T_("pron"))),adj:()=>ADJ_Q.map(q=>Object.assign({t:"adj"},q))}[t]||(()=>[]))();}
 const ALLT=()=>["prep","art","pron","gen","fall","adj"].concat(Object.keys(GT));
 function mistQs(t){const M=mistakes(),ks=Object.keys(M);if(!ks.length)return [];const seen={},out=[];
-  (t==="test"||t==="err"?ALLT():[t]).forEach(x=>fullPool(x).forEach(q=>{const k=qKey(q);if(M[k]&&!seen[k]){seen[k]=1;out.push(q);}}));return shuffle(out);}
+  (t==="test"||t==="err"?ALLT():[t]).forEach(x=>fullPool(x).forEach(q=>{const k=qKey(q);if(M[k]&&isDue(M[k])&&!seen[k]){seen[k]=1;out.push(q);}}));return shuffle(out);}
 let ERRMODE=false;   /* a round made only of your mistakes */
 function mcStart(t){let list;
   if(ERRMODE)list=mistQs("err").slice(0,15);
