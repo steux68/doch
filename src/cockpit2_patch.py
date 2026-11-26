@@ -9,10 +9,12 @@ css = ('<style id="cockpit2-css">'
        '#p-home #cockpit>.rcb{margin:0 0 4px!important}'
        '#p-home #cockpit>#sehb{padding:0 18px 0 0!important}'
        '#cockpit .sehg{gap:4px!important}'
+       '#cockpit .rcb .errc,#cockpit .rcb .dayb,#cockpit .rcb .resume{background:#e4f7a0!important}'
+       '#cockpit .rcb .errc small,#cockpit .rcb .dayb small,#cockpit .rcb .resume small{color:#4a5a12!important}'
        '#cockpit .sehk{background:#f4f4f2!important;padding:6px 8px 8px!important}'
        '#cockpit .sehk b{margin-bottom:4px!important;line-height:1.2}'
        '</style>')
 s = s.rstrip('\n') + '\n' + css + '\n'
 if '--noversion' not in sys.argv:
-    s = re.sub(r'(<meta name="app-version" content=")([^"]*)(")', lambda m: m.group(1) + '2026-11-26zj' + m.group(3), s, count=1)
+    s = re.sub(r'(<meta name="app-version" content=")([^"]*)(")', lambda m: m.group(1) + '2026-11-26zk' + m.group(3), s, count=1)
 open('index.html', 'w', encoding='utf-8').write(s); print('ok')
