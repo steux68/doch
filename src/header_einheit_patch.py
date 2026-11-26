@@ -2,8 +2,8 @@
 import re, sys
 s = open('index.html', encoding='utf-8').read()
 if 'id="header-einheit-css"' in s: sys.exit('schon angewendet')
-css = ('<style id="header-einheit-css">.titlebar{height:58px!important;box-sizing:border-box!important;padding-top:0!important;padding-bottom:0!important}'
-       '.titlebar .logo svg{height:42px!important;width:auto!important}.titlebar .logo{height:42px!important;width:auto!important}'
+css = ('<style id="header-einheit-css">.titlebar{height:54px!important;box-sizing:border-box!important;padding-top:0!important;padding-bottom:0!important}'
+       '.titlebar .logo svg{height:38px!important;width:auto!important}.titlebar .logo{height:38px!important;width:auto!important}'
        '#dsw4 .pill{width:28px!important;height:15px!important}#dsw4 .pill .knob,#dsw4 .knob{width:9px!important;height:9px!important}#dsw4{gap:4px!important}#dsw4 .t2{color:#555!important}#dsw4{min-width:104px!important;justify-content:flex-end}</style>')
 s = s.rstrip('\n') + '\n' + css + '\n'
 if '--noversion' not in sys.argv:
