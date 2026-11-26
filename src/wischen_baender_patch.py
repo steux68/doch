@@ -1,17 +1,18 @@
 # DOCH! 26.11.2026: Staunen — nach oben wischen (am Ende des Inhalts) springt zur naechsten Leiste (Zitate -> Redewendungen -> Geschichte),
-# nach unten wischen (am Anfang) zur vorigen. Mausrad ebenso. Studieren (Rueckkehr) wird nie automatisch ausgeloest. Idempotent.
+# nach unten wischen (am Anfang) zur vorigen; von der Titelseite (data-n=0) oeffnet Wischen nach oben zuerst Zitate, nach unten ueber Zitate schliesst sie wieder zur Titelseite. Stand: siehe index.html (id wischen-js). Mausrad ebenso. Studieren (Rueckkehr) wird nie automatisch ausgeloest. Idempotent.
 import re, sys
 s = open('index.html', encoding='utf-8').read()
 if 'id="wischen-js"' in s: sys.exit('schon angewendet')
-js = '''<script id="wischen-js">/* Staunen: Wischen blaettert zwischen den Leisten */
-(function(){try{var SC=document.getElementById("hscroll");if(!SC)return;var K=["quotes","rede","hist"],y0=0,x0=0,t0=0,st0=0,busy=0;
-function bars(){return K.map(function(k){return document.querySelector('.hb[data-k="'+k+'"]');});}
-function vis(e){return e&&e.getBoundingClientRect().height>0;}
-function cur(){var b=bars();if(!vis(b[0]))return -1;for(var i=0;i<b.length;i++)if(b[i].classList.contains("sel"))return i;return -1;}
+js = '''<script id="wischen-js">/* Staunen: Wischen blaettert zwischen Titelseite und den Leisten */
+(function(){try{var SC=document.getElementById("hscroll");if(!SC)return;var y0=0,x0=0,t0=0,st0=0,busy=0;
+function bars(){return [].slice.call(SC.querySelectorAll(":scope>.hb")).slice(0,3);}
+function vis(){var b=bars()[0];return b&&b.getBoundingClientRect().height>0;}
 function open(){return !!document.querySelector(".tlpop:not([hidden]),dialog[open]");}
 function atEnd(){return SC.scrollTop+SC.clientHeight>=SC.scrollHeight-3;}
 function atTop(){return SC.scrollTop<=2;}
-function go(d){var i=cur();if(i<0||open()||Date.now()<busy)return;var j=i+d;if(j<0||j>=K.length)return;var b=bars()[j];if(!b)return;busy=Date.now()+700;b.click();}
+function go(d){if(!SC.hasAttribute("data-n")||!vis()||open()||Date.now()<busy)return;var B=bars(),n=+SC.getAttribute("data-n"),j;
+ if(n===0){if(d<0)return;j=0;}else{var i=n-1;j=i+d;if(j>=B.length)return;if(j<0)j=0;}
+ if(!B[j])return;busy=Date.now()+800;B[j].click();}
 SC.addEventListener("touchstart",function(e){var t=e.touches[0];y0=t.clientY;x0=t.clientX;t0=Date.now();st0=SC.scrollTop;},{passive:true});
 SC.addEventListener("touchend",function(e){var t=e.changedTouches[0],dy=t.clientY-y0,dx=t.clientX-x0;if(Math.abs(dy)<70||Math.abs(dx)>Math.abs(dy)*.6||Date.now()-t0>900)return;
  if(e.target.closest&&e.target.closest("input,textarea,select,.svt,#sehb"))return;
