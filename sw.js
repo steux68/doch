@@ -2,7 +2,8 @@
    Online: bei jedem Öffnen wird beim Server nach einer neueren Fassung gefragt (cache:'no-cache'), die Antwort wird für später gemerkt.
    Offline (zum Beispiel im Stall): es kommt die zuletzt gemerkte Fassung. Die Update-Taste leert den Speicher. */
 const CACHE='offline-v1';
-self.addEventListener('install',()=>self.skipWaiting());
+/* Audit 27.11.: das gemeinsame Modul common.js gleich beim Installieren speichern, damit es auch beim ersten Start ohne Netz da ist */
+self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(k=>k.add('common.js')).catch(()=>{}));});
 /* Audit 27.11.: alte Kopien aus der früheren Update-Prüfung (index.html?t=…) aus dem Speicher räumen */
 self.addEventListener('activate',e=>e.waitUntil(caches.open(CACHE).then(k=>k.keys().then(ks=>Promise.all(ks.filter(q=>/[?&](t|v)=\d{12,}/.test(q.url)).map(q=>k.delete(q))))).catch(()=>{}).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
