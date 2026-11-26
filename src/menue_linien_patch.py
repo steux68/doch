@@ -3,6 +3,9 @@ import re, sys
 s = open('index.html', encoding='utf-8').read()
 if 'id="menue-linien-css"' in s: sys.exit('schon angewendet')
 css = ('<style id="menue-linien-css">html body #hscroll>.hb.hb[data-i]{background-image:none!important}'
+       '#hscroll>.hb.hb[data-i="0"]{margin-bottom:-1px!important}'
+       ''
+       '#hscroll>.hb.hb[data-i="0"]{margin-top:14px!important}'
        'html body #hscroll>.hb.hb[data-i]::before,html body #hscroll>.hb.hb[data-i]::after{display:none!important}</style>')
 s = s.rstrip('\n') + '\n' + css + '\n'
 if '--noversion' not in sys.argv:
