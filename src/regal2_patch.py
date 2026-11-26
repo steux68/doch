@@ -5,9 +5,9 @@ s = open('index.html', encoding='utf-8').read()
 if 'id="regal2-css"' in s: sys.exit('schon angewendet')
 css = ('<style id="regal2-css">'
  '.rcb button>b:last-child{display:none!important}'
- '#sehb .rgl{position:sticky;flex:none;align-self:flex-start;margin-top:3px;width:26px;height:26px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.88);box-shadow:0 0 0 1px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;z-index:5;-webkit-tap-highlight-color:transparent;cursor:pointer}'
+ '#sehb .rgl{position:sticky;flex:none;align-self:flex-start;margin-top:31px;width:26px;height:26px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.88);box-shadow:0 0 0 1px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;z-index:5;-webkit-tap-highlight-color:transparent;cursor:pointer}'
  '#sehb .rgl::before{content:"";position:absolute;inset:-8px}'
- '#sehb .rgl.r{right:8px;margin-left:-34px}'
+ '#sehb .rgl.r{right:-14px;margin-left:-34px}'
  ''
  '#sehb .rgl .ar{width:24px;height:24px}'
  '#sehb .rgl[hidden]{display:none!important}'
