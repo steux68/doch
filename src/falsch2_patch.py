@@ -29,7 +29,7 @@ function hook(){if(typeof mcAnswer==="function"&&!mcAnswer.__wx){var o=mcAnswer;
   nf.innerHTML=h;
  }catch(e){}return r;};mcAnswer.__wx=1;}
  if(typeof judge==="function"&&!judge.__wx){var oj=judge;
-  judge=function(a,b){var r=oj(a,b);if(r[0]!=="ok"&&CT[b]&&String(a).trim().replace(/\s+/g," ").toLowerCase()===CT[b])return["ok",""];return r;};judge.__wx=1;}}
+  judge=function(a,b,w){var r=oj(a,b,w);if(r[0]!=="ok"&&CT[b]&&String(a).trim().replace(/\s+/g," ").toLowerCase()===CT[b])return["ok",""];return r;};judge.__wx=1;}}
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("#nf .wxl");if(b&&typeof setMode==="function"){e.preventDefault();setMode("learn");}});
 hook();setInterval(hook,500);
 })();</script>'''
