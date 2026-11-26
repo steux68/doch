@@ -1,4 +1,5 @@
 # DOCH! 26.11.2026: "Entdecken" - eine schmale Zeile unter den Heute-Karten holt taeglich ein noch NIE geoeffnetes Thema nach oben
+import sys; sys.exit("ersetzt durch entdecken2_patch.py")
 # (Name aus TOPICS, Auswahl nach Datum, wechselt pro Tag; verschwindet, wenn alles gesehen ist). Kein Pfeil, kein Menue. Idempotent.
 import re, sys
 s = open('index.html', encoding='utf-8').read()
