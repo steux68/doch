@@ -6693,6 +6693,8 @@ function nextQ(){if(typeof QUOTES==="undefined")return;var L=QUOTES.filter(funct
  try{loadPics(A)}catch(e){}var im=A.querySelector("img");if(im)im.addEventListener("load",fit);fit();A.style.opacity=1;},220);}
 H.addEventListener("click",function(e){if(e.target.closest&&e.target.closest("small"))return;e.preventDefault();kick((Math.random()<.5?-1:1)*34);nextQ();});
 }catch(e){}})();</script><style id="gwu-css">
+/* Staunen: Geschichte und Grammatikwoerter scrollen selbst; die Kappung aus Studieren (max-height + overflow:hidden) darf hier nicht greifen */
+html[data-dmode="s"] #hscroll[data-sec="gram"] #p-gram,html[data-dmode="s"] #hscroll[data-sec="hist"] #p-hist{overflow-y:auto!important;max-height:none!important;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 #p-gram .gwu{margin:6px 0 4px;padding:12px 12px 10px;background:#fff;border:1px dotted #b8b8b8}
 #p-gram .gwu>p{margin:0 0 8px;font-size:12px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;color:#555}
 #p-gram .gwu .r{padding:8px 0 10px;border-top:1px dotted #d0d0d0}

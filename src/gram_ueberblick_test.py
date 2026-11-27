@@ -37,6 +37,8 @@ A="</div><details><summary>Die Geschichte</summary>"
 assert s.count(A)==1; s=s.replace(A,"</div><details open><summary>Die Geschichte</summary>")
 
 CSS='''<style id="gwu-css">
+/* Staunen: Geschichte und Grammatikwoerter scrollen selbst; die Kappung aus Studieren (max-height + overflow:hidden) darf hier nicht greifen */
+html[data-dmode="s"] #hscroll[data-sec="gram"] #p-gram,html[data-dmode="s"] #hscroll[data-sec="hist"] #p-hist{overflow-y:auto!important;max-height:none!important;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 #p-gram .gwu{margin:6px 0 4px;padding:12px 12px 10px;background:#fff;border:1px dotted #b8b8b8}
 #p-gram .gwu>p{margin:0 0 8px;font-size:12px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;color:#555}
 #p-gram .gwu .r{padding:8px 0 10px;border-top:1px dotted #d0d0d0}
