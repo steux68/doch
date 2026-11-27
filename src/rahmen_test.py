@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Staunen-Titelseite: das Zitat haengt in einem barocken Goldrahmen an Draht und Nagel.
 Beim Wischen/Scrollen pendelt der Rahmen leicht (gedaempftes Pendel; aus bei prefers-reduced-motion).
-Rahmen und Ornamente sind selbst gezeichnet (SVG/CSS), keine fremden Bilder.
+Rahmenbild: img/rahmen-gold.webp, Pixabay 1978727 (Pixabay Content License, frei nutzbar), von Steuart ausgesucht 27.11.2026.
 Aufruf:  python3 src/rahmen_test.py        -> Testkopie rahmen1.html
          python3 src/rahmen_test.py live   -> index.html
 Idempotent ueber id="rahmen-css"."""
@@ -37,33 +37,28 @@ U_C=u(corner); U_S=u(shell)
 
 CSS='''<style id="rahmen-css">
 html[data-dmode="s"] #hscroll[data-n="0"]>#stnT{align-items:safe center}
-#stnT .hang{position:relative;margin:4px auto 18px;padding-top:58px;width:min(300px,86%);transform-origin:50% 8px;will-change:transform}
-#stnT .hang .nail{position:absolute;left:50%;top:2px;width:12px;height:12px;margin-left:-6px;border-radius:50%;z-index:3;
+#stnT .hang{position:relative;margin:2px auto 10px;padding-top:44px;transform-origin:50% 6px;will-change:transform}
+#stnT .hang .nail{position:absolute;left:50%;top:0;width:12px;height:12px;margin-left:-6px;border-radius:50%;z-index:3;
  background:radial-gradient(circle at 35% 30%,#fff 0 1px,#b9bcc0 2px,#6d7176 5px,#3d4044 6px);box-shadow:1px 2px 2px rgba(0,0,0,.35)}
-#stnT .hang .wire{position:absolute;left:0;top:0;width:100%;height:76px;z-index:0;overflow:visible}
-#stnT .gf{position:relative;z-index:1;padding:20px;border-radius:3px;
- background:linear-gradient(135deg,#8a5d12 0%,#e9c25a 14%,#fff0b0 22%,#c08a24 34%,#f2d27a 50%,#9a6a16 66%,#f6dc8a 78%,#b07c1c 90%,#6e4a0c 100%);
- box-shadow:0 14px 22px -8px rgba(0,0,0,.45),0 2px 4px rgba(0,0,0,.25),inset 0 0 0 1.5px #4e3406,inset 0 0 0 4px #f6dc8a,inset 0 0 0 5.5px #7a540e,
- inset 0 0 0 13px rgba(0,0,0,0),inset 0 0 0 14px #5e3f08}
-#stnT .gf::before{content:"";position:absolute;inset:6px;pointer-events:none;border-radius:2px;
- background:radial-gradient(circle,#fff6c8 0 1.6px,#c8962c 2.2px,#6e4a0c 3px,transparent 3.4px) 0 0/8px 8px;
- -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);padding:7px}
-#stnT .gf>.orn{position:absolute;width:46px;height:46px;background:'''+U_C+''' center/contain no-repeat;pointer-events:none;z-index:2;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
-#stnT .gf>.o1{left:-9px;top:-9px}#stnT .gf>.o2{right:-9px;top:-9px;transform:scaleX(-1)}
-#stnT .gf>.o3{left:-9px;bottom:-9px;transform:scaleY(-1)}#stnT .gf>.o4{right:-9px;bottom:-9px;transform:scale(-1)}
-#stnT .gf>.shell{position:absolute;left:50%;top:-17px;width:76px;height:32px;margin-left:-38px;background:'''+U_S+''' center/contain no-repeat;z-index:2;pointer-events:none;filter:drop-shadow(0 1px 1px rgba(0,0,0,.35))}
-#stnT .gf>.shell.b{top:auto;bottom:-17px;transform:scaleY(-1)}
-#stnT .gf .stq{background:#fbf7ea;padding:16px 14px 14px;gap:6px;box-shadow:inset 0 0 0 1px #8a6212,inset 0 3px 8px rgba(70,45,5,.35)}
-#stnT .gf .pic{width:108px;height:108px;margin-bottom:4px;box-shadow:0 0 0 1px #8a6212}
-#stnT .gf q{font-size:17px}
-@media (max-width:350px){#stnT .gf q{font-size:16px}#stnT .gf .pic{width:92px;height:92px}}
+#stnT .hang .wire{position:absolute;left:0;top:0;width:100%;height:170px;z-index:0;overflow:visible}
+#stnT .gf{position:relative;z-index:1;aspect-ratio:2387/3600;width:100%}
+#stnT .gf::before{content:"";position:absolute;left:15.5%;right:15%;top:26%;bottom:13%;background:#fbf7ea;box-shadow:inset 0 2px 10px rgba(70,45,5,.35);z-index:0}
+#stnT .gf::after{content:"";position:absolute;inset:0;background:url(img/rahmen-gold.webp) center/100% 100% no-repeat;z-index:1;pointer-events:none;filter:drop-shadow(0 8px 8px rgba(0,0,0,.35))}
+#stnT .gf .stq{position:absolute;left:18.5%;right:18%;top:28.5%;bottom:16.5%;z-index:2;justify-content:center;padding:0;gap:4px;overflow:hidden;font-size:var(--fz,16px)}
+#stnT .gf .pic{width:4.6em;height:4.6em;margin-bottom:2px;box-shadow:0 0 0 1px #8a6212}
+#stnT .gf q{font-size:1em;line-height:1.3}#stnT .gf b{font-size:.92em}#stnT .gf small{font-size:max(11px,.7em);line-height:1.3}
 </style>'''
 
 JS='''<script id="rahmen-js">(function(){try{var T=document.getElementById("stnT"),SC=document.getElementById("hscroll");if(!T||!SC)return;
 function wrap(){var a=T.querySelector(":scope>a.stq");if(!a)return null;var h=document.createElement("div");h.className="hang";
- h.innerHTML='<svg class="wire" viewBox="0 0 100 76" preserveAspectRatio="none" aria-hidden="true"><path d="M24 74 L50 6 L76 74" fill="none" stroke="#55585c" stroke-width="1.4" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="nail" aria-hidden="true"></span><div class="gf"><i class="orn o1"></i><i class="orn o2"></i><i class="orn o3"></i><i class="orn o4"></i><i class="shell"></i><i class="shell b"></i></div>';
+ h.innerHTML='<svg class="wire" viewBox="0 0 100 170" preserveAspectRatio="none" aria-hidden="true"><path d="M20 168 L50 6 L80 168" fill="none" stroke="#55585c" stroke-width="1.4" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="nail" aria-hidden="true"></span><div class="gf"></div>';
  T.insertBefore(h,a);h.querySelector(".gf").appendChild(a);return h;}
-var H=wrap();if(!H)return;
+var H=wrap();if(!H)return;var A=H.querySelector(".stq");
+function fit(){var W=T.clientWidth,Ht=T.clientHeight;if(!W||!Ht)return;var w=Math.min(W*.9,380,(Ht-60)/1.508);w=Math.max(w,220);H.style.width=Math.round(w)+"px";
+ var f=Math.min(18,w/18);A.style.setProperty("--fz",f+"px");if(A.clientHeight<40)return;var n=0;function need(){var c=A.children;return c[c.length-1].getBoundingClientRect().bottom-c[0].getBoundingClientRect().top;}
+ while(need()>A.clientHeight-4&&f>10&&n++<30){f-=.5;A.style.setProperty("--fz",f+"px");}}
+fit();requestAnimationFrame(fit);setTimeout(fit,300);addEventListener("resize",fit);new MutationObserver(fit).observe(SC,{attributes:true,attributeFilter:["data-n"]});
+var im=A.querySelector("img");if(im)im.addEventListener("load",fit);
 if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)return;
 var th=0,om=0,run=0,last=0,K=20,C=1.1,MAX=7;
 function step(t){var dt=Math.min(.04,(t-last)/1000||.016);last=t;om+=(-K*th-C*om)*dt;th+=om*dt;
@@ -80,5 +75,5 @@ setTimeout(function(){kick(14)},450);
 }catch(e){}})();</script>'''
 
 s=s+CSS+JS
-out=os.path.join(root,'index.html' if LIVE else 'rahmen1.html')
+out=os.path.join(root,'index.html' if LIVE else 'rahmen2.html')
 open(out,'w',encoding='utf-8').write(s);print('wrote',out)
