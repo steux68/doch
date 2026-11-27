@@ -9,10 +9,13 @@ src=os.path.join(root,'index.html')
 s=open(src,encoding='utf-8').read()
 A='data-k="gram" data-x="363.5" data-y="389.0" data-row="0.30"'
 if A not in s: print('already'); raise SystemExit
-s=s.replace(A,'data-k="gram" data-x="363.5" data-y="389.0" data-row="0.86"')
+s=s.replace(A,'data-k="gram" data-x="363.5" data-y="389.0" data-row="0.80"')
+Rd='data-k="rede" data-x="481.3" data-y="870.0" data-row="0.86"'
+assert Rd in s
+s=s.replace(Rd,'data-k="rede" data-x="481.3" data-y="870.0" data-row="0.80"')
 B='data-k="hist" data-x="232.7" data-y="825.0" data-row="0.86"'
 assert B in s
 s=s.replace(B,'data-k="hist" data-x="232.7" data-y="825.0" data-row="0.56"')
-s=s+'<style id="karte-reihe-css">@media (max-width:360px){.pin[data-k="gram"] span{display:inline-block;transform:translateX(18px)}}</style>'
+s=s+'<style id="karte-reihe-css">.tp .pin.l[data-k="gram"]{left:16px}.tp .pin.r[data-k="rede"]{right:16px}@media (max-width:360px){.pin[data-k="gram"] span{display:inline-block;transform:translateX(6px)}}</style>'
 out=os.path.join(root,'index.html' if LIVE else 'karte1.html')
 open(out,'w',encoding='utf-8').write(s);print('wrote',out)
