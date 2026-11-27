@@ -21,6 +21,21 @@ rep('b=document.querySelectorAll("#hscroll>.hb")[2];\nif(c&&b)','b=document.quer
 # die Leisten sitzen vor ihrem Abschnitt im DOM: Abschnitt p-hist vor p-rede legen, dann stimmen alle Reihenfolgen (Leisten, Buchstaben A B C)
 rep('<section class="hp" id="p-rede"></section>','')
 rep('<section class="hp" id="p-hist"></section>','<section class="hp" id="p-hist"></section><section class="hp" id="p-rede"></section>')
+JS_SWIPE=r'''<script id="stn-swipe">/* Staunen: am Ende einer Liste weiterwischen / -scrollen oeffnet den naechsten Abschnitt (Leiste wandert wie beim Antippen); am Anfang nach unten = voriger */
+(function(){if(typeof DMODE==="undefined"||DMODE!=="s")return;const sc=document.getElementById("hscroll");if(!sc)return;const SEC=["quotes","hist","rede"];
+function bars(){return [].slice.call(sc.querySelectorAll(":scope>.hb")).slice(0,3);}
+function cur(){return SEC.indexOf(sc.getAttribute("data-sec"));}
+function prim(){const P=document.getElementById("p-"+sc.getAttribute("data-sec"));if(!P)return null;if(/auto|scroll/.test(getComputedStyle(P).overflowY)&&P.scrollHeight>P.clientHeight+2)return P;const q=P.querySelector(".qbs");return q&&q.scrollHeight>q.clientHeight+2?q:P;}
+function edge(){const e=prim();if(!e||e.scrollHeight<=e.clientHeight+2)return{top:true,end:true};return{top:e.scrollTop<=2,end:e.scrollTop+e.clientHeight>=e.scrollHeight-3};}
+let busy=0,y0=0,x0=0,t0=0,E=null,wl=0;
+function go(d){const i=cur(),j=i+d,B=bars();if(i<0||j<0||j>2||!B[j]||Date.now()<busy)return;busy=Date.now()+900;B[j].click();}
+sc.addEventListener("touchstart",e=>{const t=e.touches[0];y0=t.clientY;x0=t.clientX;t0=Date.now();E=edge();},{passive:true});
+sc.addEventListener("touchend",e=>{if(!E)return;const t=e.changedTouches[0],dy=t.clientY-y0,dx=t.clientX-x0,En=E;E=null;
+ if(Math.abs(dy)<60||Math.abs(dx)>Math.abs(dy)*.6||Date.now()-t0>900)return;
+ if(e.target.closest&&e.target.closest("input,textarea,select,.hb,.tlpop"))return;
+ const n=edge();if(dy<0&&En.end&&n.end)go(1);else if(dy>0&&En.top&&n.top)go(-1);},{passive:true});
+sc.addEventListener("wheel",e=>{const gap=Date.now()-wl;wl=Date.now();if(Math.abs(e.deltaY)<40||gap<250)return;const n=edge();if(e.deltaY>0&&n.end)go(1);else if(e.deltaY<0&&n.top)go(-1);},{passive:true});
+})();</script>'''
 CSS='''<style id="bandtest">
 /* schlanke "mehr"-Zeile: grosser limettengruener Pfeil-Kreis (pulsiert), dicht daneben Text + kleiner Hinweis */
 html body .mrow.capm,html body .mrow#qmore{display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;height:auto;min-height:44px;margin:8px 0 12px!important;padding:6px 2px;text-align:left;text-transform:none;
@@ -37,5 +52,7 @@ html body .mrow.capm,html body .mrow#qmore{display:flex;align-items:center;justi
 </style>'''
 i=s.rindex('</head>') if '</head>' in s else s.rindex('</style>')+8
 s=s[:i]+CSS+s[i:]
+j=s.rindex('</body>') if '</body>' in s else len(s)
+s=s[:j]+JS_SWIPE+s[j:]
 s=s.replace('<title>','<title>[Test Leiste] ',1)
 open('band5.html','w',encoding='utf-8').write(s); print('ok')
