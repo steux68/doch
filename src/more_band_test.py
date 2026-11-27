@@ -1,3 +1,6 @@
+# (Parameter 'live' schreibt direkt index.html, ohne Titel-Zusatz, mit neuer app-version)
+import sys
+LIVE=len(sys.argv)>1 and sys.argv[1]=='live'
 # Testkopie band5.html (27.11.2026, v2): "mehr"-Zeilen (.mrow) = schlanke Zeile mit grossem limettengruenem, pulsierendem Pfeil-Kreis;
 # darunter dicht der kleine Hinweis. Und in "Staunen": Geschichte vor Redewendungen. index.html bleibt unberuehrt.
 s=open('index.html',encoding='utf-8').read()
@@ -54,5 +57,11 @@ i=s.rindex('</head>') if '</head>' in s else s.rindex('</style>')+8
 s=s[:i]+CSS+s[i:]
 j=s.rindex('</body>') if '</body>' in s else len(s)
 s=s[:j]+JS_SWIPE+s[j:]
-s=s.replace('<title>','<title>[Test Leiste] ',1)
-open('band5.html','w',encoding='utf-8').write(s); print('ok')
+if LIVE:
+    import re
+    m=re.search(r'(<meta name="app-version" content=")([^"]*)(")',s); assert m
+    s=s.replace(m.group(0),m.group(1)+'2026-11-27-leiste'+m.group(3),1)
+    open('index.html','w',encoding='utf-8').write(s); print('live ok')
+else:
+    s=s.replace('<title>','<title>[Test Leiste] ',1)
+    open('band5.html','w',encoding='utf-8').write(s); print('ok')
