@@ -46,15 +46,17 @@ html[data-dmode="s"] #hscroll[data-n="0"]>#stnT{align-items:safe center}
 #stnT .gf::after{content:"";position:absolute;inset:0;background:url(img/rahmen-gold.webp) center/100% 100% no-repeat;z-index:1;pointer-events:none;filter:drop-shadow(0 8px 8px rgba(0,0,0,.35))}
 #stnT .gf .stq{position:absolute;left:21%;right:20.5%;top:31%;bottom:19%;transition:opacity .22s;z-index:2;justify-content:center;padding:0;gap:4px;overflow:hidden;font-size:var(--fz,16px)}
 #stnT .gf .pic{width:4.6em;height:4.6em;margin-bottom:2px;box-shadow:0 0 0 1px #8a6212}
+#stnT .gf .tap{position:absolute;right:22%;top:32%;width:16px;height:16px;margin:-8px -8px 0 0;border-radius:50%;background:#cdff3e;border:1.5px solid #1a1a1a;z-index:3;pointer-events:none}
+#stnT .gf .tap::after{content:"";position:absolute;inset:-7px;border:1.5px solid rgba(227,6,19,.55);border-radius:50%;animation:dsRing 2.4s ease-out infinite}
 #stnT .gf q{font-size:1em;line-height:1.3}#stnT .gf b{font-size:.92em}#stnT .gf small{font-size:.74em;line-height:1.3}#stnT .gf .stq.tight .pic{width:3.4em;height:3.4em}
 </style>'''
 
 JS='''<script id="rahmen-js">(function(){try{var T=document.getElementById("stnT"),SC=document.getElementById("hscroll");if(!T||!SC)return;
 function wrap(){var a=T.querySelector(":scope>a.stq");if(!a)return null;var h=document.createElement("div");h.className="hang";
- h.innerHTML='<svg class="wire" viewBox="0 0 100 170" preserveAspectRatio="none" aria-hidden="true"><path d="M20 168 L50 6 L80 168" fill="none" stroke="#55585c" stroke-width="1.4" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="nail" aria-hidden="true"></span><div class="gf"></div>';
- T.insertBefore(h,a);h.querySelector(".gf").appendChild(a);return h;}
+ h.innerHTML='<svg class="wire" viewBox="0 0 100 170" preserveAspectRatio="none" aria-hidden="true"><path d="M20 168 L50 6 L80 168" fill="none" stroke="#55585c" stroke-width="1.4" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg><span class="nail" aria-hidden="true"></span><div class="gf"><span class="tap" aria-hidden="true"></span></div>';
+ T.insertBefore(h,a);h.querySelector(".gf").appendChild(a);a.setAttribute("aria-label","Nächstes Zitat");a.title="Antippen: nächstes Zitat";return h;}
 var H=wrap();if(!H)return;var A=H.querySelector(".stq");
-function fit(){var W=T.clientWidth,Ht=T.clientHeight;if(!W||!Ht)return;var w=Math.min(W*.8,360,(Ht-110)/1.508);w=Math.max(w,210);H.style.width=Math.round(w)+"px";
+function fit(){var W=T.clientWidth,Ht=T.clientHeight;if(!W||!Ht)return;var w=Math.min(W*.72,330,(Ht-130)/1.508);w=Math.max(w,200);H.style.width=Math.round(w)+"px";
  var f=Math.min(18,w/18);A.style.setProperty("--fz",f+"px");if(A.clientHeight<40)return;A.classList.remove("tight");var n=0;function need(){var c=A.children;return c[c.length-1].getBoundingClientRect().bottom-c[0].getBoundingClientRect().top;}
  while(need()>A.clientHeight-4&&f>9&&n++<40){f-=.5;if(f<12.5)A.classList.add("tight");A.style.setProperty("--fz",f+"px");}}
 fit();requestAnimationFrame(fit);setTimeout(fit,300);addEventListener("resize",fit);new MutationObserver(fit).observe(SC,{attributes:true,attributeFilter:["data-n"]});
@@ -81,6 +83,9 @@ function nextQ(){if(typeof QUOTES==="undefined")return;var L=QUOTES.filter(funct
 H.addEventListener("click",function(e){if(e.target.closest&&e.target.closest("small"))return;e.preventDefault();kick((Math.random()<.5?-1:1)*34);nextQ();});
 }catch(e){}})();</script>'''
 
+OLD='function go(d){const i=cur(),j=i+d,B=bars();if(i<0||j<0||j>3||!B[j]||Date.now()<busy)return;busy=Date.now()+900;B[j].click();}'
+assert OLD in s
+s=s.replace(OLD,'function go(d){const B=bars();if(sc.getAttribute("data-n")==="0"){if(d>0&&B[0]&&Date.now()>=busy){busy=Date.now()+900;B[0].click();}return;}const i=cur(),j=i+d;if(i<0||j<0||j>3||!B[j]||Date.now()<busy)return;busy=Date.now()+900;B[j].click();}')
 s=s+CSS+JS
-out=os.path.join(root,'index.html' if LIVE else 'rahmen3.html')
+out=os.path.join(root,'index.html' if LIVE else 'rahmen4.html')
 open(out,'w',encoding='utf-8').write(s);print('wrote',out)
