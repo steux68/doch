@@ -8,7 +8,7 @@ Idempotent ueber id="rahmen-css"."""
 import os,sys,urllib.parse
 LIVE=len(sys.argv)>1 and sys.argv[1]=='live'
 root=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-s=open(os.path.join(root,'index.html'),encoding='utf-8').read()
+s=open(os.environ.get('DOCH_SRC',os.path.join(root,'index.html')),encoding='utf-8').read()
 if 'id="rahmen-css"' in s: print('already'); raise SystemExit
 
 GRAD=('<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">'
@@ -87,5 +87,5 @@ OLD='function go(d){const i=cur(),j=i+d,B=bars();if(i<0||j<0||j>3||!B[j]||Date.n
 assert OLD in s
 s=s.replace(OLD,'function go(d){const B=bars();if(sc.getAttribute("data-n")==="0"){if(d>0&&B[0]&&Date.now()>=busy){busy=Date.now()+900;B[0].click();}return;}const i=cur(),j=i+d;if(i<0||j<0||j>3||!B[j]||Date.now()<busy)return;busy=Date.now()+900;B[j].click();}')
 s=s+CSS+JS
-out=os.path.join(root,'index.html' if LIVE else 'rahmen4.html')
+out=os.environ.get('DOCH_OUT') or os.path.join(root,'index.html' if LIVE else 'rahmen4.html')
 open(out,'w',encoding='utf-8').write(s);print('wrote',out)

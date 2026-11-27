@@ -6,7 +6,7 @@ import os,sys
 LIVE='live' in sys.argv[1:]
 root=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 src=os.path.join(root,'index.html')
-s=open(src,encoding='utf-8').read()
+s=open(os.environ.get('DOCH_SRC',src),encoding='utf-8').read()
 A='data-k="gram" data-x="363.5" data-y="389.0" data-row="0.30"'
 if A not in s: print('already'); raise SystemExit
 s=s.replace(A,'data-k="gram" data-x="363.5" data-y="389.0" data-row="0.80"')
@@ -27,5 +27,5 @@ for a,b in [('[["quotes","Zitate"],["hist","Geschichte"],["gram","Grammatikwört
  ('zitate · geschichte · grammatikwörter · redewendungen','zitate · redewendungen · grammatikwörter · geschichte')]:
   n=s.count(a);assert n,a;s=s.replace(a,b);print(n,'x',a[:40])
 s=s+'<style id="karte-reihe-css">.tp .pin.l[data-k="gram"]{left:16px}.tp .pin.r[data-k="rede"]{right:16px}@media (max-width:360px){.pin[data-k="gram"] span{display:inline-block;transform:translateX(6px)}}</style>'
-out=os.path.join(root,'index.html' if LIVE else 'karte1.html')
+out=os.environ.get('DOCH_OUT') or os.path.join(root,'index.html' if LIVE else 'karte1.html')
 open(out,'w',encoding='utf-8').write(s);print('wrote',out)
