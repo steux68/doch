@@ -1164,7 +1164,7 @@ body:has(footer.copy.ch) #toTop{display:none!important}
       <section class="hp" id="p-links"></section>
       <section class="hp" id="p-quotes"></section>
       
-      <section class="hp" id="p-hist"></section><section class="hp" id="p-gram"></section><section class="hp" id="p-rede"></section><section class="hp" id="p-wow"></section><section class="hp" id="p-study"></section>
+      <section class="hp" id="p-rede"></section><section class="hp" id="p-gram"></section><section class="hp" id="p-hist"></section><section class="hp" id="p-wow"></section><section class="hp" id="p-study"></section>
     </div>
     <div class="sback t" id="sbt"></div><div class="sback b" id="sbb"></div>
     </div>
@@ -4944,7 +4944,7 @@ const HIST='<div class="tc tlsec"><div id="tlbox">'+tlHTML()+'</div><p class="tl
  ["1916", "Seit 1916 erscheint in Windhuk die Allgemeine Zeitung – die einzige deutsche Tageszeitung, die außerhalb des deutschsprachigen Europa übrig ist.", ["https://en.wikipedia.org/wiki/Allgemeine_Zeitung_(Namibia)", "Wikipedia"]]
 ].map(r=>hi(r[0],r[1],r[2])).join("")+'</div></div>';
 const DMODE=(()=>{try{return sessionStorage.getItem("dochMode")==="s"?"s":"d"}catch(e){return"d"}})();document.documentElement.setAttribute("data-dmode",DMODE);
-const SECS=DMODE==="s"?[["quotes","Zitate"],["hist","Geschichte"],["gram","Grammatikwörter"],["rede","Redewendungen"],["study","Studieren"]]:[["home","Grammatik"],["test","Tests"],["links","Hilfsmittel"],["wow","Staunen"]];
+const SECS=DMODE==="s"?[["quotes","Zitate"],["rede","Redewendungen"],["gram","Grammatikwörter"],["hist","Geschichte"],["study","Studieren"]]:[["home","Grammatik"],["test","Tests"],["links","Hilfsmittel"],["wow","Staunen"]];
 const DR={open:false,k:null};   /* the old rising panel is gone; kept so older checks stay false */
 const HB=24,ROWS=SECS.length,SC=$("hscroll"),HBODY=$("hbody");
 const secEl=k=>$("p-"+k);
@@ -5941,13 +5941,13 @@ html[data-dmode="s"] #p-home,html[data-dmode="s"] #p-test,html[data-dmode="s"] #
 /* Farben: bleiben wie bisher nach Platz (rosa, gruen, blau, gelb), der vierte Balken ist in beiden Modi gelb */
 </style>
 <script id="stack3-js">(function(){
-const NAMES={home:"grammatik · tests · hilfsmittel",wow:"zitate · geschichte · grammatikwörter · redewendungen"};
+const NAMES={home:"grammatik · tests · hilfsmittel",wow:"zitate · redewendungen · grammatikwörter · geschichte"};
 const bars=[].slice.call(document.querySelectorAll("#hscroll>.hb"));
 const keys=SECS.map(x=>x[0]);
 bars.forEach((b,i)=>{b.setAttribute("data-k",keys[i]);});
 if(DMODE==="s")bars.slice(0,4).forEach((b,i)=>{const sm=b.querySelector("small");if(sm)sm.textContent="["+"ABCD"[i]+"]";});
 const LI=DMODE==="s"?4:3,last=bars[LI],lk=keys[LI];
-if(last){const sm=last.querySelector("small");if(sm)sm.textContent=lk==="wow"?"zitate · geschichte · grammatikwörter · redewendungen":"grammatik · tests · hilfsmittel";
+if(last){const sm=last.querySelector("small");if(sm)sm.textContent=lk==="wow"?"zitate · redewendungen · grammatikwörter · geschichte":"grammatik · tests · hilfsmittel";
   last.addEventListener("click",()=>go(lk==="wow"?"s":"d"));}
 function go(m){try{sessionStorage.setItem("dochMode",m);}catch(e){}location.reload();}
 const fb=document.getElementById("markb"),sw=document.getElementById("dsw");
@@ -5992,7 +5992,7 @@ function enter(sec,m,list){if(!sec)return;const w=document.createElement("div");
 #implink{font-size:12px;text-transform:none;letter-spacing:.4px}
 </style>
 <script id="stack3-pins">(function(){
-const M={home:["d",0],test:["d",1],links:["d",2],quotes:["s",0],hist:["s",1],gram:["s",2],rede:["s",3]},L={quotes:"A",hist:"B",gram:"C",rede:"D"};
+const M={home:["d",0],test:["d",1],links:["d",2],quotes:["s",0],rede:["s",1],gram:["s",2],hist:["s",3]},L={quotes:"A",rede:"B",gram:"C",hist:"D"};
 document.querySelectorAll("#tstage .pin").forEach(b=>{const k=b.dataset.k,m=M[k];if(!m)return;
  if(L[k]){const n=b.querySelector("b");if(n)n.textContent=L[k];b.setAttribute("aria-label",(b.getAttribute("aria-label")||"").replace(/\[0\d\]/,"["+L[k]+"]"));}
  if(m[0]!==DMODE)b.addEventListener("click",e=>{e.stopImmediatePropagation();try{sessionStorage.setItem("dochMode",m[0]);sessionStorage.setItem("dochSwitched","1");sessionStorage.setItem("dochTarget",String(m[1]));}catch(x){}location.reload();},true);});
@@ -6051,7 +6051,7 @@ const old=$("dsw");if(old){const t=document.createElement("button");t.type="butt
  t.onclick=()=>go2(DMODE==="s"?"d":"s");old.parentNode.insertBefore(t,old);}
 const AR='<svg viewBox="0 0 18 10" width="18" height="10" aria-hidden="true" style="flex:none"><path d="M0 5H16M12 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',AL='<svg viewBox="0 0 18 10" width="18" height="10" aria-hidden="true" style="flex:none"><path d="M18 5H2M6 1L2 5l4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
 const lb=document.querySelectorAll("#hscroll>.hb")[DMODE==="s"?4:3];if(lb){const b=lb.querySelector("b");if(b)b.innerHTML=DMODE==="s"?AL+"<span>Studieren</span>":"<span>Staunen</span>"+AR;}
-if(DMODE==="s"){const bs=[].slice.call(document.querySelectorAll("#hscroll>.hb")),sec=["quotes","hist","gram","rede"],sc=$("hscroll");
+if(DMODE==="s"){const bs=[].slice.call(document.querySelectorAll("#hscroll>.hb")),sec=["quotes","rede","gram","hist"],sc=$("hscroll");
  function pick(i){sc.setAttribute("data-sec",sec[i]);bs.slice(0,4).forEach((b,k)=>b.classList.toggle("sel",k===i));[$("p-quotes"),$("p-rede"),$("p-hist"),$("p-gram")].forEach(e=>e&&(e.scrollTop=0));}
  bs.slice(0,4).forEach((b,i)=>{b.style.bottom="auto";b.addEventListener("click",e=>{e.stopImmediatePropagation();pick(i);},true);});
  let t0=0;try{t0=+(sessionStorage.getItem("dochTarget")||0);}catch(e){}pick(t0>=0&&t0<4?t0:0);}
@@ -6062,7 +6062,7 @@ row($("p-study"),"Studieren öffnen","d");
 html[data-dmode="s"] #hscroll>.capm{order:3;position:relative!important;top:auto!important;bottom:auto!important;flex:none;margin:0!important}
 html[data-dmode="s"] #hscroll[data-sec="hist"]>.capm{display:none!important}
 </style>
-<script id="stack7-js">(function(){if(DMODE!=="s")return;const c=document.querySelector("#hscroll>.capm.p-hist"),b=document.querySelectorAll("#hscroll>.hb")[1];
+<script id="stack7-js">(function(){if(DMODE!=="s")return;const c=document.querySelector("#hscroll>.capm.p-hist"),b=document.querySelectorAll("#hscroll>.hb")[3];
 if(c&&b)c.addEventListener("click",e=>{e.stopImmediatePropagation();e.preventDefault();b.click();},true);})();</script>
 <script id="info-link-js">(function(){var l=document.getElementById('infoLink'),c=document.getElementById('cogb');if(l)l.onclick=function(e){e.stopPropagation();if(c)c.click();};})();</script><script id="infolink2">(function(){var l=document.getElementById('infoLink');
 function open(e){if(e){e.stopPropagation();e.preventDefault();}var c=document.getElementById('cogb');if(c)c.click();
@@ -6235,7 +6235,7 @@ var T=document.getElementById("stnT");sc.insertBefore(T,sc.firstChild);try{loadP
 var bars=function(){return [].slice.call(sc.querySelectorAll(":scope>.hb")).slice(0,4)},rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
 var tg=0;try{tg=+(sessionStorage.getItem("dochTarget")||0)}catch(e){}
 sc.setAttribute("data-n",tg>0?String(Math.min(4,tg+1)):"0");
-var DUR=700,EASE="cubic-bezier(.4,.1,.2,1)",PN=["p-quotes","p-hist","p-gram","p-rede"];
+var DUR=700,EASE="cubic-bezier(.4,.1,.2,1)",PN=["p-quotes","p-rede","p-gram","p-hist"];
 function flip(fn,pi){var bs=bars(),a=bs.map(function(b){return b.getBoundingClientRect().top});fn();var dd=0;
  if(rm)return;bs.forEach(function(b,i){var d=a[i]-b.getBoundingClientRect().top;if(i===pi)dd=d;if(!d)return;b.style.transition="none";b.style.transform="translateY("+d+"px)";b.getBoundingClientRect();b.style.transition="transform "+DUR+"ms "+EASE;b.style.transform="";setTimeout(function(){b.style.transition=""},DUR+60)});
  if(dd>0)setTimeout(function(){var P=document.getElementById(PN[pi]);if(P&&P.animate)P.animate([{transform:"translateY("+dd+"px)"},{transform:"none"}],{duration:DUR,easing:EASE})},0);}
@@ -6615,7 +6615,7 @@ watch();})();</script>
 <!--TH3C-MARK-->
 <!--WARUM-MARK-->
 <script id="stn-swipe">/* Staunen: am Ende einer Liste weiterwischen / -scrollen oeffnet den naechsten Abschnitt (Leiste wandert wie beim Antippen); am Anfang nach unten = voriger */
-(function(){if(typeof DMODE==="undefined"||DMODE!=="s")return;const sc=document.getElementById("hscroll");if(!sc)return;const SEC=["quotes","hist","gram","rede"];
+(function(){if(typeof DMODE==="undefined"||DMODE!=="s")return;const sc=document.getElementById("hscroll");if(!sc)return;const SEC=["quotes","rede","gram","hist"];
 function bars(){return [].slice.call(sc.querySelectorAll(":scope>.hb")).slice(0,4);}
 function cur(){return SEC.indexOf(sc.getAttribute("data-sec"));}
 function prim(){const P=document.getElementById("p-"+sc.getAttribute("data-sec"));if(!P)return null;if(/auto|scroll/.test(getComputedStyle(P).overflowY)&&P.scrollHeight>P.clientHeight+2)return P;const q=P.querySelector(".qbs");return q&&q.scrollHeight>q.clientHeight+2?q:P;}
