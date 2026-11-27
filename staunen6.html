@@ -6695,13 +6695,14 @@ H.addEventListener("click",function(e){if(e.target.closest&&e.target.closest("sm
 }catch(e){}})();</script><style id="gwu-css">
 #p-gram .gwu{margin:6px 0 4px;padding:12px 12px 10px;background:#fff;border:1px dotted #b8b8b8}
 #p-gram .gwu>p{margin:0 0 8px;font-size:12px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;color:#555}
-#p-gram .gwu .r{display:grid;grid-template-columns:88px minmax(0,1fr);gap:6px 8px;align-items:start;padding:6px 0;border-top:1px dotted #d0d0d0}
-#p-gram .gwu .r>i{font-style:normal;font-size:12px;line-height:1.25;color:var(--red);font-weight:700;padding-top:6px}
-#p-gram .gwu .r>span{display:flex;flex-wrap:wrap;gap:6px}
-#p-gram .gwu button{font:inherit;font-size:14px;min-height:32px;padding:4px 10px;border:1px solid #cfcfcf;border-left:4px solid var(--cc,#bfe4d6);background:#f7f7f5;color:#1a1a1a;cursor:pointer}
+#p-gram .gwu .r{padding:8px 0 10px;border-top:1px dotted #d0d0d0}
+#p-gram .gwu .r>i{display:block;font-style:normal;font-size:12px;line-height:1.25;color:var(--red);font-weight:700;margin-bottom:6px}
+#p-gram .gwu .r>span{display:flex;flex-wrap:wrap;gap:5px}
+#p-gram .gwu button{font:inherit;font-size:14px;min-height:34px;padding:4px 8px;border:1px solid #cfcfcf;border-left:4px solid var(--cc,#bfe4d6);background:#f7f7f5;color:#1a1a1a;cursor:pointer}
 #p-gram .gwu button:active{background:#e9e9e6}
 #p-gram .fwc.flash{animation:gwuF 1.2s ease-out}
 @keyframes gwuF{0%{box-shadow:0 0 0 3px #cdff3e}100%{box-shadow:0 0 0 3px transparent}}
+@media (max-width:360px){#p-gram .gwu{padding:10px 8px}#p-gram .gwu button{font-size:13px;padding:4px 6px;border-left-width:3px}#p-gram .gwu .r>span{gap:4px}}
 </style><script id="gwu-js">(function(){try{if(typeof DMODE==="undefined"||DMODE!=="s")return;var P=document.getElementById("p-gram");if(!P||P.querySelector(".gwu"))return;
 var H=[].slice.call(P.querySelectorAll("h3.fwh"));if(!H.length)return;var n=0,rows="";
 H.forEach(function(h){var b="";for(var e=h.nextElementSibling;e&&e.tagName!=="H3";e=e.nextElementSibling){if(!e.classList.contains("fwc"))continue;n++;e.id="gw"+n;
