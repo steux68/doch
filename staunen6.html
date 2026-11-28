@@ -6695,16 +6695,16 @@ H.addEventListener("click",function(e){if(e.target.closest&&e.target.closest("sm
 }catch(e){}})();</script><style id="gwu-css">
 /* Staunen: Geschichte und Grammatikwoerter scrollen selbst; die Kappung aus Studieren (max-height + overflow:hidden) darf hier nicht greifen */
 html[data-dmode="s"] #hscroll[data-sec="gram"] #p-gram,html[data-dmode="s"] #hscroll[data-sec="hist"] #p-hist{overflow-y:auto!important;max-height:none!important;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
-#p-gram .gwu{margin:6px 0 4px;padding:12px 12px 10px;background:#fff;border:1px dotted #b8b8b8}
+#p-gram .gwu{margin:6px 0 4px;padding:10px 10px 10px;background:#fff;border:1px dotted #b8b8b8}
 #p-gram .gwu>p{margin:0 0 8px;font-size:12px;letter-spacing:.14em;font-weight:700;text-transform:uppercase;color:#555}
-#p-gram .gwu .r{padding:8px 0 10px;border-top:1px dotted #d0d0d0}
-#p-gram .gwu .r>i{display:block;font-style:normal;font-size:12px;line-height:1.25;color:var(--red);font-weight:700;margin-bottom:6px}
-#p-gram .gwu .r>span{display:flex;flex-wrap:wrap;gap:5px}
-#p-gram .gwu button{font:inherit;font-size:14px;min-height:34px;padding:4px 8px;border:1px solid #cfcfcf;border-left:4px solid var(--cc,#bfe4d6);background:#f7f7f5;color:#1a1a1a;cursor:pointer}
-#p-gram .gwu button:active{background:#e9e9e6}
+#p-gram .gwu .r{background:#f4f4f2;padding:6px 8px 8px;margin-top:4px}
+#p-gram .gwu .r>i{display:block;font-style:normal;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:5px;line-height:1.2}
+#p-gram .gwu .r>span{display:flex;gap:2px}
+#p-gram .gwu button{flex:1 1 0;min-width:0;height:34px;padding:0 2px;border:0;border-radius:0;font:inherit;font-size:13px;color:#2c2c2a;background:var(--cc,#bfe4d6);cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;-webkit-tap-highlight-color:transparent}
+#p-gram .gwu button:active{outline:2px solid #1a1a1a;outline-offset:-2px}
 #p-gram .fwc.flash{animation:gwuF 1.2s ease-out}
 @keyframes gwuF{0%{box-shadow:0 0 0 3px #cdff3e}100%{box-shadow:0 0 0 3px transparent}}
-@media (max-width:360px){#p-gram .gwu{padding:10px 8px}#p-gram .gwu button{font-size:13px;padding:4px 6px;border-left-width:3px}#p-gram .gwu .r>span{gap:4px}}
+@media (max-width:360px){#p-gram .gwu button{font-size:12px}}
 </style><script id="gwu-js">(function(){try{if(typeof DMODE==="undefined"||DMODE!=="s")return;var P=document.getElementById("p-gram");if(!P||P.querySelector(".gwu"))return;
 var H=[].slice.call(P.querySelectorAll("h3.fwh"));if(!H.length)return;var n=0,rows="";
 H.forEach(function(h){var b="";for(var e=h.nextElementSibling;e&&e.tagName!=="H3";e=e.nextElementSibling){if(!e.classList.contains("fwc"))continue;n++;e.id="gw"+n;
