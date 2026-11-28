@@ -5,6 +5,7 @@
 # nicht mehr zur Titelseite mit der Karte. Ein Tipp auf die Titelleiste führt nicht mehr zurück (nur der Link).
 # Unterer Weiter-Knopf (tNext): am Ende steht der Abschnittsname (z. B. „Grammatik“) statt „Start“.
 # Aufruf: python3 src/kapitel_kopf_patch.py NEUE_VERSION   danach: python3 src/version_sync.py
+# Seit 28.11. abends einzeilig: ← links in der Titelleiste (44 px Tippfläche, feiner Trennstrich), Ziel bleibt im aria-label.
 import sys,re
 VER=sys.argv[1]
 f='index.html'
@@ -16,9 +17,12 @@ assert NEW in s
 CSS='''<style id="kapitel-css">/* 28.11.: Kapitel-Kopf: kleiner grauer Zurück-Link, darunter Titelleiste in der Abschnittsfarbe, so breit und hoch wie die Reiter */
 #topic .titlebar.titlebar{height:auto!important;flex-wrap:wrap!important;gap:0!important;padding:0 0 4px!important;align-items:stretch!important;justify-content:flex-start!important;cursor:default!important}
 #topic .titlebar .spacer{display:none!important}
-#topic #back{flex:0 0 100%!important;height:28px!important;min-height:0!important;margin:0!important;padding:0!important;background:none!important;box-shadow:none!important;border:0!important;justify-content:flex-start!important;align-items:center!important;gap:0!important;min-width:0!important;font-size:12px!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#777!important;white-space:nowrap;cursor:pointer}
+#topic .titlebar.titlebar{position:relative!important}
+#topic .titlebar #back#back{position:absolute!important;left:0!important;top:0!important;z-index:5!important;width:44px!important;height:32px!important;min-height:0!important;margin:0!important;padding:0!important;background:none!important;box-shadow:none!important;border:0!important;display:flex!important;justify-content:center!important;align-items:center!important;gap:0!important;min-width:0!important;font-size:0!important;color:#1a1a1a!important;cursor:pointer}
+#topic .titlebar #back#back::before{content:'\\2190';font-size:20px;line-height:1;font-weight:400;letter-spacing:0}
+#topic .titlebar #back#back::after{content:'';position:absolute;right:2px;top:7px;bottom:7px;border-right:1px solid rgba(0,0,0,.25)}
 #topic #back svg{display:none!important}
-#topic .titlebar #ttl#ttl{flex:0 0 100%!important;box-sizing:border-box!important;height:32px!important;min-height:0!important;margin:0!important;padding:0 10px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;background:var(--chc,#cfe2f9)!important;border-left:4px solid #1a1a1a!important;font-size:14px!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#1a1a1a!important;line-height:1!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;text-align:left!important}
+#topic .titlebar #ttl#ttl{flex:0 0 100%!important;box-sizing:border-box!important;height:32px!important;min-height:0!important;margin:0!important;padding:0 10px 0 54px!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;background:var(--chc,#cfe2f9)!important;border-left:4px solid #1a1a1a!important;font-size:14px!important;font-weight:700!important;letter-spacing:.12em!important;text-transform:uppercase!important;color:#1a1a1a!important;line-height:1!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;text-align:left!important}
 </style>'''
 JS='''<script id="kapitel-js">/* 28.11.: Kapitel-Kopf. Merkt beim Öffnen eines Themas Abschnitt und Scrollstelle; Zurück kehrt genau dorthin zurück */
 (function(){const $=id=>document.getElementById(id),S=$('hscroll'),bk=$('back'),tt=$('ttl');if(!S||!bk||!tt)return;
