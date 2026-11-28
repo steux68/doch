@@ -6716,13 +6716,12 @@ d.innerHTML='<p>Überblick · '+n+' Wörter in '+H.length+' Gruppen</p>'+rows;P.
 d.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var c=document.getElementById(b.dataset.t);if(!c)return;
  P.scrollTo({top:c.offsetTop-P.offsetTop-8,behavior:"smooth"});c.classList.remove("flash");void c.offsetWidth;c.classList.add("flash");});
 }catch(e){}})();</script>
-<style id="reiter-linien">/* 28.11.2026 Einheit: Seitenwechsel = flache Leiste, durchgehende Linien; Filter = Kacheln mit Luecke */
-#seg button:not([aria-pressed="true"]){background:linear-gradient(#b8b8b8,#b8b8b8) left top/100% 1px no-repeat,linear-gradient(#b8b8b8,#b8b8b8) left bottom/100% 1px no-repeat,linear-gradient(#b8b8b8,#b8b8b8) left top/1px 100% no-repeat,#f2f2f2!important}
-#seg button:first-child:not([aria-pressed="true"]){background:linear-gradient(#b8b8b8,#b8b8b8) left top/100% 1px no-repeat,linear-gradient(#b8b8b8,#b8b8b8) left bottom/100% 1px no-repeat,#f2f2f2!important}
-#seg button:last-child:not([aria-pressed="true"]){background:linear-gradient(#b8b8b8,#b8b8b8) left top/100% 1px no-repeat,linear-gradient(#b8b8b8,#b8b8b8) left bottom/100% 1px no-repeat,linear-gradient(#b8b8b8,#b8b8b8) left top/1px 100% no-repeat,linear-gradient(#b8b8b8,#b8b8b8) right top/1px 100% no-repeat,#f2f2f2!important}
-#seg button:last-child[aria-pressed="true"]{box-shadow:inset 0 -2px 0 #1a1a1a,inset -1px 0 0 #b8b8b8}
-#seg{--hl:linear-gradient(#b8b8b8,#b8b8b8) left top/100% 1px no-repeat,linear-gradient(#b8b8b8,#b8b8b8) left bottom/100% 1px no-repeat}
-#seg button[aria-pressed="true"]{background:linear-gradient(#b8b8b8,#b8b8b8) left top/100% 1px no-repeat,linear-gradient(#b8b8b8,#b8b8b8) left bottom/100% 1px no-repeat,#cdff3e!important;box-shadow:inset 0 -2px 0 #1a1a1a,inset 1px 0 0 #b8b8b8,inset -1px 0 0 #b8b8b8}
-#seg button:first-child[aria-pressed="true"]{box-shadow:inset 0 -2px 0 #1a1a1a,inset -1px 0 0 #b8b8b8}
+<style id="reiter-linien">/* 28.11.2026 Einheit "Cockpit": graue Kacheln, 2px Abstand, gewaehlt = Lime + schwarze Unterkante, volle Breite, keine Nummern */
+#seg{gap:2px!important;margin-top:8px}
+#seg button,#seg button:first-child,#seg button:last-child,#seg button:not([aria-pressed="true"]),#seg button:first-child:not([aria-pressed="true"]),#seg button:last-child:not([aria-pressed="true"]){height:32px!important;justify-content:center!important;text-align:center!important;font-size:14px!important;background:#ebebeb!important;background-image:none!important;border:0!important;box-shadow:none!important}
+#seg button[aria-pressed="true"],#seg button:first-child[aria-pressed="true"],#seg button:last-child[aria-pressed="true"]{background:#cdff3e!important;background-image:none!important;font-weight:700!important;box-shadow:inset 0 -2px 0 #1a1a1a!important}
+#seg small.n{display:none!important}
+#pre{flex:none!important;height:23px!important;min-height:23px!important}
+#lvs{gap:2px!important}
 #lvs .lvb:not([aria-pressed="true"]){background:#ebebeb!important}
 </style>
