@@ -3,6 +3,7 @@
 # darunter Titelleiste in der Farbe dieses Abschnitts, schwarzer Strich links, so breit und hoch (32 px) wie die Reiter.
 # Zurück (Link und Handy) führt eine Ebene hinauf: zur Startseite an die Stelle, von der aus das Thema geöffnet wurde,
 # nicht mehr zur Titelseite mit der Karte. Ein Tipp auf die Titelleiste führt nicht mehr zurück (nur der Link).
+# Unterer Weiter-Knopf (tNext): am Ende steht der Abschnittsname (z. B. „Grammatik“) statt „Start“.
 # Aufruf: python3 src/kapitel_kopf_patch.py NEUE_VERSION   danach: python3 src/version_sync.py
 import sys,re
 VER=sys.argv[1]
@@ -25,7 +26,8 @@ JS='''<script id="kapitel-js">/* 28.11.: Kapitel-Kopf. Merkt beim Öffnen eines 
  const ST=['Staunen','#f2c14e'];
  let pos=0,sec=null,dl=0;const top=id=>{const P=$(id);return P?P.offsetTop-parseFloat(getComputedStyle(P).scrollMarginTop||0):0;};
  S.addEventListener('click',e=>{const p=e.target.closest&&e.target.closest('#hscroll > section');pos=S.scrollTop;sec=p?p.id:null;dl=sec?pos-top(sec):0;},true);
- function label(){const v=SEC[sec]||(sec&&sec!=='p-title'?ST:['Start','#e8e8e8']);
+ const cur=()=>SEC[sec]||(sec&&sec!=='p-title'?ST:['Start','#e8e8e8']);window.chName=()=>cur()[0];
+ function label(){const v=cur();
   const txt=bk.lastChild;if(txt&&txt.nodeType===3)txt.textContent='\\u2190\\u2002'+v[0];else bk.append('\\u2190\\u2002'+v[0]);
   bk.setAttribute('aria-label','Zurück zu '+v[0]);$('topic').style.setProperty('--chc',v[1]);}
  new MutationObserver(()=>{if(!$('topic').hidden)label();}).observe($('topic'),{attributes:true,attributeFilter:['hidden']});
@@ -40,5 +42,9 @@ for tag,blk in (('style id="kapitel-css"',CSS),('script id="kapitel-js"',JS)):
     nm=tag.split()[0];pat=r'<%s>.*?</%s>'%(re.escape(tag),nm)
     if re.search(pat,s,flags=re.S): s=re.sub(pat,lambda m:blk,s,flags=re.S)
     else: s=s.rstrip('\n')+'\n'+blk+'\n'
+OLD2='$("tnw").textContent=nx||"Start";b.setAttribute("aria-label",nx?"weiter zu "+nx:"zur Titelseite");'
+NEW2='$("tnw").textContent=nx||(window.chName?chName():"Start");b.setAttribute("aria-label",nx?"weiter zu "+nx:"zurück zu "+(window.chName?chName():"Start"));'
+if OLD2 in s: s=s.replace(OLD2,NEW2,1)
+assert NEW2 in s
 s=re.sub(r'(<meta name="app-version" content=")[^"]+(")',lambda m:m.group(1)+VER+m.group(2),s,count=1)
 open(f,'w',encoding='utf-8').write(s);print(f,'ok',VER)
